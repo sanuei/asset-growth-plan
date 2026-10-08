@@ -1,0 +1,358 @@
+<title>资产增长计划工作流</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* 布局：左侧固定目录 + 右侧单栏长文；频道视觉身份（深蓝 + 金），表格承载大部分信息 */
+:root {
+  --bg: #f6f4ef;
+  --paper: #ffffff;
+  --fg: #172033;
+  --muted: #5b6577;
+  --line: #e0dbcf;
+  --accent: #a87b00;
+  --accent-soft: #f5e8bf;
+  --ink: #0b1426;
+  --warn: #b3261e;
+  --font-display: "Noto Serif TC", "Songti TC", serif;
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1426; --paper: #111c31; --fg: #e7ebf2; --muted: #9ba6ba; --line: #24324c;
+    --accent: #f2b705; --accent-soft: #33290b; --ink: #e7ebf2; --warn: #ff7b72; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1426; --paper: #111c31; --fg: #e7ebf2; --muted: #9ba6ba; --line: #24324c;
+  --accent: #f2b705; --accent-soft: #33290b; --ink: #e7ebf2; --warn: #ff7b72; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.75; }
+.layout { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 32px 80px; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; }
+nav.toc { position: sticky; top: calc(24px + env(safe-area-inset-top, 0px)); align-self: start; font-size: 13px; display: grid; gap: 2px; max-height: calc(100vh - 48px); overflow-y: auto; }
+nav.toc b { font-size: 12px; letter-spacing: .08em; color: var(--muted); margin-bottom: 6px; }
+nav.toc a { color: var(--muted); text-decoration: none; padding: 3px 0 3px 10px; border-left: 2px solid var(--line); }
+nav.toc a:hover, nav.toc a:focus-visible { color: var(--fg); border-left-color: var(--accent); outline: none; }
+main { min-width: 0; display: grid; gap: 56px; }
+header.hero { display: grid; gap: 14px; border-bottom: 3px solid var(--ink); padding-bottom: 28px; }
+.eyebrow { font-size: 13px; letter-spacing: .12em; color: var(--accent); font-weight: 700; }
+h1 { font-family: var(--font-display); font-weight: 900; font-size: clamp(30px, 5vw, 48px); line-height: 1.25; margin: 0; text-wrap: balance; }
+.lead { font-size: 18px; color: var(--muted); max-width: 46em; margin: 0; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 6px; }
+.facts div { display: grid; }
+.facts b { font-family: var(--font-mono); font-size: 26px; color: var(--fg); font-variant-numeric: tabular-nums; }
+.facts span { font-size: 13px; color: var(--muted); }
+section { display: grid; gap: 16px; scroll-margin-top: 24px; }
+h2 { font-family: var(--font-display); font-size: clamp(22px, 3vw, 28px); margin: 0; text-wrap: balance; display: flex; gap: 12px; align-items: baseline; }
+h2 small { font-family: var(--font-mono); font-size: 14px; color: var(--accent); }
+h3 { font-size: 17px; margin: 8px 0 0; }
+p { margin: 0; max-width: 46em; }
+ul, ol { margin: 0; padding-left: 1.3em; max-width: 46em; display: grid; gap: 4px; }
+a { color: var(--accent); }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--accent-soft); padding: 1px 5px; border-radius: 4px; word-break: break-word; }
+.table { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12.5px; letter-spacing: .06em; color: var(--muted); background: var(--bg); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 700; white-space: nowrap; }
+.principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.principle { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+.principle b { display: block; margin-bottom: 2px; }
+.principle span { color: var(--muted); font-size: 14px; }
+pre.mermaid, pre.code { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 18px; overflow-x: auto; margin: 0; }
+pre.code { font-family: var(--font-mono); font-size: 13.5px; line-height: 1.6; }
+.formula { background: var(--ink); color: var(--bg); border-radius: 8px; padding: 16px 20px; font-family: var(--font-mono); font-size: 14px; line-height: 1.8; overflow-x: auto; }
+.callout { border-left: 4px solid var(--accent); background: var(--accent-soft); padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 15px; }
+.callout.warn { border-left-color: var(--warn); }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; display: grid; gap: 8px; align-content: start; }
+.card h3 { margin: 0; }
+.card ul { font-size: 14.5px; }
+.steps { counter-reset: s; list-style: none; padding: 0; display: grid; gap: 10px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; }
+.steps li::before { content: counter(s); font-family: var(--font-mono); width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; font-size: 13px; }
+footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 18px; }
+@media (max-width: 860px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  nav.toc { position: static; max-height: none; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  nav.toc b { grid-column: 1 / -1; }
+}
+</style>
+
+<div class="layout">
+  <nav class="toc" aria-label="目录">
+    <b>目录</b>
+    <a href="#flow">整体工作流</a>
+    <a href="#tools">工具与分工</a>
+    <a href="#youtube">YouTube 自动上传</a>
+    <a href="#services">AI 服务接入要点</a>
+    <a href="#rules">频道规范</a>
+    <a href="#topics">选题工具</a>
+    <a href="#pipeline">制作流水线</a>
+    <a href="#qa">质量检查与发布</a>
+    <a href="#ep001">案例：EP001</a>
+    <a href="#pitfalls">踩过的坑</a>
+    <a href="#roadmap">待改进与路线图</a>
+    <a href="#safety">安全与成本</a>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="eyebrow">资产增长计划 · 工作流分享</div>
+      <h1>用 AI 把一个 YouTube 理财频道从选题做到上传</h1>
+      <p class="lead">选题、写稿、配音、画面、字幕、封面、上传，尽量交给 AI 自动完成。频道主只做两件事：在选题看板上选定题目，以及在 YouTube 上最后检查一遍再公开。</p>
+      <div class="facts">
+        <div><b>1 天</b><span>从零搭到第一期上传</span></div>
+        <div><b>12:30</b><span>第一期时长，10 个章节</span></div>
+        <div><b>18</b><span>首轮研究产出的选题</span></div>
+        <div><b>2</b><span>需要人做的步骤</span></div>
+      </div>
+    </header>
+
+    <section id="flow">
+      <h2><small>01</small>整体工作流</h2>
+      <pre class="mermaid">
+flowchart LR
+    A[选题研究<br>vidIQ + 新闻核查] --> B[选题看板<br>频道主选定]
+    B --> C[写文案<br>Claude + 一手资料核查]
+    C --> D[配音<br>MiniMax + 时间戳]
+    C --> E[画面<br>网图优先 / AI 生图 / 程序图表]
+    D --> F[合成<br>动画 + 字幕 + 背景音乐]
+    E --> F
+    F --> G[自动质检]
+    G --> H[封面 + 标题 + 描述]
+    H --> I[私享上传 YouTube]
+    I --> J[频道主检查后公开]
+      </pre>
+      <div class="principles">
+        <div class="principle"><b>能自动就自动</b><span>制作中不设人工确认点，用自动质检把关。</span></div>
+        <div class="principle"><b>人只做判断</b><span>选题和最终发布由人决定，其余交给 AI。</span></div>
+        <div class="principle"><b>事实优先</b><span>数据和引语都对照一手资料，例如巴菲特股东信原文。</span></div>
+        <div class="principle"><b>规则写成文件</b><span>准则、工作日志、使用手册都放在仓库里，AI 每次开工前先读。</span></div>
+        <div class="principle"><b>安全默认值</b><span>上传默认私享；密钥只放在本机，不进仓库。</span></div>
+      </div>
+    </section>
+
+    <section id="tools">
+      <h2><small>02</small>用到的工具与分工</h2>
+      <div class="table"><table>
+        <thead><tr><th>环节</th><th>工具</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>总指挥、写稿、核查、写代码</td><td>Claude Code（桌面版）</td><td>文案由 Claude 直接撰写</td></tr>
+          <tr><td>选题数据</td><td>vidIQ（claude.ai 连接器）</td><td>搜索量、竞争度、趋势；每次查询 5 点</td></tr>
+          <tr><td>新闻与事实核查</td><td>网络搜索 + 一手资料</td><td>例如伯克希尔官网的股东信 PDF</td></tr>
+          <tr><td>配音</td><td>MiniMax <code>speech-2.8-hd</code></td><td>低沉男声，正常语速，同时返回时间戳</td></tr>
+          <tr><td>封面、场景图</td><td>Abo AI <code>gpt-image-2</code></td><td>OpenAI 兼容接口；备用 <code>gemini-3.1-flash-image</code></td></tr>
+          <tr><td>图表、文字卡、字幕</td><td>Python Pillow</td><td>程序绘制，繁体字准确、样式统一</td></tr>
+          <tr><td>视频合成</td><td>ffmpeg</td><td>镜头推拉、拼接、叠加、混音、响度标准化</td></tr>
+          <tr><td>上传</td><td>YouTube Data API v3</td><td><code>videos.insert</code> + <code>thumbnails.set</code></td></tr>
+          <tr><td>选题看板</td><td>claude.ai 网页 + 内置数据库</td><td>网页上选定选题，Claude 读写同一份数据</td></tr>
+          <tr><td>版本管理</td><td>GitHub 私有仓库</td><td>每次改动自动提交并推送</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="youtube">
+      <h2><small>03</small>从零搭建 YouTube 自动上传</h2>
+      <p>上传视频必须用 OAuth 2.0，以频道所有者的身份授权，光有 API Key 不行。</p>
+      <ol class="steps">
+        <li><span>在 Google Cloud Console 新建一个项目，启用 <b>YouTube Data API v3</b>。</span></li>
+        <li><span>配置 OAuth 同意屏幕：用户类型选<b>外部</b>，把频道所属的 Gmail 加进「测试用户」。</span></li>
+        <li><span>创建 OAuth 客户端 ID，类型选<b>桌面应用</b>，下载 <code>client_secret_*.json</code>。</span></li>
+        <li><span>运行 <code>auth_test.py</code>，在浏览器授权一次，得到 <code>token.json</code>，之后上传都不用再授权。</span></li>
+        <li><span>先用 5 秒的测试视频，以私享和不公开各传一次，再用 <code>videos.list</code> 确认真实状态。</span></li>
+      </ol>
+      <div class="table"><table>
+        <thead><tr><th>限制或报错</th><th>原因</th><th>处理</th></tr></thead>
+        <tbody>
+          <tr><td>403 org_internal</td><td>同意屏幕设成了「内部」</td><td>改成「外部」，并加测试用户</td></tr>
+          <tr><td>授权 7 天就过期</td><td>应用还在「测试中」</td><td>重新授权，或把应用发布到正式版</td></tr>
+          <tr><td>视频被锁成私享</td><td>2020-07-28 后创建、未通过审核的项目，API 上传的视频只能私享</td><td>实测私享和不公开都正常，公开上传还没验证；需要时申请审核</td></tr>
+          <tr><td>每日配额</td><td><code>videos.insert</code> 约 100 次/天</td><td>完全够用</td></tr>
+          <tr><td>自定义缩略图</td><td>频道需要先验证手机号</td><td>验证后即可使用</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="services">
+      <h2><small>04</small>各个 AI 服务的接入要点</h2>
+      <div class="cols">
+        <div class="card">
+          <h3>MiniMax 配音</h3>
+          <ul>
+            <li>接口 <code>/v1/t2a_v2</code>，用 Token Plan 的密钥（和按量付费的不通用）。</li>
+            <li><code>subtitle_enable</code> 打开后会返回时间戳；<code>pronunciation_dict</code> 用来修正多音字。</li>
+            <li>返回的 <code>pronounce_text</code> 是实际朗读的文本，可以用来检查数字读法（「10%」会读成「百分之十」）。</li>
+            <li>坑：逐字时间戳是平均分配的，会让字幕轻微不同步；并发时偶尔失败，要能重试。</li>
+            <li>音乐接口已不对新用户开放，背景音乐改成程序合成。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Abo AI 生图</h3>
+          <ul>
+            <li>OpenAI 兼容的 <code>/v1/images/generations</code>。</li>
+            <li><code>gpt-image-2</code> <b>必须传 <code>quality</code></b>：不传时 4 次全部失败，传了 7 次成功 6 次。</li>
+            <li>横版图用 <code>1536x1024</code>；<code>low</code> 约 20 秒，<code>high</code> 约 2 分钟。</li>
+            <li><code>gemini-3.1-flash-image</code> 稳定，当作备用；儿童题材会自动切到它。</li>
+            <li>同一个接口可以用 Gemini 转写语音，用来做读音和音画同步检查。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>vidIQ 选题数据</h3>
+          <ul>
+            <li>以 claude.ai 连接器接入，Claude 直接调用。</li>
+            <li>关键词研究每次扣 5 点；加 <code>country: TW</code> 拿台湾地区的数据。</li>
+            <li>中文长尾词数据少，很多显示「少于 750」；核心词的数据比较可靠。</li>
+            <li>每月免费额度约 150 点，每次选题研究最多用 60 点。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="rules">
+      <h2><small>05</small>频道规范</h2>
+      <div class="table"><table>
+        <thead><tr><th>项目</th><th>规范</th></tr></thead>
+        <tbody>
+          <tr><td>制作标准</td><td>内容深入、每期都是完整的作品，让想学投资的人能看懂；力求做到快乐、知识、共鸣、节奏</td></tr>
+          <tr><td>时长</td><td>5～15 分钟（正常语速每分钟约 250 字，文案约 1250～3500 字）</td></tr>
+          <tr><td>语言</td><td>标题、封面、字幕、描述、标签一律用繁体中文</td></tr>
+          <tr><td>标题</td><td>写长（40～70 字）、体现利他、吸引点击，钩子放在前 20～30 字；不做标题党</td></tr>
+          <tr><td>字幕</td><td>思源黑体繁体粗体 56px，白字、3px 黑描边、60% 黑色投影，底部居中，每行最多 16 字</td></tr>
+          <tr><td>封面</td><td>1280×720；放主题人物；深色背景；2～3 行粗体字，配色用白加红或白加黄；文字由程序叠加</td></tr>
+          <tr><td>画面素材</td><td>优先用网上可商用的图片，找不到再用 AI 生成；图表由程序绘制</td></tr>
+          <tr><td>配音</td><td>低沉男声，正常语速，不加速</td></tr>
+          <tr><td>合规</td><td>不荐股、不承诺收益；引语必须真实存在；AI 生成内容要披露</td></tr>
+          <tr><td>上传</td><td>先私享上传，检查无误后再公开</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="topics">
+      <h2><small>06</small>选题工具</h2>
+      <p>选题库做成一个网页看板：按评分从高到低排列，每个选题附搜索数据、时效截止日、为什么现在做、风险和资料来源。频道主点「选这个做下一期」，制作流程就会读取。研究流程写成 Claude 的 Skill，说一句「跑一次选题」就会更新看板，但不会改动频道主已经设好的状态。</p>
+      <div class="formula">总分 = 需求 × 35% + 低竞争 × 25% + 趋势 × 15% + 频道契合 × 25%<br>需求 = vidIQ 搜索量分数；用代理词估算时打 8 折<br>低竞争 = 100 − 竞争度　｜　趋势 = 50 + 增长率 ÷ 4<br>频道契合 = Claude 判断（受众、深度、系列衔接、合规）</div>
+      <p>「代理词」指选题本身查不到搜索数据，只好用相近关键词的数据代替。看板上会标出来，以免排名虚高。首轮研究产出 18 个选题，前三名是：加密货币新手指南（74）、Anthropic 上市（69，时事）、《金钱心理学》（69）。</p>
+    </section>
+
+    <section id="pipeline">
+      <h2><small>07</small>视频制作流水线</h2>
+      <div class="table"><table>
+        <thead><tr><th>步骤</th><th>做法</th><th>产出</th></tr></thead>
+        <tbody>
+          <tr><td>研究与核查</td><td>Claude 读一手资料（PDF 用 <code>pdftotext</code> 抽出文字）</td><td>资料原文存档</td></tr>
+          <tr><td>写文案</td><td>写成 <code>script.json</code>：每段标好要配的画面</td><td>文案与画面安排</td></tr>
+          <tr><td>配音</td><td><code>tts_episode.py</code>：逐段合成，失败自动重试</td><td>mp3 + 时间戳</td></tr>
+          <tr><td>场景图</td><td><code>images_episode.py</code>：统一插画风格，失败时切到备用模型</td><td>场景图</td></tr>
+          <tr><td>图表与文字卡</td><td><code>graphics.py</code>：Pillow 逐帧绘制动画</td><td>动画片段</td></tr>
+          <tr><td>合成</td><td><code>assemble.py</code>：镜头推拉、字幕轨、背景音乐自动压低、水印、响度统一到 -14 LUFS</td><td>成片、SRT、章节时间</td></tr>
+          <tr><td>封面与发布信息</td><td><code>cover.py</code>：AI 背景加程序叠字；标题、描述、标签</td><td>封面与文案</td></tr>
+        </tbody>
+      </table></div>
+      <h3>每期一个文件夹</h3>
+<pre class="code">videos/EP001_巴菲特給普通人的投資建議/
+├── 01_文案/      script.json、文案.md
+├── 02_配音/      逐段 mp3 + 时间戳、混音
+├── 03_画面素材/  场景图、图表预览、图表规格
+├── 04_字幕/      EP001.srt
+├── 05_封面/      主封面、备选封面
+├── 06_成片/      成片 mp4
+├── 07_发布信息/  标题、描述、标签、upload.json
+└── 99_工作文件/  一手资料原文、渲染中间文件</pre>
+      <div class="callout">关键细节：
+        <ul>
+          <li>有两个画面的段落，在最接近中点的句子停顿处切换，不在一句话中间换画面。</li>
+          <li>帧数按画面在时间线上的绝对位置取整，避免误差累积造成音画不同步。</li>
+          <li>图表内容不超过 y=860，下面留给字幕。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="qa">
+      <h2><small>08</small>质量检查与发布</h2>
+      <div class="table"><table>
+        <thead><tr><th>检查项</th><th>方法</th></tr></thead>
+        <tbody>
+          <tr><td>数字读音</td><td>检查配音返回的实际朗读文本</td></tr>
+          <tr><td>多音字</td><td>用 Gemini 把可疑段落转写成文字核对</td></tr>
+          <tr><td>画面</td><td>全片均匀抽 18 帧拼成总览图，检查字幕是否压到图表、有没有乱码、水印位置</td></tr>
+          <tr><td>场景图</td><td>拼成缩略图总览，检查风格是否统一</td></tr>
+          <tr><td>音画同步</td><td>截一段音频转写，和字幕时间对照</td></tr>
+          <tr><td>规格</td><td>1920×1080、30fps、音视频时长一致、-14 LUFS</td></tr>
+          <tr><td>事实</td><td>每个数字和引语都对得上原文；删节过的引语标注「節譯」</td></tr>
+        </tbody>
+      </table></div>
+<pre class="code">.venv/bin/python upload.py 成片.mp4 --title "標題" \
+  --description-file 描述.txt --tags-file 标签.txt \
+  --language zh-Hant --privacy private --ai-generated --thumbnail 封面.jpg</pre>
+      <p>默认私享上传，也支持 <code>--publish-at</code> 定时公开。上传时自动设置「非儿童内容」和教育分类；描述里的章节时间会显示成进度条上的分段。</p>
+    </section>
+
+    <section id="ep001">
+      <h2><small>09</small>案例：第一期 EP001</h2>
+      <p><b>《巴菲特給普通人的投資建議：他在遺囑裡只交代了這件事》</b></p>
+      <ul>
+        <li>12 分 30 秒、10 个章节、81 个画面（38 张 AI 场景图，加上 43 个图表、文字卡与章节卡）、361 条字幕。</li>
+        <li>主线：用巴菲特遗嘱里「90% 标普 500 指数基金加 10% 短期公债」开场，依次讲农场的故事、指数基金是什么、百万美元赌局、费用的威力、11 岁的第一支股票、最难的那件事、时间的秘密，最后总结成三条原则。</li>
+        <li>对照巴菲特 1993、2013、2017、2018 年的股东信原文核查，修正了 AI 初稿和网上流传的错误，比如「复利是世界第八大奇迹」常被说成是巴菲特说的，实际上没有出处。</li>
+        <li>2026-10-08 以私享方式上传。</li>
+      </ul>
+    </section>
+
+    <section id="pitfalls">
+      <h2><small>10</small>踩过的坑</h2>
+      <div class="table"><table>
+        <thead><tr><th>坑</th><th>解决</th></tr></thead>
+        <tbody>
+          <tr><td>OAuth 403 org_internal</td><td>同意屏幕改成「外部」，并加测试用户</td></tr>
+          <tr><td>gpt-image-2 经常返回 500</td><td>传 <code>quality</code>，失败自动重试，准备 Gemini 作为备用</td></tr>
+          <tr><td>ffmpeg 没有 drawtext 和 subtitles 滤镜</td><td>字幕和文字改用 Pillow 画成 PNG，再叠加上去</td></tr>
+          <tr><td>音画越来越不同步</td><td>帧数改成按时间线的绝对位置计算</td></tr>
+          <tr><td>混音计算卡死</td><td>大数组的移动平均改用累加和</td></tr>
+          <tr><td>ffconcat 找不到文件</td><td>列表里的相对路径是相对于列表文件本身的，改用绝对路径</td></tr>
+          <tr><td>图表压住字幕</td><td>规定字幕安全区</td></tr>
+          <tr><td>简体字体显示繁体字时字形不对</td><td>安装思源黑体繁体版（TC）</td></tr>
+          <tr><td>成片超过 GitHub 100MB 上限</td><td>大文件只保存在本机</td></tr>
+          <tr><td>vidIQ 的中文长尾数据少</td><td>标为「代理词」，分数打折</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="roadmap">
+      <h2><small>11</small>待改进与路线图</h2>
+      <h3>频道主对 EP001 的反馈（从 EP002 开始改）</h3>
+      <ul>
+        <li>文字出现的动画不够流畅；动态图表的设计有待提升。</li>
+        <li>字幕和语音轻微不同步：要改用语音识别做强制对齐，出片前自动抽查时间差。</li>
+        <li>配音改回正常语速（EP001 用的是 1.1 倍）。</li>
+        <li>图片优先在网上找可商用的，减少 AI 生图的费用。</li>
+        <li>标题写得更长、更利他。</li>
+      </ul>
+      <h3>接下来</h3>
+      <ul>
+        <li>一键制作 Skill：在看板选定选题后，自动完成研究、文案、配音、画面、合成、质检、上传。</li>
+        <li>网络找图并记录授权；升级图表与动画；做字幕强制对齐。</li>
+        <li>可选：每周定时自动跑一次选题研究。</li>
+      </ul>
+    </section>
+
+    <section id="safety">
+      <h2><small>12</small>安全与成本</h2>
+      <div class="callout warn">密钥只放在本机的 <code>.env</code>、<code>token.json</code> 和 <code>client_secret_*.json</code> 里，已写进 <code>.gitignore</code>，绝不提交。每次提交前自动扫描有没有密钥混进去。仓库和选题看板目前都是私有的。</div>
+      <div class="table"><table>
+        <thead><tr><th>服务</th><th>EP001 的用量</th></tr></thead>
+        <tbody>
+          <tr><td>MiniMax</td><td>约 3500 字的文案；中文每字约 2 个计费字符，从 Token Plan 额度里扣</td></tr>
+          <tr><td>Abo AI</td><td>38 张场景图 + 1 张封面背景；以后改成网图优先，可以大幅减少</td></tr>
+          <tr><td>vidIQ</td><td>一次选题研究约 50 点；每月免费额度约 150 点</td></tr>
+          <tr><td>YouTube API</td><td>免费；上传配额约 100 次/天</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <footer>资产增长计划 · 整理于 2026-10-08。完整版说明见项目仓库的 README.md、使用手册.md、YouTube视频准则.md 和工作日志.md。</footer>
+  </main>
+</div>

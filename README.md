@@ -7,6 +7,8 @@
 - 主要工具：Claude Code（总指挥、写稿、核查事实）、YouTube Data API、MiniMax 配音、Abo AI 生图、vidIQ 选题数据、ffmpeg + Pillow 合成
 
 > 日常怎么用，请看 [使用手册.md](使用手册.md)。本文写的是**整个工作流是怎么搭起来的、为什么这样设计、踩过哪些坑**。
+>
+> 网页版（排版更好读，适合分享）：https://claude.ai/artifact/DcJnpeTmB7bz9ez1EtMv3q ，源码在 `tools/工作流分享.html`。目前是私有的，分享前要在页面的分享菜单里开放。
 
 ---
 
