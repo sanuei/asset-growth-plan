@@ -1,0 +1,40 @@
+{
+ "title": "手上有一筆錢，該一次投入還是定期定額？用歷史數據告訴你答案，還有讓你睡得著覺的折衷做法",
+ "angle": "用歷史數據比較一次投入與分批投入的勝率與心理成本，給出不同情況下的做法。",
+ "category": "指數投資",
+ "timeliness": "常青",
+ "deadline": null,
+ "keywords": [
+  "定期定額",
+  "一次投入",
+  "分批買進",
+  "投資心理",
+  "Vanguard 研究"
+ ],
+ "why_now": "EP001 強調「分批買進」，觀眾會接著問「那手上的一筆錢怎麼辦」。",
+ "risks": "需引用可信研究（如 Vanguard）並說明期間與市場；避免絕對化結論。",
+ "sources": [
+  {
+   "label": "巴菲特 2013 年股东信",
+   "url": "https://www.berkshirehathaway.com/letters/2013ltr.pdf"
+  }
+ ],
+ "metrics": {
+  "keyword": "財務自由",
+  "volume_monthly": 4396,
+  "competition": 43.2,
+  "growth_pct": null,
+  "note": "「定期定額」在 vidIQ 無資料，暫以理財類相關詞估算，需求分數偏保守。"
+ },
+ "scores": {
+  "demand": 44,
+  "competition": 57,
+  "trend": 50,
+  "fit": 88
+ },
+ "score": 59,
+ "proxy_keyword": true,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}

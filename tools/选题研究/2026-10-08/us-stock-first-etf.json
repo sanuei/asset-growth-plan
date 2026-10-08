@@ -1,0 +1,35 @@
+{
+ "title": "美股新手第一課：從開戶到買下第一支 ETF，一集看懂所有步驟與費用，看完今天就能開始",
+ "angle": "以流程圖說明開戶管道（複委託、海外券商）、費用比較與下單步驟，不推薦特定券商。",
+ "category": "美股入門",
+ "timeliness": "常青",
+ "deadline": null,
+ "keywords": [
+  "美股開戶",
+  "複委託",
+  "海外券商",
+  "ETF",
+  "新手"
+ ],
+ "why_now": "實用型長青內容，能承接指數投資系列的觀眾。",
+ "risks": "券商資訊變動快且涉及商業推薦，需中立並註明查核日期。",
+ "sources": [],
+ "metrics": {
+  "keyword": "美股投資",
+  "volume_monthly": 3568,
+  "competition": 35.1,
+  "growth_pct": null,
+  "note": "簡體「美股投资」數據；繁體長尾詞資料少。"
+ },
+ "scores": {
+  "demand": 42,
+  "competition": 65,
+  "trend": 50,
+  "fit": 74
+ },
+ "score": 57,
+ "proxy_keyword": true,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}

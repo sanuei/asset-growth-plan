@@ -1,0 +1,44 @@
+{
+ "title": "SpaceX 上市四個月：史上最大 IPO 之後，2 兆美元的太空公司值不值？看懂 Starlink 怎麼賺錢，以及新股上市後的常見走勢",
+ "angle": "用 SpaceX 案例講 IPO 後的鎖定期、估值與真實業務（Starlink 是唯一獲利部門），教觀眾冷靜看待熱門新股。",
+ "category": "科技個股",
+ "timeliness": "時事",
+ "deadline": null,
+ "keywords": [
+  "SpaceX",
+  "SPCX",
+  "Starlink",
+  "IPO",
+  "鎖定期"
+ ],
+ "why_now": "SpaceX 已於 2026-06-12 上市（SPCX），全球搜尋量仍在成長；可與 Anthropic IPO 做成新股系列。",
+ "risks": "上市後股價與估值需製作當天核實；鎖定期到期日要查證。",
+ "sources": [
+  {
+   "label": "CNBC：SpaceX IPO 首日收 161 美元（2026-06-12）",
+   "url": "https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html"
+  },
+  {
+   "label": "CNBC：SpaceX 募資 750 億美元",
+   "url": "https://www.cnbc.com/2026/06/11/spacex-raises-75-billion-in-record-setting-ipo-ahead-of-nasdaq-debut.html"
+  }
+ ],
+ "metrics": {
+  "keyword": "spacex",
+  "volume_monthly": 1150341,
+  "competition": 71.7,
+  "growth_pct": 54.0,
+  "note": "全球數據；繁體「spacex 上市」4,537/月、競爭 66。"
+ },
+ "scores": {
+  "demand": 90,
+  "competition": 28,
+  "trend": 64,
+  "fit": 74
+ },
+ "score": 67,
+ "proxy_keyword": false,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}

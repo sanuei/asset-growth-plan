@@ -1,0 +1,40 @@
+{
+ "title": "PayPay 在美國上市、日本人瘋買美股：從新 NISA 熱潮看懂亞洲散戶的投資轉變，台灣人可以學的 3 件事",
+ "angle": "以 PayPay 3 月在納斯達克上市與日本散戶投資美股的熱潮為切入，談制度如何影響散戶行為。",
+ "category": "投資平台",
+ "timeliness": "時事",
+ "deadline": null,
+ "keywords": [
+  "PayPay",
+  "PayPay 證券",
+  "新 NISA",
+  "日本散戶",
+  "美股"
+ ],
+ "why_now": "PayPay 母公司已於 2026-03-12 在納斯達克上市。",
+ "risks": "與繁體中文受眾關聯較弱；PayPay 證券 2026 年的最新服務資訊未能查到，需確認。",
+ "sources": [
+  {
+   "label": "株探：PayPay 上場（2026-03）",
+   "url": "https://us.kabutan.jp/stocks/PAYP/news/n202603130002"
+  }
+ ],
+ "metrics": {
+  "keyword": "投資",
+  "volume_monthly": 368467,
+  "competition": 60.3,
+  "growth_pct": -8.5,
+  "note": "「投資」搜尋主要來自日本（93%）；「PayPay 證券」本身中文需求不明，受眾契合度存疑。"
+ },
+ "scores": {
+  "demand": 66,
+  "competition": 40,
+  "trend": 50,
+  "fit": 48
+ },
+ "score": 53,
+ "proxy_keyword": true,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}

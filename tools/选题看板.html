@@ -1,0 +1,268 @@
+<title>资产增长计划选题库</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* 布局：顶部摘要 + 筛选条 + 按评分排序的选题列表，点开看详情；与频道封面同一套深蓝/金色身份 */
+:root {
+  --bg: #f5f3ee;
+  --surface: #ffffff;
+  --surface-2: #eeebe3;
+  --fg: #16202f;
+  --muted: #5d6779;
+  --line: #ddd8cc;
+  --navy: #0b1426;
+  --gold: #b88a00;
+  --gold-soft: #f6e7b8;
+  --red: #c4232c;
+  --green: #1f8a52;
+  --blue: #2f5fa8;
+  --font-display: "Noto Serif TC", "Songti TC", serif;
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1426; --surface: #121e35; --surface-2: #1a2742; --fg: #e8ecf3; --muted: #9aa6bc;
+    --line: #26344f; --navy: #e8ecf3; --gold: #f2b705; --gold-soft: #3a3010; --red: #ff6b6b;
+    --green: #4cc38a; --blue: #7aa7ff; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1426; --surface: #121e35; --surface-2: #1a2742; --fg: #e8ecf3; --muted: #9aa6bc;
+  --line: #26344f; --navy: #e8ecf3; --gold: #f2b705; --gold-soft: #3a3010; --red: #ff6b6b;
+  --green: #4cc38a; --blue: #7aa7ff; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.6; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 64px; display: grid; gap: 22px; }
+header { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--fg); padding-bottom: 14px; }
+h1 { font-family: var(--font-display); font-weight: 900; font-size: clamp(26px, 4vw, 38px); margin: 0; letter-spacing: .02em; text-wrap: balance; }
+h1 span { color: var(--gold); }
+.sub { color: var(--muted); font-size: 13px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; }
+.stat b { display: block; font-family: var(--font-mono); font-size: 24px; font-variant-numeric: tabular-nums; }
+.stat small { color: var(--muted); font-size: 12px; letter-spacing: .04em; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
+.group { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.group > span { font-size: 12px; color: var(--muted); margin-right: 2px; }
+.chip { border: 1px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 999px; padding: 4px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.chip:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.list { display: grid; gap: 10px; }
+.topic { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 14px; padding: 14px 16px; align-items: start; }
+.topic.picked { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold) inset; }
+.topic.dropped { opacity: .55; }
+.score { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 600; font-size: 19px; background: conic-gradient(var(--gold) calc(var(--s) * 1%), var(--surface-2) 0); position: relative; }
+.score::before { content: ""; position: absolute; inset: 6px; border-radius: 50%; background: var(--surface); }
+.score span { position: relative; }
+.body { min-width: 0; display: grid; gap: 6px; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; }
+.tag { padding: 1px 8px; border-radius: 4px; background: var(--surface-2); color: var(--muted); }
+.tag.hot { background: var(--gold-soft); color: var(--fg); font-weight: 700; }
+.tag.due { color: var(--red); background: transparent; border: 1px solid var(--red); }
+.title { font-family: var(--font-display); font-weight: 700; font-size: 18px; line-height: 1.45; margin: 0; text-wrap: pretty; }
+.angle { color: var(--muted); margin: 0; font-size: 14px; }
+.nums { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.nums b { font-family: var(--font-mono); color: var(--fg); font-weight: 600; }
+.up { color: var(--green) !important; } .down { color: var(--red) !important; }
+details { font-size: 14px; }
+summary { cursor: pointer; color: var(--blue); font-size: 13px; width: fit-content; }
+.detail { display: grid; gap: 8px; padding-top: 8px; }
+.detail h4 { margin: 0; font-size: 12px; letter-spacing: .06em; color: var(--muted); font-weight: 700; }
+.detail p, .detail ul { margin: 0; }
+.detail ul { padding-left: 18px; }
+.detail a { color: var(--blue); word-break: break-all; }
+.bars { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px 14px; }
+.bar { font-size: 12px; color: var(--muted); }
+.bar i { display: block; height: 6px; border-radius: 3px; background: var(--surface-2); margin-top: 3px; overflow: hidden; }
+.bar i::after { content: ""; display: block; height: 100%; width: calc(var(--v) * 1%); background: var(--gold); }
+.side { display: grid; gap: 8px; justify-items: end; }
+select { font: inherit; font-size: 13px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 6px; padding: 4px 6px; }
+.pick { font: inherit; font-size: 13px; font-weight: 700; border: 0; border-radius: 6px; padding: 6px 12px; background: var(--gold); color: #111; cursor: pointer; white-space: nowrap; }
+.pick[disabled] { opacity: .5; cursor: default; }
+.st { font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; border: 1px solid currentColor; }
+.st-候選 { color: var(--muted); } .st-已選定 { color: var(--gold); } .st-製作中 { color: var(--blue); } .st-已發布 { color: var(--green); } .st-放棄 { color: var(--red); }
+.empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 10px; padding: 28px; text-align: center; color: var(--muted); }
+.note { font-size: 12px; color: var(--muted); }
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--fg); color: var(--bg); padding: 8px 16px; border-radius: 8px; font-size: 13px; }
+@media (max-width: 640px) {
+  .topic { grid-template-columns: 48px minmax(0, 1fr); }
+  .score { width: 46px; height: 46px; font-size: 15px; }
+  .side { grid-column: 1 / -1; justify-items: start; grid-auto-flow: column; justify-content: start; align-items: center; }
+}
+@media (prefers-reduced-motion: no-preference) { .topic { transition: border-color .2s, opacity .2s; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>資產增長計劃 <span>選題庫</span></h1>
+      <div class="sub" id="updated">选题由 Claude 根据 vidIQ 关键词数据与最新新闻整理</div>
+    </div>
+    <div class="note" id="mode"></div>
+  </header>
+
+  <section class="stats" aria-label="概览">
+    <div class="stat"><b id="n-all">–</b><small>选题总数</small></div>
+    <div class="stat"><b id="n-picked">–</b><small>已选定</small></div>
+    <div class="stat"><b id="n-making">–</b><small>制作中</small></div>
+    <div class="stat"><b id="n-done">–</b><small>已发布</small></div>
+    <div class="stat"><b id="n-due">–</b><small>有时效截止</small></div>
+  </section>
+
+  <section class="toolbar" aria-label="筛选">
+    <div class="group" id="f-status"><span>状态</span></div>
+    <div class="group" id="f-time"><span>类型</span></div>
+    <div class="group" id="f-cat"><span>方向</span></div>
+  </section>
+
+  <section class="list" id="list">
+    <div class="empty">正在读取选题库…<br>选题由 Claude 研究后写入，这里会按评分从高到低列出。</div>
+  </section>
+
+  <p class="note">评分 = 需求 35% + 竞争（越低越好）25% + 趋势 15% + 频道契合 25%；标「代理词」的选题没有自己的搜索数据，需求分打 8 折、趋势按中性计。搜索数据来自 vidIQ（台湾地区与全球），中文长尾词数据较少，仅供参考。点「选这个做下一期」后，Claude 会在下次制作时读取。</p>
+</div>
+
+<script>
+const STATUSES = ["候選", "已選定", "製作中", "已發布", "放棄"];
+const STATUS_LABEL = { "候選": "候选", "已選定": "已选定", "製作中": "制作中", "已發布": "已发布", "放棄": "放弃" };
+let topics = [];
+let db = null, canWrite = true;
+const filters = { status: "進行中", time: "全部", cat: "全部" };
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmt = (n) => (n == null ? "—" : n >= 10000 ? (n / 10000).toFixed(1) + " 万" : n.toLocaleString("zh-Hant"));
+
+function toast(msg) {
+  const t = document.createElement("div");
+  t.className = "toast"; t.textContent = msg; document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2200);
+}
+
+function chips(el, key, values) {
+  const box = $(el);
+  box.querySelectorAll("button").forEach((b) => b.remove());
+  values.forEach(([v, label]) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.textContent = label;
+    b.setAttribute("aria-pressed", String(filters[key] === v));
+    b.onclick = () => { filters[key] = v; render(); };
+    box.appendChild(b);
+  });
+}
+
+function visible(t) {
+  if (filters.status === "進行中" && (t.status === "已發布" || t.status === "放棄")) return false;
+  if (!["進行中", "全部"].includes(filters.status) && t.status !== filters.status) return false;
+  if (filters.time !== "全部" && t.timeliness !== filters.time) return false;
+  if (filters.cat !== "全部" && t.category !== filters.cat) return false;
+  return true;
+}
+
+function render() {
+  const count = (s) => topics.filter((t) => t.status === s).length;
+  $("#n-all").textContent = topics.length;
+  $("#n-picked").textContent = count("已選定");
+  $("#n-making").textContent = count("製作中");
+  $("#n-done").textContent = count("已發布");
+  $("#n-due").textContent = topics.filter((t) => t.deadline && !["已發布", "放棄"].includes(t.status)).length;
+
+  chips("#f-status", "status", [["進行中", "进行中"], ["全部", "全部"], ...STATUSES.map((s) => [s, STATUS_LABEL[s]])]);
+  chips("#f-time", "time", [["全部", "全部"], ["時事", "时事"], ["常青", "常青"]]);
+  const cats = [...new Set(topics.map((t) => t.category).filter(Boolean))];
+  chips("#f-cat", "cat", [["全部", "全部"], ...cats.map((c) => [c, c])]);
+
+  const list = $("#list");
+  const shown = topics.filter(visible).sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
+  if (!topics.length) {
+    list.innerHTML = '<div class="empty">选题库还是空的。<br>让 Claude 运行一次选题研究，结果会自动出现在这里。</div>';
+    return;
+  }
+  if (!shown.length) { list.innerHTML = '<div class="empty">没有符合筛选条件的选题。</div>'; return; }
+
+  list.innerHTML = shown.map((t) => {
+    const m = t.metrics || {}, sc = t.scores || {};
+    const g = m.growth_pct;
+    const growth = g == null ? "—" : `<b class="${g >= 0 ? "up" : "down"}">${g >= 0 ? "+" : ""}${Math.round(g)}%</b>`;
+    const opts = STATUSES.map((s) => `<option value="${s}" ${s === t.status ? "selected" : ""}>${STATUS_LABEL[s]}</option>`).join("");
+    return `<article class="topic ${t.status === "已選定" ? "picked" : ""} ${t.status === "放棄" ? "dropped" : ""}">
+      <div class="score" style="--s:${t.score ?? 0}" title="综合评分"><span>${t.score ?? "–"}</span></div>
+      <div class="body">
+        <div class="meta">
+          <span class="tag">${esc(t.category)}</span>
+          <span class="tag ${t.timeliness === "時事" ? "hot" : ""}">${t.timeliness === "時事" ? "时事" : "常青"}</span>
+          ${t.deadline ? `<span class="tag due">截止 ${esc(t.deadline)}</span>` : ""}
+          <span class="st st-${esc(t.status)}">${STATUS_LABEL[t.status] || esc(t.status)}</span>
+        </div>
+        <h3 class="title">${esc(t.title)}</h3>
+        <p class="angle">${esc(t.angle)}</p>
+        <div class="nums">
+          <span>核心词 <b>${esc(m.keyword || "—")}</b>${t.proxy_keyword ? ' <span class="tag" title="选题本身没有搜索数据，这是相近词的数据">代理词</span>' : ""}</span>
+          <span>月搜索 <b>${fmt(m.volume_monthly)}</b></span>
+          <span>竞争 <b>${m.competition ?? "—"}</b>/100</span>
+          <span>趋势 ${growth}</span>
+        </div>
+        <details>
+          <summary>详情：为什么做、风险、资料来源</summary>
+          <div class="detail">
+            <div class="bars">
+              <div class="bar">需求 ${sc.demand ?? "–"}<i style="--v:${sc.demand ?? 0}"></i></div>
+              <div class="bar">低竞争 ${sc.competition ?? "–"}<i style="--v:${sc.competition ?? 0}"></i></div>
+              <div class="bar">趋势 ${sc.trend ?? "–"}<i style="--v:${sc.trend ?? 0}"></i></div>
+              <div class="bar">频道契合 ${sc.fit ?? "–"}<i style="--v:${sc.fit ?? 0}"></i></div>
+            </div>
+            <h4>为什么现在做</h4><p>${esc(t.why_now)}</p>
+            <h4>风险与注意</h4><p>${esc(t.risks)}</p>
+            ${m.note ? `<h4>数据说明</h4><p>${esc(m.note)}</p>` : ""}
+            <h4>相关关键词</h4><p>${(t.keywords || []).map(esc).join("、")}</p>
+            ${(t.sources || []).length ? `<h4>资料来源</h4><ul>${t.sources.map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join("")}</ul>` : ""}
+          </div>
+        </details>
+      </div>
+      <div class="side">
+        <button class="pick" type="button" data-pick="${esc(t.id)}" ${!canWrite || t.status !== "候選" ? "disabled" : ""}>选这个做下一期</button>
+        <label class="note">状态
+          <select id="st-${esc(t.id)}" data-status="${esc(t.id)}" ${canWrite ? "" : "disabled"}>${opts}</select>
+        </label>
+      </div>
+    </article>`;
+  }).join("");
+
+  list.querySelectorAll("[data-pick]").forEach((b) => (b.onclick = () => setStatus(b.dataset.pick, "已選定")));
+  list.querySelectorAll("[data-status]").forEach((s) => (s.onchange = () => setStatus(s.dataset.status, s.value)));
+}
+
+async function setStatus(id, status) {
+  if (!db) return;
+  try {
+    await db.collection("topics").doc(id).update({ status, status_updated: new Date().toISOString() });
+    toast(status === "已選定" ? "已选定，Claude 下次制作时会读取" : `状态已改为「${STATUS_LABEL[status]}」`);
+  } catch (e) {
+    if (e && e.code === "invalid_argument") { canWrite = false; render(); toast("你只有查看权限，不能修改状态"); }
+    else toast("保存失败，请稍后再试");
+  }
+}
+
+render();
+(async () => {
+  db = await window.claude?.use?.("db");
+  const user = await window.claude?.use?.("user");
+  if (!db) {
+    $("#list").innerHTML = '<div class="empty">需要登录 claude.ai 才能读取选题库。</div>';
+    return;
+  }
+  const w = user ? await user.can("data.write") : null;
+  if (w === false) { canWrite = false; $("#mode").textContent = "只读"; }
+  db.collection("topics").onSnapshot((snap) => {
+    topics = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    render();
+  }, () => { $("#list").innerHTML = '<div class="empty">选题库暂时无法读取，请刷新页面。</div>'; });
+  db.doc("meta/summary").onSnapshot((d) => {
+    const m = d.exists ? d.data() : null;
+    if (m) $("#updated").textContent = `最近一次研究：${m.last_research}｜${m.method}`;
+  });
+})();
+</script>

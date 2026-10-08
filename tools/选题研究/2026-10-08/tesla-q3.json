@@ -1,0 +1,45 @@
+{
+ "title": "特斯拉交付量超預期、股價卻還跌 15%？財報前一次看懂特斯拉真正的估值故事：電動車、Robotaxi 與 Optimus",
+ "angle": "拆解特斯拉估值由哪些故事支撐、哪些已經兌現、哪些還是預期，教觀眾用「業務拆分」的方法看任何熱門股。",
+ "category": "科技個股",
+ "timeliness": "時事",
+ "deadline": "2026-10-20 財報前",
+ "keywords": [
+  "特斯拉",
+  "Robotaxi",
+  "Cybercab",
+  "Optimus",
+  "FSD",
+  "馬斯克"
+ ],
+ "why_now": "Q3 交付 486,532 輛超預期，財報約 10/20～10/21 公布（各來源日期不一），話題熱度最高的時候。",
+ "risks": "競爭度高；財報日期需再核實；避免預測股價與給出買賣建議。",
+ "sources": [
+  {
+   "label": "Yahoo Finance：特斯拉 Q3 交付超預期",
+   "url": "https://finance.yahoo.com/markets/stocks/article/tesla-stock-rises-as-company-reports-q3-deliveries-that-top-analyst-estimates-145514238.html"
+  },
+  {
+   "label": "Motley Fool：Why Tesla stock jumped（2026-10-02）",
+   "url": "https://www.fool.com/investing/2026/10/02/why-tesla-stock-jumped-today/"
+  }
+ ],
+ "metrics": {
+  "keyword": "特斯拉",
+  "volume_monthly": 40689,
+  "competition": 62.8,
+  "growth_pct": 665.6,
+  "note": "台灣「特斯拉」搜尋量暴增 666%；robotaxi、cybercab、optimus 全球搜尋量都很高。"
+ },
+ "scores": {
+  "demand": 69,
+  "competition": 37,
+  "trend": 100,
+  "fit": 75
+ },
+ "score": 67,
+ "proxy_keyword": false,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}

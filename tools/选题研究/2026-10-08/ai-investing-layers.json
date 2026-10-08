@@ -1,0 +1,35 @@
+{
+ "title": "AI 投資入門：不押單一股票，普通人怎麼參與 AI 浪潮？一張圖看懂晶片、雲端、應用三層產業鏈，避開追高陷阱",
+ "angle": "把 AI 產業拆成三層，說明各層的賺錢方式與風險，連結到指數與分散投資，而不是追熱門股。",
+ "category": "AI 投資",
+ "timeliness": "常青",
+ "deadline": null,
+ "keywords": [
+  "AI投資",
+  "輝達",
+  "台積電",
+  "雲端",
+  "AI ETF"
+ ],
+ "why_now": "AI 是使用者核心關鍵詞，也能為 Anthropic、輝達等時事題做知識鋪墊。",
+ "risks": "提到個股時只作產業說明，不給買賣建議。",
+ "sources": [],
+ "metrics": {
+  "keyword": "ai投資",
+  "volume_monthly": 12380,
+  "competition": 42.6,
+  "growth_pct": -62.1,
+  "note": "搜尋量 1.2 萬/月，近一個月比基準下滑，但仍屬高需求。"
+ },
+ "scores": {
+  "demand": 61,
+  "competition": 57,
+  "trend": 34,
+  "fit": 84
+ },
+ "score": 62,
+ "proxy_keyword": false,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}

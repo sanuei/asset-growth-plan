@@ -1,0 +1,40 @@
+{
+ "title": "《金錢心理學》精華：為什麼聰明人也存不到錢？7 個故事帶你看懂人和財富之間的心理陷阱，看完立刻改掉壞習慣",
+ "angle": "把 Morgan Housel 的核心觀念（運氣與風險、夠了的藝術、複利、合理勝過理性）做成故事化說書，延續 EP001 的時間主題。",
+ "category": "理財思維",
+ "timeliness": "常青",
+ "deadline": null,
+ "keywords": [
+  "金錢心理學",
+  "心理帳戶",
+  "行為經濟學",
+  "說書",
+  "存錢"
+ ],
+ "why_now": "常青題材、競爭低，和 EP001 結尾「時間的秘密」直接銜接，適合做系列第二集。",
+ "risks": "說書類需避免大段照搬原文，以自己的結構重述並標註出處。",
+ "sources": [
+  {
+   "label": "Morgan Housel〈How Warren Buffett Amassed His Fortune〉",
+   "url": "https://csq.com/2020/08/how-warren-buffet-amassed-his-fortune/"
+  }
+ ],
+ "metrics": {
+  "keyword": "金錢心理學",
+  "volume_monthly": 9358,
+  "competition": 24.9,
+  "growth_pct": null,
+  "note": "繁體關鍵詞競爭度僅 24.9，簡體「金钱心理学」5,068/月，英文書名 23.9 萬/月。"
+ },
+ "scores": {
+  "demand": 59,
+  "competition": 75,
+  "trend": 50,
+  "fit": 90
+ },
+ "score": 69,
+ "proxy_keyword": false,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}

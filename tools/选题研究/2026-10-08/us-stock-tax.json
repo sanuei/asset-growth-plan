@@ -1,0 +1,35 @@
+{
+ "title": "台灣人、香港人買美股到底要繳多少稅？股息預扣 30%、匯率成本、美國遺產稅一次看懂，別讓隱形成本吃掉你的報酬",
+ "angle": "EP001 結尾承諾過的續集：非美國居民投資美股指數基金的稅與匯率成本，以及常見的降低成本做法。",
+ "category": "美股入門",
+ "timeliness": "常青",
+ "deadline": null,
+ "keywords": [
+  "美股稅",
+  "股息預扣稅",
+  "遺產稅",
+  "複委託",
+  "匯率"
+ ],
+ "why_now": "EP001 已在片中預告「之後專門做一集」，觀眾有期待，也能把觀眾導回 EP001。",
+ "risks": "稅務規則依居住地不同，需分台灣、香港說明並引用官方資料；明確標註「非稅務建議」。",
+ "sources": [],
+ "metrics": {
+  "keyword": "美股投資",
+  "volume_monthly": 3568,
+  "competition": 35.1,
+  "growth_pct": null,
+  "note": "以「美股投資」為代理詞；稅務長尾詞在 vidIQ 無資料。"
+ },
+ "scores": {
+  "demand": 42,
+  "competition": 65,
+  "trend": 50,
+  "fit": 95
+ },
+ "score": 62,
+ "proxy_keyword": true,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}

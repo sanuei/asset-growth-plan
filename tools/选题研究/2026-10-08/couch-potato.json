@@ -1,0 +1,35 @@
+{
+ "title": "沙發土豆投資法：一年只花 30 分鐘、完全不用看盤，這個懶人投資組合長期贏過多數基金經理人，新手照著做就能開始",
+ "angle": "介紹沙發土豆組合的由來、股債配置與再平衡，用回測數據呈現它在大跌年的表現。",
+ "category": "指數投資",
+ "timeliness": "常青",
+ "deadline": null,
+ "keywords": [
+  "沙發土豆",
+  "懶人投資",
+  "股債配置",
+  "再平衡",
+  "被動投資"
+ ],
+ "why_now": "使用者指定的核心關鍵詞，常青、競爭低，與 EP001 形成指數投資系列。",
+ "risks": "「贏過多數基金經理人」需用 SPIVA 等數據佐證，否則改寫；回測不代表未來。",
+ "sources": [],
+ "metrics": {
+  "keyword": "指数基金",
+  "volume_monthly": 3350,
+  "competition": 25.4,
+  "growth_pct": null,
+  "note": "「沙發土豆」在 vidIQ 無資料，以簡體「指数基金」為代理詞，競爭低。"
+ },
+ "scores": {
+  "demand": 42,
+  "competition": 75,
+  "trend": 50,
+  "fit": 86
+ },
+ "score": 62,
+ "proxy_keyword": true,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}

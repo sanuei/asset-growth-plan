@@ -1,0 +1,35 @@
+{
+ "title": "黃仁勳的 AI 帝國還能走多遠？看懂輝達為什麼能賺這麼多錢，以及投資 AI 龍頭股最容易忽略的 3 個風險",
+ "angle": "拆解輝達的護城河（CUDA 生態、資料中心）與集中度風險，教觀眾分辨「好公司」與「好價格」。",
+ "category": "科技個股",
+ "timeliness": "時事",
+ "deadline": null,
+ "keywords": [
+  "輝達",
+  "黃仁勳",
+  "NVIDIA",
+  "AI 晶片",
+  "台積電"
+ ],
+ "why_now": "黃仁勳搜尋量近一個月成長 2.4 倍。",
+ "risks": "市值 6 兆等說法僅見於低可信度來源，製作時需用可靠數據；競爭激烈需強差異化。",
+ "sources": [],
+ "metrics": {
+  "keyword": "黃仁勳",
+  "volume_monthly": 11128,
+  "competition": 71.0,
+  "growth_pct": 240.6,
+  "note": "「黃仁勳」成長 240%，但「輝達」競爭度 74，偏高。"
+ },
+ "scores": {
+  "demand": 60,
+  "competition": 29,
+  "trend": 100,
+  "fit": 70
+ },
+ "score": 61,
+ "proxy_keyword": false,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}

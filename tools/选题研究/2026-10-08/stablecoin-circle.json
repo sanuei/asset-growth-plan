@@ -1,0 +1,40 @@
+{
+ "title": "穩定幣到底是什麼？從 Circle 看懂 USDC 怎麼賺錢、美國 GENIUS 法案的影響，以及 21 家大銀行為什麼要搶這門生意",
+ "angle": "用 Circle 的商業模式講穩定幣如何靠儲備利息獲利，再看監管與銀行聯盟帶來的競爭。",
+ "category": "加密貨幣",
+ "timeliness": "時事",
+ "deadline": null,
+ "keywords": [
+  "穩定幣",
+  "Circle",
+  "USDC",
+  "GENIUS 法案",
+  "CRCL"
+ ],
+ "why_now": "9/1 二十一家金融機構宣布籌組美元穩定幣公司；GENIUS 法案 2027 年 1 月生效。",
+ "risks": "最新進展需核實（Arc 主網是否上線等）；不推薦 CRCL 股票。",
+ "sources": [
+  {
+   "label": "TIKR：Circle 股價與催化劑",
+   "url": "https://www.tikr.com/blog/circle-stock-rose-5-friday-heres-what-could-drive-crcl-in-2026"
+  }
+ ],
+ "metrics": {
+  "keyword": "加密貨幣",
+  "volume_monthly": 12969,
+  "competition": 22.8,
+  "growth_pct": 164.1,
+  "note": "以「加密貨幣」為代理詞；Circle 相關中文詞在 vidIQ 無資料。"
+ },
+ "scores": {
+  "demand": 49,
+  "competition": 77,
+  "trend": 50,
+  "fit": 72
+ },
+ "score": 62,
+ "proxy_keyword": true,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}

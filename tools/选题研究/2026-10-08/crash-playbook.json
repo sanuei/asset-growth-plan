@@ -1,0 +1,40 @@
+{
+ "title": "美股崩盤時該怎麼辦？從 2000、2008、2020 三次大跌學會不被嚇跑的方法，下次恐慌來臨前先看這集",
+ "angle": "回顧三次大跌的跌幅與恢復時間、當時的新聞氛圍，以及事後看來最好與最差的反應。",
+ "category": "美股入門",
+ "timeliness": "常青",
+ "deadline": null,
+ "keywords": [
+  "美股崩盤",
+  "股災",
+  "熊市",
+  "長期投資",
+  "恐慌"
+ ],
+ "why_now": "常青題材，任何一次市場大跌都會讓它重新被搜尋；可預先做好。",
+ "risks": "歷史跌幅與恢復時間需查證；避免製造恐慌的標題用語。",
+ "sources": [
+  {
+   "label": "巴菲特 2013 年股东信",
+   "url": "https://www.berkshirehathaway.com/letters/2013ltr.pdf"
+  }
+ ],
+ "metrics": {
+  "keyword": "做空美股",
+  "volume_monthly": 7624,
+  "competition": 26.6,
+  "growth_pct": null,
+  "note": "「美股崩盤」<750；以「做空美股」為情緒相近的代理詞。"
+ },
+ "scores": {
+  "demand": 46,
+  "competition": 73,
+  "trend": 50,
+  "fit": 82
+ },
+ "score": 62,
+ "proxy_keyword": true,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}

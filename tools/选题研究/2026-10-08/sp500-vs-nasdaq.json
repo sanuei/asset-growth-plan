@@ -1,0 +1,40 @@
+{
+ "title": "標普500 vs 納斯達克100：到底該買哪一個？用 30 年歷史數據看懂兩大指數的差別、報酬與風險，新手不再選錯",
+ "angle": "比較兩個指數的組成、產業集中度、歷史報酬與最大跌幅，讓觀眾知道選擇背後的取捨。",
+ "category": "指數投資",
+ "timeliness": "常青",
+ "deadline": null,
+ "keywords": [
+  "標普500",
+  "納斯達克",
+  "VOO",
+  "QQQ",
+  "指數基金"
+ ],
+ "why_now": "承接 EP001 的指數基金主題，是觀眾看完最自然的下一個問題。",
+ "risks": "不推薦特定 ETF 代號為買入標的；歷史數據需標明來源與期間。",
+ "sources": [
+  {
+   "label": "巴菲特 2013 年股东信",
+   "url": "https://www.berkshirehathaway.com/letters/2013ltr.pdf"
+  }
+ ],
+ "metrics": {
+  "keyword": "s&p500",
+  "volume_monthly": 123157,
+  "competition": 62.5,
+  "growth_pct": -7.4,
+  "note": "英文詞全球數據；VOO 3.4 萬/月、競爭 41.9。繁體長尾詞資料少。"
+ },
+ "scores": {
+  "demand": 76,
+  "competition": 38,
+  "trend": 48,
+  "fit": 88
+ },
+ "score": 65,
+ "proxy_keyword": false,
+ "status": "候選",
+ "created": "2026-10-08",
+ "episode": null
+}
