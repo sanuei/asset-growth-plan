@@ -27,7 +27,7 @@ def synth(text):
         "model": ENV.get("TTS_MODEL", "speech-2.8-hd"),
         "text": text,
         "stream": False,
-        "voice_setting": {"voice_id": ENV["TTS_VOICE"], "speed": 1.1, "vol": 1, "pitch": 0},
+        "voice_setting": {"voice_id": ENV["TTS_VOICE"], "speed": float(ENV.get("TTS_SPEED", "1.0")), "vol": 1, "pitch": 0},
         "audio_setting": {"sample_rate": 44100, "bitrate": 256000, "format": "mp3", "channel": 1},
         "language_boost": "Chinese",
         "pronunciation_dict": {"tone": PRONUNCIATION},
