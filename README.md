@@ -2,7 +2,7 @@
 
 理财科普 YouTube 频道「資產增長計劃」的自动化制作与上传工具。
 
-内容规范见 [YouTube视频准则.md](YouTube视频准则.md)。
+内容规范见 [YouTube视频准则.md](YouTube视频准则.md)，选题方向见 [选题关键词.md](选题关键词.md)。
 
 ## 脚本
 
