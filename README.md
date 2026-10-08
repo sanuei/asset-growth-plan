@@ -14,6 +14,18 @@
 | `cover.py` | gpt-image-2 生成人物背景 + 程序叠加繁体文字，输出 1280×720 封面 |
 | `config.py` | 读取 `.env` 配置 |
 
+## 视频制作流水线（`pipeline/`）
+
+每期视频一个文件夹：`videos/EPxxx_标题/`，结构见 `videos/EP001_*/说明.md`。
+
+| 步骤 | 脚本 | 作用 |
+|---|---|---|
+| 1 | `pipeline/tts_episode.py` | 按 `01_文案/script.json` 逐段配音，附逐字时间戳 |
+| 2 | `pipeline/images_episode.py` | 按 `03_画面素材/场景图/prompts.json` 生成场景图 |
+| 3 | `pipeline/assemble.py` | 合成：场景图动画、动态图表、章节卡、字幕、背景音乐、响度标准化，导出成片、SRT、章节 |
+| — | `pipeline/graphics.py` | 动态图表与文字卡渲染器 |
+| — | `pipeline/bgm_synth.py` | 程序合成无版权背景音乐 |
+
 ## 环境搭建
 
 ```bash

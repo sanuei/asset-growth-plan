@@ -1,0 +1,219 @@
+{
+ "text": "2007年12月，巴菲特下了一個賭注。",
+ "subtitles": [
+  {
+   "text": "2007年12月，巴菲特下了一個賭注。",
+   "pronounce_text": "二零零七年十二月，巴菲特下了一个赌注。",
+   "time_begin": 0.0,
+   "time_end": 3700.0,
+   "text_begin": 0,
+   "text_end": 19,
+   "pronounce_text_begin": 0,
+   "pronounce_text_end": 19,
+   "is_final_segment": true,
+   "timestamped_words": [
+    {
+     "word": "2007年12月",
+     "word_begin": 0,
+     "word_end": 8,
+     "pronounce_word": "二",
+     "pronounce_word_begin": 0,
+     "pronounce_word_end": 1,
+     "time_begin": 38.78787878787878,
+     "time_end": 155.15151515151513
+    },
+    {
+     "word": "2007年12月",
+     "word_begin": 0,
+     "word_end": 8,
+     "pronounce_word": "零",
+     "pronounce_word_begin": 1,
+     "pronounce_word_end": 2,
+     "time_begin": 155.15151515151513,
+     "time_end": 426.66666666666663
+    },
+    {
+     "word": "2007年12月",
+     "word_begin": 0,
+     "word_end": 8,
+     "pronounce_word": "零",
+     "pronounce_word_begin": 2,
+     "pronounce_word_end": 3,
+     "time_begin": 426.66666666666663,
+     "time_end": 543.0303030303029
+    },
+    {
+     "word": "2007年12月",
+     "word_begin": 0,
+     "word_end": 8,
+     "pronounce_word": "七",
+     "pronounce_word_begin": 3,
+     "pronounce_word_end": 4,
+     "time_begin": 543.0303030303029,
+     "time_end": 736.9696969696969
+    },
+    {
+     "word": "2007年12月",
+     "word_begin": 0,
+     "word_end": 8,
+     "pronounce_word": "年",
+     "pronounce_word_begin": 4,
+     "pronounce_word_end": 5,
+     "time_begin": 736.9696969696969,
+     "time_end": 892.121212121212
+    },
+    {
+     "word": "2007年12月",
+     "word_begin": 0,
+     "word_end": 8,
+     "pronounce_word": "十",
+     "pronounce_word_begin": 5,
+     "pronounce_word_end": 6,
+     "time_begin": 892.121212121212,
+     "time_end": 1124.848484848485
+    },
+    {
+     "word": "2007年12月",
+     "word_begin": 0,
+     "word_end": 8,
+     "pronounce_word": "二",
+     "pronounce_word_begin": 6,
+     "pronounce_word_end": 7,
+     "time_begin": 1124.848484848485,
+     "time_end": 1280.0
+    },
+    {
+     "word": "2007年12月",
+     "word_begin": 0,
+     "word_end": 8,
+     "pronounce_word": "月",
+     "pronounce_word_begin": 7,
+     "pronounce_word_end": 8,
+     "time_begin": 1280.0,
+     "time_end": 1396.3636363636363
+    },
+    {
+     "word": "，",
+     "word_begin": 8,
+     "word_end": 9,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 8,
+     "pronounce_word_end": 9,
+     "time_begin": 1396.3636363636363,
+     "time_end": 1435.151515151515
+    },
+    {
+     "word": "巴",
+     "word_begin": 9,
+     "word_end": 10,
+     "pronounce_word": "巴",
+     "pronounce_word_begin": 9,
+     "pronounce_word_end": 10,
+     "time_begin": 1435.151515151515,
+     "time_end": 1939.3939393939393
+    },
+    {
+     "word": "菲",
+     "word_begin": 10,
+     "word_end": 11,
+     "pronounce_word": "菲",
+     "pronounce_word_begin": 10,
+     "pronounce_word_end": 11,
+     "time_begin": 1939.3939393939393,
+     "time_end": 2172.1212121212116
+    },
+    {
+     "word": "特",
+     "word_begin": 11,
+     "word_end": 12,
+     "pronounce_word": "特",
+     "pronounce_word_begin": 11,
+     "pronounce_word_end": 12,
+     "time_begin": 2172.1212121212116,
+     "time_end": 2327.272727272727
+    },
+    {
+     "word": "下",
+     "word_begin": 12,
+     "word_end": 13,
+     "pronounce_word": "下",
+     "pronounce_word_begin": 12,
+     "pronounce_word_end": 13,
+     "time_begin": 2327.272727272727,
+     "time_end": 2598.7878787878785
+    },
+    {
+     "word": "了",
+     "word_begin": 13,
+     "word_end": 14,
+     "pronounce_word": "了",
+     "pronounce_word_begin": 13,
+     "pronounce_word_end": 14,
+     "time_begin": 2598.7878787878785,
+     "time_end": 2753.9393939393935
+    },
+    {
+     "word": "一",
+     "word_begin": 14,
+     "word_end": 15,
+     "pronounce_word": "一",
+     "pronounce_word_begin": 14,
+     "pronounce_word_end": 15,
+     "time_begin": 2753.9393939393935,
+     "time_end": 2870.30303030303
+    },
+    {
+     "word": "個",
+     "word_begin": 15,
+     "word_end": 16,
+     "pronounce_word": "个",
+     "pronounce_word_begin": 15,
+     "pronounce_word_end": 16,
+     "time_begin": 2870.30303030303,
+     "time_end": 2986.6666666666665
+    },
+    {
+     "word": "賭",
+     "word_begin": 16,
+     "word_end": 17,
+     "pronounce_word": "赌",
+     "pronounce_word_begin": 16,
+     "pronounce_word_end": 17,
+     "time_begin": 2986.6666666666665,
+     "time_end": 3103.0303030303025
+    },
+    {
+     "word": "注",
+     "word_begin": 17,
+     "word_end": 18,
+     "pronounce_word": "注",
+     "pronounce_word_begin": 17,
+     "pronounce_word_end": 18,
+     "time_begin": 3103.0303030303025,
+     "time_end": 3335.7575757575755
+    },
+    {
+     "word": "。",
+     "word_begin": 18,
+     "word_end": 19,
+     "pronounce_word": "。",
+     "pronounce_word_begin": 18,
+     "pronounce_word_end": 19,
+     "time_begin": 3335.7575757575755,
+     "time_end": 3490.9090909090905
+    }
+   ]
+  }
+ ],
+ "extra_info": {
+  "audio_length": 3840,
+  "audio_sample_rate": 44100,
+  "audio_size": 124855,
+  "bitrate": 256000,
+  "word_count": 19,
+  "invisible_character_ratio": 0,
+  "usage_characters": 30,
+  "audio_format": "mp3",
+  "audio_channel": 1
+ }
+}

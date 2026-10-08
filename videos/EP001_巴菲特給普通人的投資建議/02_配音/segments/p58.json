@@ -1,0 +1,219 @@
+{
+ "text": "然後，把費用當成敵人，把時間當成朋友。",
+ "subtitles": [
+  {
+   "text": "然後，把費用當成敵人，把時間當成朋友。",
+   "pronounce_text": "然后，把费用当成敌人，把时间当成朋友。",
+   "time_begin": 0.0,
+   "time_end": 3661.632653061224,
+   "text_begin": 0,
+   "text_end": 19,
+   "pronounce_text_begin": 0,
+   "pronounce_text_end": 19,
+   "is_final_segment": true,
+   "timestamped_words": [
+    {
+     "word": "然",
+     "word_begin": 0,
+     "word_end": 1,
+     "pronounce_word": "然",
+     "pronounce_word_begin": 0,
+     "pronounce_word_end": 1,
+     "time_begin": 38.78787878787878,
+     "time_end": 193.9393939393939
+    },
+    {
+     "word": "後",
+     "word_begin": 1,
+     "word_end": 2,
+     "pronounce_word": "后",
+     "pronounce_word_begin": 1,
+     "pronounce_word_end": 2,
+     "time_begin": 193.9393939393939,
+     "time_end": 310.30303030303025
+    },
+    {
+     "word": "，",
+     "word_begin": 2,
+     "word_end": 3,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 2,
+     "pronounce_word_end": 3,
+     "time_begin": 310.30303030303025,
+     "time_end": 349.09090909090907
+    },
+    {
+     "word": "把",
+     "word_begin": 3,
+     "word_end": 4,
+     "pronounce_word": "把",
+     "pronounce_word_begin": 3,
+     "pronounce_word_end": 4,
+     "time_begin": 349.09090909090907,
+     "time_end": 814.5454545454545
+    },
+    {
+     "word": "費",
+     "word_begin": 4,
+     "word_end": 5,
+     "pronounce_word": "费",
+     "pronounce_word_begin": 4,
+     "pronounce_word_end": 5,
+     "time_begin": 814.5454545454545,
+     "time_end": 1008.4848484848484
+    },
+    {
+     "word": "用",
+     "word_begin": 5,
+     "word_end": 6,
+     "pronounce_word": "用",
+     "pronounce_word_begin": 5,
+     "pronounce_word_end": 6,
+     "time_begin": 1008.4848484848484,
+     "time_end": 1163.6363636363635
+    },
+    {
+     "word": "當",
+     "word_begin": 6,
+     "word_end": 7,
+     "pronounce_word": "当",
+     "pronounce_word_begin": 6,
+     "pronounce_word_end": 7,
+     "time_begin": 1163.6363636363635,
+     "time_end": 1396.3636363636363
+    },
+    {
+     "word": "成",
+     "word_begin": 7,
+     "word_end": 8,
+     "pronounce_word": "成",
+     "pronounce_word_begin": 7,
+     "pronounce_word_end": 8,
+     "time_begin": 1396.3636363636363,
+     "time_end": 1590.30303030303
+    },
+    {
+     "word": "敵",
+     "word_begin": 8,
+     "word_end": 9,
+     "pronounce_word": "敌",
+     "pronounce_word_begin": 8,
+     "pronounce_word_end": 9,
+     "time_begin": 1590.30303030303,
+     "time_end": 1745.4545454545453
+    },
+    {
+     "word": "人",
+     "word_begin": 9,
+     "word_end": 10,
+     "pronounce_word": "人",
+     "pronounce_word_begin": 9,
+     "pronounce_word_end": 10,
+     "time_begin": 1745.4545454545453,
+     "time_end": 1939.3939393939393
+    },
+    {
+     "word": "，",
+     "word_begin": 10,
+     "word_end": 11,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 10,
+     "pronounce_word_end": 11,
+     "time_begin": 1939.3939393939393,
+     "time_end": 1978.1818181818176
+    },
+    {
+     "word": "把",
+     "word_begin": 11,
+     "word_end": 12,
+     "pronounce_word": "把",
+     "pronounce_word_begin": 11,
+     "pronounce_word_end": 12,
+     "time_begin": 1978.1818181818176,
+     "time_end": 2327.272727272727
+    },
+    {
+     "word": "時",
+     "word_begin": 12,
+     "word_end": 13,
+     "pronounce_word": "时",
+     "pronounce_word_begin": 12,
+     "pronounce_word_end": 13,
+     "time_begin": 2327.272727272727,
+     "time_end": 2482.424242424242
+    },
+    {
+     "word": "間",
+     "word_begin": 13,
+     "word_end": 14,
+     "pronounce_word": "间",
+     "pronounce_word_begin": 13,
+     "pronounce_word_end": 14,
+     "time_begin": 2482.424242424242,
+     "time_end": 2637.575757575757
+    },
+    {
+     "word": "當",
+     "word_begin": 14,
+     "word_end": 15,
+     "pronounce_word": "当",
+     "pronounce_word_begin": 14,
+     "pronounce_word_end": 15,
+     "time_begin": 2637.575757575757,
+     "time_end": 2831.515151515151
+    },
+    {
+     "word": "成",
+     "word_begin": 15,
+     "word_end": 16,
+     "pronounce_word": "成",
+     "pronounce_word_begin": 15,
+     "pronounce_word_end": 16,
+     "time_begin": 2831.515151515151,
+     "time_end": 3025.454545454545
+    },
+    {
+     "word": "朋",
+     "word_begin": 16,
+     "word_end": 17,
+     "pronounce_word": "朋",
+     "pronounce_word_begin": 16,
+     "pronounce_word_end": 17,
+     "time_begin": 3025.454545454545,
+     "time_end": 3180.60606060606
+    },
+    {
+     "word": "友",
+     "word_begin": 17,
+     "word_end": 18,
+     "pronounce_word": "友",
+     "pronounce_word_begin": 17,
+     "pronounce_word_end": 18,
+     "time_begin": 3180.60606060606,
+     "time_end": 3374.545454545454
+    },
+    {
+     "word": "。",
+     "word_begin": 18,
+     "word_end": 19,
+     "pronounce_word": "。",
+     "pronounce_word_begin": 18,
+     "pronounce_word_end": 19,
+     "time_begin": 3374.545454545454,
+     "time_end": 3490.9090909090905
+    }
+   ]
+  }
+ ],
+ "extra_info": {
+  "audio_length": 3787,
+  "audio_sample_rate": 44100,
+  "audio_size": 123183,
+  "bitrate": 256000,
+  "word_count": 19,
+  "invisible_character_ratio": 0,
+  "usage_characters": 35,
+  "audio_format": "mp3",
+  "audio_channel": 1
+ }
+}

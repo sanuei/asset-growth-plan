@@ -32,15 +32,16 @@ def upload(youtube, args):
     if args.publish_at:
         status["publishAt"] = args.publish_at
 
-    body = {
-        "snippet": {
-            "title": args.title,
-            "description": args.description,
-            "tags": args.tags,
-            "categoryId": args.category,
-        },
-        "status": status,
+    snippet = {
+        "title": args.title,
+        "description": args.description,
+        "tags": args.tags,
+        "categoryId": args.category,
     }
+    if args.language:
+        snippet["defaultLanguage"] = args.language
+        snippet["defaultAudioLanguage"] = args.language
+    body = {"snippet": snippet, "status": status}
     media = MediaFileUpload(args.video, chunksize=8 * 1024 * 1024, resumable=True)
     request = youtube.videos().insert(
         part="snippet,status", body=body, media_body=media
@@ -74,7 +75,10 @@ def main():
     p.add_argument("video")
     p.add_argument("--title", required=True)
     p.add_argument("--description", default="")
+    p.add_argument("--description-file", help="从文件读取描述（覆盖 --description）")
     p.add_argument("--tags", nargs="*", default=[])
+    p.add_argument("--tags-file", help="从文件读取标签，每行一个")
+    p.add_argument("--language", help="视频语言，例如 zh-Hant")
     p.add_argument("--category", default=CATEGORY_FINANCE_EDU)
     p.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
     p.add_argument("--thumbnail")
@@ -84,6 +88,10 @@ def main():
 
     if not os.path.isfile(args.video):
         sys.exit(f"找不到视频文件: {args.video}")
+    if args.description_file:
+        args.description = open(args.description_file, encoding="utf-8").read().strip()
+    if args.tags_file:
+        args.tags = [t.strip() for t in open(args.tags_file, encoding="utf-8") if t.strip()]
 
     youtube = build("youtube", "v3", credentials=get_credentials())
     try:

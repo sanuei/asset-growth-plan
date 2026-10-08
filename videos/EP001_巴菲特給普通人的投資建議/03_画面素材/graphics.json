@@ -1,0 +1,52 @@
+{
+  "card_will_quote": {"type": "quote", "quote": "把現金的10%放進短期美國公債，90%買一支費用非常低的標普500指數基金。", "highlight": ["10%", "90%", "費用非常低"], "author": "巴菲特", "source": "出處：巴菲特 2013 年致波克夏股東信"},
+  "ch_9010": {"type": "donut", "title": "巴菲特遺囑中的配置", "segments": [{"pct": 90, "label": "低成本標普500指數基金", "color": "g"}, {"pct": 10, "label": "短期美國公債", "color": "gray"}], "source": "出處：巴菲特 2013 年致波克夏股東信"},
+  "card_preview": {"type": "bullets", "heading": "看完這支影片，你會知道", "items": [["1", "該買什麼"], ["2", "該怎麼買"], ["3", "最難做到的那件事"]]},
+  "brand_intro": {"type": "brand", "text": "資產增長計劃", "sub": "EP001｜巴菲特給普通人的投資建議"},
+
+  "ch_farm": {"type": "statement", "lines": [{"text": "28 年後，那塊農場", "size": 64, "color": "gray"}, {"text": "收益 ×3", "size": 140}, {"text": "價值 ×5 以上", "size": 140, "color": "y"}, {"text": "他去過幾次？2 次", "size": 72, "color": "g", "delay": 0.9}], "source": "出處：巴菲特 2013 年致波克夏股東信"},
+  "card_weekend": {"type": "quote", "quote": "如果你週末兩天可以不看股價，那就試試看，平日也這麼做。", "highlight": ["不看股價"], "author": "巴菲特", "source": "出處：巴菲特 2013 年致波克夏股東信"},
+  "card_nonpro": {"type": "quote", "quote": "非專業投資人的目標，不是挑出贏家，而是擁有一整籃子的企業。一支低成本的標普500指數基金，就能做到。", "highlight": ["一整籃子", "低成本"], "author": "巴菲特", "size": 70, "source": "出處：巴菲特 2013 年致波克夏股東信（節譯）"},
+
+  "ch_basket": {"type": "grid", "source": "示意圖"},
+  "ch_basket_swap": {"type": "grid", "swap": true, "source": "示意圖"},
+
+  "card_bet_rules": {"type": "bullets", "heading": "十年賭局（2008–2017）", "items": [["1", "巴菲特：一支標普500指數基金"], ["2", "對手：專業挑選的避險基金組合"], ["3", "總獎金100萬美元，捐給慈善"]], "source": "出處：巴菲特 2017 年致波克夏股東信"},
+  "card_versus": {"type": "versus", "left": ["200+", "支避險基金"], "right": ["1", "支標普500指數基金"], "note": "而且對手可以隨時換人、調整組合"},
+  "ch_bet_2008": {"type": "bars", "title": "2008 年：五支基金全部領先", "bars": [{"label": "基金A", "value": -16.5}, {"label": "基金B", "value": -22.3}, {"label": "基金C", "value": -21.3}, {"label": "基金D", "value": -29.3}, {"label": "基金E", "value": -30.1}, {"label": "標普500", "value": -37.0, "color": "r"}], "source": "出處：巴菲特 2017 年致波克夏股東信"},
+  "ch_bet_lines": {"type": "lines", "title": "2007 年底投入 100 美元的變化", "x": [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017], "ymin": 50, "grid": [50, 100, 150, 200], "yfmt": "${}", "endfmt": "${:.0f}", "series": [
+    {"label": "A", "values": [100.0, 83.5, 92.9, 98.4, 92.2, 95.3, 105.3, 110.2, 112.0, 108.4, 121.6]},
+    {"label": "B", "values": [100.0, 77.7, 89.0, 95.1, 93.9, 102.9, 118.5, 123.2, 126.3, 128.7, 142.3]},
+    {"label": "C", "values": [100.0, 78.7, 95.5, 108.2, 114.6, 121.1, 131.8, 156.7, 165.2, 162.4, 187.7]},
+    {"label": "D", "values": [100.0, 70.7, 82.4, 86.4, 81.0, 86.0, 98.2, 98.9, 100.3, 102.8, null]},
+    {"label": "E", "values": [100.0, 69.9, 81.6, 91.3, 88.7, 96.8, 110.7, 108.4, 103.0, 107.5, 126.8]},
+    {"label": "標普500", "values": [100.0, 63.0, 79.8, 91.8, 93.7, 108.7, 143.8, 163.4, 165.7, 185.4, 225.8], "color": "g", "bold": true}
+  ], "note": "之後九年，基金整體每年都輸給指數基金", "source": "資料：巴菲特 2017 年致波克夏股東信（依逐年報酬計算；基金D於2017年清算）"},
+  "ch_bet_bars": {"type": "bars", "title": "十年平均年報酬", "fmt": "{:.1f}%", "bars": [{"label": "基金A", "value": 2.0, "fmt": "{:.1f}%"}, {"label": "基金B", "value": 3.6, "fmt": "{:.1f}%"}, {"label": "基金C", "value": 6.5, "fmt": "{:.1f}%"}, {"label": "基金D", "value": 0.3, "fmt": "{:.1f}%"}, {"label": "基金E", "value": 2.4, "fmt": "{:.1f}%"}, {"label": "標普500", "value": 8.5, "color": "g", "fmt": "{:.1f}%"}], "note": "標普500 十年總報酬 +125.8%", "source": "出處：巴菲特 2017 年致波克夏股東信（基金D以營運的9年計算）"},
+
+  "card_fee_25": {"type": "statement", "lines": [{"text": "避險基金組合的固定費用", "size": 64, "color": "gray"}, {"text": "每年約 2.5%", "size": 160, "color": "y"}, {"text": "賺錢要收，賠錢也照收", "size": 72}], "source": "出處：巴菲特 2017 年致波克夏股東信"},
+  "card_fee_quote": {"type": "quote", "quote": "績效來來去去，費用永遠不會缺席。", "highlight": ["費用"], "author": "巴菲特", "source": "出處：巴菲特 2017 年致波克夏股東信"},
+  "ch_fee_a": {"type": "bars", "title": "1942 年投入 100 萬美元，77 年後（2019）", "bars": [{"label": "不收費", "value": 53, "color": "g", "fmt": "約{:.1f}億美元"}], "source": "出處：巴菲特 2018 年致波克夏股東信"},
+  "ch_fee_b": {"type": "bars", "title": "1942 年投入 100 萬美元，77 年後（2019）", "stagger": 0.6, "bars": [{"label": "不收費", "value": 53, "color": "g", "fmt": "約{:.1f}億美元"}, {"label": "每年多付 1%", "value": 26.5, "color": "r", "fmt": "約{:.1f}億美元"}], "note": "一年只差 1%，結果少了一半", "source": "出處：巴菲特 2018 年致波克夏股東信"},
+
+  "ch_first_stock": {"type": "price_path", "title": "11 歲巴菲特的第一支股票（示意）", "points": [["買進", 38], ["下跌", 27], ["賣出", 40], ["後來", 200]], "mark": 2, "source": "資料：巴菲特傳記等公開報導；走勢僅為示意"},
+  "ch_114": {"type": "counter", "title": "如果放進不收費的標普500指數基金", "from": 114.75, "to": 606811, "geometric": true, "fmt": "${:,.0f}", "left": "1942 年 3 月：$114.75", "right": "2019 年 1 月（股息再投入、稅前）", "note": "約 5,288 倍", "source": "出處：巴菲特 2018 年致波克夏股東信"},
+  "card_buy_hold": {"type": "statement", "lines": [{"text": "他只需要做兩件事", "size": 70, "color": "gray"}, {"text": "買進。", "size": 160}, {"text": "然後，不要賣。", "size": 160, "color": "y", "delay": 1.0}]},
+
+  "card_antidote": {"type": "bullets", "heading": "巴菲特的解藥", "items": [["1", "長時間、分批買進"], ["2", "壞消息時，絕對不要賣"]], "source": "出處：巴菲特 2013 年致波克夏股東信"},
+  "card_1993": {"type": "quote", "quote": "定期投資指數基金，一個什麼都不懂的投資人，反而能贏過大部分的專業人士。", "highlight": ["什麼都不懂", "贏過"], "author": "巴菲特", "source": "出處：巴菲特 1993 年致波克夏股東信"},
+  "card_fear": {"type": "quote", "quote": "別人貪婪時我恐懼，別人恐懼時我貪婪。", "highlight": ["恐懼"], "author": "巴菲特", "size": 90, "source": "出處：〈Buy American. I Am.〉紐約時報，2008 年 10 月"},
+  "ch_lost_decade": {"type": "counter", "title": "標普500「失落的十年」（2000–2009）", "from": 1.0, "to": 0.91, "fmt": "${:.2f}", "left": "2000 年初投入 $1（含股息）", "right": "2009 年底", "note": "年化報酬約 −1%", "source": "資料：Dimensional Fund Advisors、Medical Economics"},
+  "ch_nikkei": {"type": "statement", "lines": [{"text": "日經225：1989 年 12 月創下高點", "size": 64, "color": "gray"}, {"text": "直到 2024 年 2 月才收復", "size": 80}, {"text": "34 年", "size": 220, "color": "r", "delay": 0.9}], "source": "資料：AP、Wikipedia"},
+  "card_premise": {"type": "bullets", "heading": "巴菲特建議的前提", "items": [["1", "時間要夠長"], ["2", "買進要分批"], ["3", "費用要夠低"], ["4", "撐得過過程"]]},
+  "ch_9010_cushion": {"type": "donut", "title": "那 10% 的公債是做什麼的？", "segments": [{"pct": 90, "label": "低成本標普500指數基金", "color": "g"}, {"pct": 10, "label": "短期美國公債：安全墊", "color": "gray"}], "note": "個人解讀：讓你在最壞的時候不必賣股票"},
+
+  "ch_housel": {"type": "donut", "title": "巴菲特的 800 億美元身家（2020 年）", "center": "800億", "segments": [{"pct": 87.5, "label": "六十多歲之後：700億", "color": "g"}, {"pct": 12.5, "label": "之前：100億", "color": "gray"}], "source": "資料：Morgan Housel〈How Warren Buffett Amassed His Fortune〉2020"},
+  "card_time": {"type": "quote", "quote": "他的技能是投資，但他的秘密是時間。", "highlight": ["時間"], "author": "摩根·豪瑟（《金錢心理學》作者）", "size": 90, "source": "出處：Morgan Housel, The Psychology of Money"},
+
+  "card_rule1": {"type": "bullets", "heading": "巴菲特給普通人的三件事", "items": [["1", "買一整籃子：低成本指數基金"]]},
+  "card_rule2": {"type": "bullets", "heading": "巴菲特給普通人的三件事", "instant": 1, "items": [["1", "買一整籃子：低成本指數基金"], ["2", "長時間、分批慢慢買"]]},
+  "card_rule3": {"type": "bullets", "heading": "巴菲特給普通人的三件事", "instant": 2, "items": [["1", "買一整籃子：低成本指數基金"], ["2", "長時間、分批慢慢買"], ["3", "壞消息來時，不要賣"]]},
+  "card_rule_all": {"type": "statement", "lines": [{"text": "把費用當成敵人", "size": 130, "color": "r"}, {"text": "把時間當成朋友", "size": 130, "color": "y", "delay": 1.0}]},
+  "end_card": {"type": "endcard"}
+}

@@ -1,0 +1,169 @@
+{
+ "text": "等一下，指數基金到底是什麼？",
+ "subtitles": [
+  {
+   "text": "等一下，指數基金到底是什麼？",
+   "pronounce_text": "等一下，指数基金到底是什么？",
+   "time_begin": 0.0,
+   "time_end": 2837.3242630385485,
+   "text_begin": 0,
+   "text_end": 14,
+   "pronounce_text_begin": 0,
+   "pronounce_text_end": 14,
+   "is_final_segment": true,
+   "timestamped_words": [
+    {
+     "word": "等",
+     "word_begin": 0,
+     "word_end": 1,
+     "pronounce_word": "等",
+     "pronounce_word_begin": 0,
+     "pronounce_word_end": 1,
+     "time_begin": 38.78787878787878,
+     "time_end": 193.9393939393939
+    },
+    {
+     "word": "一",
+     "word_begin": 1,
+     "word_end": 2,
+     "pronounce_word": "一",
+     "pronounce_word_begin": 1,
+     "pronounce_word_end": 2,
+     "time_begin": 193.9393939393939,
+     "time_end": 349.09090909090907
+    },
+    {
+     "word": "下",
+     "word_begin": 2,
+     "word_end": 3,
+     "pronounce_word": "下",
+     "pronounce_word_begin": 2,
+     "pronounce_word_end": 3,
+     "time_begin": 349.09090909090907,
+     "time_end": 465.45454545454544
+    },
+    {
+     "word": "，",
+     "word_begin": 3,
+     "word_end": 4,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 3,
+     "pronounce_word_end": 4,
+     "time_begin": 465.45454545454544,
+     "time_end": 504.2424242424242
+    },
+    {
+     "word": "指",
+     "word_begin": 4,
+     "word_end": 5,
+     "pronounce_word": "指",
+     "pronounce_word_begin": 4,
+     "pronounce_word_end": 5,
+     "time_begin": 504.2424242424242,
+     "time_end": 814.5454545454545
+    },
+    {
+     "word": "數",
+     "word_begin": 5,
+     "word_end": 6,
+     "pronounce_word": "数",
+     "pronounce_word_begin": 5,
+     "pronounce_word_end": 6,
+     "time_begin": 814.5454545454545,
+     "time_end": 1357.5757575757575
+    },
+    {
+     "word": "基",
+     "word_begin": 6,
+     "word_end": 7,
+     "pronounce_word": "基",
+     "pronounce_word_begin": 6,
+     "pronounce_word_end": 7,
+     "time_begin": 1357.5757575757575,
+     "time_end": 1512.7272727272725
+    },
+    {
+     "word": "金",
+     "word_begin": 7,
+     "word_end": 8,
+     "pronounce_word": "金",
+     "pronounce_word_begin": 7,
+     "pronounce_word_end": 8,
+     "time_begin": 1512.7272727272725,
+     "time_end": 1667.8787878787878
+    },
+    {
+     "word": "到",
+     "word_begin": 8,
+     "word_end": 9,
+     "pronounce_word": "到",
+     "pronounce_word_begin": 8,
+     "pronounce_word_end": 9,
+     "time_begin": 1667.8787878787878,
+     "time_end": 1900.6060606060603
+    },
+    {
+     "word": "底",
+     "word_begin": 9,
+     "word_end": 10,
+     "pronounce_word": "底",
+     "pronounce_word_begin": 9,
+     "pronounce_word_end": 10,
+     "time_begin": 1900.6060606060603,
+     "time_end": 2133.333333333333
+    },
+    {
+     "word": "是",
+     "word_begin": 10,
+     "word_end": 11,
+     "pronounce_word": "是",
+     "pronounce_word_begin": 10,
+     "pronounce_word_end": 11,
+     "time_begin": 2133.333333333333,
+     "time_end": 2288.484848484848
+    },
+    {
+     "word": "什",
+     "word_begin": 11,
+     "word_end": 12,
+     "pronounce_word": "什",
+     "pronounce_word_begin": 11,
+     "pronounce_word_end": 12,
+     "time_begin": 2288.484848484848,
+     "time_end": 2404.848484848485
+    },
+    {
+     "word": "麼",
+     "word_begin": 12,
+     "word_end": 13,
+     "pronounce_word": "么",
+     "pronounce_word_begin": 12,
+     "pronounce_word_end": 13,
+     "time_begin": 2404.848484848485,
+     "time_end": 2560.0
+    },
+    {
+     "word": "？",
+     "word_begin": 13,
+     "word_end": 14,
+     "pronounce_word": "？",
+     "pronounce_word_begin": 13,
+     "pronounce_word_end": 14,
+     "time_begin": 2560.0,
+     "time_end": 2598.7878787878785
+    }
+   ]
+  }
+ ],
+ "extra_info": {
+  "audio_length": 2977,
+  "audio_sample_rate": 44100,
+  "audio_size": 97269,
+  "bitrate": 256000,
+  "word_count": 14,
+  "invisible_character_ratio": 0,
+  "usage_characters": 26,
+  "audio_format": "mp3",
+  "audio_channel": 1
+ }
+}

@@ -1,0 +1,269 @@
+{
+ "text": "最後，我們把巴菲特給普通人的建議，濃縮成三件事。",
+ "subtitles": [
+  {
+   "text": "最後，我們把巴菲特給普通人的建議，濃縮成三件事。",
+   "pronounce_text": "最后，我们把巴菲特给普通人的建议，浓缩成三件事。",
+   "time_begin": 0.0,
+   "time_end": 4509.160997732427,
+   "text_begin": 0,
+   "text_end": 24,
+   "pronounce_text_begin": 0,
+   "pronounce_text_end": 24,
+   "is_final_segment": true,
+   "timestamped_words": [
+    {
+     "word": "最",
+     "word_begin": 0,
+     "word_end": 1,
+     "pronounce_word": "最",
+     "pronounce_word_begin": 0,
+     "pronounce_word_end": 1,
+     "time_begin": 38.78787878787878,
+     "time_end": 155.15151515151513
+    },
+    {
+     "word": "後",
+     "word_begin": 1,
+     "word_end": 2,
+     "pronounce_word": "后",
+     "pronounce_word_begin": 1,
+     "pronounce_word_end": 2,
+     "time_begin": 155.15151515151513,
+     "time_end": 271.51515151515144
+    },
+    {
+     "word": "，",
+     "word_begin": 2,
+     "word_end": 3,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 2,
+     "pronounce_word_end": 3,
+     "time_begin": 271.51515151515144,
+     "time_end": 310.30303030303025
+    },
+    {
+     "word": "我",
+     "word_begin": 3,
+     "word_end": 4,
+     "pronounce_word": "我",
+     "pronounce_word_begin": 3,
+     "pronounce_word_end": 4,
+     "time_begin": 310.30303030303025,
+     "time_end": 504.2424242424242
+    },
+    {
+     "word": "們",
+     "word_begin": 4,
+     "word_end": 5,
+     "pronounce_word": "们",
+     "pronounce_word_begin": 4,
+     "pronounce_word_end": 5,
+     "time_begin": 504.2424242424242,
+     "time_end": 1008.4848484848484
+    },
+    {
+     "word": "把",
+     "word_begin": 5,
+     "word_end": 6,
+     "pronounce_word": "把",
+     "pronounce_word_begin": 5,
+     "pronounce_word_end": 6,
+     "time_begin": 1008.4848484848484,
+     "time_end": 1124.848484848485
+    },
+    {
+     "word": "巴",
+     "word_begin": 6,
+     "word_end": 7,
+     "pronounce_word": "巴",
+     "pronounce_word_begin": 6,
+     "pronounce_word_end": 7,
+     "time_begin": 1124.848484848485,
+     "time_end": 1202.4242424242425
+    },
+    {
+     "word": "菲",
+     "word_begin": 7,
+     "word_end": 8,
+     "pronounce_word": "菲",
+     "pronounce_word_begin": 7,
+     "pronounce_word_end": 8,
+     "time_begin": 1202.4242424242425,
+     "time_end": 1435.151515151515
+    },
+    {
+     "word": "特",
+     "word_begin": 8,
+     "word_end": 9,
+     "pronounce_word": "特",
+     "pronounce_word_begin": 8,
+     "pronounce_word_end": 9,
+     "time_begin": 1435.151515151515,
+     "time_end": 1590.30303030303
+    },
+    {
+     "word": "給",
+     "word_begin": 9,
+     "word_end": 10,
+     "pronounce_word": "给",
+     "pronounce_word_begin": 9,
+     "pronounce_word_end": 10,
+     "time_begin": 1590.30303030303,
+     "time_end": 1823.0303030303028
+    },
+    {
+     "word": "普",
+     "word_begin": 10,
+     "word_end": 11,
+     "pronounce_word": "普",
+     "pronounce_word_begin": 10,
+     "pronounce_word_end": 11,
+     "time_begin": 1823.0303030303028,
+     "time_end": 2094.5454545454545
+    },
+    {
+     "word": "通",
+     "word_begin": 11,
+     "word_end": 12,
+     "pronounce_word": "通",
+     "pronounce_word_begin": 11,
+     "pronounce_word_end": 12,
+     "time_begin": 2094.5454545454545,
+     "time_end": 2327.272727272727
+    },
+    {
+     "word": "人",
+     "word_begin": 12,
+     "word_end": 13,
+     "pronounce_word": "人",
+     "pronounce_word_begin": 12,
+     "pronounce_word_end": 13,
+     "time_begin": 2327.272727272727,
+     "time_end": 2443.636363636363
+    },
+    {
+     "word": "的",
+     "word_begin": 13,
+     "word_end": 14,
+     "pronounce_word": "的",
+     "pronounce_word_begin": 13,
+     "pronounce_word_end": 14,
+     "time_begin": 2443.636363636363,
+     "time_end": 2482.424242424242
+    },
+    {
+     "word": "建",
+     "word_begin": 14,
+     "word_end": 15,
+     "pronounce_word": "建",
+     "pronounce_word_begin": 14,
+     "pronounce_word_end": 15,
+     "time_begin": 2482.424242424242,
+     "time_end": 2637.575757575757
+    },
+    {
+     "word": "議",
+     "word_begin": 15,
+     "word_end": 16,
+     "pronounce_word": "议",
+     "pronounce_word_begin": 15,
+     "pronounce_word_end": 16,
+     "time_begin": 2637.575757575757,
+     "time_end": 2792.7272727272725
+    },
+    {
+     "word": "，",
+     "word_begin": 16,
+     "word_end": 17,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 16,
+     "pronounce_word_end": 17,
+     "time_begin": 2792.7272727272725,
+     "time_end": 2831.515151515151
+    },
+    {
+     "word": "濃",
+     "word_begin": 17,
+     "word_end": 18,
+     "pronounce_word": "浓",
+     "pronounce_word_begin": 17,
+     "pronounce_word_end": 18,
+     "time_begin": 2831.515151515151,
+     "time_end": 3219.393939393939
+    },
+    {
+     "word": "縮",
+     "word_begin": 18,
+     "word_end": 19,
+     "pronounce_word": "缩",
+     "pronounce_word_begin": 18,
+     "pronounce_word_end": 19,
+     "time_begin": 3219.393939393939,
+     "time_end": 3452.1212121212116
+    },
+    {
+     "word": "成",
+     "word_begin": 19,
+     "word_end": 20,
+     "pronounce_word": "成",
+     "pronounce_word_begin": 19,
+     "pronounce_word_end": 20,
+     "time_begin": 3452.1212121212116,
+     "time_end": 3646.0606060606056
+    },
+    {
+     "word": "三",
+     "word_begin": 20,
+     "word_end": 21,
+     "pronounce_word": "三",
+     "pronounce_word_begin": 20,
+     "pronounce_word_end": 21,
+     "time_begin": 3646.0606060606056,
+     "time_end": 3839.9999999999995
+    },
+    {
+     "word": "件",
+     "word_begin": 21,
+     "word_end": 22,
+     "pronounce_word": "件",
+     "pronounce_word_begin": 21,
+     "pronounce_word_end": 22,
+     "time_begin": 3839.9999999999995,
+     "time_end": 4072.7272727272716
+    },
+    {
+     "word": "事",
+     "word_begin": 22,
+     "word_end": 23,
+     "pronounce_word": "事",
+     "pronounce_word_begin": 22,
+     "pronounce_word_end": 23,
+     "time_begin": 4072.7272727272716,
+     "time_end": 4266.666666666666
+    },
+    {
+     "word": "。",
+     "word_begin": 23,
+     "word_end": 24,
+     "pronounce_word": "。",
+     "pronounce_word_begin": 23,
+     "pronounce_word_end": 24,
+     "time_begin": 4266.666666666666,
+     "time_end": 4460.60606060606
+    }
+   ]
+  }
+ ],
+ "extra_info": {
+  "audio_length": 4649,
+  "audio_sample_rate": 44100,
+  "audio_size": 150768,
+  "bitrate": 256000,
+  "word_count": 24,
+  "invisible_character_ratio": 0,
+  "usage_characters": 45,
+  "audio_format": "mp3",
+  "audio_channel": 1
+ }
+}
