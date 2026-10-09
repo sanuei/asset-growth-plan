@@ -1,0 +1,46 @@
+{
+ "title": "成功只是運氣好嗎？比爾蓋茲的同學告訴你答案：《致富心態》（金錢心理學）看懂運氣與風險，避開一次就翻不了身的錯誤",
+ "angle": "深入一章：運氣與風險是一體兩面；用比爾蓋茲與同學的故事，講為什麼要尊重風險、保留安全邊際，連結到分散投資。",
+ "category": "理財思維",
+ "timeliness": "常青",
+ "deadline": null,
+ "keywords": [
+  "致富心態",
+  "金錢心理學",
+  "Morgan Housel",
+  "說書",
+  "好書推薦",
+  "理財觀念"
+ ],
+ "why_now": "名人故事吸引點擊，觀念能連結到 EP001 的安全墊與分散投資。",
+ "risks": "涉及已故人物，敘述要尊重、依書中與公開資料；比爾蓋茲形象不用 AI 寫實生成。",
+ "sources": [
+  {
+   "label": "遠見：《致富心態》介紹（天下文化繁體版）",
+   "url": "https://www.gvm.com.tw/article/110503"
+  },
+  {
+   "label": "Morgan Housel〈How Warren Buffett Amassed His Fortune〉",
+   "url": "https://csq.com/2020/08/how-warren-buffet-amassed-his-fortune/"
+  }
+ ],
+ "metrics": {
+  "keyword": "金錢心理學",
+  "volume_monthly": 9358,
+  "competition": 24.9,
+  "growth_pct": null,
+  "note": "台灣：「金錢心理學」9,358/月、競爭 24.9；繁體書名「致富心態」5,193/月、競爭 52.8；「好書推薦」9,051/月、競爭 17.2。標題同時放兩個書名。"
+ },
+ "scores": {
+  "demand": 59,
+  "competition": 75,
+  "trend": 50,
+  "fit": 80
+ },
+ "score": 67,
+ "proxy_keyword": false,
+ "series": "讀書系列：致富心態",
+ "created": "2026-10-09",
+ "status": "候選",
+ "episode": null
+}
