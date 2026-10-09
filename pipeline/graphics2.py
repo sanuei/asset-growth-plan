@@ -488,11 +488,7 @@ def card_endcard(spec, t, dur):
     bd.text((250, 54), "訂閱頻道", font=font(58), fill=WHITE + (255,), anchor="mm")
     a = prog(t, 0.9, 0.8)
     place(fr, btn, (W - 500) / 2, 500, alpha=a, scale=0.9 + 0.1 * a)
-    if spec.get("next"):
-        nx, npd = text_layer(spec["next"], 40, GOLD, heavy=False)
-        place(fr, nx, centered_x(nx, npd) - npd, 668 - npd, alpha=prog(t, 1.4, 0.8))
-    ds, dp = text_layer("本影片內容僅供教育參考，不構成任何投資建議。", 30, MUTED, heavy=False, shadow=False)
-    place(fr, ds, centered_x(ds, dp) - dp, 760 - dp, alpha=prog(t, 1.6, 0.8))
+    # 不预告下一集、不放风险提示（免责声明只写在描述栏），见准则「四、文案」
     return fr
 
 
