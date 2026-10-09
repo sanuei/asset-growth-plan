@@ -1,0 +1,12 @@
+{
+  "web_gupta": {"search": "Rajat Kumar Gupta World Economic Forum Annual Meeting Davos", "match": "Rajat Kumar Gupta - World Economic Forum"},
+  "web_goldman": {"search": "200 West Street 001", "match": "200 West Street 001"},
+  "web_courthouse": {"search": "Daniel Patrick Moynihan United States Courthouse 55314001073", "match": "55314001073"},
+  "web_buffett": {"search": "Warren Buffett 2015 SelectUSA Investment Summit", "match": "SelectUSA Investment Summit.jpg"},
+  "web_lottery": {"search": "Filling lottery ticket 20180215", "match": "Filling lottery ticket"},
+  "web_taipei": {"search": "Taipei Night Skyline 20230402", "match": "Taipei Night Skyline 20230402"},
+  "web_vonnegut": {"search": "Kurt Vonnegut 1972 WNET", "match": "Kurt Vonnegut 1972"},
+  "web_heller": {"search": "Joseph Heller circa 1979", "match": "Joseph Heller circa 1979"},
+  "web_shelter": {"search": "Shelter Island Heights New York", "match": "Shelter Island Heights"},
+  "web_catch22": {"search": "Catch-22 1961 front cover first edition", "match": "front cover, first edition"}
+}

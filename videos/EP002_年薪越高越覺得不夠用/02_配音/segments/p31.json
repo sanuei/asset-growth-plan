@@ -1,0 +1,199 @@
+{
+ "text": "最後，分享一個書裡也提到的小故事。",
+ "subtitles": [
+  {
+   "text": "最後，分享一個書裡也提到的小故事。",
+   "pronounce_text": "最后，分享一个书里也提到的小故事。",
+   "time_begin": 0.0,
+   "time_end": 3800.0,
+   "text_begin": 0,
+   "text_end": 17,
+   "pronounce_text_begin": 0,
+   "pronounce_text_end": 17,
+   "is_final_segment": true,
+   "timestamped_words": [
+    {
+     "word": "最",
+     "word_begin": 0,
+     "word_end": 1,
+     "pronounce_word": "最",
+     "pronounce_word_begin": 0,
+     "pronounce_word_end": 1,
+     "time_begin": 42.666666666666664,
+     "time_end": 170.66666666666666
+    },
+    {
+     "word": "後",
+     "word_begin": 1,
+     "word_end": 2,
+     "pronounce_word": "后",
+     "pronounce_word_begin": 1,
+     "pronounce_word_end": 2,
+     "time_begin": 170.66666666666666,
+     "time_end": 341.3333333333333
+    },
+    {
+     "word": "，",
+     "word_begin": 2,
+     "word_end": 3,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 2,
+     "pronounce_word_end": 3,
+     "time_begin": 341.3333333333333,
+     "time_end": 384.0
+    },
+    {
+     "word": "分",
+     "word_begin": 3,
+     "word_end": 4,
+     "pronounce_word": "分",
+     "pronounce_word_begin": 3,
+     "pronounce_word_end": 4,
+     "time_begin": 384.0,
+     "time_end": 853.3333333333333
+    },
+    {
+     "word": "享",
+     "word_begin": 4,
+     "word_end": 5,
+     "pronounce_word": "享",
+     "pronounce_word_begin": 4,
+     "pronounce_word_end": 5,
+     "time_begin": 853.3333333333333,
+     "time_end": 1152.0
+    },
+    {
+     "word": "一",
+     "word_begin": 5,
+     "word_end": 6,
+     "pronounce_word": "一",
+     "pronounce_word_begin": 5,
+     "pronounce_word_end": 6,
+     "time_begin": 1152.0,
+     "time_end": 1322.6666666666667
+    },
+    {
+     "word": "個",
+     "word_begin": 6,
+     "word_end": 7,
+     "pronounce_word": "个",
+     "pronounce_word_begin": 6,
+     "pronounce_word_end": 7,
+     "time_begin": 1322.6666666666667,
+     "time_end": 1450.6666666666665
+    },
+    {
+     "word": "書",
+     "word_begin": 7,
+     "word_end": 8,
+     "pronounce_word": "书",
+     "pronounce_word_begin": 7,
+     "pronounce_word_end": 8,
+     "time_begin": 1450.6666666666665,
+     "time_end": 1578.6666666666667
+    },
+    {
+     "word": "裡",
+     "word_begin": 8,
+     "word_end": 9,
+     "pronounce_word": "里",
+     "pronounce_word_begin": 8,
+     "pronounce_word_end": 9,
+     "time_begin": 1578.6666666666667,
+     "time_end": 1834.6666666666667
+    },
+    {
+     "word": "也",
+     "word_begin": 9,
+     "word_end": 10,
+     "pronounce_word": "也",
+     "pronounce_word_begin": 9,
+     "pronounce_word_end": 10,
+     "time_begin": 1834.6666666666667,
+     "time_end": 2005.3333333333333
+    },
+    {
+     "word": "提",
+     "word_begin": 10,
+     "word_end": 11,
+     "pronounce_word": "提",
+     "pronounce_word_begin": 10,
+     "pronounce_word_end": 11,
+     "time_begin": 2005.3333333333333,
+     "time_end": 2432.0
+    },
+    {
+     "word": "到",
+     "word_begin": 11,
+     "word_end": 12,
+     "pronounce_word": "到",
+     "pronounce_word_begin": 11,
+     "pronounce_word_end": 12,
+     "time_begin": 2432.0,
+     "time_end": 2645.3333333333335
+    },
+    {
+     "word": "的",
+     "word_begin": 12,
+     "word_end": 13,
+     "pronounce_word": "的",
+     "pronounce_word_begin": 12,
+     "pronounce_word_end": 13,
+     "time_begin": 2645.3333333333335,
+     "time_end": 2687.9999999999995
+    },
+    {
+     "word": "小",
+     "word_begin": 13,
+     "word_end": 14,
+     "pronounce_word": "小",
+     "pronounce_word_begin": 13,
+     "pronounce_word_end": 14,
+     "time_begin": 2687.9999999999995,
+     "time_end": 2944.0
+    },
+    {
+     "word": "故",
+     "word_begin": 14,
+     "word_end": 15,
+     "pronounce_word": "故",
+     "pronounce_word_begin": 14,
+     "pronounce_word_end": 15,
+     "time_begin": 2944.0,
+     "time_end": 3157.3333333333335
+    },
+    {
+     "word": "事",
+     "word_begin": 15,
+     "word_end": 16,
+     "pronounce_word": "事",
+     "pronounce_word_begin": 15,
+     "pronounce_word_end": 16,
+     "time_begin": 3157.3333333333335,
+     "time_end": 3370.6666666666665
+    },
+    {
+     "word": "。",
+     "word_begin": 16,
+     "word_end": 17,
+     "pronounce_word": "。",
+     "pronounce_word_begin": 16,
+     "pronounce_word_end": 17,
+     "time_begin": 3370.6666666666665,
+     "time_end": 3541.333333333333
+    }
+   ]
+  }
+ ],
+ "extra_info": {
+  "audio_length": 3944,
+  "audio_sample_rate": 44100,
+  "audio_size": 128198,
+  "bitrate": 256000,
+  "word_count": 17,
+  "invisible_character_ratio": 0,
+  "usage_characters": 32,
+  "audio_format": "mp3",
+  "audio_channel": 1
+ }
+}

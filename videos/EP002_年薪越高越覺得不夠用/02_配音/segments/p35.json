@@ -1,0 +1,369 @@
+{
+ "text": "馮內果後來把這段對話寫成一首詩，在2005年刊登在《紐約客》雜誌上。",
+ "subtitles": [
+  {
+   "text": "馮內果後來把這段對話寫成一首詩，在2005年刊登在《紐約客》雜誌上。",
+   "pronounce_text": "冯内果后来把这段对话写成一首诗，在二零零五年刊登在《纽约客》杂志上。",
+   "time_begin": 0.0,
+   "time_end": 6587.34693877551,
+   "text_begin": 0,
+   "text_end": 34,
+   "pronounce_text_begin": 0,
+   "pronounce_text_end": 34,
+   "is_final_segment": true,
+   "timestamped_words": [
+    {
+     "word": "馮",
+     "word_begin": 0,
+     "word_end": 1,
+     "pronounce_word": "冯",
+     "pronounce_word_begin": 0,
+     "pronounce_word_end": 1,
+     "time_begin": 42.666666666666664,
+     "time_end": 170.66666666666666
+    },
+    {
+     "word": "內",
+     "word_begin": 1,
+     "word_end": 2,
+     "pronounce_word": "内",
+     "pronounce_word_begin": 1,
+     "pronounce_word_end": 2,
+     "time_begin": 170.66666666666666,
+     "time_end": 384.0
+    },
+    {
+     "word": "果",
+     "word_begin": 2,
+     "word_end": 3,
+     "pronounce_word": "果",
+     "pronounce_word_begin": 2,
+     "pronounce_word_end": 3,
+     "time_begin": 384.0,
+     "time_end": 554.6666666666666
+    },
+    {
+     "word": "後",
+     "word_begin": 3,
+     "word_end": 4,
+     "pronounce_word": "后",
+     "pronounce_word_begin": 3,
+     "pronounce_word_end": 4,
+     "time_begin": 554.6666666666666,
+     "time_end": 810.6666666666666
+    },
+    {
+     "word": "來",
+     "word_begin": 4,
+     "word_end": 5,
+     "pronounce_word": "来",
+     "pronounce_word_begin": 4,
+     "pronounce_word_end": 5,
+     "time_begin": 810.6666666666666,
+     "time_end": 1066.6666666666667
+    },
+    {
+     "word": "把",
+     "word_begin": 5,
+     "word_end": 6,
+     "pronounce_word": "把",
+     "pronounce_word_begin": 5,
+     "pronounce_word_end": 6,
+     "time_begin": 1066.6666666666667,
+     "time_end": 1237.3333333333335
+    },
+    {
+     "word": "這",
+     "word_begin": 6,
+     "word_end": 7,
+     "pronounce_word": "这",
+     "pronounce_word_begin": 6,
+     "pronounce_word_end": 7,
+     "time_begin": 1237.3333333333335,
+     "time_end": 1408.0
+    },
+    {
+     "word": "段",
+     "word_begin": 7,
+     "word_end": 8,
+     "pronounce_word": "段",
+     "pronounce_word_begin": 7,
+     "pronounce_word_end": 8,
+     "time_begin": 1408.0,
+     "time_end": 1536.0
+    },
+    {
+     "word": "對",
+     "word_begin": 8,
+     "word_end": 9,
+     "pronounce_word": "对",
+     "pronounce_word_begin": 8,
+     "pronounce_word_end": 9,
+     "time_begin": 1536.0,
+     "time_end": 1706.6666666666665
+    },
+    {
+     "word": "話",
+     "word_begin": 9,
+     "word_end": 10,
+     "pronounce_word": "话",
+     "pronounce_word_begin": 9,
+     "pronounce_word_end": 10,
+     "time_begin": 1706.6666666666665,
+     "time_end": 1877.3333333333333
+    },
+    {
+     "word": "寫",
+     "word_begin": 10,
+     "word_end": 11,
+     "pronounce_word": "写",
+     "pronounce_word_begin": 10,
+     "pronounce_word_end": 11,
+     "time_begin": 1877.3333333333333,
+     "time_end": 2133.3333333333335
+    },
+    {
+     "word": "成",
+     "word_begin": 11,
+     "word_end": 12,
+     "pronounce_word": "成",
+     "pronounce_word_begin": 11,
+     "pronounce_word_end": 12,
+     "time_begin": 2133.3333333333335,
+     "time_end": 2389.333333333333
+    },
+    {
+     "word": "一",
+     "word_begin": 12,
+     "word_end": 13,
+     "pronounce_word": "一",
+     "pronounce_word_begin": 12,
+     "pronounce_word_end": 13,
+     "time_begin": 2389.333333333333,
+     "time_end": 2560.0
+    },
+    {
+     "word": "首",
+     "word_begin": 13,
+     "word_end": 14,
+     "pronounce_word": "首",
+     "pronounce_word_begin": 13,
+     "pronounce_word_end": 14,
+     "time_begin": 2560.0,
+     "time_end": 2730.6666666666665
+    },
+    {
+     "word": "詩",
+     "word_begin": 14,
+     "word_end": 15,
+     "pronounce_word": "诗",
+     "pronounce_word_begin": 14,
+     "pronounce_word_end": 15,
+     "time_begin": 2730.6666666666665,
+     "time_end": 2901.333333333333
+    },
+    {
+     "word": "，",
+     "word_begin": 15,
+     "word_end": 16,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 15,
+     "pronounce_word_end": 16,
+     "time_begin": 2901.333333333333,
+     "time_end": 2944.0
+    },
+    {
+     "word": "在",
+     "word_begin": 16,
+     "word_end": 17,
+     "pronounce_word": "在",
+     "pronounce_word_begin": 16,
+     "pronounce_word_end": 17,
+     "time_begin": 2944.0,
+     "time_end": 3456.0
+    },
+    {
+     "word": "2005年",
+     "word_begin": 17,
+     "word_end": 22,
+     "pronounce_word": "二",
+     "pronounce_word_begin": 17,
+     "pronounce_word_end": 18,
+     "time_begin": 3456.0,
+     "time_end": 3669.3333333333335
+    },
+    {
+     "word": "2005年",
+     "word_begin": 17,
+     "word_end": 22,
+     "pronounce_word": "零",
+     "pronounce_word_begin": 18,
+     "pronounce_word_end": 19,
+     "time_begin": 3669.3333333333335,
+     "time_end": 3882.6666666666665
+    },
+    {
+     "word": "2005年",
+     "word_begin": 17,
+     "word_end": 22,
+     "pronounce_word": "零",
+     "pronounce_word_begin": 19,
+     "pronounce_word_end": 20,
+     "time_begin": 3882.6666666666665,
+     "time_end": 4010.6666666666665
+    },
+    {
+     "word": "2005年",
+     "word_begin": 17,
+     "word_end": 22,
+     "pronounce_word": "五",
+     "pronounce_word_begin": 20,
+     "pronounce_word_end": 21,
+     "time_begin": 4010.6666666666665,
+     "time_end": 4181.333333333333
+    },
+    {
+     "word": "2005年",
+     "word_begin": 17,
+     "word_end": 22,
+     "pronounce_word": "年",
+     "pronounce_word_begin": 21,
+     "pronounce_word_end": 22,
+     "time_begin": 4181.333333333333,
+     "time_end": 4351.999999999999
+    },
+    {
+     "word": "刊",
+     "word_begin": 22,
+     "word_end": 23,
+     "pronounce_word": "刊",
+     "pronounce_word_begin": 22,
+     "pronounce_word_end": 23,
+     "time_begin": 4351.999999999999,
+     "time_end": 4565.333333333333
+    },
+    {
+     "word": "登",
+     "word_begin": 23,
+     "word_end": 24,
+     "pronounce_word": "登",
+     "pronounce_word_begin": 23,
+     "pronounce_word_end": 24,
+     "time_begin": 4565.333333333333,
+     "time_end": 4864.0
+    },
+    {
+     "word": "在",
+     "word_begin": 24,
+     "word_end": 25,
+     "pronounce_word": "在",
+     "pronounce_word_begin": 24,
+     "pronounce_word_end": 25,
+     "time_begin": 4864.0,
+     "time_end": 5034.666666666666
+    },
+    {
+     "word": "《",
+     "word_begin": 25,
+     "word_end": 26,
+     "pronounce_word": "《",
+     "pronounce_word_begin": 25,
+     "pronounce_word_end": 26,
+     "time_begin": 5034.666666666666,
+     "time_end": 5162.666666666666
+    },
+    {
+     "word": "紐",
+     "word_begin": 26,
+     "word_end": 27,
+     "pronounce_word": "纽",
+     "pronounce_word_begin": 26,
+     "pronounce_word_end": 27,
+     "time_begin": 5162.666666666666,
+     "time_end": 5248.0
+    },
+    {
+     "word": "約",
+     "word_begin": 27,
+     "word_end": 28,
+     "pronounce_word": "约",
+     "pronounce_word_begin": 27,
+     "pronounce_word_end": 28,
+     "time_begin": 5248.0,
+     "time_end": 5461.333333333333
+    },
+    {
+     "word": "客",
+     "word_begin": 28,
+     "word_end": 29,
+     "pronounce_word": "客",
+     "pronounce_word_begin": 28,
+     "pronounce_word_end": 29,
+     "time_begin": 5461.333333333333,
+     "time_end": 5632.0
+    },
+    {
+     "word": "》",
+     "word_begin": 29,
+     "word_end": 30,
+     "pronounce_word": "》",
+     "pronounce_word_begin": 29,
+     "pronounce_word_end": 30,
+     "time_begin": 5632.0,
+     "time_end": 5802.666666666666
+    },
+    {
+     "word": "雜",
+     "word_begin": 30,
+     "word_end": 31,
+     "pronounce_word": "杂",
+     "pronounce_word_begin": 30,
+     "pronounce_word_end": 31,
+     "time_begin": 5802.666666666666,
+     "time_end": 5888.0
+    },
+    {
+     "word": "誌",
+     "word_begin": 31,
+     "word_end": 32,
+     "pronounce_word": "志",
+     "pronounce_word_begin": 31,
+     "pronounce_word_end": 32,
+     "time_begin": 5888.0,
+     "time_end": 6058.666666666666
+    },
+    {
+     "word": "上",
+     "word_begin": 32,
+     "word_end": 33,
+     "pronounce_word": "上",
+     "pronounce_word_begin": 32,
+     "pronounce_word_end": 33,
+     "time_begin": 6058.666666666666,
+     "time_end": 6229.333333333333
+    },
+    {
+     "word": "。",
+     "word_begin": 33,
+     "word_end": 34,
+     "pronounce_word": "。",
+     "pronounce_word_begin": 33,
+     "pronounce_word_end": 34,
+     "time_begin": 6229.333333333333,
+     "time_end": 6399.999999999999
+    }
+   ]
+  }
+ ],
+ "extra_info": {
+  "audio_length": 6713,
+  "audio_sample_rate": 44100,
+  "audio_size": 216806,
+  "bitrate": 256000,
+  "word_count": 34,
+  "invisible_character_ratio": 0,
+  "usage_characters": 60,
+  "audio_format": "mp3",
+  "audio_channel": 1
+ }
+}

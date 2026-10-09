@@ -1,0 +1,259 @@
+{
+ "text": "那「夠了」要怎麼練習？我整理了四個具體的做法。",
+ "subtitles": [
+  {
+   "text": "那「夠了」要怎麼練習？我整理了四個具體的做法。",
+   "pronounce_text": "那“够了”要怎么练习？我整理了四个具体的做法。",
+   "time_begin": 0.0,
+   "time_end": 4700.0,
+   "text_begin": 0,
+   "text_end": 23,
+   "pronounce_text_begin": 0,
+   "pronounce_text_end": 23,
+   "is_final_segment": true,
+   "timestamped_words": [
+    {
+     "word": "那",
+     "word_begin": 0,
+     "word_end": 1,
+     "pronounce_word": "那",
+     "pronounce_word_begin": 0,
+     "pronounce_word_end": 1,
+     "time_begin": 42.666666666666664,
+     "time_end": 170.66666666666666
+    },
+    {
+     "word": "「",
+     "word_begin": 1,
+     "word_end": 2,
+     "pronounce_word": "“",
+     "pronounce_word_begin": 1,
+     "pronounce_word_end": 2,
+     "time_begin": 170.66666666666666,
+     "time_end": 298.66666666666663
+    },
+    {
+     "word": "夠",
+     "word_begin": 2,
+     "word_end": 3,
+     "pronounce_word": "够",
+     "pronounce_word_begin": 2,
+     "pronounce_word_end": 3,
+     "time_begin": 298.66666666666663,
+     "time_end": 384.0
+    },
+    {
+     "word": "了",
+     "word_begin": 3,
+     "word_end": 4,
+     "pronounce_word": "了",
+     "pronounce_word_begin": 3,
+     "pronounce_word_end": 4,
+     "time_begin": 384.0,
+     "time_end": 554.6666666666666
+    },
+    {
+     "word": "」",
+     "word_begin": 4,
+     "word_end": 5,
+     "pronounce_word": "”",
+     "pronounce_word_begin": 4,
+     "pronounce_word_end": 5,
+     "time_begin": 554.6666666666666,
+     "time_end": 682.6666666666666
+    },
+    {
+     "word": "要",
+     "word_begin": 5,
+     "word_end": 6,
+     "pronounce_word": "要",
+     "pronounce_word_begin": 5,
+     "pronounce_word_end": 6,
+     "time_begin": 682.6666666666666,
+     "time_end": 1066.6666666666667
+    },
+    {
+     "word": "怎",
+     "word_begin": 6,
+     "word_end": 7,
+     "pronounce_word": "怎",
+     "pronounce_word_begin": 6,
+     "pronounce_word_end": 7,
+     "time_begin": 1066.6666666666667,
+     "time_end": 1237.3333333333335
+    },
+    {
+     "word": "麼",
+     "word_begin": 7,
+     "word_end": 8,
+     "pronounce_word": "么",
+     "pronounce_word_begin": 7,
+     "pronounce_word_end": 8,
+     "time_begin": 1237.3333333333335,
+     "time_end": 1408.0
+    },
+    {
+     "word": "練",
+     "word_begin": 8,
+     "word_end": 9,
+     "pronounce_word": "练",
+     "pronounce_word_begin": 8,
+     "pronounce_word_end": 9,
+     "time_begin": 1408.0,
+     "time_end": 1536.0
+    },
+    {
+     "word": "習",
+     "word_begin": 9,
+     "word_end": 10,
+     "pronounce_word": "习",
+     "pronounce_word_begin": 9,
+     "pronounce_word_end": 10,
+     "time_begin": 1536.0,
+     "time_end": 1706.6666666666665
+    },
+    {
+     "word": "？",
+     "word_begin": 10,
+     "word_end": 11,
+     "pronounce_word": "？",
+     "pronounce_word_begin": 10,
+     "pronounce_word_end": 11,
+     "time_begin": 1706.6666666666665,
+     "time_end": 1749.3333333333333
+    },
+    {
+     "word": "我",
+     "word_begin": 11,
+     "word_end": 12,
+     "pronounce_word": "我",
+     "pronounce_word_begin": 11,
+     "pronounce_word_end": 12,
+     "time_begin": 1749.3333333333333,
+     "time_end": 2346.6666666666665
+    },
+    {
+     "word": "整",
+     "word_begin": 12,
+     "word_end": 13,
+     "pronounce_word": "整",
+     "pronounce_word_begin": 12,
+     "pronounce_word_end": 13,
+     "time_begin": 2346.6666666666665,
+     "time_end": 2687.9999999999995
+    },
+    {
+     "word": "理",
+     "word_begin": 13,
+     "word_end": 14,
+     "pronounce_word": "理",
+     "pronounce_word_begin": 13,
+     "pronounce_word_end": 14,
+     "time_begin": 2687.9999999999995,
+     "time_end": 2901.333333333333
+    },
+    {
+     "word": "了",
+     "word_begin": 14,
+     "word_end": 15,
+     "pronounce_word": "了",
+     "pronounce_word_begin": 14,
+     "pronounce_word_end": 15,
+     "time_begin": 2901.333333333333,
+     "time_end": 3114.6666666666665
+    },
+    {
+     "word": "四",
+     "word_begin": 15,
+     "word_end": 16,
+     "pronounce_word": "四",
+     "pronounce_word_begin": 15,
+     "pronounce_word_end": 16,
+     "time_begin": 3114.6666666666665,
+     "time_end": 3242.6666666666665
+    },
+    {
+     "word": "個",
+     "word_begin": 16,
+     "word_end": 17,
+     "pronounce_word": "个",
+     "pronounce_word_begin": 16,
+     "pronounce_word_end": 17,
+     "time_begin": 3242.6666666666665,
+     "time_end": 3498.6666666666665
+    },
+    {
+     "word": "具",
+     "word_begin": 17,
+     "word_end": 18,
+     "pronounce_word": "具",
+     "pronounce_word_begin": 17,
+     "pronounce_word_end": 18,
+     "time_begin": 3498.6666666666665,
+     "time_end": 3626.6666666666665
+    },
+    {
+     "word": "體",
+     "word_begin": 18,
+     "word_end": 19,
+     "pronounce_word": "体",
+     "pronounce_word_begin": 18,
+     "pronounce_word_end": 19,
+     "time_begin": 3626.6666666666665,
+     "time_end": 3754.6666666666665
+    },
+    {
+     "word": "的",
+     "word_begin": 19,
+     "word_end": 20,
+     "pronounce_word": "的",
+     "pronounce_word_begin": 19,
+     "pronounce_word_end": 20,
+     "time_begin": 3754.6666666666665,
+     "time_end": 3797.333333333333
+    },
+    {
+     "word": "做",
+     "word_begin": 20,
+     "word_end": 21,
+     "pronounce_word": "做",
+     "pronounce_word_begin": 20,
+     "pronounce_word_end": 21,
+     "time_begin": 3797.333333333333,
+     "time_end": 4053.3333333333326
+    },
+    {
+     "word": "法",
+     "word_begin": 21,
+     "word_end": 22,
+     "pronounce_word": "法",
+     "pronounce_word_begin": 21,
+     "pronounce_word_end": 22,
+     "time_begin": 4053.3333333333326,
+     "time_end": 4266.666666666667
+    },
+    {
+     "word": "。",
+     "word_begin": 22,
+     "word_end": 23,
+     "pronounce_word": "。",
+     "pronounce_word_begin": 22,
+     "pronounce_word_end": 23,
+     "time_begin": 4266.666666666667,
+     "time_end": 4437.333333333333
+    }
+   ]
+  }
+ ],
+ "extra_info": {
+  "audio_length": 4832,
+  "audio_sample_rate": 44100,
+  "audio_size": 156619,
+  "bitrate": 256000,
+  "word_count": 23,
+  "invisible_character_ratio": 0,
+  "usage_characters": 42,
+  "audio_format": "mp3",
+  "audio_channel": 1
+ }
+}

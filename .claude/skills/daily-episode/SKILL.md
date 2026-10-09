@@ -32,13 +32,15 @@ description: 「資產增長計劃」每日自动出片：决定今天的选题�
 
 ## 2. 制作
 
-按准则和 EP001 的文件夹结构完成：文案（含一手资料核实，存 `99_工作文件/sources`）→ 配音 `pipeline/tts_episode.py` → 画面（先找可商用的网络图片 `pipeline/web_images.py`，找不到再用 `pipeline/images_episode.py` 生成，统一电影剧照风格）→ 图表与文字卡 `pipeline/graphics.py` → 合成 `pipeline/assemble.py` → 封面 `cover.py` → `07_发布信息`（标题、描述、标签、章节、upload.json）。
+按准则和 `videos/EP002_*` 的文件夹结构完成（`script.json` 写 `"version": 3`）：文案（含一手资料核实，存 `99_工作文件/sources`）→ 配音 `pipeline/tts_episode.py`（版本 3 自动整章一次合成，通常 1～2 次请求）→ 画面（先找可商用的网络图片 `pipeline/web_images.py`，找不到再用 `pipeline/images_episode.py` 生成，统一电影剧照风格）→ 图表与文字卡 `graphics.json`（由 `pipeline/graphics2.py` 渲染）→ 合成 `pipeline/assemble.py` → 封面 `cover.py` → `07_发布信息`（标题、描述、标签、章节、图片署名、upload.json）。
+
+**费用规则**：语音只用 MiniMax，图片只用 Abo AI，选题数据用 vidIQ 免费额度；其他付费服务或用途一律不用（例如不要用 Abo AI 转写语音）。不要为了测试多花钱。
 
 不停下来等频道主确认，用自动检查代替：
 
 - 数字、引述、日期对照一手资料；查不到出处的内容删掉。
-- 用 `pronounce_text` 检查数字和专有名词读音。
-- 抽查至少 5 段字幕与语音的时间差，超过 0.2 秒要修正后重新出片。
+- 用 `pronounce_text` 检查数字和专有名词读音；容易读错的多音字事先加进 `pipeline/tts_episode.py` 的 `PRONUNCIATION`。
+- 运行 `pipeline/qa_sync.py <集数文件夹>`：逐条比对字幕与实际开口时间，超过 0.2 秒的字幕比例大于 5% 要修正后重新出片。
 - 抽帧检查：字幕不和画面文字重叠、没有错字、封面文字清楚。
 
 ## 3. 上传与定时公开

@@ -197,7 +197,6 @@ flowchart LR
             <li><code>gpt-image-2</code> <b>必须传 <code>quality</code></b>：不传时 4 次全部失败，传了 7 次成功 6 次。</li>
             <li>横版图用 <code>1536x1024</code>；<code>low</code> 约 20 秒，<code>high</code> 约 2 分钟。</li>
             <li><code>gemini-3.1-flash-image</code> 稳定，当作备用；儿童题材会自动切到它。</li>
-            <li>同一个接口可以用 Gemini 转写语音，用来做读音和音画同步检查。</li>
           </ul>
         </div>
         <div class="card">
@@ -278,10 +277,10 @@ flowchart LR
         <thead><tr><th>检查项</th><th>方法</th></tr></thead>
         <tbody>
           <tr><td>数字读音</td><td>检查配音返回的实际朗读文本</td></tr>
-          <tr><td>多音字</td><td>用 Gemini 把可疑段落转写成文字核对</td></tr>
+          <tr><td>多音字</td><td>容易读错的字事先加进读音规则，再看实际朗读文本</td></tr>
           <tr><td>画面</td><td>全片均匀抽 18 帧拼成总览图，检查字幕是否压到图表、有没有乱码、水印位置</td></tr>
           <tr><td>场景图</td><td>拼成缩略图总览，检查风格是否统一</td></tr>
-          <tr><td>音画同步</td><td>截一段音频转写，和字幕时间对照</td></tr>
+          <tr><td>音画同步</td><td>本地分析配音音轨，逐条比对字幕与实际开口时间（不调用外部服务）</td></tr>
           <tr><td>规格</td><td>1920×1080、30fps、音视频时长一致、-14 LUFS</td></tr>
           <tr><td>事实</td><td>每个数字和引语都对得上原文；删节过的引语标注「節譯」</td></tr>
         </tbody>

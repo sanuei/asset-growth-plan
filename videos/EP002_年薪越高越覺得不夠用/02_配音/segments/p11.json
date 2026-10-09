@@ -1,0 +1,269 @@
+{
+ "text": "豪瑟在書裡說，最難的理財技能，是讓目標停止移動。",
+ "subtitles": [
+  {
+   "text": "豪瑟在書裡說，最難的理財技能，是讓目標停止移動。",
+   "pronounce_text": "豪瑟在书里说，最难的理财技能，是让目标停止移动。",
+   "time_begin": 0.0,
+   "time_end": 5101.269841269841,
+   "text_begin": 0,
+   "text_end": 24,
+   "pronounce_text_begin": 0,
+   "pronounce_text_end": 24,
+   "is_final_segment": true,
+   "timestamped_words": [
+    {
+     "word": "豪",
+     "word_begin": 0,
+     "word_end": 1,
+     "pronounce_word": "豪",
+     "pronounce_word_begin": 0,
+     "pronounce_word_end": 1,
+     "time_begin": 42.666666666666664,
+     "time_end": 213.33333333333331
+    },
+    {
+     "word": "瑟",
+     "word_begin": 1,
+     "word_end": 2,
+     "pronounce_word": "瑟",
+     "pronounce_word_begin": 1,
+     "pronounce_word_end": 2,
+     "time_begin": 213.33333333333331,
+     "time_end": 426.66666666666663
+    },
+    {
+     "word": "在",
+     "word_begin": 2,
+     "word_end": 3,
+     "pronounce_word": "在",
+     "pronounce_word_begin": 2,
+     "pronounce_word_end": 3,
+     "time_begin": 426.66666666666663,
+     "time_end": 640.0
+    },
+    {
+     "word": "書",
+     "word_begin": 3,
+     "word_end": 4,
+     "pronounce_word": "书",
+     "pronounce_word_begin": 3,
+     "pronounce_word_end": 4,
+     "time_begin": 640.0,
+     "time_end": 768.0
+    },
+    {
+     "word": "裡",
+     "word_begin": 4,
+     "word_end": 5,
+     "pronounce_word": "里",
+     "pronounce_word_begin": 4,
+     "pronounce_word_end": 5,
+     "time_begin": 768.0,
+     "time_end": 938.6666666666666
+    },
+    {
+     "word": "說",
+     "word_begin": 5,
+     "word_end": 6,
+     "pronounce_word": "说",
+     "pronounce_word_begin": 5,
+     "pronounce_word_end": 6,
+     "time_begin": 938.6666666666666,
+     "time_end": 1066.6666666666667
+    },
+    {
+     "word": "，",
+     "word_begin": 6,
+     "word_end": 7,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 6,
+     "pronounce_word_end": 7,
+     "time_begin": 1066.6666666666667,
+     "time_end": 1109.3333333333333
+    },
+    {
+     "word": "最",
+     "word_begin": 7,
+     "word_end": 8,
+     "pronounce_word": "最",
+     "pronounce_word_begin": 7,
+     "pronounce_word_end": 8,
+     "time_begin": 1109.3333333333333,
+     "time_end": 1621.3333333333333
+    },
+    {
+     "word": "難",
+     "word_begin": 8,
+     "word_end": 9,
+     "pronounce_word": "难",
+     "pronounce_word_begin": 8,
+     "pronounce_word_end": 9,
+     "time_begin": 1621.3333333333333,
+     "time_end": 1920.0
+    },
+    {
+     "word": "的",
+     "word_begin": 9,
+     "word_end": 10,
+     "pronounce_word": "的",
+     "pronounce_word_begin": 9,
+     "pronounce_word_end": 10,
+     "time_begin": 1920.0,
+     "time_end": 1962.6666666666665
+    },
+    {
+     "word": "理",
+     "word_begin": 10,
+     "word_end": 11,
+     "pronounce_word": "理",
+     "pronounce_word_begin": 10,
+     "pronounce_word_end": 11,
+     "time_begin": 1962.6666666666665,
+     "time_end": 2218.6666666666665
+    },
+    {
+     "word": "財",
+     "word_begin": 11,
+     "word_end": 12,
+     "pronounce_word": "财",
+     "pronounce_word_begin": 11,
+     "pronounce_word_end": 12,
+     "time_begin": 2218.6666666666665,
+     "time_end": 2432.0
+    },
+    {
+     "word": "技",
+     "word_begin": 12,
+     "word_end": 13,
+     "pronounce_word": "技",
+     "pronounce_word_begin": 12,
+     "pronounce_word_end": 13,
+     "time_begin": 2432.0,
+     "time_end": 2602.6666666666665
+    },
+    {
+     "word": "能",
+     "word_begin": 13,
+     "word_end": 14,
+     "pronounce_word": "能",
+     "pronounce_word_begin": 13,
+     "pronounce_word_end": 14,
+     "time_begin": 2602.6666666666665,
+     "time_end": 2773.3333333333335
+    },
+    {
+     "word": "，",
+     "word_begin": 14,
+     "word_end": 15,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 14,
+     "pronounce_word_end": 15,
+     "time_begin": 2773.3333333333335,
+     "time_end": 2816.0
+    },
+    {
+     "word": "是",
+     "word_begin": 15,
+     "word_end": 16,
+     "pronounce_word": "是",
+     "pronounce_word_begin": 15,
+     "pronounce_word_end": 16,
+     "time_begin": 2816.0,
+     "time_end": 3370.6666666666665
+    },
+    {
+     "word": "讓",
+     "word_begin": 16,
+     "word_end": 17,
+     "pronounce_word": "让",
+     "pronounce_word_begin": 16,
+     "pronounce_word_end": 17,
+     "time_begin": 3370.6666666666665,
+     "time_end": 3584.0
+    },
+    {
+     "word": "目",
+     "word_begin": 17,
+     "word_end": 18,
+     "pronounce_word": "目",
+     "pronounce_word_begin": 17,
+     "pronounce_word_end": 18,
+     "time_begin": 3584.0,
+     "time_end": 3754.6666666666665
+    },
+    {
+     "word": "標",
+     "word_begin": 18,
+     "word_end": 19,
+     "pronounce_word": "标",
+     "pronounce_word_begin": 18,
+     "pronounce_word_end": 19,
+     "time_begin": 3754.6666666666665,
+     "time_end": 3925.333333333333
+    },
+    {
+     "word": "停",
+     "word_begin": 19,
+     "word_end": 20,
+     "pronounce_word": "停",
+     "pronounce_word_begin": 19,
+     "pronounce_word_end": 20,
+     "time_begin": 3925.333333333333,
+     "time_end": 4224.0
+    },
+    {
+     "word": "止",
+     "word_begin": 20,
+     "word_end": 21,
+     "pronounce_word": "止",
+     "pronounce_word_begin": 20,
+     "pronounce_word_end": 21,
+     "time_begin": 4224.0,
+     "time_end": 4522.666666666667
+    },
+    {
+     "word": "移",
+     "word_begin": 21,
+     "word_end": 22,
+     "pronounce_word": "移",
+     "pronounce_word_begin": 21,
+     "pronounce_word_end": 22,
+     "time_begin": 4522.666666666667,
+     "time_end": 4693.333333333333
+    },
+    {
+     "word": "動",
+     "word_begin": 22,
+     "word_end": 23,
+     "pronounce_word": "动",
+     "pronounce_word_begin": 22,
+     "pronounce_word_end": 23,
+     "time_begin": 4693.333333333333,
+     "time_end": 4864.0
+    },
+    {
+     "word": "。",
+     "word_begin": 23,
+     "word_end": 24,
+     "pronounce_word": "。",
+     "pronounce_word_begin": 23,
+     "pronounce_word_end": 24,
+     "time_begin": 4864.0,
+     "time_end": 4949.333333333334
+    }
+   ]
+  }
+ ],
+ "extra_info": {
+  "audio_length": 5250,
+  "audio_sample_rate": 44100,
+  "audio_size": 169994,
+  "bitrate": 256000,
+  "word_count": 24,
+  "invisible_character_ratio": 0,
+  "usage_characters": 45,
+  "audio_format": "mp3",
+  "audio_channel": 1
+ }
+}

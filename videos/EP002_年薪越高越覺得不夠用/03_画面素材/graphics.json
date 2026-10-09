@@ -1,0 +1,33 @@
+{
+  "card_gupta_facts": {"type": "statement", "bg": "web_gupta", "lines": [
+    {"text": "拉賈特·古普塔", "size": 96},
+    {"text": "前麥肯錫掌門人｜高盛、寶僑董事", "size": 46, "color": "m", "heavy": false, "delay": 0.8},
+    {"text": "2008 年身家約 8,400 萬美元", "size": 80, "color": "y", "delay": 0.9}],
+    "source": "資料：美國司法部新聞稿；審判中私人銀行家的證詞（媒體報導）"},
+  "ch_gupta_timeline": {"type": "timeline", "bg": "web_courthouse", "title": "從董事會到法庭", "events": [
+    {"date": "2008.09.23", "label": "洩露波克夏\n投資高盛的消息"},
+    {"date": "2008.10.23", "label": "再洩露高盛\n季度虧損消息"},
+    {"date": "2012.06.15", "label": "內線交易\n罪名成立"},
+    {"date": "2012.10.24", "label": "判刑兩年\n罰款 500 萬美元", "color": "r"}],
+    "source": "資料：美國司法部紐約南區檢察署新聞稿（2012-10-24）"},
+  "card_preview": {"type": "bullets", "bg": "sc_book_desk", "heading": "讓人越賺越不夠的 3 個陷阱", "items": [["1", "目標一直往上移"], ["2", "比較，永遠沒有終點"], ["3", "為了更多，賭上不該賭的"]]},
+  "brand_intro": {"type": "brand", "bg": "web_taipei", "text": "資產增長計劃", "sub": "EP002｜讀書系列《致富心態》"},
+
+  "card_goalpost": {"type": "quote", "bg": "sc_treadmill", "label": "摩根·豪瑟《致富心態》", "quote": "最難的理財技能，是讓目標停止移動。", "highlight": ["停止移動"], "size": 84, "author": "摩根·豪瑟", "source": "出處：Morgan Housel, The Psychology of Money（節譯）"},
+  "ch_expectation_gap": {"type": "gap", "bg": "sc_lifestyle_upgrade", "title": "收入越高，期待漲得更快", "label_expect": "期待", "label_income": "收入", "gap_label": "永遠覺得不夠", "x_label": "時間 →", "source": "示意圖"},
+
+  "ch_ladder": {"type": "ladder", "bg": "sc_social_media", "steps": ["你", "同事", "主管", "老闆", "億萬富翁", "世界首富", "？"], "note": "這個梯子，沒有最上面那一階"},
+  "card_ceiling": {"type": "quote", "bg": "sc_social_media", "label": "摩根·豪瑟《致富心態》", "quote": "社會比較的天花板太高了，高到幾乎沒有人碰得到。唯一能贏的方法，就是一開始就不參加這場比賽。", "highlight": ["不參加這場比賽"], "size": 66, "source": "出處：Morgan Housel, The Psychology of Money（節譯）"},
+  "ch_lottery": {"type": "flow", "bg": "web_lottery", "title": "彩票研究：鄰居中獎之後", "boxes": ["中獎金額越大\n加拿大某省 2004–2014", "鄰居擁有更多\n看得見的東西：車子、房子", "鄰居破產機率上升\n為了跟上別人"], "source": "資料：Agarwal、Mikhed、Scholnick，費城聯準會工作論文（2016、2018）"},
+
+  "card_buffett_quote": {"type": "quote", "bg": "web_buffett", "label": "巴菲特談長期資本管理公司（1998）", "quote": "為了賺他們沒有、也不需要的錢，他們拿自己已經擁有、而且需要的東西去冒險。這很愚蠢。", "highlight": ["沒有、也不需要", "擁有、而且需要"], "size": 64, "author": "巴菲特，佛羅里達大學演講", "source": "出處：Warren Buffett, University of Florida, 1998（節譯）"},
+  "card_never_risk": {"type": "bullets", "bg": "sc_family_window", "heading": "不值得拿去冒險的東西", "items": [["1", "名聲"], ["2", "自由與獨立"], ["3", "家人和朋友"], ["4", "被你在乎的人所愛"], ["5", "快樂"]], "source": "節錄自《致富心態》書中觀點"},
+
+  "card_step1": {"type": "bullets", "bg": "sc_notebook", "heading": "練習「夠了」的四個做法", "dim_old": true, "items": [["1", "把目標寫成具體數字，到了就停"]]},
+  "card_step2": {"type": "bullets", "bg": "sc_notebook", "heading": "練習「夠了」的四個做法", "dim_old": true, "instant": 1, "items": [["1", "把目標寫成具體數字，到了就停"], ["2", "加薪時先存一部分，再改善生活"]]},
+  "card_step3": {"type": "bullets", "bg": "sc_notebook", "heading": "練習「夠了」的四個做法", "dim_old": true, "instant": 2, "items": [["1", "把目標寫成具體數字，到了就停"], ["2", "加薪時先存一部分，再改善生活"], ["3", "跟去年的自己比，不跟別人比"]]},
+  "card_step4": {"type": "bullets", "bg": "sc_notebook", "heading": "練習「夠了」的四個做法", "dim_old": true, "instant": 3, "items": [["1", "把目標寫成具體數字，到了就停"], ["2", "加薪時先存一部分，再改善生活"], ["3", "跟去年的自己比，不跟別人比"], ["4", "寫下絕不拿去冒險的東西"]]},
+
+  "card_heller": {"type": "quote", "bg": "web_shelter", "label": "馮內果〈Joe Heller〉，《紐約客》2005", "quote": "「我有一樣他永遠不會有的東西。」「那會是什麼？」「知道自己已經夠了。」", "highlight": ["知道自己已經夠了"], "size": 64, "source": "出處：Kurt Vonnegut, “Joe Heller”, The New Yorker, 2005（翻譯）"},
+  "end_card": {"type": "endcard", "bg": "web_taipei", "next": "下一集：真正有錢的人，你根本看不出來"}
+}

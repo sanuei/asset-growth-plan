@@ -1,0 +1,269 @@
+{
+ "text": "不夠的感覺，很多時候不是來自自己，而是來自別人。",
+ "subtitles": [
+  {
+   "text": "不夠的感覺，很多時候不是來自自己，而是來自別人。",
+   "pronounce_text": "不够的感觉，很多时候不是来自自己，而是来自别人。",
+   "time_begin": 0.0,
+   "time_end": 5100.0,
+   "text_begin": 0,
+   "text_end": 24,
+   "pronounce_text_begin": 0,
+   "pronounce_text_end": 24,
+   "is_final_segment": true,
+   "timestamped_words": [
+    {
+     "word": "不",
+     "word_begin": 0,
+     "word_end": 1,
+     "pronounce_word": "不",
+     "pronounce_word_begin": 0,
+     "pronounce_word_end": 1,
+     "time_begin": 42.666666666666664,
+     "time_end": 170.66666666666666
+    },
+    {
+     "word": "夠",
+     "word_begin": 1,
+     "word_end": 2,
+     "pronounce_word": "够",
+     "pronounce_word_begin": 1,
+     "pronounce_word_end": 2,
+     "time_begin": 170.66666666666666,
+     "time_end": 341.3333333333333
+    },
+    {
+     "word": "的",
+     "word_begin": 2,
+     "word_end": 3,
+     "pronounce_word": "的",
+     "pronounce_word_begin": 2,
+     "pronounce_word_end": 3,
+     "time_begin": 341.3333333333333,
+     "time_end": 384.0
+    },
+    {
+     "word": "感",
+     "word_begin": 3,
+     "word_end": 4,
+     "pronounce_word": "感",
+     "pronounce_word_begin": 3,
+     "pronounce_word_end": 4,
+     "time_begin": 384.0,
+     "time_end": 640.0
+    },
+    {
+     "word": "覺",
+     "word_begin": 4,
+     "word_end": 5,
+     "pronounce_word": "觉",
+     "pronounce_word_begin": 4,
+     "pronounce_word_end": 5,
+     "time_begin": 640.0,
+     "time_end": 853.3333333333333
+    },
+    {
+     "word": "，",
+     "word_begin": 5,
+     "word_end": 6,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 5,
+     "pronounce_word_end": 6,
+     "time_begin": 853.3333333333333,
+     "time_end": 896.0
+    },
+    {
+     "word": "很",
+     "word_begin": 6,
+     "word_end": 7,
+     "pronounce_word": "很",
+     "pronounce_word_begin": 6,
+     "pronounce_word_end": 7,
+     "time_begin": 896.0,
+     "time_end": 1365.3333333333333
+    },
+    {
+     "word": "多",
+     "word_begin": 7,
+     "word_end": 8,
+     "pronounce_word": "多",
+     "pronounce_word_begin": 7,
+     "pronounce_word_end": 8,
+     "time_begin": 1365.3333333333333,
+     "time_end": 1792.0
+    },
+    {
+     "word": "時",
+     "word_begin": 8,
+     "word_end": 9,
+     "pronounce_word": "时",
+     "pronounce_word_begin": 8,
+     "pronounce_word_end": 9,
+     "time_begin": 1792.0,
+     "time_end": 1962.6666666666665
+    },
+    {
+     "word": "候",
+     "word_begin": 9,
+     "word_end": 10,
+     "pronounce_word": "候",
+     "pronounce_word_begin": 9,
+     "pronounce_word_end": 10,
+     "time_begin": 1962.6666666666665,
+     "time_end": 2175.9999999999995
+    },
+    {
+     "word": "不",
+     "word_begin": 10,
+     "word_end": 11,
+     "pronounce_word": "不",
+     "pronounce_word_begin": 10,
+     "pronounce_word_end": 11,
+     "time_begin": 2175.9999999999995,
+     "time_end": 2346.6666666666665
+    },
+    {
+     "word": "是",
+     "word_begin": 11,
+     "word_end": 12,
+     "pronounce_word": "是",
+     "pronounce_word_begin": 11,
+     "pronounce_word_end": 12,
+     "time_begin": 2346.6666666666665,
+     "time_end": 2687.9999999999995
+    },
+    {
+     "word": "來",
+     "word_begin": 12,
+     "word_end": 13,
+     "pronounce_word": "来",
+     "pronounce_word_begin": 12,
+     "pronounce_word_end": 13,
+     "time_begin": 2687.9999999999995,
+     "time_end": 2858.6666666666665
+    },
+    {
+     "word": "自",
+     "word_begin": 13,
+     "word_end": 14,
+     "pronounce_word": "自",
+     "pronounce_word_begin": 13,
+     "pronounce_word_end": 14,
+     "time_begin": 2858.6666666666665,
+     "time_end": 3029.333333333333
+    },
+    {
+     "word": "自",
+     "word_begin": 14,
+     "word_end": 15,
+     "pronounce_word": "自",
+     "pronounce_word_begin": 14,
+     "pronounce_word_end": 15,
+     "time_begin": 3029.333333333333,
+     "time_end": 3157.3333333333335
+    },
+    {
+     "word": "己",
+     "word_begin": 15,
+     "word_end": 16,
+     "pronounce_word": "己",
+     "pronounce_word_begin": 15,
+     "pronounce_word_end": 16,
+     "time_begin": 3157.3333333333335,
+     "time_end": 3328.0
+    },
+    {
+     "word": "，",
+     "word_begin": 16,
+     "word_end": 17,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 16,
+     "pronounce_word_end": 17,
+     "time_begin": 3328.0,
+     "time_end": 3370.6666666666665
+    },
+    {
+     "word": "而",
+     "word_begin": 17,
+     "word_end": 18,
+     "pronounce_word": "而",
+     "pronounce_word_begin": 17,
+     "pronounce_word_end": 18,
+     "time_begin": 3370.6666666666665,
+     "time_end": 3754.6666666666665
+    },
+    {
+     "word": "是",
+     "word_begin": 18,
+     "word_end": 19,
+     "pronounce_word": "是",
+     "pronounce_word_begin": 18,
+     "pronounce_word_end": 19,
+     "time_begin": 3754.6666666666665,
+     "time_end": 4010.6666666666665
+    },
+    {
+     "word": "來",
+     "word_begin": 19,
+     "word_end": 20,
+     "pronounce_word": "来",
+     "pronounce_word_begin": 19,
+     "pronounce_word_end": 20,
+     "time_begin": 4010.6666666666665,
+     "time_end": 4138.666666666666
+    },
+    {
+     "word": "自",
+     "word_begin": 20,
+     "word_end": 21,
+     "pronounce_word": "自",
+     "pronounce_word_begin": 20,
+     "pronounce_word_end": 21,
+     "time_begin": 4138.666666666666,
+     "time_end": 4309.333333333333
+    },
+    {
+     "word": "別",
+     "word_begin": 21,
+     "word_end": 22,
+     "pronounce_word": "别",
+     "pronounce_word_begin": 21,
+     "pronounce_word_end": 22,
+     "time_begin": 4309.333333333333,
+     "time_end": 4479.999999999999
+    },
+    {
+     "word": "人",
+     "word_begin": 22,
+     "word_end": 23,
+     "pronounce_word": "人",
+     "pronounce_word_begin": 22,
+     "pronounce_word_end": 23,
+     "time_begin": 4479.999999999999,
+     "time_end": 4650.666666666667
+    },
+    {
+     "word": "。",
+     "word_begin": 23,
+     "word_end": 24,
+     "pronounce_word": "。",
+     "pronounce_word_begin": 23,
+     "pronounce_word_end": 24,
+     "time_begin": 4650.666666666667,
+     "time_end": 4864.0
+    }
+   ]
+  }
+ ],
+ "extra_info": {
+  "audio_length": 5250,
+  "audio_sample_rate": 44100,
+  "audio_size": 169994,
+  "bitrate": 256000,
+  "word_count": 24,
+  "invisible_character_ratio": 0,
+  "usage_characters": 45,
+  "audio_format": "mp3",
+  "audio_channel": 1
+ }
+}

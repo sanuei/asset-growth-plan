@@ -2,6 +2,11 @@
 
 用法: .venv/bin/python pipeline/tts_episode.py videos/EP001_xxx [--only p01,p02] [--force]
 
+两种模式：
+- long（script.json "version" ≥ 3 的默认）：按章节把段落拼成一大段，一次合成，段落之间用 <#秒数#> 停顿标记。
+  一期通常只需 1～2 次请求，语气连贯，费用与逐段相同（按字数计费）。输出 segments/c01.mp3、c01.json …
+- paragraph（旧集数）：逐段合成，输出 segments/p01.mp3 …
+
 输入: <episode>/01_文案/script.json
 输出: <episode>/02_配音/segments/<pid>.mp3 和 <pid>.json（句子时间戳，毫秒）
 """
@@ -71,17 +76,106 @@ def run_one(pid, text, outdir, force):
             time.sleep(3 * attempt)
 
 
+# 整段合成用的停顿（秒）。章节之间的停顿要留出章节卡的时间。
+PARA_PAUSE = 0.6
+SECTION_PAUSE = 0.9
+TITLE_CARD = 2.4
+CHUNK_CHARS = 2800  # MiniMax 建议单次 3000 字以内
+
+
+def build_chunks(script):
+    """回传 [{"id": "c01", "items": [{"para": id, "text": ...} | {"pause": 秒, "parts": [...]}]}]
+    parts 记录合并前的每段停顿：{"kind": "gap|title|brand", "sec": 秒, "section"/"para": id}"""
+    chunks, cur, size = [], [], 0
+
+    def pause(kind, sec, **ids):
+        return {"pause": sec, "parts": [{"kind": kind, "sec": sec, **ids}]}
+
+    for sec in script["sections"]:
+        sec_chars = sum(len(p.get("text", "")) for p in sec["paragraphs"])
+        if cur and size + sec_chars > CHUNK_CHARS:  # 只在章节边界拆
+            chunks.append(cur)
+            cur, size = [], 0
+        if cur:
+            if sec.get("title_card"):
+                cur.append(pause("title", round(SECTION_PAUSE + TITLE_CARD, 2), section=sec["id"]))
+            else:
+                cur.append(pause("gap", SECTION_PAUSE))
+        for p in sec["paragraphs"]:
+            if "silence" in p:
+                cur.append(pause("brand", p["silence"], para=p["id"]))
+                continue
+            if cur and "text" in cur[-1]:
+                cur.append(pause("gap", PARA_PAUSE))
+            cur.append({"para": p["id"], "text": p["text"]})
+            size += len(p["text"])
+    if cur:
+        chunks.append(cur)
+    out = []
+    for i, items in enumerate(chunks, 1):
+        merged = []  # 相邻停顿合并成一个（MiniMax 不接受连续停顿标记）
+        for it in items:
+            if "pause" in it and merged and "pause" in merged[-1]:
+                prev = merged[-1]
+                parts = [x for x in prev["parts"] + it["parts"] if x["kind"] != "gap"] or prev["parts"]
+                merged[-1] = {"pause": round(sum(x["sec"] for x in parts), 2), "parts": parts}
+            else:
+                merged.append(it)
+        while merged and "pause" in merged[0]:
+            merged.pop(0)
+        while merged and "pause" in merged[-1]:
+            merged.pop()
+        out.append({"id": f"c{i:02d}", "items": merged})
+    return out
+
+
+def chunk_text(items):
+    return "".join(it["text"] if "text" in it else f"<#{it['pause']:.2f}#>" for it in items)
+
+
+def run_long(script, outdir, force):
+    total_ms, failed = 0, []
+    for ch in build_chunks(script):
+        mp3, js = os.path.join(outdir, ch["id"] + ".mp3"), os.path.join(outdir, ch["id"] + ".json")
+        if not force and os.path.exists(mp3) and os.path.exists(js):
+            print(f"{ch['id']}: skip")
+            continue
+        text = chunk_text(ch["items"])
+        for attempt in range(1, 5):
+            try:
+                audio, subs, info = synth(text)
+                open(mp3, "wb").write(audio)
+                json.dump({"text": text, "items": ch["items"], "subtitles": subs, "extra_info": info},
+                          open(js, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+                ms = info.get("audio_length", 0)
+                total_ms += ms
+                n = sum(1 for it in ch["items"] if "text" in it)
+                print(f"{ch['id']}: ok {ms / 1000:.1f}s，{n} 段，{len(text)} 字（含停顿标记）", flush=True)
+                break
+            except (urllib.error.URLError, RuntimeError, TimeoutError) as e:
+                if attempt == 4:
+                    failed.append(ch["id"])
+                    print(f"{ch['id']}: FAIL {e}")
+                time.sleep(3 * attempt)
+    print(f"本次合成 {total_ms / 1000:.1f}s；失败: {failed or '无'}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("episode")
     ap.add_argument("--only")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--workers", type=int, default=3)
+    ap.add_argument("--mode", choices=["long", "paragraph"])
     args = ap.parse_args()
 
     script = json.load(open(os.path.join(args.episode, "01_文案/script.json"), encoding="utf-8"))
     outdir = os.path.join(args.episode, "02_配音/segments")
     os.makedirs(outdir, exist_ok=True)
+    mode = args.mode or ("long" if script.get("version", 1) >= 3 else "paragraph")
+    if mode == "long":
+        run_long(script, outdir, args.force)
+        return
     only = set(args.only.split(",")) if args.only else None
     jobs = [(p["id"], p["text"]) for s in script["sections"] for p in s["paragraphs"]
             if "text" in p and (not only or p["id"] in only)]

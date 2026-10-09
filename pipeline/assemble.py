@@ -80,8 +80,10 @@ def build_timeline(ep, script):
     for sec in script["sections"]:
         chapters.append((t if sec["id"] != "s0" else 0.0, sec["chapter"]))
         if sec.get("title_card"):
-            visuals.append({"id": f"title_{sec['id']}", "start": t, "dur": TITLE_DUR,
-                            "spec": {"type": "title", "text": sec["title_card"]}})
+            spec = {"type": "title", "text": sec["title_card"]}
+            if script.get("version", 1) >= 2:
+                spec["bg"] = next(v for p in sec["paragraphs"] for v in p["visuals"])
+            visuals.append({"id": f"title_{sec['id']}", "start": t, "dur": TITLE_DUR, "spec": spec})
             t += TITLE_DUR
         for i, p in enumerate(sec["paragraphs"]):
             last = i == len(sec["paragraphs"]) - 1
@@ -94,7 +96,8 @@ def build_timeline(ep, script):
             d = seg["extra_info"]["audio_length"] / 1000
             block = d + (SECTION_GAP if last else GAP)
             audio.append((p["id"], t))
-            paras.append({"id": p["id"], "start": t, "text": p["text"], "times": char_times(seg)})
+            paras.append({"id": p["id"], "start": t, "text": p["text"], "times": char_times(seg),
+                          "mp3": os.path.join(seg_dir, p["id"] + ".mp3")})
             # 多个画面：在最接近等分点的标点处切换
             n = len(p["visuals"])
             cuts = [0.0]
@@ -273,7 +276,7 @@ def watermark(path):
 
 # ---------- 音频 ----------
 
-def build_audio(ep, audio, total, work):
+def build_audio(ep, audio, total, work, seed=7):
     seg_dir = os.path.join(ep, "02_配音/segments")
     n = int(total * SR) + SR
     voice = np.zeros(n, dtype=np.float32)
@@ -285,7 +288,7 @@ def build_audio(ep, audio, total, work):
 
     bgm_path = os.path.join(ep, "02_配音/bgm.wav")
     if not os.path.exists(bgm_path):
-        run([sys.executable, os.path.join(HERE, "bgm_synth.py"), bgm_path, "--seconds", f"{total + 1:.1f}"])
+        run([sys.executable, os.path.join(HERE, "bgm_synth.py"), bgm_path, "--seconds", f"{total + 1:.1f}", "--seed", str(seed)])
     with wave.open(bgm_path) as w:
         bgm = np.frombuffer(w.readframes(w.getnframes()), dtype="<i2").astype(np.float32).reshape(-1, 2) / 32768
     bgm = np.pad(bgm, ((0, max(0, n - len(bgm))), (0, 0)))[:n]
@@ -315,7 +318,11 @@ def main():
     work = os.path.join(ep, "99_工作文件")
     script = json.load(open(os.path.join(ep, "01_文案/script.json"), encoding="utf-8"))
 
-    visuals, audio, chapters, paras, total = build_timeline(ep, script)
+    if script.get("version", 1) >= 3:  # 整章配音：用音频里的停顿定时间轴
+        import v2 as _v2
+        visuals, audio, chapters, paras, total = _v2.build_timeline_long(ep, script, LEAD, TITLE_DUR, decode_mp3)
+    else:
+        visuals, audio, chapters, paras, total = build_timeline(ep, script)
     total += 1.0  # 结尾留白
     visuals[-1]["dur"] += 1.0
     print(f"总时长 {total / 60:.1f} 分钟，画面 {len(visuals)} 个，配音 {len(audio)} 段")
@@ -324,7 +331,12 @@ def main():
         for t, name in chapters:
             f.write(f"{int(t // 60)}:{int(t % 60):02d} {name}\n")
 
-    events = build_subs(paras, total)
+    v2 = None
+    if script.get("version", 1) >= 2:
+        import v2  # noqa: F811  第二版：亚像素推拉、网图署名、按停顿对齐字幕
+        events = v2.build_subs(paras, v2.split_chunks, clean_sub, SUB_MAX, decode_mp3)
+    else:
+        events = build_subs(paras, total)
     ep_name = os.path.basename(ep).split("_")[0]
     with open(os.path.join(ep, f"04_字幕/{ep_name}.srt"), "w", encoding="utf-8") as f:
         for i, (a, b, txt) in enumerate(events, 1):
@@ -333,8 +345,13 @@ def main():
 
     sub_mov = os.path.join(work, "subs.mov")
     build_sub_track(events, total, work, sub_mov)
-    mix = build_audio(ep, audio, total, work)
-    clips = build_clips(ep, visuals, work, args.force_graphics)
+    mix = build_audio(ep, audio, total, work, seed=script.get("bgm_seed", 7))
+    if v2:
+        for pid, off, txt in v2.sync_report(events, paras, decode_mp3):
+            print(f"  同步抽查 {pid}: 字幕比开口 {off:+.2f}s「{txt}」")
+        clips = v2.build_clips(ep, visuals, work, args.force_graphics)
+    else:
+        clips = build_clips(ep, visuals, work, args.force_graphics)
 
     lst = os.path.join(work, "clips.ffconcat")
     open(lst, "w", encoding="utf-8").write("ffconcat version 1.0\n" + "".join(f"file '{os.path.abspath(c)}'\n" for c in clips))
