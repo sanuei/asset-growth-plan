@@ -11,6 +11,7 @@
 import argparse
 import base64
 import json
+import os
 import sys
 import time
 import urllib.error
@@ -24,16 +25,17 @@ W, H = 1280, 720
 YELLOW = (255, 214, 0)
 RED = (225, 30, 40)
 MARGIN = 56
+# 全频道统一的电影剧照风格（与场景图共用）
+STYLE = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "pipeline", "image_style.txt"), encoding="utf-8").read().strip()
 
 
 def generate_background(prompt, text_side, out_path, retries=4):
     person_side = "right" if text_side == "left" else "left"
     full_prompt = (
-        f"{prompt}. Photorealistic portrait for a YouTube thumbnail. "
+        f"{prompt}. YouTube thumbnail framed like a cinematic film still. "
         f"The person is placed on the {person_side} third of the frame, head and shoulders, "
         f"looking toward the camera. The {text_side} half of the frame is empty dark background "
-        "reserved for text. Dark charcoal moody background, dramatic studio lighting, high contrast. "
-        "Absolutely no text, letters, numbers, logos or watermarks."
+        "reserved for text, high contrast. " + STYLE
     )
     body = {
         "model": ENV.get("COVER_IMAGE_MODEL", "gpt-image-2"),

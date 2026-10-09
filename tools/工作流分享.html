@@ -224,6 +224,7 @@ flowchart LR
           <tr><td>字幕</td><td>思源黑体繁体粗体 56px，白字、3px 黑描边、60% 黑色投影，底部居中，每行最多 16 字</td></tr>
           <tr><td>封面</td><td>1280×720；放主题人物；深色背景；2～3 行粗体字，配色用白加红或白加黄；文字由程序叠加</td></tr>
           <tr><td>画面素材</td><td>优先用网上可商用的图片，找不到再用 AI 生成；图表由程序绘制</td></tr>
+          <tr><td>AI 图片风格</td><td>全频道统一、标准从严：写实的电影剧照质感（35mm 胶片、自然光、浅景深、胶片颗粒、克制的冷暖调色），禁止插画、卡通和 CGI 感</td></tr>
           <tr><td>配音</td><td>低沉男声，正常语速，不加速</td></tr>
           <tr><td>合规</td><td>不荐股、不承诺收益；引语必须真实存在；AI 生成内容要披露</td></tr>
           <tr><td>上传</td><td>先私享上传，检查无误后再公开</td></tr>
@@ -246,7 +247,7 @@ flowchart LR
           <tr><td>研究与核查</td><td>Claude 读一手资料（PDF 用 <code>pdftotext</code> 抽出文字）</td><td>资料原文存档</td></tr>
           <tr><td>写文案</td><td>写成 <code>script.json</code>：每段标好要配的画面</td><td>文案与画面安排</td></tr>
           <tr><td>配音</td><td><code>tts_episode.py</code>：逐段合成，失败自动重试</td><td>mp3 + 时间戳</td></tr>
-          <tr><td>场景图</td><td><code>images_episode.py</code>：统一插画风格，失败时切到备用模型</td><td>场景图</td></tr>
+          <tr><td>场景图</td><td><code>images_episode.py</code>：统一的电影剧照风格，失败时切到备用模型</td><td>场景图</td></tr>
           <tr><td>图表与文字卡</td><td><code>graphics.py</code>：Pillow 逐帧绘制动画</td><td>动画片段</td></tr>
           <tr><td>合成</td><td><code>assemble.py</code>：镜头推拉、字幕轨、背景音乐自动压低、水印、响度统一到 -14 LUFS</td><td>成片、SRT、章节时间</td></tr>
           <tr><td>封面与发布信息</td><td><code>cover.py</code>：AI 背景加程序叠字；标题、描述、标签</td><td>封面与文案</td></tr>
@@ -329,6 +330,7 @@ flowchart LR
         <li>字幕和语音轻微不同步：要改用语音识别做强制对齐，出片前自动抽查时间差。</li>
         <li>配音改回正常语速（EP001 用的是 1.1 倍）。</li>
         <li>图片优先在网上找可商用的，减少 AI 生图的费用。</li>
+        <li>AI 生成的图片风格统一，美学标准从严，贴近真实电影剧照质感。</li>
         <li>标题写得更长、更利他。</li>
       </ul>
       <h3>接下来</h3>

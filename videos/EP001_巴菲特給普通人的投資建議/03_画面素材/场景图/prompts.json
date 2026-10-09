@@ -1,5 +1,5 @@
 {
-  "style": "Cinematic digital painting, editorial illustration style, rich warm golden highlights against deep navy and charcoal shadows, soft film grain, dramatic lighting, 16:9 widescreen composition. Absolutely no text, no letters, no numbers, no logos, no watermark.",
+  "style_override": "Cinematic digital painting, editorial illustration style, rich warm golden highlights against deep navy and charcoal shadows, soft film grain, dramatic lighting, 16:9 widescreen composition. Absolutely no text, no letters, no numbers, no logos, no watermark.",
   "scenes": {
     "sc_letter": "An old wooden desk at night in Omaha, a neat stack of printed annual shareholder letters, reading glasses resting on top, a brass desk lamp casting warm light, snowy window in the background",
     "sc_buffett": "Portrait of Warren Buffett, the elderly American investor with white hair and glasses, smiling gently, seated in a modest wood-paneled office, warm lamp light",

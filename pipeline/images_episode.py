@@ -3,6 +3,7 @@
 用法: .venv/bin/python pipeline/images_episode.py videos/EP001_xxx [--only sc_a,sc_b] [--force]
 
 输入: <episode>/03_画面素材/场景图/prompts.json
+画面风格: 统一使用 pipeline/image_style.txt（电影剧照质感）。只有旧集数为了可重现，才在 prompts.json 里用 "style_override"。
 输出: <episode>/03_画面素材/场景图/<id>.png
 """
 import argparse
@@ -19,6 +20,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import ENV  # noqa: E402
 
 FALLBACK_MODEL = "gemini-3.1-flash-image"
+STYLE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "image_style.txt")
 
 
 def request_image(model, prompt):
@@ -64,8 +66,9 @@ def main():
 
     folder = os.path.join(args.episode, "03_画面素材/场景图")
     spec = json.load(open(os.path.join(folder, "prompts.json"), encoding="utf-8"))
+    style = spec.get("style_override") or open(STYLE_FILE, encoding="utf-8").read().strip()
     only = set(args.only.split(",")) if args.only else None
-    jobs = [(sid, f"{p} {spec['style']}", os.path.join(folder, f"{sid}.png"))
+    jobs = [(sid, f"{p} {style}", os.path.join(folder, f"{sid}.png"))
             for sid, p in spec["scenes"].items() if not only or sid in only]
 
     failed = []
