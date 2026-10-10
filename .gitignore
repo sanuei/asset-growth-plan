@@ -1,6 +1,7 @@
 # 密钥：绝不提交
 .env
 token.json
+token_*.json
 client_secret_*.json
 
 # 本地环境
