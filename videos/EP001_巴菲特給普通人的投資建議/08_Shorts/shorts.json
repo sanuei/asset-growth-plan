@@ -1,0 +1,32 @@
+{
+ "S01": {
+  "paras": ["p01", "p04"],
+  "hook": ["最會挑股票的人", "遺囑卻叫妻子別挑股票"],
+  "visuals": {
+   "sc_letter": {"img": "sc_letter", "fx": 0.45, "zoom": "in"},
+   "sc_buffett": {"img": "sc_buffett", "fx": 0.5, "zoom": "in"},
+   "sc_wallstreet_glam": {"img": "sc_wallstreet_glam", "fx": 0.72, "zoom": "out"},
+   "card_will_quote": {"card": "quote",
+    "lines": [["把現金的", "10%"], ["放進短期美國公債，"], ["剩下的", "90%"], ["買一支", "費用非常低"], ["的標普500指數基金"]],
+    "highlight": ["10%", "90%", "費用非常低"], "source": "出處：巴菲特 2013 年致波克夏股東信"},
+   "ch_9010": {"card": "donut",
+    "segments": [{"pct": 90, "label": "低成本標普500指數基金", "color": "g"}, {"pct": 10, "label": "短期美國公債", "color": "gray"}]},
+   "sc_question": {"img": "sc_question", "fx": 0.5, "zoom": "in"}
+  }
+ },
+ "S02": {
+  "paras": ["p31", "p34"],
+  "hook": ["每年多付 1% 費用", "77 年後少了一半"],
+  "visuals": {
+   "sc_calculator": {"img": "sc_calculator", "fx": 0.5, "zoom": "in"},
+   "ch_fee_a": {"card": "bars", "title": "1942 年投入 100 萬美元，77 年後",
+    "bars": [{"label": "不收費", "value": 53, "color": "g", "fmt": "約 {:.1f} 億美元", "final": "約 53 億美元", "delay": 0.3}],
+    "source": "出處：巴菲特 2018 年致波克夏股東信"},
+   "ch_fee_b": {"card": "bars", "title": "1942 年投入 100 萬美元，77 年後",
+    "bars": [{"label": "不收費", "value": 53, "color": "g", "fmt": "約 {:.1f} 億美元", "final": "約 53 億美元", "pre": true},
+             {"label": "每年多付 1%", "value": 26.5, "color": "r", "fmt": "約 {:.1f} 億美元", "final": "約 26.5 億美元", "delay": 0.6}],
+    "note": "一年只差 1%，結果少了一半", "note_at": 3.0, "source": "出處：巴菲特 2018 年致波克夏股東信"},
+   "sc_snowball": {"img": "sc_snowball", "fx": 0.72, "zoom": "in"}
+  }
+ }
+}
