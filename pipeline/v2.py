@@ -114,13 +114,13 @@ def clip_frames(path):
         return -1
 
 
-def build_clips(ep, visuals, work, force_graphics=False):
+def build_clips(ep, visuals, work, force_graphics=False, index_offset=0):
     gspec = json.load(open(os.path.join(ep, "03_画面素材/graphics.json"), encoding="utf-8"))
     clip_dir = os.path.join(work, "clips_v2")
     os.makedirs(clip_dir, exist_ok=True)
     prev_dir = os.path.join(ep, "03_画面素材/图表")
     paths = []
-    for i, v in enumerate(visuals):
+    for i, v in enumerate(visuals, index_offset):
         n = max(1, round((v["start"] + v["dur"]) * FPS) - round(v["start"] * FPS))
         out = os.path.join(clip_dir, f"{i:03d}_{v['id']}_{n}f.mp4")
         paths.append(out)
@@ -132,7 +132,8 @@ def build_clips(ep, visuals, work, force_graphics=False):
         else:
             spec = dict(v.get("spec") or gspec[v["id"]])
             if spec.get("bg"):
-                spec["bg"] = os.path.abspath(find_visual(ep, spec["bg"])[0] or "")
+                bg_path = find_visual(ep, spec["bg"])[0]
+                spec["bg"] = os.path.abspath(bg_path) if bg_path else None  # 背景不是图片（例如章节首个画面是图表卡）时用默认底色
             G2.render_clip(spec, n / FPS, out, preview_png=os.path.join(prev_dir, v["id"] + ".png"), frames=n)
         print(f"  画面 {i + 1}/{len(visuals)} {v['id']} {v['dur']:.1f}s", flush=True)
     return paths
@@ -188,9 +189,11 @@ def align_paragraph(text, est_times, audio):
             anchors += [(j, gaps[k][0]), (j + 1, gaps[k][1])]
     anchors.append((len(text), offset))
     anchors.sort()
-    xs = np.array([a for a, _ in anchors], np.float64)
+    wts = spoken_weights(text)
+    cum = np.concatenate([[0.0], np.cumsum([0.0 if ch in PUNCT else wt for ch, wt in zip(text, wts)])])
+    xs = np.array([cum[a] for a, _ in anchors], np.float64)
     ys = np.maximum.accumulate(np.array([b for _, b in anchors], np.float64))
-    return lambda i: float(np.interp(i, xs, ys))
+    return lambda i: float(np.interp(cum[min(int(i), len(text))], xs, ys))
 
 
 def build_subs(paras, split_chunks, clean_sub, sub_max, decode):
@@ -372,15 +375,64 @@ def expected_pauses(items, onset, offset, tail=0.3):
     return durs, mids
 
 
+_DIG = "零一二三四五六七八九"
+
+
+def _cn_int(n):
+    """整数的中文读法（如 1250 → 一千两百五十），只用来估计读音长度。"""
+    if n == 0:
+        return "零"
+
+    def sec(k):  # 0 < k < 10000
+        out, zero = "", False
+        for u, name in ((1000, "千"), (100, "百"), (10, "十"), (1, "")):
+            d, k = divmod(k, u)
+            if d:
+                if zero:
+                    out += "零"
+                    zero = False
+                out += ("" if (name == "十" and d == 1 and not out) else _DIG[d]) + name
+            elif out:
+                zero = True
+        return out
+    out = ""
+    for base, name in ((10 ** 8, "億"), (10 ** 4, "萬")):
+        q, n = divmod(n, base)
+        if q:
+            out += sec(q) + name
+    return out + (sec(n) if n else "")
+
+
+def spoken_weights(text):
+    """每个字符对应的「读出来有几个音节」：数字、百分号、英文字母读起来比汉字长，
+    按字数平均会让数字多的句子里字幕越来越早或越来越晚。"""
+    import re
+    w = [1.0] * len(text)
+    for m in re.finditer(r"\d[\d,]*(?:\.\d+)?%?|[A-Za-z]+", text):
+        tok = m.group(0)
+        if tok[0].isdigit():
+            body = tok.rstrip("%").replace(",", "")
+            ip, _, fp = body.partition(".")
+            nxt = text[m.end():m.end() + 1]
+            n = len(ip) if (len(ip) == 4 and nxt in ("年", "財")) else len(_cn_int(int(ip)))
+            n += (1 + len(fp)) if fp else 0
+            n += 3 if tok.endswith("%") else 0
+        else:
+            n = max(1.0, len(tok) / 2.2) if len(tok) > 1 else 1.6
+        for k in range(m.start(), m.end()):
+            w[k] = n / (m.end() - m.start())
+    return w
+
+
 def est_times(text, dur):
-    """按字数平均估计每个字的时间（供标点对齐时找最近的停顿）。"""
-    spoken = [i for i, ch in enumerate(text) if ch not in PUNCT]
-    step = dur / max(1, len(spoken))
-    times, k = [], 0
+    """按读音长度（见 spoken_weights）估计每个字的时间（供标点对齐时找最近的停顿）。"""
+    wts = spoken_weights(text)
+    total = sum(wt for ch, wt in zip(text, wts) if ch not in PUNCT) or 1.0
+    times, acc = [], 0.0
     for i, ch in enumerate(text):
-        times.append((i, k * step, (k + 1) * step))
-        if ch not in PUNCT:
-            k += 1
+        wt = 0.0 if ch in PUNCT else wts[i]
+        times.append((i, acc / total * dur, (acc + wt) / total * dur))
+        acc += wt
     return times
 
 
@@ -484,4 +536,5 @@ def build_timeline_long(ep, script, lead, title_dur, decode):
 
 
 def first_visual(sec):
-    return next(v for p in sec["paragraphs"] for v in p.get("visuals", []))
+    """章节标题卡的背景：优先用 script.json 里该章的 title_bg，否则取本章第一个画面。"""
+    return sec.get("title_bg") or next(v for p in sec["paragraphs"] for v in p.get("visuals", []))

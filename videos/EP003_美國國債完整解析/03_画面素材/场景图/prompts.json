@@ -1,0 +1,14 @@
+{
+ "scenes": {
+  "sc_vault_door": "A heavy steel bank vault door slightly ajar in a dim basement corridor, a thin beam of warm light spilling out across a polished stone floor, brushed steel and brass details, quiet and imposing, no people",
+  "sc_ledger_desk": "A wooden desk at night with a stack of old leather-bound accounting ledgers, a brass desk lamp casting a warm pool of light, a vintage calculator and a fountain pen, rows of handwritten numbers blurred and unreadable, dark office behind",
+  "sc_stair_steps": "A long flight of wide stone steps climbing up toward a grand neoclassical building in early morning mist, soft golden light on the top steps, empty plaza, no people, quiet and monumental",
+  "sc_hourglass": "A large glass hourglass on a dark wooden table with sand running, warm side light, shallow depth of field, a blurred cityscape at dusk through a window behind it, calm and contemplative",
+  "sc_trading_hall": "An empty grand marble banking hall at dawn, rows of desks with dark computer monitors, tall windows with pale blue light, columns and a high ceiling, nobody present, a feeling of anticipation before the market opens",
+  "sc_seesaw_dusk": "An empty playground seesaw tilted at an angle at dusk, one end high and one end low, soft orange sunset light behind it, a deserted city park, long shadows, melancholic and symbolic",
+  "sc_rain_window": "A rain-streaked office window at night overlooking a financial district skyline with scattered lights, a lone desk lamp reflected in the glass, moody blue and amber tones, nobody visible",
+  "sc_dam_water": "A massive concrete dam holding back a huge reservoir of dark water, water level high against the wall, overcast sky, a thin stream of water pouring from the spillway, dramatic and tense, aerial three-quarter view",
+  "sc_storm_harbor": "A large cargo ship steady in a harbor under heavy storm clouds with a break of light on the horizon, choppy dark water, lighthouse in the distance, dramatic but calm, no people visible",
+  "sc_taipei_desk": "A modern apartment desk at night with a laptop showing a blurred chart, a notebook and a cup of tea, warm lamp light, a large window with the glittering Taipei skyline and Taipei 101 in the distance, no people"
+ }
+}

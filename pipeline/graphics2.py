@@ -514,3 +514,6 @@ def render_clip(spec, dur, out_mp4, preview_png=None, frames=None):
     proc.stdin.close()
     if proc.wait() != 0:
         raise RuntimeError(f"ffmpeg 编码失败: {out_mp4}")
+
+
+import graphics3  # noqa: E402,F401  纸张质感图表卡（EP003 起），注册到 DRAW

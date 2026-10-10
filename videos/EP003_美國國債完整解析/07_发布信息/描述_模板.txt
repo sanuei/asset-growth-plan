@@ -1,0 +1,43 @@
+最安全的資產，為什麼今年帳面也會虧？一支影片，把美國國債從頭到尾講清楚。
+
+2026 年 10 月 9 日，美國十年期公債殖利率收在 5.24%，年初是 4.19%；美國聯邦債務在 8 月 18 日首度突破 40 兆美元，10 月 8 日已達 40.3 兆。這支影片用財政部、聯準會等一手資料，完整拆解：國債是什麼、有哪五種、怎麼賣出去、為什麼利率一漲價格就跌、誰在持有、利息有多驚人、風險在哪裡，以及人在台灣的你可以怎麼看待它。
+
+📌 本集重點
+・國債就是政府的借據：2026 財年前 11 個月，每花 1 美元，有 29 美分靠借；赤字 ≠ 債務
+・五種國債：國庫券、中期債、長期債、TIPS、浮動利率債，以及「票面利率」和「殖利率」的差別
+・國債怎麼賣：單一價格拍賣，利率是市場「喊」出來的
+・價格與利率的蹺蹺板：利率升 1 個百分點，2 年期約跌 1.9%、10 年期約跌 7.8%、30 年期約跌 15.5%
+・2026 年殖利率為什麼漲：通膨、升息、期限溢價，以及「實質報酬」的變化
+・誰在持有：外國 9.25 兆、聯準會 4.57 兆；利息支出已超過國防
+・五種風險：違約與債務上限、評級、利率、通膨、再融資
+・普通人怎麼用：期限對上用錢的時間、債券 ETF vs 個別債、TIPS、匯率與稅務提醒
+
+⏱ 章節
+{CHAPTERS}
+
+📚 資料來源
+・美國財政部 Fiscal Data：Debt to the Penny（債務總額）：https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/
+・美國財政部 Monthly Statement of the Public Debt（各類國債餘額）：https://fiscaldata.treasury.gov/datasets/monthly-statement-public-debt/
+・美國財政部 Monthly Treasury Statement（收入、支出、淨利息；2026 年 8 月）：https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/
+・美國財政部 Interest Expense on the Public Debt Outstanding：https://fiscaldata.treasury.gov/datasets/interest-expense-debt-outstanding/
+・美國財政部 Average Interest Rates on U.S. Treasury Securities：https://fiscaldata.treasury.gov/datasets/average-interest-rates-treasury-securities/
+・美國財政部 每日國債殖利率曲線（名目與實質）：https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve
+・美國財政部 TIC 外國持有國債（2026 年 7 月）：https://ticdata.treasury.gov/Publish/slt_table5.html
+・美國財政部季度再融資公告（2026-08-05）；TreasuryDirect：國債種類 https://www.treasurydirect.gov/marketable-securities/ 、拍賣說明 https://www.treasurydirect.gov/help-center/faqs/auction-faqs 、歷史債務 https://www.treasurydirect.gov/government/historical-debt-outstanding/
+・聯準會 FOMC 聲明（2026-09-16）：https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm
+・聖路易聯儲 FRED：十年期殖利率 https://fred.stlouisfed.org/series/DGS10 、期限溢價（Kim-Wright）https://fred.stlouisfed.org/series/THREEFYTP10 、聯準會持有國債 https://fred.stlouisfed.org/series/TREAST 、WTI 原油 https://fred.stlouisfed.org/series/DCOILWTICO 、CPI https://fred.stlouisfed.org/series/CPIAUCNS
+・穆迪：2025 年 5 月美國評級調整 https://www.moodys.com/web/en/us/about-us/usrating.html
+・美國國會預算辦公室（CBO）歷史預算資料（1946 年債務占 GDP 約 106%）：https://www.cbo.gov/data/budget-economic-data
+・美國財政部 TreasuryDirect 開戶資格：31 CFR § 363.11：https://www.law.cornell.edu/cfr/text/31/363.11
+・債務上限觸頂時間的民間推估：全國納稅人聯盟基金會（NTUF）https://www.ntu.org/publications/detail/projecting-the-debt-limit
+・計算說明：影片中的「帳面損益」「價格下跌幅度」為依債券定價公式（半年付息）的估算；「利息占稅收 21%」「占赤字 52%」為淨利息 1.017 兆 ÷ 收入 4.845 兆、赤字 1.966 兆；外國持有占比約 28% 為 TIC 與 Debt to the Penny 不同日期資料的估算。
+
+🖼 圖片來源（Wikimedia Commons）
+{CREDITS}
+
+⚠️ 免責聲明
+本影片內容僅供教育參考，不構成任何投資、稅務或法律建議。數據截至 2026 年 10 月 9 日前後，各項資料的日期已在畫面與上方說明；估算與假設性示例已標明。投資有風險，涉及稅務、遺產稅與跨境持有，請洽專業人士。
+
+本影片的配音與部分畫面使用 AI 生成（含封面人物）；真實人物與建築均使用上方註明授權的真實照片。
+
+#美國國債 #美債 #殖利率

@@ -76,6 +76,7 @@ def main():
         for m in chord:
             note = pad_note(hz(m), CHORD_SEC + 3.0, rng) * 0.16
             pan = rng.uniform(0.35, 0.65)
+            note = note[: len(left) - start]  # 最后一个和弦会超出总长
             left[start:start + len(note)] += note * (1 - pan)
             right[start:start + len(note)] += note * pan
         # 稀疏钢琴：每个和弦 2～3 个音，落在和弦高八度

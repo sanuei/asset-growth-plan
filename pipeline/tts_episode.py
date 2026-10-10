@@ -24,15 +24,15 @@ from config import ENV  # noqa: E402
 
 API_URL = "https://api.minimax.cn/v1/t2a_v2"
 # 多音字修正：原文/拼音
-PRONUNCIATION = ["增長/(zeng1)(zhang3)", "傳記/(zhuan4)(ji4)", "記載/(ji4)(zai3)"]
+PRONUNCIATION = ["增長/(zeng1)(zhang3)", "傳記/(zhuan4)(ji4)", "記載/(ji4)(zai3)", "TIPS/T I P S", "Aaa/三A", "Aa1/雙A一", "2021財/二零二一財", "2024財/二零二四財", "2025財/二零二五財", "2026財/二零二六財"]
 
 
-def synth(text):
+def synth(text, speed=None):
     body = {
         "model": ENV.get("TTS_MODEL", "speech-2.8-hd"),
         "text": text,
         "stream": False,
-        "voice_setting": {"voice_id": ENV["TTS_VOICE"], "speed": float(ENV.get("TTS_SPEED", "1.0")), "vol": 1, "pitch": 0},
+        "voice_setting": {"voice_id": ENV["TTS_VOICE"], "speed": float(speed if speed else ENV.get("TTS_SPEED", "1.0")), "vol": 1, "pitch": 0},
         "audio_setting": {"sample_rate": 44100, "bitrate": 256000, "format": "mp3", "channel": 1},
         "language_boost": "Chinese",
         "pronunciation_dict": {"tone": PRONUNCIATION},
@@ -143,7 +143,7 @@ def run_long(script, outdir, force):
         text = chunk_text(ch["items"])
         for attempt in range(1, 5):
             try:
-                audio, subs, info = synth(text)
+                audio, subs, info = synth(text, script.get("tts_speed"))
                 open(mp3, "wb").write(audio)
                 json.dump({"text": text, "items": ch["items"], "subtitles": subs, "extra_info": info},
                           open(js, "w", encoding="utf-8"), ensure_ascii=False, indent=1)

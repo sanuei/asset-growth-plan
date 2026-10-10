@@ -1,0 +1,8 @@
+{
+  "web_treasury": {"search": "America Treasury Department Building 20240601", "match": "America Treasury Department Building 20240601"},
+  "web_jackson": {"search": "Ralph Eleaser Whiteside Earl Portrait of Andrew Jackson Museum of Fine Arts", "match": "Portrait of Andrew Jackson - B.68.22"},
+  "web_wallst": {"search": "New York Stock Exchange August 2017 04", "match": "New York Stock Exchange August 2017 04"},
+  "web_taipei": {"search": "Taipei Night Skyline 20230402", "match": "Taipei Night Skyline 20230402"},
+  "web_fed": {"search": "Marriner S. Eccles Federal Reserve Board Building", "match": "Marriner S. Eccles Federal Reserve Board Building.jpg"},
+  "web_capitol": {"search": "US Capitol dome Jan 2006", "match": "US Capitol dome Jan 2006"}
+}

@@ -1,0 +1,50 @@
+{
+ "web_treasury": {
+  "title": "File:America Treasury Department Building 20240601.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/America_Treasury_Department_Building_20240601.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "page": "https://commons.wikimedia.org/wiki/File:America_Treasury_Department_Building_20240601.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "颐园居"
+ },
+ "web_jackson": {
+  "title": "File:Ralph Eleaser Whiteside Earl - Portrait of Andrew Jackson - B.68.22 - Museum of Fine Arts.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Ralph_Eleaser_Whiteside_Earl_-_Portrait_of_Andrew_Jackson_-_B.68.22_-_Museum_of_Fine_Arts.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "page": "https://commons.wikimedia.org/wiki/File:Ralph_Eleaser_Whiteside_Earl_-_Portrait_of_Andrew_Jackson_-_B.68.22_-_Museum_of_Fine_Arts.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Ralph Eleaser Whiteside Earl"
+ },
+ "web_wallst": {
+  "title": "File:New York Stock Exchange August 2017 04.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/New_York_Stock_Exchange_August_2017_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "page": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange_August_2017_04.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Arild Vågen"
+ },
+ "web_taipei": {
+  "title": "File:Taipei Night Skyline 20230402.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Taipei_Night_Skyline_20230402.jpg/3840px-Taipei_Night_Skyline_20230402.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Taipei_Night_Skyline_20230402.jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "xiangyang17"
+ },
+ "web_fed": {
+  "title": "File:Marriner S. Eccles Federal Reserve Board Building.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Marriner_S._Eccles_Federal_Reserve_Board_Building.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "page": "https://commons.wikimedia.org/wiki/File:Marriner_S._Eccles_Federal_Reserve_Board_Building.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "AgnosticPreachersKid"
+ },
+ "web_capitol": {
+  "title": "File:US Capitol dome Jan 2006.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/US_Capitol_dome_Jan_2006.jpg/3840px-US_Capitol_dome_Jan_2006.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:US_Capitol_dome_Jan_2006.jpg",
+  "license": "CC BY 2.5",
+  "license_url": "https://creativecommons.org/licenses/by/2.5",
+  "artist": "Diliff"
+ }
+}

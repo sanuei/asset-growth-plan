@@ -1,0 +1,26 @@
+  画面 40/1 ch_real_nominal 39.3s
+done 039 ch_real_nominal
+  画面 32/1 ch_loss_cases 39.8s
+done 031 ch_loss_cases
+  画面 57/1 card_ratings 45.9s
+done 056 card_ratings
+  画面 61/1 card_earnings_yield 46.4s
+done 060 card_earnings_yield
+  画面 63/1 card_tips_breakeven 47.3s
+done 062 card_tips_breakeven
+  画面 41/1 ch_10y_history 38.5s
+done 040 ch_10y_history
+  画面 67/1 card_summary 48.7s
+done 066 card_summary
+  画面 33/1 sc_rain_window 38.3s
+done 032 sc_rain_window
+  画面 45/1 ch_who_holds 38.5s
+done 044 ch_who_holds
+  画面 12/1 card_debt_split 36.6s
+done 011 card_debt_split
+  画面 43/1 ch_holders_foreign 33.9s
+done 042 ch_holders_foreign
+  画面 13/1 ch_debt_history 33.8s
+done 012 ch_debt_history
+/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 5 leaked semaphore objects to clean up at shutdown: {'/mp-mq3nyb7j', '/mp-ii6pe_7g', '/mp-kak4scvy', '/mp-88963xip', '/mp-b9r8t4dg'}
+  warnings.warn(
