@@ -15,6 +15,7 @@ import glob
 import json
 import math
 import os
+import re
 import subprocess
 import sys
 from functools import lru_cache
@@ -263,6 +264,19 @@ def cta_layer():
     return pill
 
 
+def fix_numbers(events):
+    """字幕不要把数字和后面的单位切开（例如「10」「月6日」→「」「10月6日」）。"""
+    for i in range(len(events) - 1):
+        a, b = events[i], events[i + 1]
+        m = re.search(r"[\d.]+$", a[2])
+        if m and m.start() > 0 and b[2] and not re.match(r"[\d\s，。、？！]", b[2][0]):
+            digits = m.group()
+            a[2], b[2] = a[2][:m.start()].rstrip(), digits + b[2]
+            shift = min(0.12 * len(digits), (a[1] - a[0]) * 0.4)
+            b[0] = max(a[0] + 0.3, b[0] - shift)
+            a[1] = min(a[1], b[0])
+    return events
+
 # ---------- 主流程 ----------
 
 def load_scenes(ep, spec, vis, c0, c1):
@@ -303,7 +317,7 @@ def render(ep, sid, spec, preview=None):
     c1 = sel[-1]["start"] + last_dur + 0.35
     total = c1 - c0
     events = v2.build_subs(sel, lambda t: v2.split_chunks(t, CAP_CHARS), A.clean_sub, CAP_CHARS, A.decode_mp3)
-    events = [[a - c0, b - c0, txt] for a, b, txt in events]
+    events = fix_numbers([[a - c0, b - c0, txt] for a, b, txt in events])
     scenes = load_scenes(ep, spec, vis, c0, c1)
     print(f"{sid}: {total:.1f} 秒，字幕 {len(events)} 条，画面 {len(scenes)} 个", flush=True)
 
