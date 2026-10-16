@@ -34,17 +34,18 @@ description: 「資產增長計劃」每日自动出片：决定今天的选题�
 
 ## 2. 制作
 
-按准则和 `videos/EP002_*` 的文件夹结构完成（`script.json` 写 `"version": 3`）：文案（含一手资料核实，存 `99_工作文件/sources`）→ 配音 `pipeline/tts_episode.py`（版本 3 自动整章一次合成，通常 1～2 次请求）→ 画面（先找可商用的网络图片 `pipeline/web_images.py`，找不到再用 `pipeline/images_episode.py` 生成，统一电影剧照风格）→ 图表与文字卡 `graphics.json`（由 `pipeline/graphics2.py` 渲染）→ 合成 `pipeline/assemble.py` → 封面 `cover.py` → `07_发布信息`（标题、描述、标签、章节、图片署名、upload.json）。
+按准则和 `videos/EP002_*` 的文件夹结构完成（`script.json` 写 `"version": 3`）：文案（含一手资料核实，存 `99_工作文件/sources`）→ 配音 `pipeline/tts_episode.py`（版本 3 自动整章一次合成，通常 1～2 次请求）→ 画面（先找可商用的网络图片 `pipeline/web_images.py`，找不到再用 `pipeline/images_episode.py` 生成；EP004 起插图统一漫画风格，prompts.json 写 `"style_file": "image_style_comic.txt"`；每章再配 1～2 张新闻网页截图 `type: web`，见准则「九」）→ 图表与文字卡 `graphics.json`（由 `pipeline/graphics2.py` 渲染）→ 合成 `pipeline/assemble.py` → 封面 `cover.py` → `07_发布信息`（标题、描述、标签、章节、图片署名、upload.json）。
 
 **费用规则**：语音只用 MiniMax，图片只用 Abo AI，选题数据用 vidIQ 免费额度；其他付费服务或用途一律不用（例如不要用 Abo AI 转写语音）。不要为了测试多花钱。
 
+- **从头说到尾不停顿**（准则「九」）：不放品牌静音段；章节卡用 `type: ptitle`，放进每章第一段的 visuals 第一个，`title_card` 设 null。
 - 频道主指定的语速、时长（例如「语速 1.1 倍」「不限时长」）写进该集的 `script.json`（`tts_speed`），优先于默认值。
 - 图表卡优先用纸张质感卡片（`pipeline/graphics3.py`，类型见准则「动态文字与图表的质感」）；数据从财政部、FRED 等一手来源在线取，写成 `99_工作文件/make_graphics.py`，不要手抄。
 - 图表卡多时，合成前先用 `pipeline/prerender.py <集数文件夹> --workers 7` 并行渲染（后台运行），再运行 `assemble.py`。
 
 不停下来等频道主确认，用自动检查代替：
 
-- 时长 10～15 分钟，不低于 10 分钟（文案约 2600～3600 字）。**配音前**先数文案字数（按每分钟 250 字加章节停顿估算），不够就先加深内容（原理、案例、数据、误区、步骤），不注水；不要配完音才发现太短又重配（浪费 MiniMax 额度）。
+- 时长 10～15 分钟，不低于 10 分钟（文案约 2600～3600 字）。**配音前**先数文案字数（1.1 倍速实测约每分钟 290～300 字，EP004：4538 字 → 15 分 20 秒），不够就先加深内容（原理、案例、数据、误区、步骤），不注水；不要配完音才发现太短又重配（浪费 MiniMax 额度）。
 - 结尾不预告下一期；配音和片尾卡都不放风险提示（免责声明只写在描述栏）。
 - 数字、引述、日期对照一手资料；查不到出处的内容删掉。
 - 用 `pronounce_text` 检查数字和专有名词读音；容易读错的多音字事先加进 `pipeline/tts_episode.py` 的 `PRONUNCIATION`。
@@ -53,11 +54,11 @@ description: 「資產增長計劃」每日自动出片：决定今天的选题�
 
 ## 2.5 每天 2 条 Shorts
 
-长视频之外，每天再发 **2 条 Shorts**（频道主 2026-10-10 要求），从已完成的长视频里剪，规则见准则「八、Shorts」。
-- 优先剪**当天刚做完的长视频**；如果当天长视频的 Shorts 已经够了，就剪之前的长视频里还没剪过的段落（`08_Shorts/shorts.json` 里记着已剪的）。
+长视频之外，每天再发 **2 条 Shorts**（频道主 2026-10-10 要求）。**2026-10-16 起每条独立成片，不从长视频截取**（准则「九」）：
+- 从当天长视频里挑最硬的点，每条单独写稿 220～280 字（第一句就是钩子，结尾抛问题），`08_Shorts/Sxx/01_文案/script.json` + `pipeline/tts_episode.py <集数>/08_Shorts/Sxx`（每条 1 次 MiniMax 请求），`shorts.json` 写 `standalone`、`hook`、`flash`、`visuals`，再 `pipeline/shorts.py`。
 - 定时：台湾时间 12:00 和 18:00 公开；如果已经过了该时间，就顺延到下一个整点并在报告里说明。
 - 每条做完抽帧检查（钩子文字、字幕不重叠、图表数字和长视频一致），然后私享上传加 `--publish-at`。
-- 不产生额外费用（复用配音）。
+- 费用：每条 1 次 MiniMax 配音（约 250 字），画面复用本集的插图和网图，不另外生图。
 
 ## 3. 上传与定时公开
 

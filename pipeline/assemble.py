@@ -276,7 +276,7 @@ def watermark(path):
 
 # ---------- 音频 ----------
 
-def build_audio(ep, audio, total, work, seed=7):
+def build_audio(ep, audio, total, work, seed=7, gains=(0.08, 0.25)):
     seg_dir = os.path.join(ep, "02_配音/segments")
     n = int(total * SR) + SR
     voice = np.zeros(n, dtype=np.float32)
@@ -299,7 +299,7 @@ def build_audio(ep, audio, total, work, seed=7):
         return ((c[k:] - c[:-k]) / k)[: len(x)].astype(np.float32)
 
     active = moving_avg((np.abs(voice) > 0.01).astype(np.float32), int(0.25 * SR)) > 0
-    gain = moving_avg(np.where(active, 0.08, 0.25).astype(np.float32), int(0.4 * SR))
+    gain = moving_avg(np.where(active, gains[0], gains[1]).astype(np.float32), int(0.4 * SR))
     mix = bgm * gain[:, None] + voice[:, None]
     mix_path = os.path.join(ep, "02_配音/mix.wav")
     write_wav(mix_path, mix.reshape(-1), channels=2)
@@ -345,7 +345,7 @@ def main():
 
     sub_mov = os.path.join(work, "subs.mov")
     build_sub_track(events, total, work, sub_mov)
-    mix = build_audio(ep, audio, total, work, seed=script.get("bgm_seed", 7))
+    mix = build_audio(ep, audio, total, work, seed=script.get("bgm_seed", 7), gains=script.get("bgm_gain", (0.08, 0.25)))
     if v2:
         for pid, off, txt in v2.sync_report(events, paras, decode_mp3):
             print(f"  同步抽查 {pid}: 字幕比开口 {off:+.2f}s「{txt}」")

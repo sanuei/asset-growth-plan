@@ -1,0 +1,35 @@
+不靠運氣，也能致富嗎？一個從紐約圖書館長大的窮移民小孩，第一次創業股份被算成零，告了矽谷頂級創投、被說職業生涯完了，最後卻成為矽谷最有影響力的天使投資人。這支影片完整講納瓦爾．拉維肯（Naval Ravikant）的故事，再把他 2018 年「如何致富（不靠運氣）」推文串裡的原則，一條一條拆開：哪些你明天就能用，哪些千萬不要照抄。
+
+📌 本集重點
+・窮移民的小孩：父親的學歷不被承認、媽媽一邊工作一邊上學、圖書館待到關門、考上史岱文森高中
+・第一次創業 Epinions：600 萬股普通股在合併時被算成零，兩年後公司被 eBay 以約 6.2 億美元收購
+・清算優先權是什麼：為什麼賣價不夠高，創辦人的股份會歸零
+・把吃過的虧變成生意：VentureHacks → AngelList
+・財富 vs 金錢 vs 地位；為什麼「出租時間」很難致富
+・三種槓桿：勞力、資本、程式與媒體（無需許可的槓桿）
+・特定知識：沒辦法被教會，但可以被學會
+・判斷力、長期遊戲與複利；一定要避免毀滅
+・普通人的五個動作，以及三個不要照抄的地方
+
+⏱ 章節
+{CHAPTERS}
+
+📚 資料來源
+・The Almanack of Naval Ravikant（Eric Jorgenson 編，官方免費線上版）：https://www.navalmanack.com/
+　〈Background〉〈Timeline〉〈Understanding How Wealth Is Created〉〈Find and Build Specific Knowledge〉〈Find a Position of Leverage〉〈The Story of AngelList〉
+・Naval 推文串「How to Get Rich (without getting lucky)」2018/5/31：https://x.com/naval/status/1002103360646823936
+・eBay 收購 Shopping.com 新聞稿（SEC 8-K 附件 99.1，2005/6/1）：https://www.sec.gov/Archives/edgar/data/0001108482/000119312505121124/dex991.htm
+・VentureBeat〈Epinions settlement a black eye to VCs〉2005/12/8：https://venturebeat.com/business/epinions-settlement-a-black-eye-to-vcs/
+・Wikipedia：Naval Ravikant https://en.wikipedia.org/wiki/Naval_Ravikant 、AngelList https://en.wikipedia.org/wiki/AngelList 、JOBS Act https://en.wikipedia.org/wiki/Jumpstart_Our_Business_Startups_Act
+・說明：影片中的引言為大意翻譯；「每月 1 萬元、年報酬 7%」為月複利試算，僅為示意，不代表任何商品的實際報酬；「理想時薪」為示意例子（176 小時＝每月 22 天 × 8 小時）。訴訟細節依當時報導與起訴內容，部分指控已被法院駁回，雙方以不公開金額和解。
+
+🖼 圖片來源（Wikimedia Commons）
+{CREDITS}
+・網頁截圖：X、美國 SEC EDGAR、VentureBeat、Wikipedia（新聞評論引用，已標示來源）
+
+⚠️ 免責聲明
+本影片內容僅供教育參考，不構成任何投資建議。投資有風險，過去的績效不代表未來；天使投資與新創公司風險極高，請審慎評估並視需要諮詢專業人士。
+
+本影片的配音與漫畫風插圖使用 AI 生成；納瓦爾本人的照片為上方註明授權的真實照片。
+
+#納瓦爾 #如何致富 #理財

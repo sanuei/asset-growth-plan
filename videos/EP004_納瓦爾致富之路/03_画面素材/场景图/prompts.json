@@ -1,0 +1,32 @@
+{
+ "style_file": "image_style_comic.txt",
+ "scenes": {
+  "ill_tweet_night": "A man in his forties sitting alone on a sofa late at night, typing a long message on his smartphone; glowing thin lines of light stream out of the phone and spread across a dark city skyline outside the window like a network",
+  "ill_radioactive": "A lonely young South Asian man in a 2000s business casual shirt standing in the middle of a Silicon Valley office lobby while groups of people in suits turn their backs and walk away from him, an empty circle of floor around him",
+  "ill_arrive_ny": "1980s: a tired young South Asian mother holding the hands of two small boys with old suitcases, standing on a street in Queens New York in winter, elevated subway train passing overhead, the boys looking up in wonder",
+  "ill_hardware": "1980s: a middle-aged South Asian man in a work apron stocking shelves in a cramped hardware store in New York, a framed pharmacy diploma visible tucked in his open bag on the counter, quiet dignity",
+  "ill_mother_night": "1980s small apartment kitchen at night: a South Asian mother studying textbooks under a single lamp after work, still in her work clothes, two young boys asleep on a couch in the background",
+  "ill_library": "1980s New York public library at closing time: a skinny boy of ten sits cross-legged between tall bookshelves reading intensely, a librarian in the distance switching off the lights row by row, warm lamp light on the boy",
+  "ill_van": "1990: a fifteen-year-old South Asian teenager carrying stacked foil food trays out of the open back doors of an old delivery van on a busy New York street at dusk",
+  "ill_stars": "A teenage boy on a fire escape at night looking through a cheap telescope at the stars, while behind him through the window his mother watches him with a knowing smile",
+  "ill_dotcom": "1999 dot-com startup office in a loft: five young founders around a whiteboard covered with arrows and boxes, bulky CRT monitors, pizza boxes, a giant upward growth chart drawn on the window, high energy",
+  "ill_shares_zero": "Ornate paper stock certificates on a boardroom table crumbling into dust and blowing away in the wind, a young founder's hand reaching for them too late, men in suits blurred in the background",
+  "ill_court": "Wide shot of the steps of a classical courthouse in San Francisco, a young South Asian man with a lawyer walking up the steps, on the other side a group of confident venture capitalists in suits, tense standoff",
+  "ill_blog": "2007: a man in his thirties writing on a laptop late at night in a small home office, walls covered with pinned notes, diagrams of contract clauses and arrows, a mug of coffee, focused determination",
+  "ill_network": "A large wall map where hundreds of small portraits of investors and startup founders are connected by red threads to a central laptop, a man pinning a new thread, sense of a growing network",
+  "ill_seed": "A small seedling growing out of a crack in concrete in front of a modern glass office building, the seedling glowing softly, morning light, symbol of early-stage investment",
+  "ill_ladder_status": "Split scene: on the left, people building a large structure together and all rising on it; on the right, people on a narrow ladder pulling each other down to climb higher, symbolic contrast between positive-sum and zero-sum",
+  "ill_rent_time": "A tired office worker chained to the hands of a giant wall clock, handing hours shaped like sand to a faceless boss who gives back a few coins, surreal but grounded composition",
+  "ill_own_piece": "A young office worker placing a small golden puzzle piece into a giant puzzle made of factories, shops, ships and office towers, other pieces already placed and glowing, sense of owning small parts of many businesses",
+  "ill_lever": "A single person using a very long wooden lever and a small rock as fulcrum to lift a gigantic boulder, dramatic low angle, Archimedes-inspired, other people pushing the boulder by hand in vain in the background",
+  "ill_copies": "A single book and a microphone on a desk; from them thousands of identical copies of books, video screens and code windows stream out of an open window and fly across the world map",
+  "ill_mic": "A podcast host in a small studio speaking into a single large microphone, sound waves spreading out of the room and over a globe filled with listeners wearing headphones",
+  "ill_play": "A happy woman tinkering at a cluttered workbench full of gadgets and sketches, completely absorbed and smiling, while two onlookers behind glass look exhausted just watching her, contrast between play and work",
+  "ill_look_back": "An adult man standing in a dim attic opening an old cardboard box of childhood things: comics, a toy radio he had taken apart, drawings; a warm light rises from the box onto his face",
+  "ill_compass": "A traveler at a crossroads in a vast landscape holding an old brass compass, one road leads to a stormy cliff and the other to distant sunlit mountains, thoughtful pause before choosing",
+  "ill_chess": "Two old friends playing chess on a park bench, the scene split into four seasons from left to right showing the same two people aging from young to old, still playing together",
+  "ill_cliff": "A hiker walking carefully on a mountain path, choosing the safe inner trail while ahead other hikers race toward the edge of a deep cliff, dramatic depth, warning mood",
+  "ill_taipei_worker": "A young Taiwanese office worker in the Taipei MRT at night holding the rail, thinking, reflection in the dark window shows city lights and Taipei 101, quiet contemplative mood",
+  "ill_create_night": "A young woman in a small Taipei apartment at night recording a video and writing on a laptop after work, a desk lamp, notebook, camera on tripod, window with city lights"
+ }
+}

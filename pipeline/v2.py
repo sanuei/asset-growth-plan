@@ -12,12 +12,14 @@ import subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-import graphics2 as G2
+import graphics2 as G2  # 导入时会注册 graphics3 的纸张风格卡片
+_G2 = G2
 
 W, H, FPS, SR = 1920, 1080, 30, 44100
 SRC_W, SRC_H = 2880, 1620
 PUNCT = "，。；：、？！"
-FONT_BOLD = G2.FONT_BOLD
+FONT_BOLD = _G2.FONT_BOLD
+FOOTAGE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "素材库/官方视频")
 
 
 # ---------- 画面来源 ----------
@@ -27,6 +29,9 @@ def find_visual(ep, vid):
     web = os.path.join(ep, "03_画面素材/网络图片", vid + ".jpg")
     if os.path.exists(scene):
         return scene, None
+    bg = os.path.join(ep, "03_画面素材/背景", vid + ".png")
+    if os.path.exists(bg):
+        return bg, None
     if os.path.exists(web):
         src = json.load(open(os.path.join(ep, "03_画面素材/网络图片/sources.json"), encoding="utf-8")).get(vid, {})
         return web, src
@@ -104,6 +109,33 @@ def scene_clip(path, n, mode, out, credit=None):
         raise RuntimeError(f"ffmpeg 编码失败: {out}")
 
 
+def footage_clip(f, n, out):
+    """官方视频片段：从 start 秒开始取 n 帧，转成 1920x1080 30fps、去掉原声，左上角标注来源。
+    片段不够长时往前挪起点；整支素材都不够长时放慢播放。"""
+    src = os.path.join(FOOTAGE_DIR, f["src"])
+    length = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", src],
+                                  capture_output=True, text=True).stdout.strip())
+    dur = n / FPS
+    start = f.get("start", 0.0)
+    slow = 1.0
+    if dur > length - 0.5:
+        slow = dur / (length - 0.5)
+        start = 0.0
+    elif start + dur > length - 0.3:
+        start = max(0.0, length - 0.3 - dur)
+    cred = os.path.join(os.path.dirname(out), "_credit_tesla.png")
+    if not os.path.exists(cred):
+        credit_layer(f.get("credit", "影片來源：Tesla 官方")).save(cred)
+    vf = (f"[0:v]setpts={slow:.4f}*(PTS-STARTPTS),fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,"
+          f"crop={W}:{H},format=yuv420p[v0];[v0][1:v]overlay=36:32[v]")
+    r = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{start:.3f}", "-i", src, "-i", cred,
+                        "-filter_complex", vf, "-map", "[v]", "-frames:v", str(n), "-an",
+                        "-c:v", "libx264", "-preset", "veryfast", "-crf", "16", "-pix_fmt", "yuv420p", out],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        raise RuntimeError(r.stderr[-800:])
+
+
 def clip_frames(path):
     """缓存的片段帧数（中途被打断的片段帧数会不对，需要重做）。"""
     r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v", "-show_entries", "stream=nb_frames",
@@ -116,24 +148,38 @@ def clip_frames(path):
 
 def build_clips(ep, visuals, work, force_graphics=False, index_offset=0):
     gspec = json.load(open(os.path.join(ep, "03_画面素材/graphics.json"), encoding="utf-8"))
+    fpath = os.path.join(ep, "03_画面素材/footage.json")
+    footage = json.load(open(fpath, encoding="utf-8")) if os.path.exists(fpath) else {}
     clip_dir = os.path.join(work, "clips_v2")
     os.makedirs(clip_dir, exist_ok=True)
     prev_dir = os.path.join(ep, "03_画面素材/图表")
+    os.makedirs(prev_dir, exist_ok=True)
     paths = []
     for i, v in enumerate(visuals, index_offset):
         n = max(1, round((v["start"] + v["dur"]) * FPS) - round(v["start"] * FPS))
         out = os.path.join(clip_dir, f"{i:03d}_{v['id']}_{n}f.mp4")
         paths.append(out)
         path, src = find_visual(ep, v["id"])
-        if os.path.exists(out) and (path or not force_graphics) and clip_frames(out) == n:
+        is_footage = v["id"] in footage
+        if os.path.exists(out) and (path or is_footage or not force_graphics) and clip_frames(out) == n:
             continue
-        if path:
+        if is_footage:
+            footage_clip(footage[v["id"]], n, out)
+        elif path:
             scene_clip(path, n, i, out, credit=credit_text(src) if src else None)
         else:
             spec = dict(v.get("spec") or gspec[v["id"]])
+            if spec.get("bg") in footage:  # 背景指向官方视频时，取一帧当背景
+                still = os.path.join(ep, "03_画面素材/背景", spec["bg"] + ".png")
+                if not os.path.exists(still):
+                    f = footage[spec["bg"]]
+                    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(f.get("start", 0) + 1.5),
+                                    "-i", os.path.join(FOOTAGE_DIR, f["src"]), "-frames:v", "1", still], check=True)
             if spec.get("bg"):
                 bg_path = find_visual(ep, spec["bg"])[0]
-                spec["bg"] = os.path.abspath(bg_path) if bg_path else None  # 背景不是图片（例如章节首个画面是图表卡）时用默认底色
+                spec["bg"] = os.path.abspath(bg_path) if bg_path else None  # 背景不是图片（例如图表卡）时用默认底色
+            if spec.get("img") and not os.path.isabs(spec["img"]):  # 网页截图卡：相对 03_画面素材/网页截图/
+                spec["img"] = os.path.abspath(os.path.join(ep, "03_画面素材/网页截图", spec["img"]))
             G2.render_clip(spec, n / FPS, out, preview_png=os.path.join(prev_dir, v["id"] + ".png"), frames=n)
         print(f"  画面 {i + 1}/{len(visuals)} {v['id']} {v['dur']:.1f}s", flush=True)
     return paths
@@ -141,13 +187,22 @@ def build_clips(ep, visuals, work, force_graphics=False, index_offset=0):
 
 # ---------- 字幕对齐 ----------
 
+_REF = None  # 整条配音的最大帧 RMS；设置后静音判定以它为基准（安静段落里的停顿才不会被漏掉）
+
+
 def speech_mask(audio, hop=0.01):
     """10ms 一帧的说话/静音判定。"""
     k = int(SR * hop)
     n = len(audio) // k
     rms = np.sqrt(np.mean(audio[: n * k].reshape(n, k) ** 2, axis=1) + 1e-12)
-    db = 20 * np.log10(rms / (rms.max() + 1e-12))
+    db = 20 * np.log10(rms / ((_REF or rms.max()) + 1e-12))
     return db > -38, hop
+
+
+def frame_rms_max(audio, hop=0.01):
+    k = int(SR * hop)
+    n = len(audio) // k
+    return float(np.sqrt(np.mean(audio[: n * k].reshape(n, k) ** 2, axis=1)).max()) if n else 0.0
 
 
 def pauses(audio):
@@ -170,36 +225,43 @@ def pauses(audio):
 
 
 def align_paragraph(text, est_times, audio):
-    """把每个标点对齐到最接近的真实停顿，回传每个字元位置的时间（秒）。"""
+    """回传「字元位置 → 秒」函数。
+
+    est_times：每个字的估计开始/结束时间（整章配音时来自 MiniMax 的逐字时间，误差约 0.5 秒以内）。
+    每个标点按顺序吸附到附近的真实停顿（音频里 ≥70ms 的静音），再用这些校正点修正其他字的时间。"""
     onset, offset, gaps = pauses(audio)
-    anchors = [(0, onset)]
-    used = set()
-    est = {pos: (b, e) for pos, b, e in est_times}
+    n = len(text)
+    est_b = [b for _, b, _ in est_times]
+    est_e = [e for _, _, e in est_times]
+    anchors = [(0, onset)]  # (字元位置, 真实时间)
+    k0 = 0
     for j, ch in enumerate(text):
-        if ch not in PUNCT or j == len(text) - 1:
+        if ch not in PUNCT or j == n - 1:
             continue
-        guess = est.get(j, (None, None))[1]
-        if guess is None:
-            continue
-        cand = [(abs((g0 + g1) / 2 - guess), k) for k, (g0, g1) in enumerate(gaps)
-                if k not in used and abs((g0 + g1) / 2 - guess) < 0.9 and g0 > anchors[-1][1]]
+        guess = est_e[j]
+        cand = [(abs(g0 - guess), k) for k, (g0, g1) in enumerate(gaps[k0:], k0) if abs(g0 - guess) < 0.8]
         if cand:
             _, k = min(cand)
-            used.add(k)
             anchors += [(j, gaps[k][0]), (j + 1, gaps[k][1])]
-    anchors.append((len(text), offset))
-    anchors.sort()
-    wts = spoken_weights(text)
-    cum = np.concatenate([[0.0], np.cumsum([0.0 if ch in PUNCT else wt for ch, wt in zip(text, wts)])])
-    xs = np.array([cum[a] for a, _ in anchors], np.float64)
-    ys = np.maximum.accumulate(np.array([b for _, b in anchors], np.float64))
-    return lambda i: float(np.interp(cum[min(int(i), len(text))], xs, ys))
+            k0 = k + 1
+    anchors.append((n, offset))
+    # 校正量 = 真实时间 − 估计时间，在校正点之间线性内插
+    ax = np.array([a for a, _ in anchors], np.float64)
+    est_at = lambda i: est_b[i] if i < n else (est_e[-1] if est_e else offset)  # noqa: E731
+    corr = np.array([t - est_at(a) for a, t in anchors], np.float64)
+    times = np.array([est_at(i) + np.interp(i, ax, corr) for i in range(n + 1)])
+    for a, t in anchors:  # 校正点处用真实时间
+        times[a] = t
+    times = np.maximum.accumulate(np.clip(times, onset, offset))
+    return lambda idx: float(times[min(max(int(round(idx)), 0), n)])
 
 
 def build_subs(paras, split_chunks, clean_sub, sub_max, decode):
+    global _REF
     events = []
-    for p in paras:
-        audio = p["audio"] if "audio" in p else decode(p["mp3"])
+    auds = [p["audio"] if "audio" in p else decode(p["mp3"]) for p in paras]
+    _REF = max(frame_rms_max(a) for a in auds) or None  # 以整条配音最响的一帧为基准
+    for p, audio in zip(paras, auds):
         t_at = align_paragraph(p["text"], p["times"], audio)
         for a, b in split_chunks(p["text"]):
             txt = clean_sub(p["text"][a:b])
@@ -209,6 +271,7 @@ def build_subs(paras, split_chunks, clean_sub, sub_max, decode):
             start = p["start"] + t_at(a) - 0.06  # 略早出现
             end = p["start"] + t_at(end_idx)
             events.append([start, max(end, start + 0.3), txt])
+    _REF = None
     for i in range(len(events) - 1):  # 短空隙内延长到下一句，不推迟下一句
         if 0 < events[i + 1][0] - events[i][1] < 0.3:
             events[i][1] = events[i + 1][0]
@@ -221,6 +284,8 @@ def build_subs(paras, split_chunks, clean_sub, sub_max, decode):
             del events[i + 1]
             continue
         i += 1
+    for i in range(len(events) - 1):  # 合并后再确认不重叠
+        events[i][1] = min(events[i][1], events[i + 1][0])
     return events
 
 
@@ -286,6 +351,19 @@ def split_chunks(text, sub_max=16):
         if depth > 0 and ch in "《「〈":
             bounds.discard(i + 1)
 
+    def bad(k):  # 数字和单位、日期不拆开：数字后面不断行；「10月」「9日」之间不断行
+        if 0 < k < len(text):
+            if text[k - 1].isdigit() or text[k - 1] in ".%％":
+                return True
+            if text[k].isdigit() and text[k - 1] in "月年第約约":
+                return True
+            a, b = text[k - 1:k].strip() or text[k - 2:k - 1], text[k:k + 1].strip() or text[k + 1:k + 2]
+            if a.isascii() and a.isalnum() and b.isascii() and b.isalnum():  # 英文名不拆（Model A）
+                return True
+        return False
+
+    bounds = {k for k in bounds if not bad(k)}
+
     def cut(a, b):
         body_end = b
         while body_end > a and text[body_end - 1] in PUNCT:
@@ -294,7 +372,9 @@ def split_chunks(text, sub_max=16):
             return [(a, b)]
         mid = (a + body_end) / 2
         cands = [k for k in bounds if a + 2 <= k <= body_end - 2]
-        k = min(cands, key=lambda k: abs(k - mid)) if cands else int(mid)
+        if not cands:
+            cands = [k for k in range(a + 2, body_end - 1) if not bad(k)] or [int(mid)]
+        k = min(cands, key=lambda k: abs(k - mid))
         return cut(a, k) + cut(k, b)
 
     out = []
@@ -375,64 +455,47 @@ def expected_pauses(items, onset, offset, tail=0.3):
     return durs, mids
 
 
-_DIG = "零一二三四五六七八九"
-
-
-def _cn_int(n):
-    """整数的中文读法（如 1250 → 一千两百五十），只用来估计读音长度。"""
-    if n == 0:
-        return "零"
-
-    def sec(k):  # 0 < k < 10000
-        out, zero = "", False
-        for u, name in ((1000, "千"), (100, "百"), (10, "十"), (1, "")):
-            d, k = divmod(k, u)
-            if d:
-                if zero:
-                    out += "零"
-                    zero = False
-                out += ("" if (name == "十" and d == 1 and not out) else _DIG[d]) + name
-            elif out:
-                zero = True
-        return out
-    out = ""
-    for base, name in ((10 ** 8, "億"), (10 ** 4, "萬")):
-        q, n = divmod(n, base)
-        if q:
-            out += sec(q) + name
-    return out + (sec(n) if n else "")
-
-
-def spoken_weights(text):
-    """每个字符对应的「读出来有几个音节」：数字、百分号、英文字母读起来比汉字长，
-    按字数平均会让数字多的句子里字幕越来越早或越来越晚。"""
+def spoken_units(pron, word):
+    """估计一个字/词实际念出来的音节数：汉字 1，注音（多音字修正）1，英文单词约 1.5，数字按读出的汉字计。"""
     import re
-    w = [1.0] * len(text)
-    for m in re.finditer(r"\d[\d,]*(?:\.\d+)?%?|[A-Za-z]+", text):
-        tok = m.group(0)
-        if tok[0].isdigit():
-            body = tok.rstrip("%").replace(",", "")
-            ip, _, fp = body.partition(".")
-            nxt = text[m.end():m.end() + 1]
-            n = len(ip) if (len(ip) == 4 and nxt in ("年", "財")) else len(_cn_int(int(ip)))
-            n += (1 + len(fp)) if fp else 0
-            n += 3 if tok.endswith("%") else 0
-        else:
-            n = max(1.0, len(tok) / 2.2) if len(tok) > 1 else 1.6
-        for k in range(m.start(), m.end()):
-            w[k] = n / (m.end() - m.start())
-    return w
+    if word in PUNCT or not pron.strip():
+        return 0.0
+    n = len(re.findall(r"[\u4e00-\u9fff]", pron))
+    n += len(re.findall(r"[ㄅ-ㄩ]+[ˊˇˋ˙ˉ]?", pron))
+    n += 1.5 * len(re.findall(r"[A-Za-z]+", pron))
+    return max(n, 0.5)
 
 
-def est_times(text, dur):
-    """按读音长度（见 spoken_weights）估计每个字的时间（供标点对齐时找最近的停顿）。"""
-    wts = spoken_weights(text)
-    total = sum(wt for ch, wt in zip(text, wts) if ch not in PUNCT) or 1.0
+def pick_pauses_by_words(items, para_off, word_t, sil):
+    """每个停顿标记 = 前一段最后一个字的结束 ~ 后一段第一个字的开始；在 sil 里按顺序找中点最接近的静音。"""
+    out, k0 = [], 0
+    for idx, it in enumerate(items):
+        if "pause" not in it:
+            continue
+        prev = next(x for x in reversed(items[:idx]) if "text" in x)
+        nxt = next(x for x in items[idx + 1:] if "text" in x)
+        end_prev = word_t[para_off[prev["para"]] + len(prev["text"]) - 1][1]
+        start_next = word_t[para_off[nxt["para"]]][0]
+        target = (end_prev + start_next) / 2
+        cand = [(abs((a + b) / 2 - target) - 0.3 * min(b - a, it["pause"]), k)
+                for k, (a, b) in enumerate(sil[k0:], k0) if abs((a + b) / 2 - target) < 2.0]
+        if not cand:
+            return None
+        _, k = min(cand)
+        out.append(sil[k])
+        k0 = k + 1
+    return out
+
+
+def est_times(text, dur, weights=None):
+    """估计每个字的时间（供标点对齐时找最近的停顿）。weights = 每个字的音节数，没有时按字数平均。"""
+    if weights is None:
+        weights = [0.0 if ch in PUNCT else 1.0 for ch in text]
+    total = sum(weights) or 1.0
     times, acc = [], 0.0
-    for i, ch in enumerate(text):
-        wt = 0.0 if ch in PUNCT else wts[i]
-        times.append((i, acc / total * dur, (acc + wt) / total * dur))
-        acc += wt
+    for i, w in enumerate(weights):
+        times.append((i, dur * acc / total, dur * (acc + w) / total))
+        acc += w
     return times
 
 
@@ -462,10 +525,40 @@ def build_timeline_long(ep, script, lead, title_dur, decode):
             t += title_dur + 0.5
         elif ci == 0:
             chapters.append((0.0, sec["chapter"]))
+        # 每个字实际要念几个音节（数字、百分比、英文念得比字数长）：用 MiniMax 返回的 pronounce_word 计算
+        # MiniMax 逐字时间（位置以去掉停顿标记后的文字计；「0.74%」这类词会拆成多条，取首尾）
+        word_t = {}
+        for sub in meta.get("subtitles", []):
+            for w in sub.get("timestamped_words") or []:
+                wb, we = w["word_begin"], w.get("word_end", w["word_begin"] + 1)
+                t0w, t1w = w["time_begin"] / 1000, w["time_end"] / 1000
+                if wb in word_t:
+                    t0w = min(t0w, word_t[wb][0])
+                    t1w = max(t1w, word_t[wb][1])
+                for k in range(wb, we):  # 词内各字平均分配
+                    f0, f1 = (k - wb) / (we - wb), (k - wb + 1) / (we - wb)
+                    word_t[k] = (t0w + (t1w - t0w) * f0, t0w + (t1w - t0w) * f1)
+        para_off, pos = {}, 0
+        for it in items:
+            if "text" in it:
+                para_off[it["para"]] = pos
+                pos += len(it["text"])
+        # 少数字符 MiniMax 不给时间（如「SR-71」的连字号）：用前后字补上，否则整段会退回粗略估计（EP004 字幕挤在一起）
+        if word_t and len(word_t) >= pos * 0.95:
+            for k in range(pos):
+                if k not in word_t:
+                    prev = max((j for j in word_t if j < k), default=None)
+                    nxt = min((j for j in word_t if j > k), default=None)
+                    a_ = word_t[prev][1] if prev is not None else word_t[nxt][0]
+                    b_ = word_t[nxt][0] if nxt is not None else a_
+                    word_t[k] = (a_, max(a_, b_))
         sil, onset, offset = silences(audio)
         pauses_meta = [it for it in items if "pause" in it]
         durs, mids = expected_pauses(items, onset, offset)
         chosen = match_pauses(sil, durs, mids)
+        if word_t and all(k in word_t for k in range(pos)):
+            # 有 MiniMax 逐字时间时，用它估计每个停顿标记的位置（误差约 0.5 秒），再找最近的真实静音
+            chosen = pick_pauses_by_words(items, para_off, word_t, sil) or chosen
         # 每段话的起止（相对本段音频）
         bounds, k, cursor = {}, 0, onset
         for it in items:
@@ -508,7 +601,12 @@ def build_timeline_long(ep, script, lead, title_dur, decode):
                 vis_end = t0 + (chosen[k][1] if "pause" in nxt else b) - 0.05
             start = t0 + a - 0.05
             seg = audio[int(max(0, a - 0.05) * SR): int(b * SR) + int(0.1 * SR)]
-            est = est_times(p["text"], b - a)
+            off = para_off[it["para"]]
+            base = max(0, a - 0.05)
+            if all((off + i) in word_t for i in range(len(p["text"]))):
+                est = [(i, word_t[off + i][0] - base, word_t[off + i][1] - base) for i in range(len(p["text"]))]
+            else:
+                est = est_times(p["text"], b - a)
             paras.append({"id": p["id"], "start": t0 + max(0, a - 0.05), "text": p["text"], "times": est, "audio": seg})
             # 段内多个画面：在最接近等分点的标点处切换
             n = len(p["visuals"])
@@ -524,6 +622,14 @@ def build_timeline_long(ep, script, lead, title_dur, decode):
             for j, vid in enumerate(p["visuals"]):
                 visuals.append({"id": vid, "start": start + cuts[j], "dur": cuts[j + 1] - cuts[j]})
         t = t0 + len(audio) / SR + 0.6
+    # 没有章节卡的章节（如「今日重點」「結尾」）也列进章节，时间取该章第一段开口
+    starts = {p["id"]: p["start"] for p in paras}
+    have = {name for _, name in chapters}
+    for sec in script["sections"]:
+        first = next((p["id"] for p in sec["paragraphs"] if "text" in p), None)
+        if sec["chapter"] not in have and first in starts:
+            chapters.append((starts[first], sec["chapter"]))
+    chapters.sort()
     # 画面首尾相接（避免空隙或重叠）
     visuals.sort(key=lambda v: v["start"])
     for i in range(len(visuals) - 1):

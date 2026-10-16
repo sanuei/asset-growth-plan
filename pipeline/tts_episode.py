@@ -24,7 +24,7 @@ from config import ENV  # noqa: E402
 
 API_URL = "https://api.minimax.cn/v1/t2a_v2"
 # 多音字修正：原文/拼音
-PRONUNCIATION = ["增長/(zeng1)(zhang3)", "傳記/(zhuan4)(ji4)", "記載/(ji4)(zai3)", "TIPS/T I P S", "Aaa/三A", "Aa1/雙A一", "2021財/二零二一財", "2024財/二零二四財", "2025財/二零二五財", "2026財/二零二六財"]
+PRONUNCIATION = ["增長/(zeng1)(zhang3)", "傳記/(zhuan4)(ji4)", "記載/(ji4)(zai3)", "TIPS/T I P S", "Aaa/三A", "Aa1/雙A一", "2021財/二零二一財", "2024財/二零二四財", "2025財/二零二五財", "2026財/二零二六財", "成長/(cheng2)(zhang3)", "長大/(zhang3)(da4)", "差別/(cha1)(bie2)", "便宜/(pian2)(yi2)", "重壓/(zhong4)(ya1)", "Shopping.com/Shopping dot com"]
 
 
 def synth(text, speed=None):
@@ -77,8 +77,8 @@ def run_one(pid, text, outdir, force):
 
 
 # 整段合成用的停顿（秒）。章节之间的停顿要留出章节卡的时间。
-PARA_PAUSE = 0.6
-SECTION_PAUSE = 0.9
+PARA_PAUSE = 0.4  # 频道主 10/16：从头说到尾、中间不要长停顿
+SECTION_PAUSE = 0.6
 TITLE_CARD = 2.4
 CHUNK_CHARS = 2800  # MiniMax 建议单次 3000 字以内
 

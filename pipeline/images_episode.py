@@ -66,7 +66,9 @@ def main():
 
     folder = os.path.join(args.episode, "03_画面素材/场景图")
     spec = json.load(open(os.path.join(folder, "prompts.json"), encoding="utf-8"))
-    style = spec.get("style_override") or open(STYLE_FILE, encoding="utf-8").read().strip()
+    # style_file：换用 pipeline/ 下的另一套统一风格（EP004 起插图用漫画风 image_style_comic.txt）
+    sfile = os.path.join(os.path.dirname(STYLE_FILE), spec["style_file"]) if spec.get("style_file") else STYLE_FILE
+    style = spec.get("style_override") or open(sfile, encoding="utf-8").read().strip()
     only = set(args.only.split(",")) if args.only else None
     jobs = [(sid, f"{p} {style}", os.path.join(folder, f"{sid}.png"))
             for sid, p in spec["scenes"].items() if not only or sid in only]

@@ -216,7 +216,7 @@ def card_bars(spec, t):
     for b, cx in zip(spec["bars"], xs):
         g = 1.0 if b.get("pre") else ease_out(prog(t, b.get("delay", 0.3), 1.3))
         h = maxh * b["value"] / maxv * g
-        col = GOLD if b["color"] == "g" else RED
+        col = GOLD if b["color"] == "g" else (MUTED if b["color"] == "gray" else RED)
         if h > 1:
             d.rounded_rectangle([cx - bw / 2, base - h, cx + bw / 2, base], 18, fill=col + (255,))
             val, vp = text_img(b["final"] if g >= 0.999 else b["fmt"].format(b["value"] * g), 50, WHITE)
@@ -291,6 +291,9 @@ def load_scenes(ep, spec, vis, c0, c1):
         item = {"start": a - c0, "end": b - c0, "cfg": cfg}
         if "img" in cfg:
             item["img"] = Image.open(os.path.join(sdir, cfg["img"] + ".png")).convert("RGB")
+        elif "photo" in cfg:  # 网络真实图片（03_画面素材/网络图片/<id>.jpg）
+            item["img"] = Image.open(os.path.join(ep, "03_画面素材/网络图片", cfg["photo"] + ".jpg")).convert("RGB")
+            item["cfg"] = {**cfg, "img": cfg["photo"]}
         out.append(item)
     out[0]["start"] = 0.0
     out[-1]["end"] = c1 - c0
@@ -300,6 +303,8 @@ def load_scenes(ep, spec, vis, c0, c1):
 
 
 def render(ep, sid, spec, preview=None):
+    if spec.get("standalone"):
+        return render_standalone(ep, sid, spec, preview)
     script = json.load(open(os.path.join(ep, "01_文案/script.json"), encoding="utf-8"))
     if script.get("version", 1) >= 3:  # 整章配音：时间轴来自音频里的停顿
         vis, _aud, _ch, paras, _t = v2.build_timeline_long(ep, script, A.LEAD, A.TITLE_DUR, A.decode_mp3)
@@ -318,6 +323,51 @@ def render(ep, sid, spec, preview=None):
     total = c1 - c0
     events = v2.build_subs(sel, lambda t: v2.split_chunks(t, CAP_CHARS), A.clean_sub, CAP_CHARS, A.decode_mp3)
     events = fix_numbers([[a - c0, b - c0, txt] for a, b, txt in events])
+    audio_src = glob.glob(os.path.join(ep, "06_成片", "*.mp4"))
+    audio_src = [p for p in audio_src if "preview" not in p][0]
+    encode(ep, sid, spec, vis, events, c0, c1, audio_src, preview)
+
+
+def render_standalone(ep, sid, spec, preview=None):
+    """独立成片的 Shorts（频道主 10/16）：08_Shorts/<sid>/ 是一个迷你「一期」，有自己的文案和配音（MiniMax 1 次请求）。
+    开头是钩子句 + 画面中央大字（spec["flash"]）；画面用本集的插图、网图和竖屏卡片（spec["visuals"]）。"""
+    sdir = os.path.join(ep, "08_Shorts", sid)
+    script = json.load(open(os.path.join(sdir, "01_文案/script.json"), encoding="utf-8"))
+    vis, aud, _ch, paras, _t = v2.build_timeline_long(sdir, script, 0.15, A.TITLE_DUR, A.decode_mp3)
+    last = paras[-1]
+    c1 = last["start"] + len(last["audio"]) / A.SR + 1.4
+    events = v2.build_subs(paras, lambda t: v2.split_chunks(t, CAP_CHARS), A.clean_sub, CAP_CHARS, A.decode_mp3)
+    events = fix_numbers([[a, b, txt] for a, b, txt in events])
+    work = os.path.join(sdir, "99_工作文件")
+    os.makedirs(work, exist_ok=True)
+    mix = A.build_audio(sdir, aud, c1, work, seed=spec.get("bgm_seed", 7), gains=tuple(spec.get("bgm_gain", (0.08, 0.25))))
+    encode(ep, sid, spec, vis, events, 0.0, c1, mix, preview)
+
+
+@lru_cache(maxsize=None)
+def flash_img(s, size, fill):
+    img, pad = text_img(s, fit_size(s, size, 980), fill, stroke=8, shadow=True)
+    return img, pad
+
+
+def flash_layer(lines, t, dur=2.6):
+    """开头钩子大字：前 0.25 秒弹入，dur 秒后淡出（叠在画面窗口上）。"""
+    if t >= dur or not lines:
+        return None
+    a = ease_out(prog(t, 0, 0.25)) * (1 - prog(t, dur - 0.35, 0.35))
+    layer = Image.new("RGBA", (W, WIN), (0, 0, 0, int(110 * a)))
+    y = WIN / 2 - (len(lines) - 1) * 80
+    for i, s in enumerate(lines):
+        img, pad = flash_img(s, 150 if i == 0 else 92, WHITE if i == 0 else GOLD)
+        sc = 1.25 - 0.25 * ease_out(prog(t, 0, 0.3))
+        img = img.resize((int(img.width * sc), int(img.height * sc)), Image.LANCZOS)
+        paste_center(layer, img, int(pad * sc), W / 2, y, a)
+        y += 170
+    return layer
+
+
+def encode(ep, sid, spec, vis, events, c0, c1, audio_src, preview=None):
+    total = c1 - c0
     scenes = load_scenes(ep, spec, vis, c0, c1)
     print(f"{sid}: {total:.1f} 秒，字幕 {len(events)} 条，画面 {len(scenes)} 个", flush=True)
 
@@ -342,8 +392,6 @@ def render(ep, sid, spec, preview=None):
 
     out = os.path.join(ep, "08_Shorts", f"{sid}.mp4")
     n_total = round((min(preview, total) if preview else total) * FPS)
-    audio_src = glob.glob(os.path.join(ep, "06_成片", "*.mp4"))
-    audio_src = [p for p in audio_src if "preview" not in p][0]
     fc = (f"[1:a]afade=t=in:st=0:d=0.12,afade=t=out:st={total - 0.4:.2f}:d=0.4,"
           f"loudnorm=I=-14:TP=-1.5:LRA=11[a]")
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
@@ -368,6 +416,9 @@ def render(ep, sid, spec, preview=None):
         ImageDraw.Draw(sh).rounded_rectangle([40, 52, WIN + 40, WIN + 52], 72, fill=(0, 0, 0, 150))
         fr.alpha_composite(sh.filter(ImageFilter.GaussianBlur(26)), (-40, WIN_Y - 40))
         fr.paste(win.convert("RGB"), (0, WIN_Y), mask)
+        fl = flash_layer(spec.get("flash"), t)
+        if fl is not None:
+            fr.alpha_composite(fl, (0, WIN_Y))
         h = hook.copy()
         h.putalpha(h.split()[3].point(lambda v: int(v * ease_out(prog(t, 0.15, 0.7)))))
         fr.alpha_composite(h, (0, 0))

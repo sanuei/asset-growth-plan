@@ -631,9 +631,9 @@ def card_plist(spec, t, dur):
     c = Card(spec, t, dur)
     items = spec["items"]
     n = len(items)
-    top = 214
-    row = min(118, (800 - top) / n)
-    size = 54 if n <= 5 else 46
+    top = 214 if n > 3 else 250
+    row = min(118 if n > 3 else 150, (800 - top) / n)
+    size = (60 if n <= 3 else 54) if n <= 5 else 46
     step = min(0.9, dur * 0.55 / max(n, 1))
     for i in range(n):
         st = 0.5 + i * step
@@ -706,9 +706,235 @@ def card_pquote(spec, t, dur):
     return c.done()
 
 
+# ---------- 章节标题卡（EP004 起：边讲边出现，不再停顿） ----------
+
+@lru_cache(maxsize=4)
+def _soft_bg(path):
+    """章节卡背景：轻度模糊、压暗，保留插图的形状（比一般卡片的背景清楚）。"""
+    BW, BH = int(W * 1.1), int(H * 1.1)
+    if not path or not os.path.exists(path):
+        return G2._bg_base(None).resize((BW, BH))
+    im = Image.open(path).convert("RGB")
+    sc = max(BW / im.width, BH / im.height)
+    im = im.resize((round(im.width * sc), round(im.height * sc)), Image.LANCZOS)
+    im = im.crop(((im.width - BW) // 2, (im.height - BH) // 2, (im.width - BW) // 2 + BW, (im.height - BH) // 2 + BH))
+    im = im.filter(ImageFilter.GaussianBlur(5))
+    arr = np.asarray(im).astype(np.float32) * 0.5
+    vx = np.linspace(-1, 1, BW)[None, :]
+    vy = np.linspace(-1, 1, BH)[:, None]
+    arr *= np.clip(1 - 0.5 * (vx ** 2 + vy ** 2), 0.35, 1)[..., None]
+    return Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
+
+
+def _push_bg(path, t, dur, amount=0.07):
+    base = _soft_bg(path)
+    z = 1.0 + amount * ease_in_out(min(1, t / max(dur, 0.01)))
+    bw, bh = base.size
+    cw, ch = W / z, H / z
+    return base.transform((W, H), Image.AFFINE, (cw / W, 0, (bw - cw) / 2, 0, ch / H, (bh - ch) / 2), Image.BICUBIC).convert("RGBA")
+
+
+@lru_cache(maxsize=8)
+def paper_strip(w, h, seed=11):
+    """任意尺寸的纸条：纸纹 + 不规则边缘 + 投影。返回 (图层, pad)。"""
+    pad = 40
+    rng = np.random.default_rng(seed)
+
+    def noise(sc, amp):
+        small = rng.normal(0, 1, (max(2, h // sc), max(2, w // sc))).astype(np.float32)
+        return np.asarray(Image.fromarray(small).resize((w, h), Image.BICUBIC)) * amp
+
+    base = np.empty((h, w, 3), np.float32)
+    base[:] = PAPER
+    base += (noise(60, 4.0) + noise(14, 2.6) + noise(4, 2.0) + rng.normal(0, 1.8, (h, w)).astype(np.float32))[..., None]
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    edge = np.maximum(np.abs(xx / w - 0.5), np.abs(yy / h - 0.5)) * 2
+    base *= (1 - 0.08 * edge ** 3)[..., None]
+    rgb = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8))
+    mask = Image.new("L", (w + 2 * pad, h + 2 * pad), 0)
+    r2 = np.random.default_rng(seed + 1)
+    pts = [(pad + x, pad + r2.normal(0, 2.2)) for x in range(0, w, 18)]
+    pts += [(pad + w + r2.normal(0, 4.5), pad + y) for y in range(0, h, 10)]  # 右边像撕开的
+    pts += [(pad + x, pad + h + r2.normal(0, 2.2)) for x in range(w, 0, -18)]
+    pts += [(pad + r2.normal(0, 1.6), pad + y) for y in range(h, 0, -24)]
+    ImageDraw.Draw(mask).polygon(pts, fill=255)
+    mask = mask.filter(ImageFilter.GaussianBlur(0.9))
+    body = Image.new("RGBA", mask.size, (0, 0, 0, 0))
+    body.paste(rgb, (pad, pad))
+    body.putalpha(mask)
+    out = Image.new("RGBA", mask.size, (0, 0, 0, 0))
+    sh = Image.new("RGBA", mask.size, (0, 0, 0, 0))
+    sh.putalpha(mask.filter(ImageFilter.GaussianBlur(18)).point(lambda v: int(v * 0.65)))
+    out.alpha_composite(sh, (8, 14))
+    out.alpha_composite(body)
+    return out, pad
+
+
+@lru_cache(maxsize=16)
+def seal(ch, size=150, seed=3):
+    """朱红印章：粗糙边缘的方印，中间反白一个字。"""
+    r = np.random.default_rng(seed)
+    big = size * 2
+    im = Image.new("RGBA", (big + 40, big + 40), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    pts = []
+    for k in range(40):
+        a = 2 * math.pi * k / 40
+        c, s_ = math.cos(a), math.sin(a)
+        m = max(abs(c), abs(s_))
+        rad = big / 2 / m * (1 + r.normal(0, 0.012))
+        pts.append((20 + big / 2 + c * rad * 0.94, 20 + big / 2 + s_ * rad * 0.94))
+    d.polygon(pts, fill=(186, 38, 32, 238))
+    f = G2.font(int(big * 0.62), True)
+    tw = f.getlength(ch)
+    asc, desc = f.getmetrics()
+    d.text((20 + (big - tw) / 2, 20 + (big - asc - desc) / 2 + big * 0.02), ch, font=f, fill=(0, 0, 0, 0))
+    # 「蓋印不均」：随机掉色的斑点
+    hole = Image.fromarray((r.random((big + 40, big + 40)) > 0.93).astype(np.uint8) * 255).filter(ImageFilter.GaussianBlur(1.2))
+    a = np.asarray(im.getchannel("A"), np.float32) * (1 - np.asarray(hole, np.float32) / 255 * 0.55)
+    im.putalpha(Image.fromarray(a.astype(np.uint8)))
+    return im.resize((size + 20, size + 20), Image.LANCZOS)
+
+
+def card_ptitle(spec, t, dur):
+    """章节标题卡：插图背景缓慢推近 → 纸条带着轻微旋转落下 → 朱红印章「盖」上去 → 标题逐字浮现 → 红笔画底线。
+    text = "第一章\n標題"；num = 印章里的字（如「壹」）。整张卡配着该章第一段话出现，没有静音。"""
+    fr = _push_bg(spec.get("bg"), t, dur)
+    kicker, title = (spec["text"].split("\n", 1) + [""])[:2] if "\n" in spec["text"] else ("", spec["text"])
+    out = 1 - prog(t, dur - 0.45, 0.45, ease_in_out)
+    size = fit_size(title, 104, 1060)
+    tw = G2.font(size, True).getlength(title)
+    SWD, SHT = int(max(900, tw + 420)), 330
+    strip, pad = paper_strip(SWD, SHT)
+    a = prog(t, 0.05, 0.55)
+    ang = -1.6 - 5.0 * (1 - ease_out(min(1, t / 0.65)))
+    st = strip.rotate(ang, expand=True, resample=Image.BICUBIC)
+    cx, cy = 960, 430 - 70 * (1 - ease_out(min(1, t / 0.6))) - 12 * (1 - out)
+    G2.place(fr, st, cx - st.width / 2, cy - st.height / 2, alpha=a * out)
+    # 墨水层（随纸条旋转）
+    ink = Image.new("RGBA", (SWD + 2 * pad, SHT + 2 * pad), (0, 0, 0, 0))
+    ph = int(t * FPS) // 3
+    bx, by = BOIL[ph % 3]
+    left = pad + 250
+    if kicker:
+        kl, kp = G2.text_layer(kicker, 42, FADE, True, 8, False)
+        ka = prog(t, 0.45, 0.5)
+        if ka > 0:
+            kl2 = kl.copy()
+            kl2.putalpha(kl.getchannel("A").point(lambda v: int(v * ka)))
+            ink.alpha_composite(kl2, (int(left - kp), int(pad + 52 - kp + (1 - ka) * 10)))
+    # 逐字浮现
+    f = G2.font(size, True)
+    x = left
+    ty = pad + 118 if kicker else pad + (SHT - size) / 2 - 10
+    for i, ch in enumerate(title):
+        p = prog(t, 0.55 + 0.045 * i, 0.4)
+        cw = f.getlength(ch)
+        if p > 0:
+            cl, cp = G2.text_layer(ch, size, INK, True, 0, False)
+            cl = cl.copy()
+            cl.putalpha(cl.getchannel("A").point(lambda v: int(v * p)))
+            jx, jy = (bx * 0.7, by * 0.7) if p > 0.99 else (0, (1 - p) * 22)
+            ink.alpha_composite(cl, (int(x - cp + jx), int(ty - cp + jy)))
+        x += cw
+    # 红笔底线
+    ul = prog(t, 0.75 + 0.045 * len(title), 0.6, ease_in_out)
+    if ul > 0:
+        cv = Image.new("RGBA", ((SWD + 2 * pad) * S, (SHT + 2 * pad) * S), (0, 0, 0, 0))
+        dd = ImageDraw.Draw(cv)
+        rr = np.random.default_rng([ph % 1000, 7])
+        y0 = ty + size + 44
+        xs = np.linspace(left - 6, left - 6 + (tw + 20) * ul, 24)
+        ys = y0 - np.linspace(0, 6, 24) * ul + rr.normal(0, 1.0, 24)
+        dd.line([(a_ * S, b_ * S) for a_, b_ in zip(xs, ys)], fill=RED + (235,), width=7 * S, joint="curve")
+        dd.line([(a_ * S, (b_ + 3) * S) for a_, b_ in zip(xs, ys + rr.normal(0, 1.2, 24))], fill=RED + (110,), width=4 * S, joint="curve")
+        ink.alpha_composite(cv.reduce(S))
+    # 印章：0.35 秒时「盖」下去（放大→缩回、轻微回弹）
+    sp = prog(t, 0.35, 0.28, lambda v: min(max(v, 0.0), 1.0))
+    if sp > 0:
+        sl = seal(spec.get("num", "章"), 150)
+        sc = 1.0 + 0.55 * (1 - sp) ** 2 - 0.04 * math.sin(min(1, sp) * math.pi)
+        sl2 = sl.resize((max(1, int(sl.width * sc)), max(1, int(sl.height * sc))), Image.BICUBIC)
+        sl2.putalpha(sl2.getchannel("A").point(lambda v: int(v * min(1, sp * 1.6))))
+        ink.alpha_composite(sl2, (int(pad + 125 - sl2.width / 2), int(pad + SHT / 2 - sl2.height / 2)))
+    if out < 0.999 or a < 0.999:
+        ink.putalpha(ink.getchannel("A").point(lambda v: int(v * a * out)))
+    ink = ink.rotate(ang, expand=True, resample=Image.BICUBIC)
+    shake = (math.sin(t * 90) * 3 * (1 - prog(t, 0.6, 0.25, lambda v: min(max(v, 0.0), 1.0)))) if 0.6 < t < 0.85 else 0  # 盖章那一下的震动
+    fr.alpha_composite(ink, (int(cx - ink.width / 2 + shake), int(cy - ink.height / 2)))
+    return fr
+
+
+# ---------- 新闻网页截图卡 ----------
+
+@lru_cache(maxsize=16)
+def _web_img(path, width):
+    im = Image.open(path).convert("RGB")
+    return im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
+
+
+@lru_cache(maxsize=2)
+def _tape():
+    tape = Image.new("RGBA", (170, 50), (236, 228, 196, 160))
+    td = ImageDraw.Draw(tape)
+    for k in range(0, 170, 7):
+        td.line([k, 0, k - 18, 50], fill=(255, 255, 240, 40), width=2)
+    return tape
+
+
+def card_web(spec, t, dur):
+    """网页截图卡：浏览器窗口像照片一样用胶带贴在画面上，截图缓慢推近（像镜头在读报道）；
+    左上角纸条写标题，下方标注来源（网页截图）。spec: img, url_label, source, title, zoom, pan, focus_x, highlight。"""
+    fr = G2.background(spec, t, dur)
+    WX, WY, WW, WH = 170, 118, 1580, 676
+    a = prog(t, 0.05, 0.7)
+    win = Image.new("RGBA", (WW, WH), (0, 0, 0, 0))
+    wd = ImageDraw.Draw(win)
+    wd.rounded_rectangle([0, 0, WW - 1, WH - 1], 16, fill=(236, 233, 226, 255))
+    for i, c in enumerate([(232, 94, 84), (240, 186, 60), (88, 182, 92)]):
+        wd.ellipse([22 + i * 28, 18, 38 + i * 28, 34], fill=c + (255,))
+    wd.rounded_rectangle([124, 10, WW - 26, 42], 10, fill=(255, 255, 255, 255))
+    ul, up = G2.text_layer(spec.get("url_label", ""), 21, (90, 90, 96), False, 0, False)
+    win.alpha_composite(ul, (144 - up, 14 - up))
+    shot = _web_img(spec["img"], WW - 16)
+    k = ease_in_out(min(1, t / max(dur, 0.01)))
+    z = 1.0 + spec.get("zoom", 0.08) * k
+    vw, vh = WW - 16, WH - 58
+    cw, ch = vw / z, vh / z
+    x0 = (shot.width - cw) * spec.get("focus_x", 0.5)
+    y0 = min(max(0, spec.get("pan", 0) * k), max(0, shot.height - ch))
+    win.paste(shot.transform((vw, vh), Image.AFFINE, (cw / vw, 0, x0, 0, ch / vh, y0), Image.BICUBIC), (8, 50))
+    if spec.get("highlight") and t > 0.9:
+        hx0, hy0, hx1, hy1 = spec["highlight"]
+        hl = Image.new("RGBA", (WW, WH), (0, 0, 0, 0))
+        hp = prog(t, 0.9, 0.6)
+        ImageDraw.Draw(hl).rounded_rectangle([8 + hx0 * vw, 50 + hy0 * vh, 8 + hx1 * vw, 50 + hy1 * vh], 8,
+                                             outline=RED + (int(255 * hp),), width=6)
+        win.alpha_composite(hl)
+    sh = Image.new("RGBA", (WW + 80, WH + 80), (0, 0, 0, 0))
+    ImageDraw.Draw(sh).rounded_rectangle([40, 52, WW + 40, WH + 52], 20, fill=(0, 0, 0, 160))
+    G2.place(fr, sh.filter(ImageFilter.GaussianBlur(22)), WX - 40, WY - 40, alpha=a, dy=(1 - a) * 30)
+    G2.place(fr, win, WX, WY, alpha=a, dy=(1 - a) * 30)
+    tp = _tape()
+    for tx, ang in ((WX + 60, 9), (WX + WW - 60, -9)):
+        tr = tp.rotate(ang, expand=True, resample=Image.BICUBIC)
+        G2.place(fr, tr, tx - tr.width / 2, WY - tr.height / 2 + 2, alpha=prog(t, 0.45, 0.4))
+    if spec.get("title"):
+        size = 40
+        tw = G2.font(size, True).getlength(spec["title"])
+        lab, lp = paper_strip(int(tw + 60), 70, seed=21)
+        G2.place(fr, lab, WX + 30 - lp, WY - 64 - lp, alpha=prog(t, 0.3, 0.5), dx=(1 - prog(t, 0.3, 0.5)) * -30)
+        tl, tlp = G2.text_layer(spec["title"], size, RED, True, 0, False)
+        G2.place(fr, tl, WX + 60 - tlp, WY - 52 - tlp, alpha=prog(t, 0.4, 0.5))
+    note = "畫面來源：" + spec.get("source", "") + "（網頁截圖）"
+    nl, np_ = G2.text_layer(note, 24, (205, 205, 210), False, 0, True)
+    G2.place(fr, nl, WX - np_, WY + WH + 16 - np_, alpha=prog(t, 0.8, 1.0) * 0.9)
+    return fr
+
+
 DRAW = {
     "counter": card_counter, "compare": card_compare, "bars": card_bars, "hbars": card_hbars, "line": card_line,
     "curve": card_curve, "stack": card_stack, "pflow": card_pflow, "plist": card_plist, "ptimeline": card_ptimeline,
-    "pquote": card_pquote,
+    "pquote": card_pquote, "ptitle": card_ptitle, "web": card_web,
 }
 G2.DRAW.update(DRAW)

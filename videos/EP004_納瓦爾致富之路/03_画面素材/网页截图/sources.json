@@ -1,0 +1,30 @@
+{
+ "shot_tweet": {
+  "url": "https://x.com/naval/status/1002103360646823936",
+  "captured": "2026-10-16T09:24+00:00"
+ },
+ "shot_sec_ebay": {
+  "url": "https://www.sec.gov/Archives/edgar/data/0001108482/000119312505121124/dex991.htm",
+  "captured": "2026-10-16T09:24+00:00"
+ },
+ "shot_venturebeat": {
+  "url": "https://venturebeat.com/business/epinions-settlement-a-black-eye-to-vcs/",
+  "captured": "2026-10-16T09:24+00:00"
+ },
+ "shot_jobsact": {
+  "url": "https://en.wikipedia.org/wiki/Jumpstart_Our_Business_Startups_Act",
+  "captured": "2026-10-16T09:25+00:00"
+ },
+ "shot_navrich": {
+  "url": "https://www.navalmanack.com/almanack-of-naval-ravikant/understanding-how-wealth-is-created",
+  "captured": "2026-10-16T09:25+00:00"
+ },
+ "shot_angellist_story": {
+  "url": "https://en.wikipedia.org/wiki/AngelList",
+  "captured": "2026-10-16T09:25+00:00"
+ },
+ "shot_wiki": {
+  "url": "https://en.wikipedia.org/wiki/Naval_Ravikant",
+  "captured": "2026-10-16T09:25+00:00"
+ }
+}

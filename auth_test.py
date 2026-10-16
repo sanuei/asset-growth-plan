@@ -7,6 +7,7 @@ import os
 import stat
 import sys
 
+from google.auth.exceptions import RefreshError
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -28,8 +29,11 @@ def get_credentials():
     if creds and creds.valid:
         return creds
     if creds and creds.expired and creds.refresh_token:
-        creds.refresh(Request())
-    else:
+        try:
+            creds.refresh(Request())
+        except RefreshError:  # 测试模式的 OAuth，refresh token 7 天后失效：重新授权
+            creds = None
+    if not (creds and creds.valid):
         secrets = glob.glob(os.path.join(HERE, "client_secret_*.json"))
         if not secrets:
             sys.exit("找不到 client_secret_*.json")

@@ -1,0 +1,123 @@
+"""生成 EP004 的 graphics.json（图表、文字卡、网页截图卡、章节标题卡）。"""
+import json
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = os.path.join(os.path.dirname(HERE), "03_画面素材/graphics.json")
+G = {}
+
+# 章节标题卡：边讲边出现（type: ptitle），背景用该章的插图
+TITLES = [("壹", "第一章", "窮移民的小孩", "ill_arrive_ny"), ("貳", "第二章", "股份變成零", "ill_dotcom"),
+          ("參", "第三章", "把吃過的虧變成生意", "ill_blog"), ("肆", "第四章", "財富不是錢", "ill_tweet_night"),
+          ("伍", "第五章", "槓桿", "ill_lever"), ("陸", "第六章", "特定知識", "ill_play"),
+          ("柒", "第七章", "判斷力與長期遊戲", "ill_compass"), ("捌", "第八章", "普通人怎麼用", "ill_taipei_worker"),
+          ("玖", "最後", "帶走這五句話", "ill_library")]
+for i, (num, k, t, bg) in enumerate(TITLES, 1):
+    G[f"title_{i}"] = {"type": "ptitle", "text": f"{k}\n{t}", "num": num, "bg": bg}
+
+G["brand_intro"] = {"type": "brand", "bg": "ill_library", "text": "資產增長計劃", "sub": "EP004｜納瓦爾：從窮小子到矽谷天使"}
+G["end_card"] = {"type": "endcard", "bg": "ill_library"}
+
+# 网页截图卡
+G["shot_tweet"] = {"type": "web", "img": "shot_tweet.png", "title": "2018 年 5 月 31 日的推文串", "source": "X @naval 2018/5/31",
+                   "url_label": "x.com/naval/status/1002103360646823936", "bg": "ill_tweet_night", "focus_x": 0.12, "zoom": 0.1}
+G["shot_tweet2"] = {"type": "web", "img": "shot_tweet.png", "title": "第一則：追求財富，不是金錢或地位", "source": "X @naval 2018/5/31",
+                    "url_label": "x.com/naval/status/1002103360646823936", "bg": "ill_tweet_night", "focus_x": 0.12, "zoom": 0.16, "pan": 140}
+G["shot_wiki"] = {"type": "web", "img": "shot_wiki.png", "title": "納瓦爾．拉維肯", "source": "Wikipedia",
+                  "url_label": "en.wikipedia.org/wiki/Naval_Ravikant", "bg": "ill_library", "focus_x": 0.5, "zoom": 0.06}
+G["shot_sec_ebay"] = {"type": "web", "img": "shot_sec_ebay.png", "title": "eBay 收購新聞稿（SEC 公開文件）", "source": "美國 SEC EDGAR 2005/6/1",
+                      "url_label": "sec.gov/Archives/edgar/data/1108482/000119312505121124/dex991.htm", "bg": "ill_shares_zero",
+                      "focus_x": 0.5, "zoom": 0.1, "pan": 120}
+G["shot_venturebeat"] = {"type": "web", "img": "shot_venturebeat.png", "title": "媒體報導：和解", "source": "VentureBeat 2005/12/8",
+                         "url_label": "venturebeat.com/business/epinions-settlement-a-black-eye-to-vcs", "bg": "ill_court", "focus_x": 0.35}
+G["shot_angellist_story"] = {"type": "web", "img": "shot_angellist_story.png", "title": "AngelList：2010 年創立", "source": "Wikipedia",
+                             "url_label": "en.wikipedia.org/wiki/AngelList", "bg": "ill_network", "focus_x": 0.3, "zoom": 0.08}
+G["shot_jobsact"] = {"type": "web", "img": "shot_jobsact.png", "title": "2012 年 JOBS 法案", "source": "Wikipedia",
+                     "url_label": "en.wikipedia.org/wiki/Jumpstart_Our_Business_Startups_Act", "bg": "ill_network", "focus_x": 0.3, "zoom": 0.08}
+
+# 图表与文字卡（纸张风格）
+G["card_timeline"] = {"type": "ptimeline", "bg": "ill_radioactive", "title": "納瓦爾的路",
+                      "events": [{"date": "1974", "label": "出生\n新德里", "color": "fade"},
+                                 {"date": "1999", "label": "創辦\nEpinions", "color": "blue"},
+                                 {"date": "2005", "label": "提告創投\n被說職涯完了", "color": "red", "hl": True},
+                                 {"date": "2010", "label": "AngelList\n投資 Uber", "color": "green"},
+                                 {"date": "2018", "label": "「如何致富」\n推文串", "color": "amber"}],
+                      "source": "資料：Wikipedia；The Almanack of Naval Ravikant（Eric Jorgenson 編）"}
+G["card_shares_zero"] = {"type": "compare", "bg": "ill_shares_zero", "title": "2003 年合併時，創辦人的股份",
+                         "columns": [{"label": "被告知的公司價值", "value": "2,300–3,800 萬", "size": 92, "sub": "美元", "color": "ink"},
+                                     {"label": "四位創辦人的普通股", "value": "600 萬股 → 0", "size": 92, "sub": "在合併條件下被算成零", "color": "red", "hl": True}],
+                         "source": "資料：Ravikant 等人訴訟內容（經 New York Times 2005 報導）"}
+G["card_liquidation"] = {"type": "pflow", "bg": "ill_shares_zero", "title": "清算優先權：誰先拿錢",
+                         "boxes": [{"text": "公司被賣掉\n的價格", "sub": "例如 3,000 萬", "color": "blue"},
+                                   {"text": "特別股\n先拿回投資", "sub": "創投：優先", "color": "amber"},
+                                   {"text": "剩下的\n才給普通股", "sub": "創辦人、員工", "color": "red"}],
+                         "note": "賣價不夠高 → 投資人拿完，普通股什麼都不剩", "ny": 650,
+                         "source": "說明：一般新創融資條款的示意，非 Epinions 實際條款"}
+G["card_ebay_620"] = {"type": "compare", "bg": "ill_shares_zero", "title": "同一家公司，兩年後",
+                      "columns": [{"label": "2003 年 被告知的價值", "value": "≤ 0.38 億", "size": 110, "sub": "美元", "color": "fade"},
+                                  {"label": "2005 年 eBay 收購", "value": "6.2 億", "size": 130, "sub": "美元（每股 21 美元現金）", "color": "red", "hl": True}],
+                      "ops": ["→"], "source": "資料：eBay 新聞稿（SEC 8-K 附件 99.1，2005/6/1）"}
+G["card_angellist"] = {"type": "pflow", "bg": "ill_network", "title": "AngelList 成長得有多快",
+                       "boxes": [{"text": "2010 年 2 月\n80 多位投資人", "sub": "一份郵件名單", "color": "blue"},
+                                 {"text": "18 個月\n400 筆投資", "sub": "8,000 次引薦", "color": "green"},
+                                 {"text": "2021 年\n25 億美元", "sub": "平台管理資產", "color": "red"}],
+                       "source": "資料：The Almanack of Naval Ravikant〈The Story of AngelList〉"}
+G["card_combo"] = {"type": "pflow", "bg": "ill_blog", "title": "別人學不走的組合",
+                   "boxes": [{"text": "被創投坑過", "sub": "親身經歷", "color": "red"},
+                             {"text": "懂條款\n會寫", "sub": "把經驗講清楚", "color": "blue"},
+                             {"text": "會說服人", "sub": "把名單做成平台", "color": "green"}],
+                   "note": "＝ 特定知識：在當時的矽谷，幾乎沒有第二個人", "ny": 650}
+G["card_wealth3"] = {"type": "pflow", "bg": "ill_tweet_night", "title": "三個常被混在一起的東西",
+                     "boxes": [{"text": "財富", "sub": "睡覺時也在\n幫你賺錢的資產", "color": "green"},
+                               {"text": "金錢", "sub": "轉移財富與時間\n的工具", "color": "blue"},
+                               {"text": "地位", "sub": "你在人群裡\n的排名", "color": "red"}],
+                     "note": "財富是正和遊戲，地位是零和遊戲", "ny": 650, "bh": 300,
+                     "source": "出處：Naval〈How to Get Rich〉推文串（2018，大意）"}
+G["q_rent"] = {"type": "pquote", "bg": "ill_rent_time", "label": "納瓦爾 · 2018 年推文串（大意）",
+               "quote": "出租自己的時間，你不會致富。你必須擁有股權，擁有一部分的事業。", "highlight": ["擁有股權"], "size": 64,
+               "source": "出處：X @naval 2018/5/31（中文為大意翻譯）"}
+G["card_rent_vs_own"] = {"type": "compare", "bg": "ill_rent_time", "title": "出租時間 vs 擁有",
+                         "columns": [{"label": "領薪水", "value": "時間 × 時薪", "size": 96, "sub": "一天只有 24 小時\n天花板很明顯", "color": "fade"},
+                                     {"label": "擁有股權", "value": "公司成長", "size": 96, "sub": "你那一份跟著變大\n睡覺時也在發生", "color": "green", "hl": True}],
+                         "ops": ["vs"]}
+G["card_compound"] = {"type": "bars", "bg": "ill_own_piece", "title": "每月投入 1 萬元，年報酬 7%（假設）",
+                      "unit": "萬元新台幣（投入本金：120 → 240 → 360 萬）", "hl": [2], "items": [{"label": "10 年", "value": 173, "text": "173"},
+                                                     {"label": "20 年", "value": 521, "text": "521"},
+                                                     {"label": "30 年", "value": 1220, "text": "1,220"}],
+                      "source": "試算：月複利 7%/12，僅為示意，不代表任何商品的實際報酬"}
+G["card_leverage"] = {"type": "plist", "bg": "ill_lever", "heading": "三種槓桿",
+                      "items": [["1", "勞力：別人替你工作", "需要說服人跟著你"],
+                                ["2", "資本：用錢放大決策", "需要說服人把錢給你"],
+                                ["3", "程式與媒體：複製幾乎零成本", "不需要任何人批准"]],
+                      "source": "出處：The Almanack of Naval Ravikant〈Find a Position of Leverage〉"}
+G["card_ladder"] = {"type": "pflow", "bg": "ill_lever", "title": "房地產：槓桿一層層往上",
+                    "boxes": [{"text": "工人\n→ 包商", "sub": "出力", "color": "fade"},
+                              {"text": "開發商\n→ 基金", "sub": "動用資本", "color": "blue"},
+                              {"text": "科技平台", "sub": "程式與媒體", "color": "red"}],
+                    "note": "每往上一層：槓桿、責任、特定知識一起變大", "ny": 650,
+                    "source": "出處：The Almanack of Naval Ravikant（大意）"}
+G["q_knowledge"] = {"type": "pquote", "bg": "ill_play", "label": "納瓦爾（大意）",
+                    "quote": "特定知識，沒辦法被教會，但可以被學會。", "highlight": ["可以被學會"], "size": 72,
+                    "source": "出處：The Almanack of Naval Ravikant〈Find and Build Specific Knowledge〉"}
+G["card_escape"] = {"type": "compare", "bg": "ill_look_back", "title": "為什麼要找特定知識",
+                    "columns": [{"label": "照教科書就能做", "value": "拚價格", "size": 110, "sub": "總有人更便宜\n更願意加班", "color": "fade"},
+                                {"label": "你這個人的延伸", "value": "沒人能取代", "size": 100, "sub": "用真實的自己\n逃離競爭", "color": "green", "hl": True}],
+                    "ops": ["vs"]}
+G["card_ruin"] = {"type": "plist", "bg": "ill_cliff", "heading": "一定要避免的三種毀滅",
+                  "items": [["1", "不要讓自己進監獄"], ["2", "不要把健康搞垮"], ["3", "不要把所有錢押在一次賭注"]],
+                  "source": "出處：The Almanack of Naval Ravikant（大意）"}
+G["card_hourly"] = {"type": "compare", "bg": "ill_rent_time", "title": "替自己設一個理想時薪",
+                    "columns": [{"label": "月薪 5 萬 ÷ 176 小時", "value": "≈ 284 元", "size": 110, "sub": "現在的時薪", "color": "fade"},
+                                {"label": "理想時薪（例）", "value": "1,000 元", "size": 120, "sub": "花 1 小時只省 200 元\n→ 不值得自己做", "color": "red", "hl": True}],
+                    "ops": ["→"], "source": "說明：示意例子；176 小時 = 每月 22 天 × 8 小時"}
+G["card_steps"] = {"type": "plist", "bg": "ill_taipei_worker", "heading": "普通人的五個動作",
+                   "items": [["1", "把一部分月薪，持續換成所有權"], ["2", "找出你的特定知識"], ["3", "學會賣，或學會做"],
+                             ["4", "做一點不需要許可的作品"], ["5", "避免毀滅：不借錢重壓"]]}
+G["card_dont_copy"] = {"type": "plist", "bg": "ill_compass", "heading": "不要照抄的三件事",
+                       "items": [["1", "倖存者偏差：失敗的人你聽不到"], ["2", "天使投資：大部分新創會失敗"], ["3", "時代與運氣：網路剛起飛的矽谷"]]}
+G["card_summary"] = {"type": "plist", "bg": "ill_library", "heading": "帶走這五句話",
+                     "items": [["1", "追求財富，不是金錢或地位"], ["2", "出租時間很難致富，要擁有股權"],
+                               ["3", "善用不需要批准的槓桿"], ["4", "找到你的特定知識"], ["5", "長期遊戲，絕不爆掉"]]}
+
+json.dump(G, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+print(len(G), "cards")
