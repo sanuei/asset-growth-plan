@@ -8,6 +8,7 @@
 --publish-at 为定时发布：会强制以 private 上传，到点自动公开。
 """
 import argparse
+import re
 import os
 import sys
 import time
@@ -70,10 +71,27 @@ def set_thumbnail(youtube, video_id, path):
     ).execute()
 
 
+def read_info(path):
+    """发布信息.md：「## 标题」下第一行是标题（其余是备选，不上传），「## 描述」整段，「## 标签」每行一个。"""
+    parts, cur = {}, None
+    for line in open(path, encoding="utf-8").read().splitlines():
+        m = re.match(r"^## (\S+)", line)
+        if m:
+            cur = m.group(1)
+            parts[cur] = []
+        elif cur:
+            parts[cur].append(line)
+    title = next((l.strip() for l in parts.get("标题", []) if l.strip()), "")
+    desc = "\n".join(parts.get("描述", [])).strip()
+    tags = [l.strip() for l in parts.get("标签", []) if l.strip()]
+    return {"title": title, "description": desc, "tags": tags}
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("video")
-    p.add_argument("--title", required=True)
+    p.add_argument("--title", help="标题（用 --info-file 时可省略）")
+    p.add_argument("--info-file", help="一个文件写全标题、描述、标签（《乔布斯传》系列的 发布信息.md）")
     p.add_argument("--description", default="")
     p.add_argument("--description-file", help="从文件读取描述（覆盖 --description）")
     p.add_argument("--tags", nargs="*", default=[])
@@ -88,6 +106,13 @@ def main():
 
     if not os.path.isfile(args.video):
         sys.exit(f"找不到视频文件: {args.video}")
+    if args.info_file:
+        info = read_info(args.info_file)
+        args.title = args.title or info["title"]
+        args.description = info["description"] or args.description
+        args.tags = info["tags"] or args.tags
+    if not args.title:
+        sys.exit("缺少标题：用 --title 或 --info-file")
     if args.description_file:
         args.description = open(args.description_file, encoding="utf-8").read().strip()
     if args.tags_file:

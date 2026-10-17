@@ -134,14 +134,14 @@ def window_mask():
     return m.resize((WIN, WIN), Image.LANCZOS)
 
 
-def scene_window(img, fx, t, dur, mode):
-    """Ken Burns：从中心窗口方形取景，缓慢推近或拉远。"""
+def scene_window(img, fx, t, dur, mode, fy=0.5):
+    """Ken Burns：从中心窗口方形取景，缓慢推近或拉远。fx/fy 是取景中心（竖图用 fy 对准人脸）。"""
     p = ease_out(t / max(dur, 0.1)) * 0.6 + (t / max(dur, 0.1)) * 0.4
     zoom = 1.0 + 0.10 * (p if mode == "in" else 1 - p)
-    side = img.height / zoom
+    side = min(img.width, img.height) / zoom
     cx = fx * img.width
     x0 = min(max(cx - side / 2, 0), img.width - side)
-    y0 = (img.height - side) / 2
+    y0 = min(max(fy * img.height - side / 2, 0), img.height - side)
     k = side / WIN
     return img.transform((WIN, WIN), Image.AFFINE, (k, 0, x0, 0, k, y0), resample=Image.BICUBIC)
 
@@ -399,10 +399,12 @@ def encode(ep, sid, spec, vis, events, c0, c1, audio_src, preview=None):
         t = t_abs - s["start"]
         cfg = s["cfg"]
         if "img" in s:
-            return scene_window(s["img"], cfg.get("fx", 0.5), t, s["end"] - s["start"], cfg.get("zoom", "in")).convert("RGBA")
+            return scene_window(s["img"], cfg.get("fx", 0.5), t, s["end"] - s["start"], cfg.get("zoom", "in"), cfg.get("fy", 0.5)).convert("RGBA")
         return CARDS[cfg["card"]](cfg, t)
 
-    out = os.path.join(ep, "08_Shorts", f"{sid}.mp4")
+    # "output_in_folder": true（《乔布斯传》系列）：成片和字幕放进 08_Shorts/<sid>/ 里，每条 Shorts 一个文件夹
+    out_dir = os.path.join(ep, "08_Shorts", sid) if spec.get("output_in_folder") else os.path.join(ep, "08_Shorts")
+    out = os.path.join(out_dir, f"{sid}.mp4")
     n_total = round((min(preview, total) if preview else total) * FPS)
     fc = (f"[1:a]afade=t=in:st=0:d=0.12,afade=t=out:st={total - 0.4:.2f}:d=0.4,"
           f"loudnorm=I=-14:TP=-1.5:LRA=11[a]")
@@ -447,7 +449,7 @@ def encode(ep, sid, spec, vis, events, c0, c1, audio_src, preview=None):
     proc.stdin.close()
     if proc.wait() != 0:
         raise RuntimeError("ffmpeg 失败")
-    with open(os.path.join(ep, "08_Shorts", f"{sid}.srt"), "w", encoding="utf-8") as fh:
+    with open(os.path.join(out_dir, f"{sid}.srt"), "w", encoding="utf-8") as fh:
         for i, (a, b, txt) in enumerate(events, 1):
             fh.write(f"{i}\n{A.srt_time(a)} --> {A.srt_time(b)}\n{txt}\n\n")
     print("输出:", out)

@@ -58,8 +58,9 @@
     "zoom": "in"
    },
    "web_jobs2010": {
-    "photo": "web_jobs2010_sq",
+    "photo": "web_jobs2010",
     "fx": 0.5,
+    "fy": 0.33,
     "zoom": "out"
    },
    "v_quote_a": {
@@ -82,7 +83,8 @@
    }
   },
   "bgm_seed": 55,
-  "lang": "sc"
+  "lang": "sc",
+  "output_in_folder": true
  },
  "C01B": {
   "standalone": true,
@@ -108,8 +110,9 @@
     "zoom": "in"
    },
    "web_jobs1969": {
-    "photo": "web_jobs1969_sq",
+    "photo": "web_jobs1969",
     "fx": 0.5,
+    "fy": 0.39,
     "zoom": "in"
    },
    "b_ultimatum": {
@@ -172,6 +175,7 @@
    }
   },
   "bgm_seed": 56,
-  "lang": "sc"
+  "lang": "sc",
+  "output_in_folder": true
  }
 }
