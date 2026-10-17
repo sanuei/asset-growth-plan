@@ -923,5 +923,1671 @@
     }
    }
   ]
+ },
+ "C01C": {
+  "template": "paper",
+  "lang": "sc",
+  "output_in_folder": true,
+  "bgm_seed": 57,
+  "hook": {
+   "kicker": "乔布斯传 · 第一章　童年",
+   "title": "养父只是个机械师",
+   "sub": "却教了乔布斯影响一生的两件事",
+   "seal": "壹"
+  },
+  "cap_hl": [
+   "看不见的地方",
+   "懂行",
+   "50美元",
+   "250美元",
+   "不报税",
+   "做给自己看"
+  ],
+  "beats": [
+   {
+    "img": "a_paul_engine",
+    "fx": 0.5,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "养父 · 保罗·乔布斯",
+      "x": 40,
+      "y": 110,
+      "delay": 0.6
+     }
+    ]
+   },
+   {
+    "at": "只是个",
+    "img": "a_paul_engine",
+    "scale": 1.45,
+    "fx": 0.45,
+    "fy": 0.4
+   },
+   {
+    "at": "高中退学的机械师",
+    "img": "b_garage",
+    "scale": 1.3,
+    "fx": 0.3,
+    "zoom": "in"
+   },
+   {
+    "at": "却教会了他",
+    "card": {
+     "type": "list",
+     "title": "父亲教他的两件事",
+     "items": [
+      "看不见的地方，也要做好",
+      "懂行，才能谈价钱"
+     ],
+     "span": 1.6
+    },
+    "img": "c_workbench"
+   },
+   {
+    "at": "第一件",
+    "card": {
+     "type": "note",
+     "kicker": "第一件",
+     "text": "看不见的地方，\n也要做好。",
+     "hl": "看不见的地方"
+    },
+    "img": "c_cabinet_back"
+   },
+   {
+    "at": "父亲在车库里",
+    "img": "c_workbench",
+    "fx": 0.5
+   },
+   {
+    "at": "带他一起做柜子",
+    "img": "c_fence",
+    "fx": 0.5
+   },
+   {
+    "at": "柜子和栅栏的背面",
+    "img": "c_cabinet_back",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   {
+    "at": "哪怕根本没人会看到",
+    "img": "c_fence",
+    "scale": 1.5,
+    "fx": 0.6,
+    "fy": 0.6
+   },
+   {
+    "at": "50年后",
+    "card": {
+     "type": "num",
+     "big": "50年后",
+     "sub": "那道栅栏还在",
+     "size": 180
+    },
+    "img": "c_old_fence"
+   },
+   {
+    "at": "那道栅栏还围着",
+    "img": "c_old_fence",
+    "fx": 0.35,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "山景城 · 乔布斯儿时的家",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "乔布斯带着作者",
+    "img": "c_old_fence",
+    "scale": 1.4,
+    "fx": 0.5,
+    "fy": 0.45,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "作者 · 沃尔特·艾萨克森",
+      "x": 1040,
+      "y": 110,
+      "anchor": "r",
+      "from": "right",
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "轻轻抚摸着木板",
+    "img": "c_old_fence",
+    "scale": 1.8,
+    "fx": 0.12,
+    "fy": 0.55
+   },
+   {
+    "at": "又讲了一遍这一课",
+    "img": "web_jobs2010",
+    "fy": 0.33,
+    "zoom": "in"
+   },
+   {
+    "at": "第二件",
+    "card": {
+     "type": "note",
+     "kicker": "第二件",
+     "text": "懂行，\n才能谈价钱。",
+     "hl": "懂行"
+    },
+    "img": "c_junkyard"
+   },
+   {
+    "at": "每个周末",
+    "img": "c_junkyard",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "每个周末 · 废品站",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "去废品站找零件",
+    "img": "c_junkyard",
+    "scale": 1.5,
+    "fx": 0.6,
+    "fy": 0.6
+   },
+   {
+    "at": "总能砍下价来",
+    "img": "c_haggle",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "成交",
+      "at": "砍下价来",
+      "x": 760,
+      "y": 700,
+      "rot": -10,
+      "size": 100
+     }
+    ]
+   },
+   {
+    "at": "因为他比卖家更清楚",
+    "img": "c_haggle",
+    "scale": 1.5,
+    "fx": 0.35,
+    "fy": 0.4
+   },
+   {
+    "at": "零件值多少钱",
+    "img": "c_haggle",
+    "scale": 1.6,
+    "fx": 0.55,
+    "fy": 0.6
+   },
+   {
+    "at": "他花50美元",
+    "img": "web_falcon",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "福特猎鹰 · 他常买的那种车",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "修几个星期",
+    "img": "c_carflip",
+    "fx": 0.5
+   },
+   {
+    "at": "再以250美元卖掉",
+    "card": {
+     "type": "num",
+     "big": "50 → 250美元",
+     "sub": "修几个星期，转手卖掉",
+     "size": 130
+    },
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "不报税",
+      "at": "不报税",
+      "x": 760,
+      "y": 790,
+      "rot": -9,
+      "size": 84
+     }
+    ]
+   },
+   {
+    "at": "乔布斯上大学的钱",
+    "img": "a_paulclara",
+    "scale": 1.3,
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "兑现领养时的承诺",
+      "x": 40,
+      "y": 110,
+      "color": "red",
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "就是这样攒出来的",
+    "img": "web_jobs1969",
+    "fy": 0.39,
+    "zoom": "in"
+   },
+   {
+    "at": "后来做麦金塔电脑",
+    "img": "c_mac_board",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "1980年代 · 做麦金塔电脑",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "没人会去看机箱里的电路板",
+    "img": "c_mac_board",
+    "scale": 1.5,
+    "fx": 0.4,
+    "fy": 0.55
+   },
+   {
+    "at": "乔布斯回答",
+    "card": {
+     "type": "quote",
+     "text": "优秀的木匠，\n不会用劣质木板\n去做柜子的背板。",
+     "by": "—— 乔布斯",
+     "seal": "乔"
+    },
+    "img": "c_carpenter",
+    "dim": 0.6
+   },
+   {
+    "at": "去做柜子的背板",
+    "img": "c_carpenter",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   {
+    "at": "品质，是做给自己看的",
+    "card": {
+     "type": "note",
+     "text": "品质，\n是做给自己看的。",
+     "hl": "做给自己看"
+    },
+    "img": "c_carpenter"
+   },
+   {
+    "at": "你身边",
+    "card": {
+     "type": "ask",
+     "q": "你身边，有没有这样一个人？",
+     "opts": [
+      "有",
+      "还没遇到"
+     ],
+     "foot": "留言说说他教会你的事"
+    },
+    "img": "c_workbench",
+    "dim": 0.62
+   }
+  ]
+ },
+ "C01D": {
+  "template": "paper",
+  "lang": "sc",
+  "output_in_folder": true,
+  "bgm_seed": 58,
+  "hook": {
+   "kicker": "乔布斯传 · 第一章　童年",
+   "title": "乔布斯第一次比父亲聪明",
+   "sub": "他的第一反应，竟是羞愧",
+   "seal": "壹"
+  },
+  "cap_hl": [
+   "羞愧",
+   "碳精话筒",
+   "放大器",
+   "更聪明",
+   "被领养"
+  ],
+  "beats": [
+   {
+    "img": "d_driveway",
+    "fx": 0.5,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "1960年代 · 山景城",
+      "x": 40,
+      "y": 110,
+      "delay": 0.6
+     }
+    ]
+   },
+   {
+    "at": "第一次发现自己比父亲更聪明",
+    "img": "d_argue",
+    "fx": 0.5
+   },
+   {
+    "at": "可他的第一反应",
+    "img": "d_alone",
+    "fx": 0.45,
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "羞愧",
+      "at": "羞愧",
+      "x": 760,
+      "y": 720,
+      "rot": -10,
+      "size": 100
+     }
+    ]
+   },
+   {
+    "at": "事情起于一只碳精话筒",
+    "img": "web_carbonmic",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "碳精话筒（实物）",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "隔着七户人家",
+    "card": {
+     "type": "route",
+     "a": [
+      "乔布斯家",
+      "迪亚布洛大道"
+     ],
+     "b": [
+      "拉里·朗家",
+      "惠普工程师"
+     ],
+     "label": "隔着七户人家"
+    },
+    "img": "d_run_home"
+   },
+   {
+    "at": "他在车道上",
+    "img": "d_driveway",
+    "fx": 0.5,
+    "zoom": "out"
+   },
+   {
+    "at": "电池和扬声器",
+    "img": "d_driveway",
+    "scale": 1.5,
+    "fx": 0.35,
+    "fy": 0.65
+   },
+   {
+    "at": "让乔布斯对着话筒说话",
+    "img": "d_driveway",
+    "scale": 1.5,
+    "fx": 0.6,
+    "fy": 0.45
+   },
+   {
+    "at": "声音竟然",
+    "img": "d_driveway",
+    "scale": 1.4,
+    "fx": 0.3,
+    "fy": 0.6,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "没接放大器，声音照样放大",
+      "x": 40,
+      "y": 110,
+      "color": "red",
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "放大了出来",
+    "img": "web_carbonmic",
+    "scale": 1.4,
+    "fx": 0.5,
+    "zoom": "out"
+   },
+   {
+    "at": "可父亲早就告诉过他",
+    "img": "a_paul_engine",
+    "scale": 1.3,
+    "fx": 0.5
+   },
+   {
+    "at": "话筒一定要接",
+    "card": {
+     "type": "compare",
+     "title": "谁说得对？",
+     "rows": [
+      [
+       "父亲说",
+       "一定要接放大器",
+       "no"
+      ],
+      [
+       "邻居做到",
+       "不接也能放大",
+       "ok"
+      ]
+     ]
+    },
+    "img": "d_argue"
+   },
+   {
+    "at": "他跑回家说",
+    "img": "d_run_home",
+    "fx": 0.5
+   },
+   {
+    "at": "爸爸，你错了",
+    "img": "d_argue",
+    "scale": 1.4,
+    "fx": 0.7,
+    "fy": 0.45
+   },
+   {
+    "at": "父亲很肯定",
+    "img": "d_argue",
+    "scale": 1.4,
+    "fx": 0.3,
+    "fy": 0.4
+   },
+   {
+    "at": "这里面一定有诀窍",
+    "img": "a_paul_engine",
+    "scale": 1.6,
+    "fx": 0.55,
+    "fy": 0.35
+   },
+   {
+    "at": "还说他疯了",
+    "img": "d_argue",
+    "scale": 1.5,
+    "fx": 0.3,
+    "fy": 0.4,
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "你疯了",
+      "at": "疯了",
+      "x": 720,
+      "y": 740,
+      "rot": -8,
+      "size": 92
+     }
+    ]
+   },
+   {
+    "at": "他一遍遍坚持",
+    "img": "d_argue",
+    "fx": 0.5,
+    "zoom": "out"
+   },
+   {
+    "at": "最后拉着父亲",
+    "img": "d_visit",
+    "fx": 0.5
+   },
+   {
+    "at": "父亲看完",
+    "img": "d_visit",
+    "scale": 1.6,
+    "fx": 0.35,
+    "fy": 0.4
+   },
+   {
+    "at": "我还是赶紧走人吧",
+    "card": {
+     "type": "quote",
+     "text": "我还是\n赶紧走人吧。",
+     "by": "—— 乔布斯的父亲"
+    },
+    "img": "d_visit",
+    "dim": 0.6
+   },
+   {
+    "at": "那一刻",
+    "img": "d_alone",
+    "fx": 0.45,
+    "zoom": "in"
+   },
+   {
+    "at": "父亲不是什么都懂",
+    "img": "a_paul_engine",
+    "scale": 1.6,
+    "fx": 0.5,
+    "fy": 0.35,
+    "zoom": "out"
+   },
+   {
+    "at": "接着冒出一个",
+    "img": "d_alone",
+    "scale": 1.5,
+    "fx": 0.45,
+    "fy": 0.45
+   },
+   {
+    "at": "我比我的父母更聪明",
+    "card": {
+     "type": "note",
+     "kicker": "一个让他不安的念头",
+     "text": "我比我的父母\n更聪明。",
+     "hl": "更聪明"
+    }
+   },
+   {
+    "at": "自己为这个念头异常羞愧",
+    "img": "d_alone",
+    "scale": 1.8,
+    "fx": 0.45,
+    "fy": 0.4
+   },
+   {
+    "at": "永远忘不了那一瞬间",
+    "img": "web_jobs1969",
+    "fy": 0.39,
+    "zoom": "in"
+   },
+   {
+    "at": "再加上被领养",
+    "img": "a_nursery",
+    "scale": 1.4,
+    "fx": 0.75,
+    "fy": 0.6,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "被领养的孩子",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "他开始觉得",
+    "img": "d_parents_watch",
+    "fx": 0.5
+   },
+   {
+    "at": "整个世界都隔着一点距离",
+    "img": "d_alone",
+    "fx": 0.45,
+    "zoom": "out"
+   },
+   {
+    "at": "你还记得",
+    "card": {
+     "type": "ask",
+     "q": "第一次发现父母也会错，是什么时候？",
+     "opts": [
+      "小时候",
+      "长大以后"
+     ],
+     "foot": "留言说说那件事"
+    },
+    "img": "d_parents_watch",
+    "dim": 0.62
+   }
+  ]
+ },
+ "C01E": {
+  "template": "paper",
+  "lang": "sc",
+  "output_in_folder": true,
+  "bgm_seed": 59,
+  "hook": {
+   "kicker": "乔布斯传 · 第一章　童年",
+   "title": "他在老师椅子下点炸药",
+   "sub": "救了他的，是一根棒棒糖",
+   "seal": "壹"
+  },
+  "cap_hl": [
+   "炸药",
+   "棒棒糖",
+   "5美元",
+   "那是你的错",
+   "坐牢"
+  ],
+  "beats": [
+   {
+    "img": "e_firecracker",
+    "fx": 0.5,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "1960年代 · 蒙塔·洛马小学",
+      "x": 40,
+      "y": 110,
+      "delay": 0.6
+     }
+    ]
+   },
+   {
+    "at": "点过炸药",
+    "img": "e_firecracker",
+    "scale": 1.5,
+    "fx": 0.5,
+    "fy": 0.62
+   },
+   {
+    "at": "后来救了他的",
+    "img": "e_lollipop",
+    "fx": 0.5
+   },
+   {
+    "at": "一根棒棒糖和5美元",
+    "card": {
+     "type": "num",
+     "big": "5美元",
+     "sub": "外加一根超大的棒棒糖"
+    }
+   },
+   {
+    "at": "他上学前就被母亲",
+    "img": "e_reading",
+    "fx": 0.5
+   },
+   {
+    "at": "上课觉得无聊",
+    "img": "e_bored",
+    "fx": 0.5
+   },
+   {
+    "at": "就不停惹麻烦",
+    "img": "e_bored",
+    "scale": 1.5,
+    "fx": 0.8,
+    "fy": 0.5
+   },
+   {
+    "at": "他和好朋友做海报",
+    "img": "e_pets",
+    "fx": 0.5
+   },
+   {
+    "at": "宣布带宠物上学日",
+    "img": "e_pets",
+    "scale": 1.5,
+    "fx": 0.7,
+    "fy": 0.5
+   },
+   {
+    "at": "学校里到处狗撵猫",
+    "img": "e_pets",
+    "scale": 1.4,
+    "fx": 0.4,
+    "fy": 0.6
+   },
+   {
+    "at": "又骗同学说出车锁密码",
+    "img": "e_bikelocks",
+    "fx": 0.5
+   },
+   {
+    "at": "把所有自行车锁",
+    "img": "e_bikelocks",
+    "scale": 1.35,
+    "fx": 0.3,
+    "fy": 0.5
+   },
+   {
+    "at": "三年级",
+    "img": "e_firecracker",
+    "fx": 0.5,
+    "zoom": "out"
+   },
+   {
+    "at": "老师吓得直抽搐",
+    "img": "e_firecracker",
+    "scale": 1.5,
+    "fx": 0.35,
+    "fy": 0.4,
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "闯祸",
+      "at": "抽搐",
+      "x": 760,
+      "y": 720,
+      "rot": -10,
+      "size": 100
+     }
+    ]
+   },
+   {
+    "at": "他被学校送回家两三次",
+    "card": {
+     "type": "list",
+     "title": "他闯过的祸",
+     "items": [
+      "带宠物上学日",
+      "调换全部车锁",
+      "椅子下点炸药"
+     ],
+     "foot": "被送回家两三次",
+     "span": 1.8
+    },
+    "img": "e_bored"
+   },
+   {
+    "at": "可父亲对老师说",
+    "img": "e_father_school",
+    "fx": 0.5
+   },
+   {
+    "at": "如果你提不起他的兴趣",
+    "card": {
+     "type": "quote",
+     "text": "如果你提不起\n他的兴趣，\n那是你的错。",
+     "by": "—— 乔布斯的父亲"
+    },
+    "img": "e_father_school",
+    "dim": 0.6
+   },
+   {
+    "at": "四年级",
+    "img": "e_lollipop",
+    "fx": 0.3,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "希尔老师 · 人称“泰迪”",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "她给他一本数学练习簿",
+    "img": "e_lollipop",
+    "scale": 1.4,
+    "fx": 0.55,
+    "fy": 0.5
+   },
+   {
+    "at": "又拿出一根超大的棒棒糖",
+    "img": "e_lollipop",
+    "scale": 1.6,
+    "fx": 0.45,
+    "fy": 0.4
+   },
+   {
+    "at": "大多数做对",
+    "card": {
+     "type": "note",
+     "kicker": "希尔老师的交易",
+     "text": "大多数做对：\n棒棒糖 + 5美元",
+     "hl": "棒棒糖 + 5美元"
+    }
+   },
+   {
+    "at": "他不到两天就做完了",
+    "img": "e_studying",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "不到两天",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "几个月后",
+    "img": "e_studying",
+    "scale": 1.4,
+    "fx": 0.4,
+    "fy": 0.5,
+    "zoom": "out"
+   },
+   {
+    "at": "只想学习",
+    "card": {
+     "type": "quote",
+     "text": "我只想学习\n和让她高兴。",
+     "by": "—— 乔布斯"
+    },
+    "img": "e_studying",
+    "dim": 0.6
+   },
+   {
+    "at": "他说服别人的本事",
+    "img": "e_hawaii",
+    "fx": 0.5,
+    "scale": 1.3,
+    "fy": 0.45
+   },
+   {
+    "at": "班上拍夏威夷日合照",
+    "img": "e_hawaii",
+    "fx": 0.5,
+    "zoom": "out"
+   },
+   {
+    "at": "他没穿夏威夷衫",
+    "img": "e_hawaii",
+    "scale": 1.5,
+    "fx": 0.5,
+    "fy": 0.55
+   },
+   {
+    "at": "照片里却穿着一件",
+    "img": "e_hawaii",
+    "scale": 1.9,
+    "fx": 0.5,
+    "fy": 0.6
+   },
+   {
+    "at": "坐在前排正中间",
+    "img": "e_hawaii",
+    "scale": 1.4,
+    "fx": 0.5,
+    "fy": 0.6,
+    "zoom": "out"
+   },
+   {
+    "at": "原来",
+    "img": "e_hawaii",
+    "scale": 1.5,
+    "fx": 0.85,
+    "fy": 0.5,
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "说服",
+      "at": "说服另一个同学",
+      "x": 320,
+      "y": 760,
+      "rot": -8,
+      "size": 100
+     }
+    ]
+   },
+   {
+    "at": "把衣服脱下来",
+    "img": "e_hawaii",
+    "scale": 1.8,
+    "fx": 0.88,
+    "fy": 0.55
+   },
+   {
+    "at": "乔布斯说",
+    "img": "web_jobs2010",
+    "fy": 0.33,
+    "zoom": "in"
+   },
+   {
+    "at": "如果没有她",
+    "card": {
+     "type": "quote",
+     "text": "如果没有她的话，\n我一定会坐牢的。",
+     "by": "—— 乔布斯",
+     "seal": "乔"
+    },
+    "img": "web_jobs2010",
+    "fy": 0.33,
+    "dim": 0.6
+   },
+   {
+    "at": "你遇到过",
+    "card": {
+     "type": "ask",
+     "q": "你遇到过这样一位老师吗？",
+     "opts": [
+      "遇到过",
+      "没遇到"
+     ],
+     "foot": "留言说说那位老师"
+    },
+    "img": "e_lollipop",
+    "dim": 0.62
+   }
+  ]
+ },
+ "C01F": {
+  "template": "paper",
+  "lang": "sc",
+  "output_in_folder": true,
+  "bgm_seed": 60,
+  "hook": {
+   "kicker": "乔布斯传 · 第一章　童年",
+   "title": "一通电话打给惠普CEO",
+   "sub": "读高中的乔布斯，拿到了一份工作",
+   "seal": "壹"
+  },
+  "cap_hl": [
+   "惠普",
+   "CEO",
+   "9100A",
+   "我爱上了它",
+   "20分钟",
+   "一通电话"
+  ],
+  "beats": [
+   {
+    "img": "f_phone",
+    "fx": 0.5,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "1960年代末 · 硅谷",
+      "x": 40,
+      "y": 110,
+      "delay": 0.6
+     }
+    ]
+   },
+   {
+    "at": "直接打电话给惠普的创办人兼CEO",
+    "img": "web_hewlett",
+    "fx": 0.5,
+    "fy": 0.35,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "比尔·休利特 · 惠普创办人",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "结果拿到了一份工作",
+    "img": "f_assembly",
+    "fx": 0.5
+   },
+   {
+    "at": "那时，邻居拉里·朗",
+    "img": "web_hpgarage",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "惠普诞生的车库 · 帕洛奥图",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "带他加入了",
+    "img": "d_driveway",
+    "scale": 1.4,
+    "fx": 0.3,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "邻居 · 拉里·朗",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "每周二晚上",
+    "img": "f_explorers",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "惠普探索者俱乐部",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "十几个学生",
+    "img": "f_explorers",
+    "scale": 1.4,
+    "fx": 0.6,
+    "fy": 0.55
+   },
+   {
+    "at": "听工程师讲",
+    "img": "f_explorers",
+    "scale": 1.5,
+    "fx": 0.3,
+    "fy": 0.45
+   },
+   {
+    "at": "他在那里第一次见到台式计算机",
+    "img": "web_hp9100a",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "惠普 9100A · 1968年",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "惠普9100A",
+    "img": "web_hp9100a",
+    "scale": 1.4,
+    "fx": 0.5,
+    "fy": 0.55,
+    "zoom": "out"
+   },
+   {
+    "at": "大约40磅重",
+    "card": {
+     "type": "num",
+     "big": "40磅",
+     "sub": "惠普 9100A，最早的台式计算机"
+    },
+    "img": "web_hp9100a"
+   },
+   {
+    "at": "它真的很美",
+    "card": {
+     "type": "quote",
+     "text": "它真的很美，\n我爱上了它。",
+     "by": "—— 乔布斯"
+    },
+    "img": "web_hp9100a",
+    "dim": 0.6
+   },
+   {
+    "at": "俱乐部鼓励学生",
+    "img": "f_explorers",
+    "fx": 0.7,
+    "zoom": "out"
+   },
+   {
+    "at": "他想做一台频率计数器",
+    "card": {
+     "type": "note",
+     "kicker": "他的项目",
+     "text": "频率计数器\n缺几个惠普零件",
+     "hl": "缺几个惠普零件"
+    },
+    "img": "f_phonebook"
+   },
+   {
+    "at": "那时候，电话号码",
+    "img": "f_phonebook",
+    "fx": 0.5
+   },
+   {
+    "at": "都登在电话簿上",
+    "img": "f_phonebook",
+    "scale": 1.6,
+    "fx": 0.4,
+    "fy": 0.6
+   },
+   {
+    "at": "他就查到住在帕洛奥图的比尔·休利特",
+    "img": "f_phonebook",
+    "scale": 1.5,
+    "fx": 0.5,
+    "fy": 0.55,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "比尔·休利特 · 帕洛奥图",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "直接打到了他家",
+    "img": "f_phone",
+    "scale": 1.3,
+    "fx": 0.5
+   },
+   {
+    "at": "休利特接了电话",
+    "img": "f_exec_phone",
+    "fx": 0.5
+   },
+   {
+    "at": "和他聊了20分钟",
+    "card": {
+     "type": "num",
+     "big": "20分钟",
+     "sub": "惠普CEO，和一个高中生"
+    },
+    "img": "f_exec_phone"
+   },
+   {
+    "at": "不但给了他零件",
+    "img": "f_exec_phone",
+    "scale": 1.4,
+    "fx": 0.45,
+    "fy": 0.4
+   },
+   {
+    "at": "还给了他一份暑期工",
+    "img": "f_assembly",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "录用",
+      "at": "暑期工",
+      "x": 760,
+      "y": 720,
+      "rot": -10,
+      "size": 100
+     }
+    ]
+   },
+   {
+    "at": "就在生产频率计数器的工厂",
+    "img": "f_assembly",
+    "scale": 1.4,
+    "fx": 0.7,
+    "fy": 0.5
+   },
+   {
+    "at": "他在流水线上对主管说",
+    "img": "f_assembly",
+    "scale": 1.5,
+    "fx": 0.5,
+    "fy": 0.5
+   },
+   {
+    "at": "我喜欢这玩意儿",
+    "img": "f_assembly",
+    "scale": 1.7,
+    "fx": 0.55,
+    "fy": 0.45
+   },
+   {
+    "at": "主管却说",
+    "card": {
+     "type": "compare",
+     "title": "流水线上的对话",
+     "rows": [
+      [
+       "乔布斯",
+       "我喜欢这玩意儿！",
+       "ok"
+      ],
+      [
+       "主管",
+       "我喜欢鬼混。",
+       "no"
+      ]
+     ]
+    },
+    "img": "f_assembly"
+   },
+   {
+    "at": "有些工友看不惯",
+    "img": "f_assembly",
+    "scale": 1.6,
+    "fx": 0.2,
+    "fy": 0.45
+   },
+   {
+    "at": "靠打电话给CEO进来的孩子",
+    "img": "web_jobs1969",
+    "fy": 0.39,
+    "zoom": "in"
+   },
+   {
+    "at": "可他每天早上10点",
+    "img": "f_donuts",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "每天上午10点",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "和工程师们一起",
+    "img": "f_donuts",
+    "scale": 1.4,
+    "fx": 0.6,
+    "fy": 0.5
+   },
+   {
+    "at": "喝咖啡",
+    "img": "f_donuts",
+    "scale": 1.6,
+    "fx": 0.35,
+    "fy": 0.55
+   },
+   {
+    "at": "很多机会",
+    "card": {
+     "type": "note",
+     "text": "很多机会，\n其实只差一通电话。",
+     "hl": "一通电话"
+    },
+    "img": "f_phone"
+   },
+   {
+    "at": "你有没有一件",
+    "card": {
+     "type": "ask",
+     "q": "你有没有一件想开口的事？",
+     "opts": [
+      "有",
+      "没有"
+     ],
+     "foot": "留言写下来，也许就去做了"
+    },
+    "img": "f_phone",
+    "dim": 0.62
+   }
+  ]
+ },
+ "C01G": {
+  "template": "paper",
+  "lang": "sc",
+  "output_in_folder": true,
+  "bgm_seed": 61,
+  "hook": {
+   "kicker": "乔布斯传 · 第一章　童年",
+   "title": "少年乔布斯的生意经",
+   "sub": "讨价还价、低买高卖，也越过界",
+   "seal": "壹"
+  },
+  "cap_hl": [
+   "讨价还价",
+   "低买高卖",
+   "芯片",
+   "菲亚特850",
+   "越界",
+   "很有钱"
+  ],
+  "beats": [
+   {
+    "img": "g_fleamarket",
+    "fx": 0.5,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "高中时期 · 硅谷",
+      "x": 40,
+      "y": 110,
+      "delay": 0.6
+     }
+    ]
+   },
+   {
+    "at": "会做生意的少年",
+    "img": "web_jobs1969",
+    "fy": 0.39,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "乔布斯 · 1969年",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "会讨价还价",
+    "img": "g_counter",
+    "fx": 0.5
+   },
+   {
+    "at": "还会低买高卖",
+    "img": "g_fleamarket",
+    "scale": 1.5,
+    "fx": 0.5,
+    "fy": 0.5,
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "低买高卖",
+      "at": "低买高卖",
+      "x": 740,
+      "y": 740,
+      "rot": -8,
+      "size": 90
+     }
+    ]
+   },
+   {
+    "at": "他在一家巨大的",
+    "img": "g_haltek",
+    "fx": 0.45,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "哈尔泰克电子器材店",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "当仓库管理员",
+    "img": "g_haltek",
+    "scale": 1.4,
+    "fx": 0.55,
+    "fy": 0.55
+   },
+   {
+    "at": "那里塞满了新旧零件",
+    "img": "g_haltek",
+    "scale": 1.5,
+    "fx": 0.3,
+    "fy": 0.5
+   },
+   {
+    "at": "连从北极星潜艇上",
+    "img": "g_haltek",
+    "scale": 1.6,
+    "fx": 0.8,
+    "fy": 0.6,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "北极星潜艇的控制面板",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "控制面板都有",
+    "img": "g_haltek",
+    "scale": 2.0,
+    "fx": 0.85,
+    "fy": 0.62
+   },
+   {
+    "at": "他学父亲那一套",
+    "img": "c_haggle",
+    "fx": 0.5
+   },
+   {
+    "at": "比店员更清楚",
+    "img": "g_counter",
+    "scale": 1.5,
+    "fx": 0.5,
+    "fy": 0.45
+   },
+   {
+    "at": "所以总能还价成功",
+    "img": "g_counter",
+    "scale": 1.5,
+    "fx": 0.3,
+    "fy": 0.55,
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "成交",
+      "at": "还价成功",
+      "x": 760,
+      "y": 720,
+      "rot": -10,
+      "size": 100
+     }
+    ]
+   },
+   {
+    "at": "他还跑电子跳蚤市场",
+    "img": "g_fleamarket",
+    "fx": 0.5,
+    "zoom": "out"
+   },
+   {
+    "at": "买下带着值钱芯片的电路板",
+    "img": "g_fleamarket",
+    "scale": 1.6,
+    "fx": 0.55,
+    "fy": 0.55
+   },
+   {
+    "at": "再把芯片卖给",
+    "card": {
+     "type": "route",
+     "a": [
+      "跳蚤市场",
+      "买进旧电路板"
+     ],
+     "b": [
+      "哈尔泰克",
+      "卖出芯片"
+     ],
+     "label": "低买高卖，赚中间的差价"
+    },
+    "img": "g_sell_chips"
+   },
+   {
+    "at": "15岁",
+    "img": "web_nash",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "纳什大都会 · 同款车型",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "父亲帮他弄到第一辆车",
+    "img": "c_carflip",
+    "fx": 0.5
+   },
+   {
+    "at": "一辆装了MG发动机",
+    "img": "web_nash",
+    "fx": 0.45,
+    "zoom": "out"
+   },
+   {
+    "at": "不到一年",
+    "card": {
+     "type": "num",
+     "big": "不到一年",
+     "sub": "打工攒钱，换了一辆新车",
+     "size": 140
+    }
+   },
+   {
+    "at": "换了一辆红色的菲亚特850轿跑",
+    "img": "web_fiat850",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "菲亚特850轿跑 · 同款车型",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "他说",
+    "card": {
+     "type": "quote",
+     "text": "把挣的钱攒起来\n去买东西的那种满足感\n太让人兴奋了。",
+     "by": "—— 乔布斯"
+    },
+    "img": "web_fiat850",
+    "dim": 0.6
+   },
+   {
+    "at": "那种满足感",
+    "img": "web_jobs1969",
+    "fy": 0.39,
+    "zoom": "out"
+   },
+   {
+    "at": "不过，他也有越界的时候",
+    "img": "g_collect_call",
+    "fx": 0.5
+   },
+   {
+    "at": "电子课上",
+    "img": "g_teacher",
+    "fx": 0.5,
+    "zoom": "out",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "麦科勒姆的电子课",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "他就打对方付费电话",
+    "img": "g_collect_call",
+    "scale": 1.5,
+    "fx": 0.5,
+    "fy": 0.4
+   },
+   {
+    "at": "底特律的伯勒斯公司",
+    "img": "g_collect_call",
+    "fx": 0.5,
+    "zoom": "out",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "底特律 · 伯勒斯公司",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "编故事说自己",
+    "card": {
+     "type": "note",
+     "kicker": "他编的故事",
+     "text": "我在设计新产品，\n想测试一下这个零件。",
+     "hl": "设计新产品"
+    },
+    "img": "g_collect_call"
+   },
+   {
+    "at": "几天后零件真的空运来了",
+    "img": "g_parcel",
+    "fx": 0.5,
+    "pops": [
+     {
+      "kind": "label",
+      "text": "几天后 · 航空包裹",
+      "x": 40,
+      "y": 110,
+      "delay": 0.15
+     }
+    ]
+   },
+   {
+    "at": "老师非常愤怒",
+    "img": "g_teacher",
+    "scale": 1.5,
+    "fx": 0.3,
+    "fy": 0.4
+   },
+   {
+    "at": "他却说",
+    "card": {
+     "type": "quote",
+     "text": "我没钱打电话，\n而那家公司很有钱。",
+     "by": "—— 乔布斯",
+     "seal": "乔"
+    },
+    "img": "g_teacher",
+    "dim": 0.6
+   },
+   {
+    "at": "敢谈、敢开口",
+    "card": {
+     "type": "note",
+     "text": "敢谈、敢开口，\n是他日后做成苹果的本事。",
+     "hl": "做成苹果的本事",
+     "size": 72
+    }
+   },
+   {
+    "at": "你觉得这一招",
+    "card": {
+     "type": "ask",
+     "q": "你觉得这一招算什么？",
+     "opts": [
+      "聪明",
+      "越界"
+     ],
+     "foot": "留言说说你的看法"
+    },
+    "img": "g_collect_call",
+    "dim": 0.62
+   }
+  ]
  }
 }

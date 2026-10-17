@@ -272,7 +272,7 @@ class Assets:
         s = self.sources.get(name)
         if not s:
             return None
-        artist = s["artist"].split(",")[0].replace("based on File:", "").strip()
+        artist = s.get("credit_name") or s["artist"].split(",")[0].replace("based on File:", "").strip()
         return f"照片：{artist} · {s['license']} · Wikimedia Commons"
 
     @lru_cache(maxsize=64)
@@ -580,7 +580,8 @@ def card_list(sp, t, dur, frame):
         a = ease_out(prog(t, st, 0.3))
         ink.line([(pad + 70, y + 22), (pad + 130, y + 22), (pad + 130, y + 82), (pad + 70, y + 82), (pad + 70, y + 20)], INK, 4, 0.6, p=a)
         ink.check(pad + 76, y + 48, 66, RED, prog(t, st + 0.2, 0.3))
-        put_text(c, it, 78, INK, pad + 176, y + 2, a)
+        isz = fit(it, 78, w - 220)  # 长的条目自动缩字，不超出纸张
+        put_text(c, it, isz, INK, pad + 176, y + 2 + (78 - isz) * 0.5, a)
         y += rh
     if sp.get("foot"):
         fa = ease_out(prog(t, 0.2 + span + 0.1, 0.35))
