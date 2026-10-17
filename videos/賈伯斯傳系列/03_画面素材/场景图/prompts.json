@@ -1,0 +1,17 @@
+{
+ "style_file": "image_style_comic.txt",
+ "scenes": {
+  "a_nursery": "1955 San Francisco hospital nursery at night: a newborn baby boy wrapped in a white blanket lying alone in a small hospital bassinet, a nurse's silhouette at the doorway, soft lamp light, quiet and lonely mood",
+  "a_father": "1950s Wisconsin farmhouse living room: a stern, ill elderly German-American father in an armchair with a blanket over his knees, pointing sharply toward the door, his young adult daughter standing before him in tears",
+  "a_lawyer": "1955 doctor's office in San Francisco: a well-dressed lawyer couple in 1950s suit and coat standing up and turning away toward the door, the kindly doctor behind the desk holding an open file, an empty baby crib in the corner",
+  "a_paulclara": "1955 small apartment in San Francisco's Sunset district near the ocean: a muscular tattooed mechanic in his thirties with slicked-back hair and his kind dark-haired Armenian-American wife gently holding a newborn baby boy together, happy tears, simple furniture, fog outside the window",
+  "a_unsigned": "Close-up of 1950s adoption papers on a wooden desk with a fountain pen lying untouched beside them, a young woman's hand hovering hesitantly above, tense quiet mood, papers show only illegible scribble lines",
+  "a_campus": "1954 University of Wisconsin campus in autumn: a young American woman graduate student with a 1950s hairstyle walking close and smiling with a handsome young Syrian man in a suit carrying books, falling leaves, romantic but uneasy mood",
+  "a_wedding": "Snowy evening just after Christmas 1955 outside a small Catholic church in Green Bay, Wisconsin: a young bride in a modest white dress and a young man in a dark suit walking down the church steps, warm light from the open doors, falling snow, bittersweet mood",
+  "b_hallway": "Late 1960s rough California middle school hallway: a skinny lonely dark-haired boy of about eleven pressed against the lockers while a group of bigger older teenagers loom over him, one toying with a pocket knife, harsh fluorescent light",
+  "b_ultimatum": "1960s California kitchen at dinner: a dark-haired boy of about twelve standing up at the table with fists clenched, firmly telling his worried working-class parents something; the father a mechanic in a work shirt, the mother with bookkeeping ledgers next to her plate",
+  "b_bills": "Late night in a modest 1960s kitchen: a working-class couple bent over a pile of household bills, a bank passbook, a hand-drawn map of school districts and a small photo of a ranch house, a single lamp, tired but determined faces",
+  "b_garage": "1960s suburban California garage with the roll-up door open at dusk: a father in overalls working under the hood of an old car while his teenage son sits at a small workbench soldering electronic parts beside him, warm light",
+  "b_factory": "1976 suburban house turned into a small workshop: two young men with long hair soldering green circuit boards at a kitchen table covered in electronic parts, a young pregnant woman helping, boxes of components stacked in the hallway and an open garage beyond"
+ }
+}

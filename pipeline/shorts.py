@@ -48,9 +48,21 @@ def prog(t, start, dur):
     return min(max((t - start) / dur, 0.0), 1.0)
 
 
+# 简体系列（例如《乔布斯传》）在 shorts.json 里写 "lang": "sc"，换用简体字形的 Noto Sans CJK SC
+FONTS_SC = (os.path.expanduser("~/Library/Fonts/NotoSansCJKsc-Black.otf"),
+            os.path.expanduser("~/Library/Fonts/NotoSansCJKsc-Bold.otf"))
+FONT_SET = [FONT_HEAVY, FONT_BOLD]
+
+
+def use_fonts(lang):
+    FONT_SET[:] = list(FONTS_SC) if lang == "sc" else [FONT_HEAVY, FONT_BOLD]
+    for fn in (font, caption_img, flash_img):
+        fn.cache_clear()
+
+
 @lru_cache(maxsize=None)
 def font(size, heavy=True):
-    return ImageFont.truetype(FONT_HEAVY if heavy else FONT_BOLD, size)
+    return ImageFont.truetype(FONT_SET[0] if heavy else FONT_SET[1], size)
 
 
 def text_img(s, size, fill, heavy=True, stroke=0, shadow=False, spacing=0):
@@ -236,9 +248,10 @@ CARDS = {"quote": card_quote, "donut": card_donut, "bars": card_bars}
 
 # ---------- 文字层 ----------
 
-def hook_layer(lines):
+def hook_layer(lines, brand_text="資產增長計劃"):
+    """brand_text：系列可以换成自己的标签（例如简体的《乔布斯传》系列写「乔布斯传 · 第一章　童年」）。"""
     layer = Image.new("RGBA", (W, 400), (0, 0, 0, 0))
-    brand, bp = text_img("資產增長計劃", 38, GOLD, spacing=8)
+    brand, bp = text_img(brand_text, 38, GOLD, spacing=8)
     layer.alpha_composite(brand, (int(W / 2 - brand.width / 2), 40))
     y = 150
     for i, s in enumerate(lines):
@@ -255,8 +268,7 @@ def caption_img(s):
     return text_img(s, size, WHITE, heavy=False, stroke=7, shadow=True)
 
 
-def cta_layer():
-    s = "訂閱「資產增長計劃」，每天學一點"
+def cta_layer(s="訂閱「資產增長計劃」，每天學一點"):
     img, pad = text_img(s, fit_size(s, 46, 940), WHITE, heavy=False, shadow=True)
     pill = Image.new("RGBA", (img.width + 80, 100), (0, 0, 0, 0))
     ImageDraw.Draw(pill).rounded_rectangle([0, 0, pill.width - 1, 99], 50, fill=RED + (235,))
@@ -379,8 +391,8 @@ def encode(ep, sid, spec, vis, events, c0, c1, audio_src, preview=None):
     for i, s in enumerate(scenes):  # 开头就是图表时借用后面的背景
         if bgs[i] is None:
             bgs[i] = plain_bg()
-    hook = hook_layer(spec["hook"])
-    cta = cta_layer()
+    hook = hook_layer(spec["hook"], spec.get("brand", "資產增長計劃"))
+    cta = cta_layer(spec.get("cta", "訂閱「資產增長計劃」，每天學一點"))
     mask = window_mask()
 
     def window_at(s, t_abs):
@@ -450,6 +462,7 @@ def main():
     ep = args.episode.rstrip("/")
     cfg = json.load(open(os.path.join(ep, "08_Shorts/shorts.json"), encoding="utf-8"))
     for sid in args.ids:
+        use_fonts(cfg[sid].get("lang"))
         render(ep, sid, cfg[sid], args.preview)
 
 

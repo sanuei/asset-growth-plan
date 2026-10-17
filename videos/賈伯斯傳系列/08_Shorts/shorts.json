@@ -1,0 +1,177 @@
+{
+ "C01A": {
+  "standalone": true,
+  "brand": "乔布斯传 · 第一章　童年",
+  "cta": "订阅「资产增长计划」，一起读完乔布斯传",
+  "hook": [
+   "乔布斯差点成了律师的儿子",
+   "只因对方想要一个女孩"
+  ],
+  "flash": [
+   "差一点",
+   "成了律师的儿子"
+  ],
+  "visuals": {
+   "a_nursery": {
+    "img": "a_nursery",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   "web_uwmadison": {
+    "photo": "web_uwmadison",
+    "fx": 0.55,
+    "zoom": "in"
+   },
+   "a_father": {
+    "img": "a_father",
+    "fx": 0.5,
+    "zoom": "out"
+   },
+   "web_ggb1950s": {
+    "photo": "web_ggb1950s",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   "a_lawyer": {
+    "img": "a_lawyer",
+    "fx": 0.45,
+    "zoom": "in"
+   },
+   "a_paulclara": {
+    "img": "a_paulclara",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   "a_unsigned": {
+    "img": "a_unsigned",
+    "fx": 0.5,
+    "zoom": "out"
+   },
+   "a_campus": {
+    "img": "a_campus",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   "a_wedding": {
+    "img": "a_wedding",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   "web_jobs2010": {
+    "photo": "web_jobs2010_sq",
+    "fx": 0.5,
+    "zoom": "out"
+   },
+   "v_quote_a": {
+    "card": "quote",
+    "lines": [
+     [
+      "保罗和克拉拉，"
+     ],
+     [
+      "百分之一千"
+     ],
+     [
+      "是我的父母。"
+     ]
+    ],
+    "highlight": [
+     "百分之一千"
+    ],
+    "source": "—— 乔布斯｜《史蒂夫·乔布斯传》第一章"
+   }
+  },
+  "bgm_seed": 55,
+  "lang": "sc"
+ },
+ "C01B": {
+  "standalone": true,
+  "brand": "乔布斯传 · 第一章　童年",
+  "cta": "订阅「资产增长计划」，一起读完乔布斯传",
+  "hook": [
+   "倾尽所有买下的房子",
+   "车库里诞生了苹果"
+  ],
+  "flash": [
+   "21,000美元",
+   "倾尽所有"
+  ],
+  "visuals": {
+   "web_garage": {
+    "photo": "web_garage",
+    "fx": 0.3,
+    "zoom": "in"
+   },
+   "b_hallway": {
+    "img": "b_hallway",
+    "fx": 0.45,
+    "zoom": "in"
+   },
+   "web_jobs1969": {
+    "photo": "web_jobs1969_sq",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   "b_ultimatum": {
+    "img": "b_ultimatum",
+    "fx": 0.45,
+    "zoom": "in"
+   },
+   "b_bills": {
+    "img": "b_bills",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   "web_garage2": {
+    "photo": "web_garage",
+    "fx": 0.2,
+    "zoom": "out"
+   },
+   "b_garage": {
+    "img": "b_garage",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   "b_factory": {
+    "img": "b_factory",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   "web_apple1": {
+    "photo": "web_apple1",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   "v_quote_b": {
+    "card": "quote",
+    "lines": [
+     [
+      "给孩子换个环境，"
+     ],
+     [
+      "可能是一个家庭"
+     ],
+     [
+      "最重要的投资。"
+     ]
+    ],
+    "highlight": [
+     "最重要的投资。"
+    ],
+    "source": "资料：《史蒂夫·乔布斯传》第一章、第五章"
+   },
+   "web_apple1_hook": {
+    "photo": "web_apple1",
+    "fx": 0.45,
+    "zoom": "out"
+   },
+   "b_ultimatum2": {
+    "img": "b_ultimatum",
+    "fx": 0.55,
+    "zoom": "out"
+   }
+  },
+  "bgm_seed": 56,
+  "lang": "sc"
+ }
+}

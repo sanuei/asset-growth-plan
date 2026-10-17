@@ -1,0 +1,50 @@
+{
+ "web_garage": {
+  "title": "File:Apple Garage.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Apple_Garage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "page": "https://commons.wikimedia.org/wiki/File:Apple_Garage.jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Mathieu Thouvenin"
+ },
+ "web_jobs1969": {
+  "title": "File:Steve Jobs in 1969 Pegasus.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Steve_Jobs_in_1969_Pegasus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "page": "https://commons.wikimedia.org/wiki/File:Steve_Jobs_in_1969_Pegasus.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Homestead High School"
+ },
+ "web_jobs2010": {
+  "title": "File:Steve Jobs Headshot 2010-CROP2.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Steve_Jobs_Headshot_2010-CROP2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "page": "https://commons.wikimedia.org/wiki/File:Steve_Jobs_Headshot_2010-CROP2.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "MetalGearLiquid, based on File:Steve_Jobs_Headshot_2010-CROP.jpg made by Matt Yohe"
+ },
+ "web_ggb1950s": {
+  "title": "File:Golden Gate Bridge , San Francisco , 1950s , Kodachrome by Chalmers Butterfield.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Golden_Gate_Bridge_%2C_San_Francisco_%2C_1950s_%2C_Kodachrome_by_Chalmers_Butterfield.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "page": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge_,_San_Francisco_,_1950s_,_Kodachrome_by_Chalmers_Butterfield.jpg",
+  "license": "CC BY 2.5",
+  "license_url": "https://creativecommons.org/licenses/by/2.5",
+  "artist": "at en.wikipedia"
+ },
+ "web_uwmadison": {
+  "title": "File:Birge Hall, University of Wisconsin, Bascom Mall, Madison, WI.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Birge_Hall%2C_University_of_Wisconsin%2C_Bascom_Mall%2C_Madison%2C_WI.jpg/3840px-Birge_Hall%2C_University_of_Wisconsin%2C_Bascom_Mall%2C_Madison%2C_WI.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Birge_Hall,_University_of_Wisconsin,_Bascom_Mall,_Madison,_WI.jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "w_lemay"
+ },
+ "web_apple1": {
+  "title": "File:Apple-1, 1976, Computer History Museum.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Apple-1%2C_1976%2C_Computer_History_Museum.jpg/3840px-Apple-1%2C_1976%2C_Computer_History_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Apple-1,_1976,_Computer_History_Museum.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "The wub"
+ }
+}

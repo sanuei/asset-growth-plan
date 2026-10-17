@@ -24,7 +24,7 @@ from config import ENV  # noqa: E402
 
 API_URL = "https://api.minimax.cn/v1/t2a_v2"
 # 多音字修正：原文/拼音
-PRONUNCIATION = ["增長/(zeng1)(zhang3)", "傳記/(zhuan4)(ji4)", "記載/(ji4)(zai3)", "TIPS/T I P S", "Aaa/三A", "Aa1/雙A一", "2021財/二零二一財", "2024財/二零二四財", "2025財/二零二五財", "2026財/二零二六財", "成長/(cheng2)(zhang3)", "長大/(zhang3)(da4)", "差別/(cha1)(bie2)", "便宜/(pian2)(yi2)", "重壓/(zhong4)(ya1)", "Shopping.com/Shopping dot com"]
+PRONUNCIATION = ["增長/(zeng1)(zhang3)", "傳記/(zhuan4)(ji4)", "記載/(ji4)(zai3)", "TIPS/T I P S", "Aaa/三A", "Aa1/雙A一", "2021財/二零二一財", "2024財/二零二四財", "2025財/二零二五財", "2026財/二零二六財", "成長/(cheng2)(zhang3)", "長大/(zhang3)(da4)", "差別/(cha1)(bie2)", "便宜/(pian2)(yi2)", "重壓/(zhong4)(ya1)", "Shopping.com/Shopping dot com", "Apple II/Apple two", "Apple I/Apple one", "勉强/(mian3)(qiang3)", "差一点/(cha4)(yi4)(dian3)", "只差/(zhi3)(cha4)"]
 
 
 def synth(text, speed=None):
