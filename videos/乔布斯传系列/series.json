@@ -1,0 +1,58 @@
+{
+ "playlist": {
+  "id": "PLB6RscZcD2G0",
+  "title": "乔布斯传｜一个故事一个故事，读完乔布斯的一生",
+  "description": "按沃尔特·艾萨克森《史蒂夫·乔布斯传》的章节顺序，一条短视频讲一个真实故事：他的身世、车库创业、被赶出苹果、王者归来、iPhone 与最后的岁月。按编号顺序看最完整。\n\n资料来源：沃尔特·艾萨克森《史蒂夫·乔布斯传》（中信出版社，2011）"
+ },
+ "videos": [
+  {
+   "no": 1,
+   "sid": "C01A",
+   "chapter": "第01章_童年",
+   "youtube": "JC20GoMcu3o",
+   "publish_at": "2026-10-18T12:00:00+08:00"
+  },
+  {
+   "no": 2,
+   "sid": "C01B",
+   "chapter": "第01章_童年",
+   "youtube": "HItu-Z7nTSA",
+   "publish_at": "2026-10-18T18:00:00+08:00"
+  },
+  {
+   "no": 3,
+   "sid": "C01C",
+   "chapter": "第01章_童年",
+   "youtube": "KKKVR-NFWL0",
+   "publish_at": "2026-10-19T12:00:00+08:00"
+  },
+  {
+   "no": 4,
+   "sid": "C01D",
+   "chapter": "第01章_童年",
+   "youtube": "5a6eRdOPJQE",
+   "publish_at": "2026-10-19T18:00:00+08:00"
+  },
+  {
+   "no": 5,
+   "sid": "C01E",
+   "chapter": "第01章_童年",
+   "youtube": "6dm0QCZ22Do",
+   "publish_at": "2026-10-20T12:00:00+08:00"
+  },
+  {
+   "no": 6,
+   "sid": "C01F",
+   "chapter": "第01章_童年",
+   "youtube": "Pcu5xGWbcX8",
+   "publish_at": "2026-10-20T18:00:00+08:00"
+  },
+  {
+   "no": 7,
+   "sid": "C01G",
+   "chapter": "第01章_童年",
+   "youtube": "dv4WhYABIDU",
+   "publish_at": "2026-10-21T12:00:00+08:00"
+  }
+ ]
+}

@@ -54,4 +54,4 @@
    - 节奏：平均 2～2.5 秒一切，单个画面不超过 4 秒（信息卡可到 4～5 秒）。
 6. 写 `发布信息.md`（`## 标题` 第一行是正式标题，`## 备选标题`、`## 描述`、`## 标签` 每行一个），上传：
    `.venv/bin/python upload.py <编号文件夹>/<编号>.mp4 --info-file <编号文件夹>/发布信息.md --publish-at <时间>`
-   上传后把链接记到 `发布记录.md`。
+   上传后把 YouTube ID 和公开时间加进 `series.json`（`no` 是全系列连续编号），再运行 `.venv/bin/python tools/jobs_series_sync.py`：标题末尾自动加编号「｜001」、同步到 YouTube、加进播放清单。最后更新 `发布记录.md`。
