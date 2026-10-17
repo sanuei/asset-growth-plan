@@ -273,7 +273,7 @@ videos/EP001_巴菲特給普通人的投資建議/
 ```bash
 .venv/bin/python upload.py 成片.mp4 --title "標題" \
   --description-file 07_发布信息/描述.txt --tags-file 07_发布信息/标签.txt \
-  --language zh-Hant --privacy private --ai-generated --thumbnail 05_封面/封面.jpg
+  --language zh-Hant --privacy private --thumbnail 05_封面/封面.jpg   # 不加 --ai-generated（YouTube「AI 使用」一律选否）
 ```
 
 - 默认私享上传，频道主在 Studio 检查后再改成公开。

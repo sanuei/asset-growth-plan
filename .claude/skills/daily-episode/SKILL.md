@@ -38,6 +38,7 @@ description: 「資產增長計劃」每日自动出片：决定今天的选题�
 
 **费用规则**：语音只用 MiniMax，图片只用 Abo AI，选题数据用 vidIQ 免费额度；其他付费服务或用途一律不用（例如不要用 Abo AI 转写语音）。不要为了测试多花钱。
 
+- **结构与节奏**（准则「九之二」）：开场 + 3～4 部（不要分太多章）；开场第一个画面是钩子纸条卡、前 10 秒至少切 3 个画面；片名卡只写大标题（ptitle、不放频道名），片尾订阅卡也用纸条风格。
 - **从头说到尾不停顿**（准则「九」）：不放品牌静音段；章节卡用 `type: ptitle`，放进每章第一段的 visuals 第一个，`title_card` 设 null。
 - 频道主指定的语速、时长（例如「语速 1.1 倍」「不限时长」）写进该集的 `script.json`（`tts_speed`），优先于默认值。
 - 图表卡优先用纸张质感卡片（`pipeline/graphics3.py`，类型见准则「动态文字与图表的质感」）；数据从财政部、FRED 等一手来源在线取，写成 `99_工作文件/make_graphics.py`，不要手抄。
@@ -63,7 +64,7 @@ description: 「資產增長計劃」每日自动出片：决定今天的选题�
 ## 3. 上传与定时公开
 
 - 公开时间 = 今天台湾时间 20:00，即 `<今天日期>T20:00:00+08:00`。
-- 命令：`.venv/bin/python upload.py <成片> --title ... --description-file ... --tags-file ... --thumbnail ... --language zh-Hant --privacy private --publish-at <公开时间> --ai-generated`
+- 命令：`.venv/bin/python upload.py <成片> --title ... --description-file ... --tags-file ... --thumbnail ... --language zh-Hant --privacy private --publish-at <公开时间>`（不加 `--ai-generated`：频道主 10/17 要求 YouTube「AI 使用」一律选「否」）
 - 上传后用 YouTube API（`videos.list`，part=status）确认 `privacyStatus` 是 private 且 `publishAt` 已设定。**第一次使用定时公开时要特别确认**：如果 API 项目未通过审核，YouTube 可能把视频锁成私享，此时在报告里明确告诉频道主，并说明需要去 Studio 手动公开或申请 API 审核。
 - 以下情况**不设定时公开**，只私享上传，并在报告里说明原因，让频道主决定：
   - 自动检查有没修好的问题（事实无法核实、字幕不同步、画面错误）。
