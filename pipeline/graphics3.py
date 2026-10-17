@@ -132,14 +132,15 @@ class Canvas:
     def __init__(self, ph):
         self.im = Image.new("RGBA", (SW * S, SH * S), PAPER + (0,))
         self.d = ImageDraw.Draw(self.im)
-        self.ph, self.sid = ph, 0
+        self.frame, self.sid = ph, 0  # ph 现在是帧号
 
     def pt(self, x, y):
         return ((x - X0) * S, (y - Y0) * S)
 
     def rng(self):
         self.sid += 1
-        return np.random.default_rng([self.ph % 100000, self.sid])
+        per = (4, 5, 6, 7)[self.sid % 4]
+        return np.random.default_rng([((self.frame + self.sid * 7) // per) % 100000, self.sid])
 
     @staticmethod
     def dense(pts, step=22):
@@ -227,14 +228,15 @@ class Canvas:
 class Card:
     def __init__(self, spec, t, dur):
         self.spec, self.t, self.dur = spec, t, dur
-        self.ph = int(t * FPS) // 3
+        self.frame = int(t * FPS)
+        self.ph = self.frame // 3
         self.fr = G2.background(spec, t, dur)
         dark = Image.new("RGBA", (W, H), (6, 10, 20, 30))
         self.fr.alpha_composite(dark)
         sheet, pad = paper()
         a = prog(t, 0.0, 0.55)
         G2.place(self.fr, sheet, X0 - pad, Y0 - pad, alpha=a, dy=(1 - a) * 26)
-        self.cv = Canvas(self.ph)
+        self.cv = Canvas(self.frame)
         self.a_sheet = a
 
     def blit(self):
@@ -256,7 +258,12 @@ class Card:
         w = lay.width - 2 * pad
         ax = {"l": x, "c": x - w / 2, "r": x - w}[anchor]
         a = prog(self.t, start, length)
-        bx, by = BOIL[self.ph % 3] if a > 0.99 else (0, 0)
+        bx = by = 0.0
+        if glow and a > 0.99:  # 只有重点数字轻轻浮动，频率、相位按文字各不相同
+            h = sum(map(ord, s)) % 97
+            per = 5 + h % 4
+            k = (self.frame + h) // per
+            bx, by = BOIL[k % 3][0] * 0.7, BOIL[(k + 1) % 3][1] * 0.7
         G2.place(self.fr, lay, ax - pad, y - pad, alpha=a, dy=(1 - a) * dist + by * 0.8, dx=bx * 0.8)
         return w
 
@@ -802,9 +809,10 @@ def card_ptitle(spec, t, dur):
     fr = _push_bg(spec.get("bg"), t, dur)
     kicker, title = (spec["text"].split("\n", 1) + [""])[:2] if "\n" in spec["text"] else ("", spec["text"])
     out = 1 - prog(t, dur - 0.45, 0.45, ease_in_out)
-    size = fit_size(title, 104, 1060)
+    size = fit_size(title, spec.get("size", 104), 1300 if not spec.get("num") else 1060)
     tw = G2.font(size, True).getlength(title)
-    SWD, SHT = int(max(900, tw + 420)), 330
+    has_seal = bool(spec.get("num"))
+    SWD, SHT = (int(max(900, tw + 420)) if has_seal else int(max(760, tw + 200))), (330 if kicker else 300)
     strip, pad = paper_strip(SWD, SHT)
     a = prog(t, 0.05, 0.55)
     ang = -1.6 - 5.0 * (1 - ease_out(min(1, t / 0.65)))
@@ -813,9 +821,9 @@ def card_ptitle(spec, t, dur):
     G2.place(fr, st, cx - st.width / 2, cy - st.height / 2, alpha=a * out)
     # 墨水层（随纸条旋转）
     ink = Image.new("RGBA", (SWD + 2 * pad, SHT + 2 * pad), (0, 0, 0, 0))
-    ph = int(t * FPS) // 3
-    bx, by = BOIL[ph % 3]
-    left = pad + 250
+    frame = int(t * FPS)
+    ph = frame // 4
+    left = pad + (250 if has_seal else 100)
     if kicker:
         kl, kp = G2.text_layer(kicker, 42, FADE, True, 8, False)
         ka = prog(t, 0.45, 0.5)
@@ -834,7 +842,9 @@ def card_ptitle(spec, t, dur):
             cl, cp = G2.text_layer(ch, size, INK, True, 0, False)
             cl = cl.copy()
             cl.putalpha(cl.getchannel("A").point(lambda v: int(v * p)))
-            jx, jy = (bx * 0.7, by * 0.7) if p > 0.99 else (0, (1 - p) * 22)
+            per = 5 + (i * 3) % 4  # 每个字自己的节奏
+            k = (frame + i * 11) // per
+            jx, jy = (BOIL[k % 3][0] * 0.55, BOIL[(k + 2) % 3][1] * 0.55) if p > 0.99 else (0, (1 - p) * 22)
             ink.alpha_composite(cl, (int(x - cp + jx), int(ty - cp + jy)))
         x += cw
     # 红笔底线
@@ -850,7 +860,7 @@ def card_ptitle(spec, t, dur):
         dd.line([(a_ * S, (b_ + 3) * S) for a_, b_ in zip(xs, ys + rr.normal(0, 1.2, 24))], fill=RED + (110,), width=4 * S, joint="curve")
         ink.alpha_composite(cv.reduce(S))
     # 印章：0.35 秒时「盖」下去（放大→缩回、轻微回弹）
-    sp = prog(t, 0.35, 0.28, lambda v: min(max(v, 0.0), 1.0))
+    sp = prog(t, 0.35, 0.28, lambda v: min(max(v, 0.0), 1.0)) if has_seal else 0
     if sp > 0:
         sl = seal(spec.get("num", "章"), 150)
         sc = 1.0 + 0.55 * (1 - sp) ** 2 - 0.04 * math.sin(min(1, sp) * math.pi)
@@ -860,7 +870,7 @@ def card_ptitle(spec, t, dur):
     if out < 0.999 or a < 0.999:
         ink.putalpha(ink.getchannel("A").point(lambda v: int(v * a * out)))
     ink = ink.rotate(ang, expand=True, resample=Image.BICUBIC)
-    shake = (math.sin(t * 90) * 3 * (1 - prog(t, 0.6, 0.25, lambda v: min(max(v, 0.0), 1.0)))) if 0.6 < t < 0.85 else 0  # 盖章那一下的震动
+    shake = 0 if not has_seal else (math.sin(t * 90) * 3 * (1 - prog(t, 0.6, 0.25, lambda v: min(max(v, 0.0), 1.0)))) if 0.6 < t < 0.85 else 0  # 盖章那一下的震动
     fr.alpha_composite(ink, (int(cx - ink.width / 2 + shake), int(cy - ink.height / 2)))
     return fr
 

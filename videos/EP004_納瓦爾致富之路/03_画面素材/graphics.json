@@ -1,66 +1,44 @@
 {
- "title_1": {
+ "part_1": {
   "type": "ptitle",
-  "text": "第一章\n窮移民的小孩",
+  "text": "第一部\n窮小子的翻身路",
   "num": "壹",
   "bg": "ill_arrive_ny"
  },
- "title_2": {
+ "part_2": {
   "type": "ptitle",
-  "text": "第二章\n股份變成零",
+  "text": "第二部\n財富不是錢",
   "num": "貳",
-  "bg": "ill_dotcom"
- },
- "title_3": {
-  "type": "ptitle",
-  "text": "第三章\n把吃過的虧變成生意",
-  "num": "參",
-  "bg": "ill_blog"
- },
- "title_4": {
-  "type": "ptitle",
-  "text": "第四章\n財富不是錢",
-  "num": "肆",
   "bg": "ill_tweet_night"
  },
- "title_5": {
+ "part_3": {
   "type": "ptitle",
-  "text": "第五章\n槓桿",
-  "num": "伍",
-  "bg": "ill_lever"
- },
- "title_6": {
-  "type": "ptitle",
-  "text": "第六章\n特定知識",
-  "num": "陸",
+  "text": "第三部\n別人學不走的本事",
+  "num": "參",
   "bg": "ill_play"
  },
- "title_7": {
+ "part_4": {
   "type": "ptitle",
-  "text": "第七章\n判斷力與長期遊戲",
-  "num": "柒",
-  "bg": "ill_compass"
- },
- "title_8": {
-  "type": "ptitle",
-  "text": "第八章\n普通人怎麼用",
-  "num": "捌",
+  "text": "第四部\n普通人怎麼用",
+  "num": "肆",
   "bg": "ill_taipei_worker"
  },
- "title_9": {
+ "hook_open": {
   "type": "ptitle",
-  "text": "最後\n帶走這五句話",
-  "num": "玖",
-  "bg": "ill_library"
+  "text": "2018 年 5 月 31 日 · 一串推文\n如何致富，而且不靠運氣",
+  "bg": "ill_tweet_night",
+  "size": 96
  },
  "brand_intro": {
-  "type": "brand",
+  "type": "ptitle",
+  "text": "納瓦爾的致富之路",
   "bg": "ill_library",
-  "text": "資產增長計劃",
-  "sub": "EP004｜納瓦爾：從窮小子到矽谷天使"
+  "size": 130
  },
  "end_card": {
-  "type": "endcard",
+  "type": "ptitle",
+  "text": "如果這支影片對你有幫助\n訂閱，我們下次見",
+  "num": "訂",
   "bg": "ill_library"
  },
  "shot_tweet": {

@@ -1,0 +1,11 @@
+{
+ "video_id": "2bHlbjXOqFE", "privacy": "private", "publish_at": "2026-10-17T20:00:00+08:00",
+ "studio": "https://studio.youtube.com/video/2bHlbjXOqFE/edit",
+ "contains_synthetic_media": false,
+ "shorts": {
+  "S01": {"video_id": "FFj1fsAljAk", "publish_at": "2026-10-17T12:00:00+08:00"},
+  "S02": {"video_id": "yAENMJZMYMc", "publish_at": "2026-10-17T18:00:00+08:00"},
+  "S03": {"video_id": "IGgqJxoIX5I", "publish_at": "2026-10-18T21:00:00+08:00"}
+ },
+ "note": "上传时带了 --ai-generated，随后按频道主 10/17 指示用 videos.update 把 containsSyntheticMedia 改成 false（API 读取时不回传此字段，请在 Studio 确认显示「否」）"
+}

@@ -6,17 +6,14 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(os.path.dirname(HERE), "03_画面素材/graphics.json")
 G = {}
 
-# 章节标题卡：边讲边出现（type: ptitle），背景用该章的插图
-TITLES = [("壹", "第一章", "窮移民的小孩", "ill_arrive_ny"), ("貳", "第二章", "股份變成零", "ill_dotcom"),
-          ("參", "第三章", "把吃過的虧變成生意", "ill_blog"), ("肆", "第四章", "財富不是錢", "ill_tweet_night"),
-          ("伍", "第五章", "槓桿", "ill_lever"), ("陸", "第六章", "特定知識", "ill_play"),
-          ("柒", "第七章", "判斷力與長期遊戲", "ill_compass"), ("捌", "第八章", "普通人怎麼用", "ill_taipei_worker"),
-          ("玖", "最後", "帶走這五句話", "ill_library")]
-for i, (num, k, t, bg) in enumerate(TITLES, 1):
-    G[f"title_{i}"] = {"type": "ptitle", "text": f"{k}\n{t}", "num": num, "bg": bg}
-
-G["brand_intro"] = {"type": "brand", "bg": "ill_library", "text": "資產增長計劃", "sub": "EP004｜納瓦爾：從窮小子到矽谷天使"}
-G["end_card"] = {"type": "endcard", "bg": "ill_library"}
+# 大章节卡（频道主 10/17：章节少一点，只留四部）+ 开场钩子、片名、片尾，全部纸条风格（type: ptitle）
+PARTS = [("壹", "第一部", "窮小子的翻身路", "ill_arrive_ny"), ("貳", "第二部", "財富不是錢", "ill_tweet_night"),
+         ("參", "第三部", "別人學不走的本事", "ill_play"), ("肆", "第四部", "普通人怎麼用", "ill_taipei_worker")]
+for i, (num, k, t, bg) in enumerate(PARTS, 1):
+    G[f"part_{i}"] = {"type": "ptitle", "text": f"{k}\n{t}", "num": num, "bg": bg}
+G["hook_open"] = {"type": "ptitle", "text": "2018 年 5 月 31 日 · 一串推文\n如何致富，而且不靠運氣", "bg": "ill_tweet_night", "size": 96}
+G["brand_intro"] = {"type": "ptitle", "text": "納瓦爾的致富之路", "bg": "ill_library", "size": 130}
+G["end_card"] = {"type": "ptitle", "text": "如果這支影片對你有幫助\n訂閱，我們下次見", "num": "訂", "bg": "ill_library"}
 
 # 网页截图卡
 G["shot_tweet"] = {"type": "web", "img": "shot_tweet.png", "title": "2018 年 5 月 31 日的推文串", "source": "X @naval 2018/5/31",
