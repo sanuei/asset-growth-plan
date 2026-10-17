@@ -46,7 +46,10 @@
 2. 选好要做的几条，写各自的 `01_文案/script.json`（简体中文、原书译名），逐句回原文核对。
 3. 找照片（`web_images.json` → `pipeline/web_images.py`），不够的再写插图提示词（`prompts.json` → `pipeline/images_episode.py`）。
 4. 配音：`pipeline/tts_episode.py <章文件夹>/08_Shorts/<编号>`（每条 1 次 MiniMax 请求）。
-5. 渲染：`pipeline/shorts.py <章文件夹> <编号…>`。`shorts.json` 里每条都写 `"lang": "sc"`、`"output_in_folder": true`，成片会出现在这一条的文件夹里。
+5. 渲染：`pipeline/shorts_paper.py <章文件夹> <编号…>`（纸张风格模板，2026-10-17 起）。先用 `--stills 1,5,9` 出几张静帧检查，再正式渲染。成片在这一条的文件夹里。
+   - `shorts.json` 每条写 `hook`（顶部片名纸条：kicker / title / sub / seal）、`cap_hl`（字幕金色关键词）、`beats`（镜头表）。
+   - `beats` 按文案顺序，每个画面写 `at`（念到哪个词时切入）、`img`（插图或 `web_` 照片）、取景 `fx`/`fy`/`scale`/`zoom`，或 `card`（num / note / compare / doc / timeline / route / quote / list / ask），可加 `pops`（label 标签纸条、stamp 红色戳记）。片尾纸条自动加在配音结束后。
+   - 节奏：平均 2～2.5 秒一切，单个画面不超过 4 秒（信息卡可到 4～5 秒）。
 6. 写 `发布信息.md`（`## 标题` 第一行是正式标题，`## 备选标题`、`## 描述`、`## 标签` 每行一个），上传：
    `.venv/bin/python upload.py <编号文件夹>/<编号>.mp4 --info-file <编号文件夹>/发布信息.md --publish-at <时间>`
    上传后把链接记到 `发布记录.md`。

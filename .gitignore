@@ -24,3 +24,18 @@ videos/EP003*/99_工作文件/old_voice/
 
 # 版权书籍资料：只在本地使用
 videos/*.pdf
+
+# 只推送代码和文本：音频、视频、图片、PDF 一律只留在本地（频道主 2026-10-17）
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.mp4
+*.mov
+*.webm
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.pdf

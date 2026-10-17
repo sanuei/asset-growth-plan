@@ -1,181 +1,927 @@
 {
  "C01A": {
-  "standalone": true,
-  "brand": "乔布斯传 · 第一章　童年",
-  "cta": "订阅「资产增长计划」，一起读完乔布斯传",
-  "hook": [
-   "乔布斯差点成了律师的儿子",
-   "只因对方想要一个女孩"
+  "template": "paper",
+  "lang": "sc",
+  "output_in_folder": true,
+  "bgm_seed": 55,
+  "hook": {
+   "kicker": "乔布斯传 · 第一章　童年",
+   "title": "乔布斯一出生就被送走了",
+   "sub": "差一点，他成了律师的儿子",
+   "seal": "壹"
+  },
+  "cap_hl": [
+   "律师",
+   "女孩",
+   "大学毕业生",
+   "拒绝签字",
+   "保证书",
+   "百分之一千",
+   "血缘",
+   "养育"
   ],
-  "flash": [
-   "差一点",
-   "成了律师的儿子"
-  ],
-  "visuals": {
-   "a_nursery": {
+  "beats": [
+   {
     "img": "a_nursery",
-    "fx": 0.5,
+    "fx": 0.7,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "1955 · 旧金山",
+      "x": 40,
+      "y": 110,
+      "delay": 0.6
+     }
+    ]
+   },
+   {
+    "at": "乔布斯一出生",
+    "img": "a_nursery",
+    "scale": 1.55,
+    "fx": 0.8,
+    "fy": 0.62,
     "zoom": "in"
    },
-   "web_uwmadison": {
-    "photo": "web_uwmadison",
-    "fx": 0.55,
-    "zoom": "in"
+   {
+    "at": "就被亲生母亲送走了",
+    "img": "a_mother_leave",
+    "fx": 0.62,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "送养",
+      "at": "送走了",
+      "x": 300,
+      "y": 760,
+      "rot": -8,
+      "size": 100
+     }
+    ]
    },
-   "a_father": {
-    "img": "a_father",
-    "fx": 0.5,
-    "zoom": "out"
-   },
-   "web_ggb1950s": {
-    "photo": "web_ggb1950s",
-    "fx": 0.5,
-    "zoom": "in"
-   },
-   "a_lawyer": {
+   {
+    "at": "而且",
     "img": "a_lawyer",
-    "fx": 0.45,
-    "zoom": "in"
-   },
-   "a_paulclara": {
-    "img": "a_paulclara",
-    "fx": 0.5,
-    "zoom": "in"
-   },
-   "a_unsigned": {
-    "img": "a_unsigned",
-    "fx": 0.5,
+    "fx": 0.55,
     "zoom": "out"
    },
-   "a_campus": {
+   {
+    "at": "律师的儿子",
+    "img": "a_lawyer",
+    "scale": 1.5,
+    "fx": 0.25,
+    "fy": 0.45,
+    "zoom": "in"
+   },
+   {
+    "at": "他的生母乔安妮",
+    "img": "web_uwmadison",
+    "fx": 0.55,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "威斯康星大学",
+      "x": 40,
+      "y": 150
+     }
+    ]
+   },
+   {
+    "at": "23岁",
+    "card": {
+     "type": "num",
+     "big": "23岁",
+     "sub": "生母乔安妮 · 还在读研究生"
+    }
+   },
+   {
+    "at": "她爱上了",
     "img": "a_campus",
     "fx": 0.5,
     "zoom": "in"
    },
-   "a_wedding": {
-    "img": "a_wedding",
+   {
+    "at": "叙利亚助教",
+    "img": "a_campus",
+    "scale": 1.45,
+    "fx": 0.62,
+    "fy": 0.36,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "叙利亚助教 · 钱德里",
+      "x": 1040,
+      "y": 110,
+      "anchor": "r",
+      "from": "right"
+     }
+    ]
+   },
+   {
+    "at": "父亲却以",
+    "img": "a_father",
+    "fx": 0.32,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "断绝关系",
+      "at": "断绝",
+      "x": 720,
+      "y": 720,
+      "rot": -8,
+      "size": 86
+     }
+    ]
+   },
+   {
+    "at": "她只好一个人",
+    "img": "web_ggb1950s",
+    "card": {
+     "type": "route",
+     "a": [
+      "威斯康星",
+      "威斯康星大学"
+     ],
+     "b": [
+      "旧金山",
+      "1955年初"
+     ],
+     "label": "一个人去，秘密生下孩子"
+    }
+   },
+   {
+    "at": "秘密生下孩子",
+    "img": "web_ggb1950s",
     "fx": 0.5,
     "zoom": "in"
    },
-   "web_jobs2010": {
-    "photo": "web_jobs2010",
-    "fx": 0.5,
-    "fy": 0.33,
+   {
+    "at": "送人领养",
+    "img": "a_nursery",
+    "scale": 1.3,
+    "fx": 0.72,
     "zoom": "out"
    },
-   "v_quote_a": {
-    "card": "quote",
-    "lines": [
-     [
-      "保罗和克拉拉，"
-     ],
-     [
-      "百分之一千"
-     ],
-     [
-      "是我的父母。"
-     ]
-    ],
-    "highlight": [
-     "百分之一千"
-    ],
-    "source": "—— 乔布斯｜《史蒂夫·乔布斯传》第一章"
-   }
-  },
-  "bgm_seed": 55,
-  "lang": "sc",
-  "output_in_folder": true
- },
- "C01B": {
-  "standalone": true,
-  "brand": "乔布斯传 · 第一章　童年",
-  "cta": "订阅「资产增长计划」，一起读完乔布斯传",
-  "hook": [
-   "倾尽所有买下的房子",
-   "车库里诞生了苹果"
-  ],
-  "flash": [
-   "21,000美元",
-   "倾尽所有"
-  ],
-  "visuals": {
-   "web_garage": {
-    "photo": "web_garage",
+   {
+    "at": "她只提了",
+    "img": "a_window",
+    "scale": 1.2,
     "fx": 0.3,
     "zoom": "in"
    },
-   "b_hallway": {
-    "img": "b_hallway",
-    "fx": 0.45,
+   {
+    "at": "养父母必须是",
+    "card": {
+     "type": "note",
+     "kicker": "她只提了一个条件",
+     "text": "养父母必须是\n大学毕业生",
+     "hl": "大学毕业生"
+    }
+   },
+   {
+    "at": "医生找好了",
+    "img": "a_lawyer",
+    "scale": 1.45,
+    "fx": 0.72,
+    "fy": 0.4,
     "zoom": "in"
    },
-   "web_jobs1969": {
-    "photo": "web_jobs1969",
+   {
+    "at": "一位律师",
+    "img": "a_lawyer",
+    "fx": 0.4,
+    "zoom": "out",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "一位律师和他的妻子",
+      "x": 40,
+      "y": 110
+     }
+    ]
+   },
+   {
+    "at": "可孩子一出生",
+    "img": "a_mother_leave",
+    "scale": 1.6,
+    "fx": 0.18,
+    "fy": 0.42,
+    "zoom": "in"
+   },
+   {
+    "at": "就退出了",
+    "img": "a_lawyer",
+    "scale": 1.6,
+    "fx": 0.2,
+    "fy": 0.55,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "退出",
+      "at": "退出",
+      "x": 760,
+      "y": 640,
+      "rot": -12,
+      "size": 100
+     }
+    ]
+   },
+   {
+    "at": "想要的是女孩",
+    "img": "a_pink",
+    "fx": 0.45,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "他们想要女孩",
+      "x": 40,
+      "y": 110,
+      "color": "red"
+     }
+    ]
+   },
+   {
+    "at": "孩子最后交给了",
+    "img": "a_paulclara",
+    "fx": 0.45,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "保罗和克拉拉 · 乔布斯夫妇",
+      "at": "保罗和克拉拉",
+      "x": 40,
+      "y": 110
+     }
+    ]
+   },
+   {
+    "at": "一个高中退学的机械师",
+    "img": "a_paul_engine",
+    "fx": 0.5,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "保罗 · 高中退学 · 机械师",
+      "x": 40,
+      "y": 110
+     }
+    ]
+   },
+   {
+    "at": "一个记账员",
+    "img": "a_clara_ledger",
+    "fx": 0.45,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "克拉拉 · 记账员",
+      "x": 40,
+      "y": 110
+     }
+    ]
+   },
+   {
+    "at": "乔安妮知道后",
+    "img": "a_window",
+    "card": {
+     "type": "compare",
+     "title": "她的条件，和现实",
+     "rows": [
+      [
+       "她要求",
+       "大学毕业生",
+       "ok"
+      ],
+      [
+       "保罗",
+       "高中退学",
+       "no"
+      ],
+      [
+       "克拉拉",
+       "高中也没念完",
+       "no"
+      ]
+     ]
+    }
+   },
+   {
+    "at": "拒绝签字",
+    "img": "a_unsigned",
+    "fx": 0.55,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "拒签",
+      "at": "拒绝签字",
+      "x": 740,
+      "y": 700,
+      "rot": -12,
+      "size": 120
+     }
+    ]
+   },
+   {
+    "at": "僵持了好几个星期",
+    "img": "a_unsigned",
+    "scale": 1.5,
+    "fx": 0.45,
+    "fy": 0.65,
+    "zoom": "out"
+   },
+   {
+    "at": "直到这对夫妻",
+    "img": "a_paulclara",
+    "dim": 0.6,
+    "card": {
+     "type": "doc",
+     "title": "保证书",
+     "body": "我们保证：\n设立专款，\n送这个孩子上大学。",
+     "sign": [
+      "保罗·乔布斯",
+      "克拉拉·乔布斯"
+     ],
+     "note": "示意图",
+     "y": 575
+    }
+   },
+   {
+    "at": "送这个孩子上大学",
+    "img": "a_paulclara",
+    "scale": 1.35,
+    "fx": 0.5,
+    "fy": 0.5,
+    "zoom": "out",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "养父母的承诺",
+      "x": 40,
+      "y": 110,
+      "color": "red"
+     }
+    ]
+   },
+   {
+    "at": "可她迟迟不签",
+    "img": "a_window",
+    "fx": 0.32,
+    "zoom": "in"
+   },
+   {
+    "at": "还有一个原因",
+    "img": "a_window",
+    "scale": 1.6,
+    "fx": 0.25,
+    "fy": 0.4,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "她在等一件事",
+      "at": "她在等",
+      "x": 40,
+      "y": 110,
+      "color": "red"
+     }
+    ]
+   },
+   {
+    "at": "等父亲过世",
+    "img": "a_father",
+    "fx": 0.3,
+    "zoom": "out",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "父亲病重",
+      "x": 1040,
+      "y": 110,
+      "anchor": "r",
+      "from": "right"
+     }
+    ]
+   },
+   {
+    "at": "她就能和男友结婚",
+    "img": "a_campus",
+    "scale": 1.2,
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   {
+    "at": "也许还能把儿子要回来",
+    "img": "a_paulclara",
+    "scale": 1.6,
+    "fx": 0.45,
+    "fy": 0.62,
+    "zoom": "in"
+   },
+   {
+    "at": "结果",
+    "img": "a_father",
+    "card": {
+     "type": "timeline",
+     "rows": [
+      [
+       "1955.2.24",
+       "乔布斯出生"
+      ],
+      [
+       "几周后",
+       "领养手续办完"
+      ],
+      [
+       "1955.8",
+       "乔安妮的父亲去世"
+      ],
+      [
+       "圣诞节后",
+       "乔安妮结婚"
+      ]
+     ],
+     "hl": [
+      2,
+      3
+     ],
+     "y": 560
+    }
+   },
+   {
+    "at": "那年圣诞节一过",
+    "img": "a_wedding",
+    "fx": 0.45,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "1955年圣诞节后 · 格林贝",
+      "x": 40,
+      "y": 110
+     }
+    ]
+   },
+   {
+    "at": "她真的结婚了",
+    "img": "a_wedding",
+    "scale": 1.5,
+    "fx": 0.45,
+    "fy": 0.5,
+    "zoom": "in"
+   },
+   {
+    "at": "只差几个星期",
+    "card": {
+     "type": "num",
+     "big": "几个星期",
+     "sub": "他的人生，差点改写",
+     "size": 150
+    }
+   },
+   {
+    "at": "他的人生可能",
+    "img": "web_jobs1969",
     "fx": 0.5,
     "fy": 0.39,
     "zoom": "in"
    },
-   "b_ultimatum": {
-    "img": "b_ultimatum",
-    "fx": 0.45,
+   {
+    "at": "乔布斯后来说",
+    "img": "web_jobs2010",
+    "fx": 0.5,
+    "fy": 0.33,
     "zoom": "in"
    },
-   "b_bills": {
+   {
+    "at": "保罗和克拉拉",
+    "img": "web_jobs2010",
+    "fy": 0.33,
+    "dim": 0.6,
+    "card": {
+     "type": "quote",
+     "text": "保罗和克拉拉，\n百分之一千\n是我的父母。",
+     "hl": "百分之一千",
+     "by": "—— 乔布斯",
+     "seal": "乔"
+    }
+   },
+   {
+    "at": "你觉得",
+    "img": "a_paulclara",
+    "dim": 0.62,
+    "card": {
+     "type": "ask",
+     "q": "决定一个人的，是？",
+     "opts": [
+      "血缘",
+      "养育"
+     ],
+     "foot": "留言告诉我你的答案"
+    }
+   }
+  ]
+ },
+ "C01B": {
+  "template": "paper",
+  "lang": "sc",
+  "output_in_folder": true,
+  "bgm_seed": 56,
+  "hook": {
+   "kicker": "乔布斯传 · 第一章　童年",
+   "title": "为了他，养父母倾尽所有",
+   "sub": "买下的房子，车库里诞生了苹果",
+   "seal": "壹"
+  },
+  "cap_hl": [
+   "倾尽所有",
+   "苹果",
+   "最后通牒",
+   "最重要的投资"
+  ],
+  "beats": [
+   {
+    "img": "a_paulclara",
+    "fx": 0.48,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "养父母 · 保罗和克拉拉",
+      "x": 40,
+      "y": 110,
+      "delay": 0.6
+     }
+    ]
+   },
+   {
+    "at": "勉强糊口",
     "img": "b_bills",
     "fx": 0.5,
     "zoom": "in"
    },
-   "web_garage2": {
-    "photo": "web_garage",
-    "fx": 0.2,
-    "zoom": "out"
-   },
-   "b_garage": {
-    "img": "b_garage",
-    "fx": 0.5,
-    "zoom": "in"
-   },
-   "b_factory": {
-    "img": "b_factory",
-    "fx": 0.5,
-    "zoom": "in"
-   },
-   "web_apple1": {
-    "photo": "web_apple1",
-    "fx": 0.5,
-    "zoom": "in"
-   },
-   "v_quote_b": {
-    "card": "quote",
-    "lines": [
-     [
-      "给孩子换个环境，"
-     ],
-     [
-      "可能是一个家庭"
-     ],
-     [
-      "最重要的投资。"
-     ]
-    ],
-    "highlight": [
-     "最重要的投资。"
-    ],
-    "source": "资料：《史蒂夫·乔布斯传》第一章、第五章"
-   },
-   "web_apple1_hook": {
-    "photo": "web_apple1",
-    "fx": 0.45,
-    "zoom": "out"
-   },
-   "b_ultimatum2": {
-    "img": "b_ultimatum",
+   {
+    "at": "却为了他倾尽所有",
+    "img": "b_bills",
+    "scale": 1.6,
     "fx": 0.55,
+    "fy": 0.62,
+    "zoom": "in"
+   },
+   {
+    "at": "两万一千美元",
+    "card": {
+     "type": "num",
+     "big": "21,000美元",
+     "sub": "倾尽所有，买下一栋房子",
+     "size": 140
+    }
+   },
+   {
+    "at": "后来",
+    "img": "web_garage",
+    "fx": 0.3,
+    "zoom": "in"
+   },
+   {
+    "at": "这栋房子的车库里",
+    "img": "web_garage",
+    "scale": 1.7,
+    "fx": 0.17,
+    "fy": 0.55,
+    "zoom": "in"
+   },
+   {
+    "at": "诞生了苹果",
+    "img": "web_apple1",
+    "fx": 0.5,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "Apple I · 1976年",
+      "x": 40,
+      "y": 150
+     }
+    ]
+   },
+   {
+    "at": "他小学跳了一级",
+    "img": "web_jobs1969",
+    "fx": 0.5,
+    "fy": 0.39,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "1969年 · 高中年鉴照",
+      "x": 1040,
+      "y": 150,
+      "anchor": "r",
+      "from": "right"
+     }
+    ]
+   },
+   {
+    "at": "被送进一所混乱的中学",
+    "img": "b_school_ext",
+    "fx": 0.55,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "克里滕登中学",
+      "x": 40,
+      "y": 110
+     }
+    ]
+   },
+   {
+    "at": "打架几乎天天发生",
+    "img": "b_fight",
+    "fx": 0.55,
+    "zoom": "in"
+   },
+   {
+    "at": "有学生带刀上学",
+    "img": "b_hallway",
+    "scale": 1.8,
+    "fx": 0.6,
+    "fy": 0.55,
+    "zoom": "in"
+   },
+   {
+    "at": "他比同学小一岁",
+    "img": "b_hallway",
+    "fx": 0.3,
     "zoom": "out"
+   },
+   {
+    "at": "经常被欺负",
+    "img": "b_hallway",
+    "scale": 1.7,
+    "fx": 0.12,
+    "fy": 0.5,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "被欺负",
+      "at": "被欺负",
+      "x": 760,
+      "y": 700,
+      "rot": -10,
+      "size": 92
+     }
+    ]
+   },
+   {
+    "at": "七年级读到一半",
+    "img": "b_ultimatum",
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   {
+    "at": "最后通牒",
+    "img": "b_ultimatum",
+    "scale": 1.6,
+    "fx": 0.5,
+    "fy": 0.35,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "最后通牒",
+      "at": "最后通牒",
+      "x": 540,
+      "y": 820,
+      "rot": -6,
+      "size": 96
+     }
+    ]
+   },
+   {
+    "at": "如果要我回那所学校",
+    "img": "b_ultimatum",
+    "dim": 0.6,
+    "card": {
+     "type": "quote",
+     "text": "如果要我\n回到克里滕登的话，\n我就再也不上学了。",
+     "size": 70,
+     "by": "—— 乔布斯，七年级"
+    }
+   },
+   {
+    "at": "可那时候",
+    "img": "b_bills",
+    "fx": 0.45,
+    "zoom": "out",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "勉强收支平衡",
+      "x": 40,
+      "y": 110
+     }
+    ]
+   },
+   {
+    "at": "家里只是",
+    "img": "b_bills",
+    "scale": 1.6,
+    "fx": 0.3,
+    "fy": 0.4,
+    "zoom": "in"
+   },
+   {
+    "at": "几年前父亲转行卖房子",
+    "img": "b_realestate",
+    "fx": 0.45,
+    "zoom": "in"
+   },
+   {
+    "at": "遇上市场崩溃",
+    "img": "b_realestate",
+    "scale": 1.4,
+    "fx": 0.42,
+    "fy": 0.42,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "stamp",
+      "text": "市场崩溃",
+      "at": "市场崩溃",
+      "x": 700,
+      "y": 760,
+      "rot": -9,
+      "size": 90
+     }
+    ]
+   },
+   {
+    "at": "家里还多了",
+    "img": "b_bills",
+    "card": {
+     "type": "note",
+     "kicker": "那段时间，家里……",
+     "text": "母亲去瓦里安当记账员\n房子办了第二份抵押贷款",
+     "hl": "第二份抵押贷款",
+     "size": 64
+    }
+   },
+   {
+    "at": "父母还是查遍了",
+    "img": "web_garage",
+    "dim": 0.6,
+    "card": {
+     "type": "route",
+     "a": [
+      "山景城",
+      "迪亚布洛大道286号"
+     ],
+     "b": [
+      "南洛斯阿尔托斯",
+      "克莱斯特路2066号"
+     ],
+     "label": "向南3英里，换进最好的学区"
+    }
+   },
+   {
+    "at": "倾尽所有",
+    "img": "b_bills",
+    "scale": 1.6,
+    "fx": 0.55,
+    "fy": 0.62,
+    "zoom": "out"
+   },
+   {
+    "at": "在洛斯阿尔托斯",
+    "img": "web_garage",
+    "fx": 0.35,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "克莱斯特路2066号",
+      "x": 40,
+      "y": 150
+     }
+    ]
+   },
+   {
+    "at": "带车库的平房",
+    "img": "web_garage",
+    "scale": 1.8,
+    "fx": 0.17,
+    "fy": 0.55,
+    "zoom": "out"
+   },
+   {
+    "at": "父亲在车库里修车",
+    "img": "b_garage",
+    "scale": 1.3,
+    "fx": 0.3,
+    "zoom": "in"
+   },
+   {
+    "at": "儿子在旁边",
+    "img": "b_garage",
+    "scale": 1.5,
+    "fx": 0.75,
+    "fy": 0.6,
+    "zoom": "in"
+   },
+   {
+    "at": "后来，乔布斯和沃兹",
+    "img": "b_factory",
+    "fx": 0.4,
+    "zoom": "in",
+    "pops": [
+     {
+      "kind": "label",
+      "text": "1976年",
+      "x": 40,
+      "y": 110
+     }
+    ]
+   },
+   {
+    "at": "组装第一批",
+    "card": {
+     "type": "num",
+     "big": "50块",
+     "sub": "Apple I 主板 · 30天内交货"
+    }
+   },
+   {
+    "at": "车库、",
+    "img": "b_factory",
+    "card": {
+     "type": "list",
+     "title": "1976年，变成工厂的地方",
+     "items": [
+      "车库",
+      "妹妹的卧室",
+      "厨房的餐桌"
+     ],
+     "foot": "全成了工厂",
+     "span": 2.2
+    }
+   },
+   {
+    "at": "全成了工厂",
+    "img": "web_apple1",
+    "scale": 1.4,
+    "fx": 0.5,
+    "zoom": "in"
+   },
+   {
+    "at": "一个孩子的任性",
+    "img": "b_ultimatum",
+    "scale": 1.6,
+    "fx": 0.5,
+    "fy": 0.35,
+    "zoom": "out"
+   },
+   {
+    "at": "一对父母的成全",
+    "img": "a_paulclara",
+    "fx": 0.45,
+    "zoom": "in"
+   },
+   {
+    "at": "给孩子换一个环境",
+    "img": "a_paulclara",
+    "card": {
+     "type": "note",
+     "text": "给孩子换一个环境，\n可能是一个家庭\n最重要的投资。",
+     "hl": "最重要的投资",
+     "size": 72
+    }
+   },
+   {
+    "at": "换成是你",
+    "img": "web_garage",
+    "dim": 0.62,
+    "card": {
+     "type": "ask",
+     "q": "换成是你，会这样做吗？",
+     "opts": [
+      "会",
+      "不会"
+     ],
+     "foot": "留言告诉我你的理由"
+    }
    }
-  },
-  "bgm_seed": 56,
-  "lang": "sc",
-  "output_in_folder": true
+  ]
  }
 }
