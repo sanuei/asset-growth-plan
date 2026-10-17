@@ -313,9 +313,11 @@ def grains():
 
 
 def view(img, cfg, t, dur):
-    """Ken Burns：按主画面比例裁切，scale 放大取景（特写），zoom in/out 缓慢推拉，pan 水平移动。"""
-    p = ease_in_out(t / max(dur, 0.1)) * 0.5 + (t / max(dur, 0.1)) * 0.5
-    z = cfg.get("scale", 1.0) * (1 + 0.085 * (p if cfg.get("zoom", "in") == "in" else 1 - p))
+    """Ken Burns：按主画面比例裁切，scale 放大取景（特写），zoom in/out 缓慢推拉，pan 水平移动。
+    匀速推拉（每秒约 2.5%，频道主 10/17：缩放要流畅，不要忽快忽慢）；t、dur 是这张图整段连续出现的时间。"""
+    p = clamp(t / max(dur, 0.1))
+    rate = cfg.get("rate", 0.025)
+    z = cfg.get("scale", 1.0) * (1 + rate * (t if cfg.get("zoom", "in") == "in" else max(dur, 0.1) - t))
     aspect = W / MAIN_H
     if img.width / img.height > aspect:
         ch = img.height
@@ -695,7 +697,7 @@ class Hook:
             return self.static
         pad = self.pad
         c = self.base.copy()
-        ink = Ink(c.width, c.height, frame if t < 1.6 else 0)
+        ink = Ink(c.width, c.height, frame)  # 定格时沿用当下这一帧，不跳变
         x0 = pad + self.left
         if self.kicker:
             put_text(c, self.kicker, 34, FADE, x0, pad + 24, ease_out(prog(t, 0.3, 0.4)))
@@ -768,9 +770,9 @@ def sfx_track(n, events, sr):
         if kind == "stamp":
             L = int(0.32 * sr)
             tt = np.arange(L) / sr
-            body = np.sin(2 * math.pi * 62 * tt) * np.exp(-tt / 0.07) * 0.55
+            body = np.sin(2 * math.pi * 62 * tt) * np.exp(-tt / 0.07) * 0.38
             nz = r.normal(0, 1, L).astype(np.float32)
-            nz = np.convolve(nz, np.ones(12) / 12, "same") * np.exp(-tt / 0.025) * 0.5
+            nz = np.convolve(nz, np.ones(12) / 12, "same") * np.exp(-tt / 0.025) * 0.32
             x = body + nz
         elif kind == "paper":
             L = int(0.34 * sr)
@@ -842,11 +844,28 @@ def build(ep, sid, spec):
         beats.append({**b, "start": start, "pops": pops})
     beats.append({"img": beats[-1].get("img"), "dim": 0.62, "card": {"type": "end", **spec.get("end", {})},
                   "start": voice_end + 0.15, "pops": []})
+    frame_keys = ("fx", "fy", "scale", "zoom", "pan", "rate")
     for i, b in enumerate(beats):
         b["end"] = beats[i + 1]["start"] if i + 1 < len(beats) else total
-        if not b.get("img"):
-            b["img"] = beats[i - 1]["img"]
-            b["inherit"] = True
+        prev = beats[i - 1] if i else None
+        # 没写图、或沿用上一张图且没写取景：同一个镜头继续推拉（上面盖卡片），不重新开始
+        if prev and (not b.get("img") or (b["img"] == prev["img"] and not any(k in b for k in frame_keys))):
+            b["img"] = prev["img"]
+            for k in frame_keys:
+                if k in prev:
+                    b[k] = prev[k]
+            b["seg"] = prev["seg"]
+        else:
+            b["seg"] = i
+    seg_start, seg_end = {}, {}
+    for b in beats:
+        seg_start.setdefault(b["seg"], b["start"])
+        seg_end[b["seg"]] = b["end"]
+    for i, b in enumerate(beats):
+        b["seg_start"], b["seg_dur"] = seg_start[b["seg"]], seg_end[b["seg"]] - seg_start[b["seg"]]
+        dim = b.get("dim", 0.55 if b.get("card") else 0.0)
+        b["dim"] = dim
+        b["dim_from"] = beats[i - 1]["dim"] if i and beats[i - 1]["seg"] == b["seg"] else dim
     events = v2.build_subs(paras, lambda tx: v2.split_chunks(tx, CAP_CHARS), A.clean_sub, CAP_CHARS, A.decode_mp3)
     events = fix_numbers([[a, b, s] for a, b, s in events])
     return sdir, aud, beats, events, total
@@ -862,11 +881,11 @@ def render(ep, sid, spec, preview=None, stills=None):
     print(f"{sid}: {total:.1f} 秒，画面 {len(beats)} 个（平均 {total / len(beats):.2f} 秒一切），字幕 {len(events)} 条", flush=True)
 
     def main_at(b, t_abs):
-        tb = t_abs - b["start"]
         img = assets.img(b["img"])
-        m = view(img, b, tb if not b.get("inherit") else tb + 1.0, b["end"] - b["start"] + 1.0)
-        dim = b.get("dim", 0.55 if b.get("card") else 0.0)
-        if dim:
+        m = view(img, b, t_abs - b["seg_start"], b["seg_dur"])
+        # 盖卡片时画面在 0.3 秒内平滑压暗，不要一下子变黑
+        dim = b["dim_from"] + (b["dim"] - b["dim_from"]) * ease_in_out((t_abs - b["start"]) / 0.3)
+        if dim > 0.003:
             m = Image.blend(m, Image.new("RGBA", m.size, (12, 10, 9, 255)), dim)
         return m
 
@@ -876,17 +895,9 @@ def render(ep, sid, spec, preview=None, stills=None):
         tb = t - b["start"]
         fr = assets.backdrop(b["img"]).copy()
         m = main_at(b, t)
-        if idx > 0 and tb < 0.16 and not b.get("card"):  # 切换：新画面从 1.04 倍推入并淡入
-            a = ease_out(tb / 0.16)
-            prev = main_at(beats[idx - 1], t)
-            k = 1.04 - 0.04 * a
-            mw, mh = int(W * k), int(MAIN_H * k)
-            ms = m.resize((mw, mh), Image.BILINEAR).crop(((mw - W) // 2, (mh - MAIN_H) // 2, (mw - W) // 2 + W, (mh - MAIN_H) // 2 + MAIN_H))
-            m = Image.blend(prev, ms, a)
-        shake = 0
-        for p in b["pops"]:
-            if p.get("kind") == "stamp" and 0.12 < t - p["t0"] < 0.34:
-                shake = math.sin((t - p["t0"]) * 95) * 7 * (1 - (t - p["t0"] - 0.12) / 0.22)
+        if idx > 0 and tb < 0.12 and beats[idx - 1]["seg"] != b["seg"]:  # 换镜头：0.12 秒交叉淡化，不额外缩放
+            m = Image.blend(main_at(beats[idx - 1], t), m, ease_in_out(tb / 0.12))
+        shake = 0  # 不再整屏抖动（频道主 10/17）
         mm = m.copy()
         mm.putalpha(mask)
         fr.alpha_composite(mm, (int(shake), MAIN_Y))
@@ -927,16 +938,14 @@ def render(ep, sid, spec, preview=None, stills=None):
             if w.getnframes() / w.getframerate() < total + 0.5:
                 os.remove(bgm)
     mix = A.build_audio(sdir, aud, total, work, seed=spec.get("bgm_seed", 7), gains=tuple(spec.get("bgm_gain", (0.07, 0.22))))
+    # 音效只留三种时刻（频道主 10/17：音效太多）：开场纸条落下 + 盖印、红色戳记、片尾盖印。信息卡、标签不发声。
     sfx = [(0.0, "paper"), (0.25, "stamp")]
     for b in beats[1:]:
-        if b.get("card"):
-            sfx.append((b["start"], "paper"))
-            if b["card"]["type"] == "end":
-                sfx.append((b["start"] + 0.3, "stamp"))
-            if b["card"]["type"] == "quote" and b["card"].get("seal"):
-                sfx.append((b["start"] + 1.1, "stamp"))
+        if b.get("card", {}).get("type") == "end":
+            sfx.append((b["start"] + 0.3, "stamp"))
         for p in b["pops"]:
-            sfx.append((p["t0"], "stamp" if p.get("kind") == "stamp" else "tick"))
+            if p.get("kind") == "stamp":
+                sfx.append((p["t0"], "stamp"))
     mix = mix_sfx(mix, os.path.join(sdir, "02_配音/mix_sfx.wav"), sfx)
 
     out = os.path.join(sdir, f"{sid}.mp4")
