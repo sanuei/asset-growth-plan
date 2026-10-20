@@ -346,6 +346,20 @@ def main():
     sub_mov = os.path.join(work, "subs.mov")
     build_sub_track(events, total, work, sub_mov)
     mix = build_audio(ep, audio, total, work, seed=script.get("bgm_seed", 7), gains=script.get("bgm_gain", (0.08, 0.25)))
+    if script.get("sfx"):  # EP005 起：纸条卡落下有纸张声、盖印有盖章声（与 Shorts 同一套本地合成音效）
+        from shorts_paper import mix_sfx
+        gpath = os.path.join(ep, "03_画面素材/graphics.json")
+        gspec = json.load(open(gpath, encoding="utf-8")) if os.path.exists(gpath) else {}
+        sfx = []
+        for v in visuals:
+            g = gspec.get(v["id"], {})
+            if g.get("type") == "ptitle":
+                sfx.append((v["start"] + 0.05, "paper"))
+                if g.get("num"):
+                    sfx.append((v["start"] + 0.38, "stamp"))
+        if sfx:
+            mix = mix_sfx(mix, os.path.join(ep, "02_配音/mix_sfx.wav"), sfx)
+            print(f"音效 {len(sfx)} 个")
     if v2:
         for pid, off, txt in v2.sync_report(events, paras, decode_mp3):
             print(f"  同步抽查 {pid}: 字幕比开口 {off:+.2f}s「{txt}」")

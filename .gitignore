@@ -39,3 +39,7 @@ videos/*.pdf
 *.webp
 *.gif
 *.pdf
+
+# 版权书籍文本只放本地
+videos/金錢心理學系列/原書/
+*.epub

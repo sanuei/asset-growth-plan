@@ -1,0 +1,26 @@
+{
+ "shot_read_wiki": {
+  "url": "https://en.wikipedia.org/wiki/Ronald_Read_(philanthropist)",
+  "captured": "2026-10-20T14:11+00:00"
+ },
+ "shot_read_news": {
+  "url": "https://www.fox5dc.com/news/man-who-lived-modestly-leaves-millions-in-surprise-donations",
+  "captured": "2026-10-20T14:11+00:00"
+ },
+ "shot_crains": {
+  "url": "https://prod.crainsnewyork.com/node/592991",
+  "captured": "2026-10-20T14:11+00:00"
+ },
+ "shot_nber": {
+  "url": "https://www.nber.org/papers/w14813",
+  "captured": "2026-10-20T14:12+00:00"
+ },
+ "shot_tw_2020": {
+  "url": "https://finance.technews.tw/2020/07/27/taiwan-stocks-rose-to-a-new-record/",
+  "captured": "2026-10-20T14:12+00:00"
+ },
+ "shot_ida_wiki": {
+  "url": "https://en.wikipedia.org/wiki/Ida_May_Fuller",
+  "captured": "2026-10-20T14:12+00:00"
+ }
+}

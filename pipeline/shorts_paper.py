@@ -69,6 +69,15 @@ def prog(t, start, dur):
 
 # ---------- 文字 ----------
 
+def set_lang(lang):
+    """lang="tc"：繁体字形（思源黑体 TC，频道一般内容）；默认 sc：简体（《乔布斯传》系列）。"""
+    global FONT_H, FONT_B
+    from config import FONT_BOLD as _TB, FONT_HEAVY as _TH
+    FONT_H, FONT_B = (_TH, _TB) if lang == "tc" else (os.path.expanduser("~/Library/Fonts/NotoSansCJKsc-Black.otf"),
+                                                        os.path.expanduser("~/Library/Fonts/NotoSansCJKsc-Bold.otf"))
+    font.cache_clear()
+
+
 @lru_cache(maxsize=None)
 def font(size, heavy=True):
     return ImageFont.truetype(FONT_H if heavy else FONT_B, int(size))
@@ -981,6 +990,7 @@ def main():
     cfg = json.load(open(os.path.join(ep, "08_Shorts/shorts.json"), encoding="utf-8"))
     stills = [float(x) for x in args.stills.split(",")] if args.stills else None
     for sid in args.ids:
+        set_lang(cfg[sid].get("lang", "sc"))
         render(ep, sid, cfg[sid], args.preview, stills)
 
 

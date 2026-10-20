@@ -1,0 +1,26 @@
+{
+ "web_brattleboro": {
+  "search": "80 block Main Street downtown Brattleboro VT August 2023",
+  "match": "80 block Main Street downtown Brattleboro"
+ },
+ "web_vermont_road": {
+  "search": "Scott farm on Kipling road in Dummerston",
+  "match": "Scott farm on Kipling road"
+ },
+ "web_breadline": {
+  "search": "Depression Breadlines long line of people waiting to be fed New York City NARA",
+  "match": "Breadlines"
+ },
+ "web_jfk": {
+  "search": "JFK postcard portrait",
+  "match": "JFK postcard portrait.png"
+ },
+ "web_gross": {
+  "search": "Bill Gross",
+  "match": "Bill Gross.jpg"
+ },
+ "web_jfk_roosevelt": {
+  "search": "Eleanor Roosevelt and John F. Kennedy in New York NARA 196360",
+  "match": "196360"
+ }
+}
