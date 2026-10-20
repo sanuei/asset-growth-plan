@@ -89,9 +89,9 @@ def darken_text_side(img, text_side):
     return Image.composite(Image.new("RGB", (W, H), (0, 0, 0)), img, mask)
 
 
-def draw_text(img, lines, colors, text_side):
-    max_w = int(W * 0.56) - MARGIN
-    size = 150
+def draw_text(img, lines, colors, text_side, max_size=150, width_frac=0.56):
+    max_w = int(W * width_frac) - MARGIN
+    size = max_size
     while size > 40:
         font = ImageFont.truetype(FONT_HEAVY, size)
         widths = [font.getbbox(line)[2] for line in lines]
