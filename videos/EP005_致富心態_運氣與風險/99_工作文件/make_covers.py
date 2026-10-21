@@ -54,7 +54,7 @@ def cutout_right(png, height=820, x_right=40, top=-10):
 
 
 # 2026-10-21 频道主：人物背景改成黑色，和之前的封面一致 → 先抠图（05_封面/gates_cutout.png）再放黑底
-base = cutout_right(OUT + "gates_cutout.png", height=1150, x_right=-30, top=-60)  # 人物放大，填满中间（频道主：中间太空）
+base = cutout_right(OUT + "gates_cutout.png", height=1000, x_right=60, top=10)  # 频道主选的版本：填满中间，头顶留约 28px 不被切
 opts = {
     "封面_D_有錢人不願承認": (["有錢人", "最不願", "承認的事"], ["w", "y", "y"]),
 }
