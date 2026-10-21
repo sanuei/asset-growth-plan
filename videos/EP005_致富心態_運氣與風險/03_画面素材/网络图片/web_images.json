@@ -1,0 +1,22 @@
+{
+ "web_gates_allen_1970": {"search": "Paul Allen and Bill Gates at Lakeside School in 1970", "match": "Paul Allen and Bill Gates at Lakeside School in 1970"},
+ "web_gates_1977": {"search": "Bill Gates mugshot", "match": "Bill Gates mugshot.png"},
+ "web_lakeside": {"search": "Lakeside School (Seattle) Upper Campus, Red Square", "match": "Lakeside School (Seattle) Upper Campus"},
+ "web_asr33": {"search": "Teletype Model 33 ASR (1968) 14689737122", "match": "Teletype Model 33 ASR (1968) (14689737122)"},
+ "web_asr33_carriage": {"search": "Teletype Model 33 ASR Carriage (1968) 14686842951", "match": "14686842951"},
+ "web_asr33_chm": {"search": "ASR-33 at CHM", "match": "ASR-33 at CHM"},
+ "web_shuksan": {"search": "Glaciers and Bedrock Mount Shuksan", "match": "Glaciers and Bedrock"},
+ "web_shuksan2": {"search": "Mount Shuksan tarn", "match": "Mount Shuksan tarn"},
+ "web_allen": {"search": "Paul G. Allen cropped", "match": "Paul G. Allen (cropped).jpg"},
+ "web_gates_2014": {"search": "Bill Gates July 2014", "match": "Bill Gates July 2014"},
+ "web_vanderbilt": {"search": "Cornelius Vanderbilt Daguerrotype2 cropped", "match": "Cornelius Vanderbilt Daguerrotype2 (cropped)"},
+ "web_rockefeller": {"search": "Portrait of J. D. Rockefeller", "match": "Portrait of J. D. Rockefeller"},
+ "web_shiller": {"search": "Robert J. Shiller 20170710", "match": "Robert J. Shiller 20170710"},
+ "web_graham": {"search": "Benjamin Graham (1894-1976) portrait on 23 March 1950", "match": "portrait on 23 March 1950"},
+ "web_geico": {"search": "GEICO headquarters", "match": "GEICO headquarters.jpg"},
+ "web_enron": {"search": "Enron Complex", "match": "Enron Complex.jpg"},
+ "web_zuckerberg": {"search": "MarkZuckerberg.jpg", "match": "MarkZuckerberg.jpg"},
+ "web_yahoo_hq": {"search": "Yahoo! Sunnyvale HQ (2018) 43714753101", "match": "43714753101"},
+ "web_microsoft_aerial": {"search": "Aerial Microsoft West Campus August 2009", "match": "Aerial Microsoft West Campus"},
+ "web_galloway": {"search": "Scott Galloway 51933097365", "match": "Scott Galloway (51933097365).jpg"}
+}

@@ -1,0 +1,14 @@
+{
+ "shot_gates_speech": {"url": "https://www.gatesfoundation.org/ideas/speeches/2005/09/bill-gates-lakeside-school", "selector": "h1", "wait": 4000},
+ "shot_gates_speech2": {"url": "https://www.gatesfoundation.org/ideas/speeches/2005/09/bill-gates-lakeside-school", "selector": "text=If there had been no Lakeside", "scroll": -250, "wait": 4000},
+ "shot_kent_note": {"url": "https://www.gatesnotes.com/Kent-Evans-Lakeside-School", "selector": "h1", "wait": 5000},
+ "shot_chicagofed": {"url": "https://www.chicagofed.org/publications/chicago-fed-letter/2004/december-209", "selector": "h1", "wait": 3000},
+ "shot_sec_yahoo": {"url": "https://www.sec.gov/Archives/edgar/data/0001011006/000095012308001038/y47867exv99w1.htm", "wait": 3000},
+ "shot_wiki_vanderbilt": {"url": "https://en.wikipedia.org/wiki/Cornelius_Vanderbilt", "selector": "h1"},
+ "shot_wiki_enron": {"url": "https://en.wikipedia.org/wiki/Enron_scandal", "selector": "h1"},
+ "shot_wiki_graham": {"url": "https://en.wikipedia.org/wiki/Benjamin_Graham", "selector": "h1"},
+ "shot_wiki_lakeside": {"url": "https://en.wikipedia.org/wiki/Lakeside_School_(Seattle)", "selector": "h1"},
+ "shot_nobel_shiller": {"url": "https://www.nobelprize.org/prizes/economic-sciences/2013/shiller/facts/", "selector": "h1", "wait": 4000},
+ "shot_verizon_yahoo": {"url": "https://www.verizon.com/about/news/verizon-completes-acquisition-yahoo", "selector": "h1", "wait": 4000},
+ "shot_zuck_yahoo": {"url": "https://finance.yahoo.com/news/mark-zuckerberg-says-facebook-board-130300291.html", "selector": "h1", "wait": 4000}
+}
