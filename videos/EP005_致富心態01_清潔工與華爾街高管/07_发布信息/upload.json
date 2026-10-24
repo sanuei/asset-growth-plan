@@ -1,10 +1,23 @@
 {
- "video_id": "sLu44C41cVw", "privacy": "private", "publish_at": "2026-10-24T20:00:00+08:00",
- "studio": "https://studio.youtube.com/video/sLu44C41cVw/edit", "thumbnail": "05_封面/封面_C2_理財不是智商.jpg",
+ "video_id": "sLu44C41cVw",
+ "privacy": "private",
+ "publish_at": null,
+ "studio": "https://studio.youtube.com/video/sLu44C41cVw/edit",
+ "thumbnail": "05_封面/封面_C2_理財不是智商.jpg",
  "contains_synthetic_media": false,
  "shorts": {
-  "S01": {"video_id": "8kkTy0QeOEI", "publish_at": "2026-10-24T18:00:00+08:00"},
-  "S02": {"video_id": "A1IET8k7TCI", "publish_at": "2026-10-25T12:00:00+08:00"},
-  "S03": {"video_id": "MPRGZOnxliw", "publish_at": "2026-10-25T18:00:00+08:00"}
- }
+  "S01": {
+   "video_id": "8kkTy0QeOEI",
+   "publish_at": null
+  },
+  "S02": {
+   "video_id": "A1IET8k7TCI",
+   "publish_at": null
+  },
+  "S03": {
+   "video_id": "MPRGZOnxliw",
+   "publish_at": null
+  }
+ },
+ "note": "10/24 上传后发现另一会话 10/21 已按频道主要求把 EP005 改做第 2 章（運氣與風險），此旧版（序言＋第 1 章）是否发布待频道主确认；已取消全部定时，保持私享。"
 }
