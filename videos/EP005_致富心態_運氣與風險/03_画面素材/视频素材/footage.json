@@ -1,0 +1,422 @@
+{
+ "v_seattle61": {
+  "src": "c_seattle_documentary_clip_1961.ogv",
+  "credit": "影片：Seattle Municipal Archives · CC BY 2.0 · Wikimedia Commons",
+  "start": 9.0
+ },
+ "v_seattle62": {
+  "src": "Century21964.mp4",
+  "start": 34.0,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_monorail": {
+  "src": "Century21964.mp4",
+  "start": 40.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_fair_crowd": {
+  "src": "Century21964.mp4",
+  "start": 83.0,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_needle_night": {
+  "src": "Century21964.mp4",
+  "start": 750.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_teens_monorail": {
+  "src": "Century21964.mp4",
+  "start": 20.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_tty_hands": {
+  "src": "Telegram1956.mp4",
+  "start": 310.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_tty_woman": {
+  "src": "Telegram1956.mp4",
+  "start": 374.0,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_tty_print": {
+  "src": "Telegram1956.mp4",
+  "start": 900.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_tty_paper": {
+  "src": "Telegram1956.mp4",
+  "start": 1010.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_office50s": {
+  "src": "Telegram1956.mp4",
+  "start": 800.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_fernschreiber": {
+  "src": "c_fernschreiberpr_fung.webm",
+  "credit": "影片：Nightflyer · CC BY-SA 4.0 · Wikimedia Commons",
+  "start": 1.0
+ },
+ "v_fernschreiber2": {
+  "src": "c_fernschreiberpr_fung.webm",
+  "credit": "影片：Nightflyer · CC BY-SA 4.0 · Wikimedia Commons",
+  "start": 14.0
+ },
+ "v_mainframe": {
+  "src": "OnGuard1956.mp4",
+  "start": 110.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_mainframe2": {
+  "src": "OnGuard1956.mp4",
+  "start": 250.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_punchcard": {
+  "src": "OnGuard1956.mp4",
+  "start": 160.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_tapedrive": {
+  "src": "OnGuard1956.mp4",
+  "start": 230.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_panel_lights": {
+  "src": "OnGuard1956.mp4",
+  "start": 610.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_phone_boy": {
+  "src": "WeLearnA1965.mp4",
+  "start": 20.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_phone_teen": {
+  "src": "WeLearnA1965.mp4",
+  "start": 30.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_dial_beige": {
+  "src": "WeLearnA1965.mp4",
+  "start": 830.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_dial_black": {
+  "src": "WeLearnA1965.mp4",
+  "start": 990.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_w48_dial": {
+  "src": "c_telefon_w48_deutsche_bundespost_1950er_j.webm",
+  "credit": "影片：Maximilian Schönherr · CC BY-SA 4.0 · Wikimedia Commons",
+  "start": 0.5
+ },
+ "v_classroom": {
+  "src": "MindYour1953.mp4",
+  "start": 410.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_school_walk": {
+  "src": "MindYour1953.mp4",
+  "start": 380.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_teen_phone53": {
+  "src": "MindYour1953.mp4",
+  "start": 210.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_school_hall": {
+  "src": "MindYour1953.mp4",
+  "start": 455.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_students": {
+  "src": "m_4519.mp4",
+  "start": 2.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_library": {
+  "src": "m_21595.mp4",
+  "start": 1.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_notes": {
+  "src": "m_50109.mp4",
+  "start": 0.5,
+  "credit": "影片：Mixkit"
+ },
+ "v_climb": {
+  "src": "c_u_s_army_troops_participate_in_mountaine.webm",
+  "credit": "影片：The U.S. Army · Public domain · Wikimedia Commons",
+  "start": 22.0
+ },
+ "v_climb2": {
+  "src": "c_u_s_army_troops_participate_in_mountaine.webm",
+  "credit": "影片：The U.S. Army · Public domain · Wikimedia Commons",
+  "start": 48.0
+ },
+ "v_rim": {
+  "src": "c_summit_rim_of_mount_st_helens.ogv",
+  "credit": "影片：Iwona Erskine-Kellie from Vancouver, Can · CC BY 2.0 · Wikimedia Commons",
+  "start": 2.0
+ },
+ "v_rim2": {
+  "src": "c_summit_rim_of_mount_st_helens.ogv",
+  "credit": "影片：Iwona Erskine-Kellie from Vancouver, Can · CC BY 2.0 · Wikimedia Commons",
+  "start": 40.0
+ },
+ "v_rim_person": {
+  "src": "c_summit_rim_of_mount_st_helens.ogv",
+  "credit": "影片：Iwona Erskine-Kellie from Vancouver, Can · CC BY 2.0 · Wikimedia Commons",
+  "start": 82.0
+ },
+ "v_peaks_fog": {
+  "src": "m_4396.mp4",
+  "start": 0.5,
+  "credit": "影片：Mixkit"
+ },
+ "v_peak_fly": {
+  "src": "m_51689.mp4",
+  "start": 3.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_snow_hills": {
+  "src": "m_3371.mp4",
+  "start": 4.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_hourglass": {
+  "src": "m_28901.mp4",
+  "start": 0.5,
+  "credit": "影片：Mixkit"
+ },
+ "v_dice_slow": {
+  "src": "c_dice_rolling_slowmotion_2018_9.webm",
+  "credit": "影片：Nesnad · CC BY 4.0 · Wikimedia Commons",
+  "start": 0.5
+ },
+ "v_dice_throw": {
+  "src": "m_5238.mp4",
+  "start": 0.5,
+  "credit": "影片：Mixkit"
+ },
+ "v_dice_mix": {
+  "src": "m_5232.mp4",
+  "start": 0.5,
+  "credit": "影片：Mixkit"
+ },
+ "v_poker": {
+  "src": "m_5240.mp4",
+  "start": 0.5,
+  "credit": "影片：Mixkit"
+ },
+ "v_coins_hand": {
+  "src": "m_18263.mp4",
+  "start": 0.5,
+  "credit": "影片：Mixkit"
+ },
+ "v_magazine": {
+  "src": "m_41194.mp4",
+  "start": 1.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_magazines": {
+  "src": "m_21590.mp4",
+  "start": 1.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_newspaper": {
+  "src": "m_41192.mp4",
+  "start": 0.5,
+  "credit": "影片：Mixkit"
+ },
+ "v_crowd": {
+  "src": "m_4401.mp4",
+  "start": 1.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_sunset_tracks": {
+  "src": "m_1594.mp4",
+  "start": 2.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_handshake": {
+  "src": "m_30016.mp4",
+  "start": 0.5,
+  "credit": "影片：Mixkit"
+ },
+ "v_wallst": {
+  "src": "big_board.mp4",
+  "start": 3.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_nyse_floor": {
+  "src": "big_board.mp4",
+  "start": 40.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_nyse_floor2": {
+  "src": "big_board.mp4",
+  "start": 644.0,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_nyse_floor3": {
+  "src": "big_board.mp4",
+  "start": 724.0,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_stockboard": {
+  "src": "big_board.mp4",
+  "start": 244.0,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_ticker": {
+  "src": "big_board.mp4",
+  "start": 580.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_trader_phone": {
+  "src": "big_board.mp4",
+  "start": 220.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_city60s": {
+  "src": "ChanceYouTak.mp4",
+  "start": 30.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_tower_up": {
+  "src": "ChanceYouTak.mp4",
+  "start": 40.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_old_loco": {
+  "src": "Mainline1957.mp4",
+  "start": 110.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_old_loco2": {
+  "src": "Mainline1957.mp4",
+  "start": 210.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_old_locos": {
+  "src": "Mainline1957.mp4",
+  "start": 200.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_tracks": {
+  "src": "Mainline1957.mp4",
+  "start": 120.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_streamliner": {
+  "src": "Mainline1957.mp4",
+  "start": 300.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_railyard": {
+  "src": "Mainline1957.mp4",
+  "start": 720.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_steam": {
+  "src": "c_steam_train_60163_tornado_whistles_past.webm",
+  "credit": "影片：MoiUnMouton · CC BY 3.0 · Wikimedia Commons",
+  "start": 38.0
+ },
+ "v_gates_talk": {
+  "src": "c_bill_gates_itu_150_video.webm",
+  "credit": "影片：ITU · CC BY 3.0 · Wikimedia Commons",
+  "start": 10.0
+ },
+ "v_gates_talk2": {
+  "src": "c_bill_gates_itu_150_video.webm",
+  "credit": "影片：ITU · CC BY 3.0 · Wikimedia Commons",
+  "start": 70.0
+ },
+ "v_gates_talk3": {
+  "src": "c_bill_gates_itu_150_video.webm",
+  "credit": "影片：ITU · CC BY 3.0 · Wikimedia Commons",
+  "start": 120.0
+ },
+ "v_classroom2": {
+  "src": "MindYour1953.mp4",
+  "start": 420.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_classroom3": {
+  "src": "MindYour1953.mp4",
+  "start": 430.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_tty_hands2": {
+  "src": "Telegram1956.mp4",
+  "start": 312.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_tty_print2": {
+  "src": "Telegram1956.mp4",
+  "start": 912.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_dice_slow2": {
+  "src": "c_dice_rolling_slowmotion_2018_9.webm",
+  "credit": "影片：Nesnad · CC BY 4.0 · Wikimedia Commons",
+  "start": 4.0
+ },
+ "v_dice_throw2": {
+  "src": "m_5238.mp4",
+  "start": 4.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_newspaper2": {
+  "src": "m_41192.mp4",
+  "start": 4.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_crowd2": {
+  "src": "m_4401.mp4",
+  "start": 10.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_snow_hills2": {
+  "src": "m_3371.mp4",
+  "start": 12.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_sunset_tracks2": {
+  "src": "m_1594.mp4",
+  "start": 12.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_magazine2": {
+  "src": "m_41194.mp4",
+  "start": 8.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_jets": {
+  "src": "OnGuard1956.mp4",
+  "start": 70.5,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_crowd3": {
+  "src": "m_4401.mp4",
+  "start": 16.0,
+  "credit": "影片：Mixkit"
+ },
+ "v_ticker2": {
+  "src": "big_board.mp4",
+  "start": 742.0,
+  "credit": "影片：Prelinger Archives（公有領域）"
+ },
+ "v_students2": {
+  "src": "m_4519.mp4",
+  "start": 10.0,
+  "credit": "影片：Mixkit"
+ }
+}

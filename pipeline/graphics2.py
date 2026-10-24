@@ -517,3 +517,4 @@ def render_clip(spec, dur, out_mp4, preview_png=None, frames=None):
 
 
 import graphics3  # noqa: E402,F401  纸张质感图表卡（EP003 起），注册到 DRAW
+import graphics4  # noqa: E402,F401  黑底胶片章节卡（2026-10-21 起），注册到 DRAW

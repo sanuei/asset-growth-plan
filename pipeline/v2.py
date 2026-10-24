@@ -44,10 +44,11 @@ def credit_text(src):
 
 
 def prepare_source(path, credit=None):
-    """返回 2880x1620 的源图。非 16:9 的照片用同图模糊背景 + 居中原图。"""
+    """返回 2880x1620 的源图。非 16:9 的照片用同图模糊背景 + 居中原图；AI 场景图（3:2）直接裁满画面。"""
     im = Image.open(path).convert("RGB")
     ratio = im.width / im.height
-    if abs(ratio - 16 / 9) < 0.12:
+    fill = "场景图" in path and 1.3 < ratio < 2.3  # 2026-10-21：插图裁满，不留模糊边条
+    if fill or abs(ratio - 16 / 9) < 0.12:
         s = max(SRC_W / im.width, SRC_H / im.height)
         im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
         out = im.crop(((im.width - SRC_W) // 2, (im.height - SRC_H) // 2, (im.width - SRC_W) // 2 + SRC_W, (im.height - SRC_H) // 2 + SRC_H))
@@ -109,25 +110,34 @@ def scene_clip(path, n, mode, out, credit=None):
         raise RuntimeError(f"ffmpeg 编码失败: {out}")
 
 
-def footage_clip(f, n, out):
-    """官方视频片段：从 start 秒开始取 n 帧，转成 1920x1080 30fps、去掉原声，左上角标注来源。
+def footage_clip(f, n, out, ep=None):
+    """视频片段：从 start 秒开始取 n 帧，转成 1920x1080 30fps、去掉原声，左上角标注来源。
+    src 先找本集 03_画面素材/视频素材/raw/，再找 素材库/官方视频/。y（0～1）= 裁成 16:9 时保留画面的哪个高度。
     片段不够长时往前挪起点；整支素材都不够长时放慢播放。"""
-    src = os.path.join(FOOTAGE_DIR, f["src"])
+    src = os.path.join(ep, "03_画面素材/视频素材/raw", f["src"]) if ep else ""
+    if not os.path.exists(src):
+        src = os.path.join(FOOTAGE_DIR, f["src"])
     length = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", src],
                                   capture_output=True, text=True).stdout.strip())
     dur = n / FPS
     start = f.get("start", 0.0)
-    slow = 1.0
-    if dur > length - 0.5:
-        slow = dur / (length - 0.5)
-        start = 0.0
-    elif start + dur > length - 0.3:
-        start = max(0.0, length - 0.3 - dur)
-    cred = os.path.join(os.path.dirname(out), "_credit_tesla.png")
+    slow = float(f.get("slow", 1.0))
+    if dur * (1 / slow) > length - start - 0.3:
+        if dur / slow > length - 0.5:
+            slow = dur / (length - 0.5)
+            start = 0.0
+        else:
+            start = max(0.0, length - 0.3 - dur / slow)
+    credit = f.get("credit", "影片來源：Tesla 官方")
+    import hashlib
+    cred = os.path.join(os.path.dirname(out), "_credit_" + hashlib.md5(credit.encode()).hexdigest()[:8] + ".png")
     if not os.path.exists(cred):
-        credit_layer(f.get("credit", "影片來源：Tesla 官方")).save(cred)
-    vf = (f"[0:v]setpts={slow:.4f}*(PTS-STARTPTS),fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,"
-          f"crop={W}:{H},format=yuv420p[v0];[v0][1:v]overlay=36:32[v]")
+        credit_layer(credit).save(cred)
+    y = float(f.get("y", 0.5))
+    zoom = float(f.get("zoom", 1.0))  # >1 时裁掉黑边或拉近
+    sw, sh = int(W * zoom), int(H * zoom)
+    vf = (f"[0:v]setpts={slow:.4f}*(PTS-STARTPTS),fps={FPS},scale={sw}:{sh}:force_original_aspect_ratio=increase,"
+          f"crop={W}:{H}:(iw-{W})/2:(ih-{H})*{y:.3f},format=yuv420p[v0];[v0][1:v]overlay=36:32[v]")
     r = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{start:.3f}", "-i", src, "-i", cred,
                         "-filter_complex", vf, "-map", "[v]", "-frames:v", str(n), "-an",
                         "-c:v", "libx264", "-preset", "veryfast", "-crf", "16", "-pix_fmt", "yuv420p", out],
@@ -146,42 +156,76 @@ def clip_frames(path):
         return -1
 
 
-def build_clips(ep, visuals, work, force_graphics=False, index_offset=0):
+def _render_one(job):
+    kind, args = job
+    if kind == "footage":
+        footage_clip(*args)
+    elif kind == "scene":
+        scene_clip(*args[:4], credit=args[4])
+    else:
+        spec, dur, out, prev, n = args
+        G2.render_clip(spec, dur, out, preview_png=prev, frames=n)
+    return args[2] if kind != "footage" else args[2]
+
+
+def build_clips(ep, visuals, work, force_graphics=False, index_offset=0, workers=4):
+    """逐个画面渲染成片段（4 个进程并行，2026-10-21 起）。已有且帧数对的片段直接沿用。"""
+    import concurrent.futures as _cf
     gspec = json.load(open(os.path.join(ep, "03_画面素材/graphics.json"), encoding="utf-8"))
-    fpath = os.path.join(ep, "03_画面素材/footage.json")
+    fpath = os.path.join(ep, "03_画面素材/视频素材/footage.json")
+    if not os.path.exists(fpath):
+        fpath = os.path.join(ep, "03_画面素材/footage.json")
     footage = json.load(open(fpath, encoding="utf-8")) if os.path.exists(fpath) else {}
     clip_dir = os.path.join(work, "clips_v2")
     os.makedirs(clip_dir, exist_ok=True)
     prev_dir = os.path.join(ep, "03_画面素材/图表")
     os.makedirs(prev_dir, exist_ok=True)
-    paths = []
+    paths, jobs = [], []
     for i, v in enumerate(visuals, index_offset):
         n = max(1, round((v["start"] + v["dur"]) * FPS) - round(v["start"] * FPS))
         out = os.path.join(clip_dir, f"{i:03d}_{v['id']}_{n}f.mp4")
         paths.append(out)
-        path, src = find_visual(ep, v["id"])
-        is_footage = v["id"] in footage
+        base = v["id"].split("#", 1)[0]  # 「画面#2」= 同一个素材再用一次（换一段、换取景）
+        path, src = find_visual(ep, base)
+        is_footage = v["id"] in footage or base in footage
+        if not os.path.exists(out) and not force_graphics:
+            # 同一画面、同样帧数的旧片段（只是序号变了，例如片头加了画面）：直接沿用，不重新渲染
+            import glob as _glob
+            old = [p for p in _glob.glob(os.path.join(clip_dir, f"[0-9][0-9][0-9]_{_glob.escape(v['id'])}_{n}f.mp4"))
+                   if clip_frames(p) == n]
+            if old:
+                os.link(old[0], out)
         if os.path.exists(out) and (path or is_footage or not force_graphics) and clip_frames(out) == n:
             continue
         if is_footage:
-            footage_clip(footage[v["id"]], n, out)
+            jobs.append(("footage", (footage.get(v["id"]) or footage[base], n, out, ep)))
         elif path:
-            scene_clip(path, n, i, out, credit=credit_text(src) if src else None)
+            jobs.append(("scene", (path, n, i, out, credit_text(src) if src else None)))
         else:
-            spec = dict(v.get("spec") or gspec[v["id"]])
-            if spec.get("bg") in footage:  # 背景指向官方视频时，取一帧当背景
+            spec = dict(v.get("spec") or gspec.get(v["id"]) or gspec[base])
+            if spec.get("bg") in footage:  # 背景指向视频时，取一帧当背景
                 still = os.path.join(ep, "03_画面素材/背景", spec["bg"] + ".png")
                 if not os.path.exists(still):
+                    os.makedirs(os.path.dirname(still), exist_ok=True)
                     f = footage[spec["bg"]]
+                    fsrc = os.path.join(ep, "03_画面素材/视频素材/raw", f["src"])
+                    if not os.path.exists(fsrc):
+                        fsrc = os.path.join(FOOTAGE_DIR, f["src"])
                     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(f.get("start", 0) + 1.5),
-                                    "-i", os.path.join(FOOTAGE_DIR, f["src"]), "-frames:v", "1", still], check=True)
+                                    "-i", fsrc, "-frames:v", "1", still], check=True)
             if spec.get("bg"):
                 bg_path = find_visual(ep, spec["bg"])[0]
                 spec["bg"] = os.path.abspath(bg_path) if bg_path else None  # 背景不是图片（例如图表卡）时用默认底色
             if spec.get("img") and not os.path.isabs(spec["img"]):  # 网页截图卡：相对 03_画面素材/网页截图/
                 spec["img"] = os.path.abspath(os.path.join(ep, "03_画面素材/网页截图", spec["img"]))
-            G2.render_clip(spec, n / FPS, out, preview_png=os.path.join(prev_dir, v["id"] + ".png"), frames=n)
-        print(f"  画面 {i + 1}/{len(visuals)} {v['id']} {v['dur']:.1f}s", flush=True)
+            jobs.append(("graphic", (spec, n / FPS, out, os.path.join(prev_dir, base + ".png"), n)))
+    print(f"  需要渲染 {len(jobs)} 个画面（共 {len(visuals)} 个）", flush=True)
+    with _cf.ProcessPoolExecutor(workers) as ex:
+        futs = [ex.submit(_render_one, j) for j in jobs]
+        for k, fu in enumerate(_cf.as_completed(futs), 1):
+            fu.result()
+            if k % 10 == 0 or k == len(jobs):
+                print(f"  画面 {k}/{len(jobs)}", flush=True)
     return paths
 
 
@@ -608,20 +652,43 @@ def build_timeline_long(ep, script, lead, title_dur, decode):
             else:
                 est = est_times(p["text"], b - a)
             paras.append({"id": p["id"], "start": t0 + max(0, a - 0.05), "text": p["text"], "times": est, "audio": seg})
-            # 段内多个画面：在最接近等分点的标点处切换
+            # 段内多个画面：写了「画面@词」的，念到这个词时切入（2026-10-21 起，声音画面要对上）；
+            # 没写的在前后两个切点之间、最接近等分点的标点处切换
             n = len(p["visuals"])
             span = vis_end - start
-            cuts = [0.0]
+            ids = [v.split("@", 1)[0] for v in p["visuals"]]
+            anchors = [v.split("@", 1)[1] if "@" in v else None for v in p["visuals"]]
+            cuts = [0.0] + [None] * (n - 1) + [span]
             if n > 1:
                 t_at = align_paragraph(p["text"], est, seg)
-                stops = [t_at(i) for i, ch in enumerate(p["text"]) if ch in PUNCT]
+                pos = 0
                 for j in range(1, n):
-                    target = (b - a) * j / n
-                    cuts.append(min(stops, key=lambda x: abs(x - target)) if stops else target)
-            cuts.append(span)
-            for j, vid in enumerate(p["visuals"]):
+                    if anchors[j]:
+                        ka = p["text"].find(anchors[j], pos)
+                        if ka < 0:
+                            raise RuntimeError(f"{p['id']}: 找不到切点词「{anchors[j]}」（要按顺序出现在段落里）")
+                        cuts[j] = max(0.0, t_at(ka) - 0.12)
+                        pos = ka + len(anchors[j])
+                stops = [t_at(i) for i, ch in enumerate(p["text"]) if ch in PUNCT]
+                j = 1
+                while j < n:
+                    if cuts[j] is not None:
+                        j += 1
+                        continue
+                    j2 = next(x for x in range(j, n + 1) if cuts[x] is not None)
+                    lo, hi = cuts[j - 1], cuts[j2] if j2 < n else (b - a)
+                    for m in range(j, j2):
+                        target = lo + (hi - lo) * (m - j + 1) / (j2 - j + 1)
+                        near = [x for x in stops if lo + 0.8 < x < hi - 0.8]
+                        cuts[m] = min(near, key=lambda x: abs(x - target)) if near else target
+                    j = j2
+                for j in range(1, n + 1):  # 保证每个画面至少 0.6 秒
+                    cuts[j] = max(cuts[j], cuts[j - 1] + 0.6) if j < n else cuts[j]
+            for j, vid in enumerate(ids):
                 visuals.append({"id": vid, "start": start + cuts[j], "dur": cuts[j + 1] - cuts[j]})
         t = t0 + len(audio) / SR + 0.6
+        if cf == "c00.json":  # 后加的片头（频道介绍）：对齐到整帧，后面所有画面整帧平移，已渲染的片段可以沿用
+            t = math.ceil(t * FPS - 1e-6) / FPS
     # 没有章节卡的章节（如「今日重點」「結尾」）也列进章节，时间取该章第一段开口
     starts = {p["id"]: p["start"] for p in paras}
     have = {name for _, name in chapters}

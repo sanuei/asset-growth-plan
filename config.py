@@ -9,7 +9,10 @@ FONT_HEAVY = os.path.join(FONT_DIR, "SourceHanSansTC-Heavy.otf")
 
 def load_env():
     env = {}
-    with open(os.path.join(HERE, ".env"), encoding="utf-8") as f:
+    path = os.path.join(HERE, ".env")
+    if not os.path.exists(path):  # 新机器还没填密钥时，画面渲染等不需要密钥的步骤照样能跑
+        return env
+    with open(path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if line and not line.startswith("#") and "=" in line:

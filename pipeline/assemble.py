@@ -377,14 +377,20 @@ def main():
     title = script["title"]
     out = os.path.join(ep, "06_成片", f"{ep_name}_{title}{'_preview' if args.preview else ''}.mp4")
     out_dur = min(args.preview, total) if args.preview else total
+    # 画面和声音分开编码再合并（2026-10-21：放在同一条命令里编码时，AAC 音轨少了约 12 秒的数据，YouTube 上听起来会断）
     fc = (f"[0:v][1:v]overlay=0:{SUB_STRIP_Y}:format=auto[v1];"
           f"[v1][2:v]overlay=W-w-40:36[v2];"
-          f"[v2]fade=t=in:st=0:d=0.6,fade=t=out:st={total - 1.2:.2f}:d=1.2,format=yuv420p[v];"
-          f"[3:a]loudnorm=I=-14:TP=-1.5:LRA=11,afade=t=out:st={total - 1.5:.2f}:d=1.5[a]")
-    run(["ffmpeg", "-y", "-loglevel", "error", "-i", joined, "-i", sub_mov, "-loop", "1", "-i", wm, "-i", mix,
-         "-filter_complex", fc, "-map", "[v]", "-map", "[a]", "-t", f"{out_dur:.2f}",
-         "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-profile:v", "high", "-r", str(FPS),
-         "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), "-movflags", "+faststart", out])
+          f"[v2]fade=t=in:st=0:d=0.6,fade=t=out:st={total - 1.2:.2f}:d=1.2,format=yuv420p[v]")
+    v_only = os.path.join(work, "final_video_only.mp4")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", joined, "-i", sub_mov, "-loop", "1", "-i", wm,
+         "-filter_complex", fc, "-map", "[v]", "-t", f"{out_dur:.2f}",
+         "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-profile:v", "high", "-r", str(FPS), "-an", v_only])
+    a_only = os.path.join(work, "final_audio.m4a")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", mix,
+         "-af", f"loudnorm=I=-14:TP=-1.5:LRA=11,afade=t=out:st={total - 1.5:.2f}:d=1.5", "-t", f"{out_dur:.2f}",
+         "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), a_only])
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", v_only, "-i", a_only, "-map", "0:v", "-map", "1:a",
+         "-c", "copy", "-movflags", "+faststart", out])
     print("成片:", out)
 
 

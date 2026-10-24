@@ -1,0 +1,315 @@
+{
+ "text": "這裡是資產增長計劃，用一本好書，陪你一起看懂錢。",
+ "items": [
+  {
+   "para": "p00",
+   "text": "這裡是資產增長計劃，用一本好書，陪你一起看懂錢。"
+  }
+ ],
+ "subtitles": [
+  {
+   "text": "這裡是資產增長計劃，用一本好書，陪你一起看懂錢。",
+   "pronounce_text": "这里是资产ㄗㄥˉㄓㄤˇ计划，用一本好书，陪你一起看懂钱。",
+   "time_begin": 0.0,
+   "time_end": 5200.0,
+   "text_begin": 0,
+   "text_end": 24,
+   "pronounce_text_begin": 0,
+   "pronounce_text_end": 28,
+   "is_final_segment": true,
+   "timestamped_words": [
+    {
+     "word": "這",
+     "word_begin": 0,
+     "word_end": 1,
+     "pronounce_word": "这",
+     "pronounce_word_begin": 0,
+     "pronounce_word_end": 1,
+     "time_begin": 38.78787878787878,
+     "time_end": 232.72727272727272
+    },
+    {
+     "word": "裡",
+     "word_begin": 1,
+     "word_end": 2,
+     "pronounce_word": "里",
+     "pronounce_word_begin": 1,
+     "pronounce_word_end": 2,
+     "time_begin": 232.72727272727272,
+     "time_end": 426.66666666666663
+    },
+    {
+     "word": "是",
+     "word_begin": 2,
+     "word_end": 3,
+     "pronounce_word": "是",
+     "pronounce_word_begin": 2,
+     "pronounce_word_end": 3,
+     "time_begin": 426.66666666666663,
+     "time_end": 581.8181818181818
+    },
+    {
+     "word": "資",
+     "word_begin": 3,
+     "word_end": 4,
+     "pronounce_word": "资",
+     "pronounce_word_begin": 3,
+     "pronounce_word_end": 4,
+     "time_begin": 581.8181818181818,
+     "time_end": 736.9696969696969
+    },
+    {
+     "word": "產",
+     "word_begin": 4,
+     "word_end": 5,
+     "pronounce_word": "产",
+     "pronounce_word_begin": 4,
+     "pronounce_word_end": 5,
+     "time_begin": 736.9696969696969,
+     "time_end": 969.6969696969696
+    },
+    {
+     "word": "增長",
+     "word_begin": 5,
+     "word_end": 7,
+     "pronounce_word": "ㄗ",
+     "pronounce_word_begin": 5,
+     "pronounce_word_end": 6,
+     "time_begin": 969.6969696969696,
+     "time_end": 1008.4848484848484
+    },
+    {
+     "word": "增長",
+     "word_begin": 5,
+     "word_end": 7,
+     "pronounce_word": "ㄥ",
+     "pronounce_word_begin": 6,
+     "pronounce_word_end": 7,
+     "time_begin": 1008.4848484848484,
+     "time_end": 1124.848484848485
+    },
+    {
+     "word": "增長",
+     "word_begin": 5,
+     "word_end": 7,
+     "pronounce_word": "ˉ",
+     "pronounce_word_begin": 7,
+     "pronounce_word_end": 8,
+     "time_begin": 1124.848484848485,
+     "time_end": 1163.6363636363635
+    },
+    {
+     "word": "增長",
+     "word_begin": 5,
+     "word_end": 7,
+     "pronounce_word": "ㄓ",
+     "pronounce_word_begin": 8,
+     "pronounce_word_end": 9,
+     "time_begin": 1163.6363636363635,
+     "time_end": 1202.4242424242425
+    },
+    {
+     "word": "增長",
+     "word_begin": 5,
+     "word_end": 7,
+     "pronounce_word": "ㄤ",
+     "pronounce_word_begin": 9,
+     "pronounce_word_end": 10,
+     "time_begin": 1202.4242424242425,
+     "time_end": 1357.5757575757575
+    },
+    {
+     "word": "增長",
+     "word_begin": 5,
+     "word_end": 7,
+     "pronounce_word": "ˇ",
+     "pronounce_word_begin": 10,
+     "pronounce_word_end": 11,
+     "time_begin": 1357.5757575757575,
+     "time_end": 1435.151515151515
+    },
+    {
+     "word": "計",
+     "word_begin": 7,
+     "word_end": 8,
+     "pronounce_word": "计",
+     "pronounce_word_begin": 11,
+     "pronounce_word_end": 12,
+     "time_begin": 1435.151515151515,
+     "time_end": 1590.30303030303
+    },
+    {
+     "word": "劃",
+     "word_begin": 8,
+     "word_end": 9,
+     "pronounce_word": "划",
+     "pronounce_word_begin": 12,
+     "pronounce_word_end": 13,
+     "time_begin": 1590.30303030303,
+     "time_end": 1745.4545454545453
+    },
+    {
+     "word": "，",
+     "word_begin": 9,
+     "word_end": 10,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 13,
+     "pronounce_word_end": 14,
+     "time_begin": 1745.4545454545453,
+     "time_end": 1784.242424242424
+    },
+    {
+     "word": "用",
+     "word_begin": 10,
+     "word_end": 11,
+     "pronounce_word": "用",
+     "pronounce_word_begin": 14,
+     "pronounce_word_end": 15,
+     "time_begin": 1784.242424242424,
+     "time_end": 2094.5454545454545
+    },
+    {
+     "word": "一",
+     "word_begin": 11,
+     "word_end": 12,
+     "pronounce_word": "一",
+     "pronounce_word_begin": 15,
+     "pronounce_word_end": 16,
+     "time_begin": 2094.5454545454545,
+     "time_end": 2404.848484848485
+    },
+    {
+     "word": "本",
+     "word_begin": 12,
+     "word_end": 13,
+     "pronounce_word": "本",
+     "pronounce_word_begin": 16,
+     "pronounce_word_end": 17,
+     "time_begin": 2404.848484848485,
+     "time_end": 2560.0
+    },
+    {
+     "word": "好",
+     "word_begin": 13,
+     "word_end": 14,
+     "pronounce_word": "好",
+     "pronounce_word_begin": 17,
+     "pronounce_word_end": 18,
+     "time_begin": 2560.0,
+     "time_end": 2715.151515151515
+    },
+    {
+     "word": "書",
+     "word_begin": 14,
+     "word_end": 15,
+     "pronounce_word": "书",
+     "pronounce_word_begin": 18,
+     "pronounce_word_end": 19,
+     "time_begin": 2715.151515151515,
+     "time_end": 2947.8787878787875
+    },
+    {
+     "word": "，",
+     "word_begin": 15,
+     "word_end": 16,
+     "pronounce_word": "，",
+     "pronounce_word_begin": 19,
+     "pronounce_word_end": 20,
+     "time_begin": 2947.8787878787875,
+     "time_end": 2986.6666666666665
+    },
+    {
+     "word": "陪",
+     "word_begin": 16,
+     "word_end": 17,
+     "pronounce_word": "陪",
+     "pronounce_word_begin": 20,
+     "pronounce_word_end": 21,
+     "time_begin": 2986.6666666666665,
+     "time_end": 3452.1212121212116
+    },
+    {
+     "word": "你",
+     "word_begin": 17,
+     "word_end": 18,
+     "pronounce_word": "你",
+     "pronounce_word_begin": 21,
+     "pronounce_word_end": 22,
+     "time_begin": 3452.1212121212116,
+     "time_end": 3723.6363636363635
+    },
+    {
+     "word": "一",
+     "word_begin": 18,
+     "word_end": 19,
+     "pronounce_word": "一",
+     "pronounce_word_begin": 22,
+     "pronounce_word_end": 23,
+     "time_begin": 3723.6363636363635,
+     "time_end": 3839.9999999999995
+    },
+    {
+     "word": "起",
+     "word_begin": 19,
+     "word_end": 20,
+     "pronounce_word": "起",
+     "pronounce_word_begin": 23,
+     "pronounce_word_end": 24,
+     "time_begin": 3839.9999999999995,
+     "time_end": 4033.9393939393935
+    },
+    {
+     "word": "看",
+     "word_begin": 20,
+     "word_end": 21,
+     "pronounce_word": "看",
+     "pronounce_word_begin": 24,
+     "pronounce_word_end": 25,
+     "time_begin": 4033.9393939393935,
+     "time_end": 4227.878787878788
+    },
+    {
+     "word": "懂",
+     "word_begin": 21,
+     "word_end": 22,
+     "pronounce_word": "懂",
+     "pronounce_word_begin": 25,
+     "pronounce_word_end": 26,
+     "time_begin": 4227.878787878788,
+     "time_end": 4460.60606060606
+    },
+    {
+     "word": "錢",
+     "word_begin": 22,
+     "word_end": 23,
+     "pronounce_word": "钱",
+     "pronounce_word_begin": 26,
+     "pronounce_word_end": 27,
+     "time_begin": 4460.60606060606,
+     "time_end": 4615.757575757575
+    },
+    {
+     "word": "。",
+     "word_begin": 23,
+     "word_end": 24,
+     "pronounce_word": "。",
+     "pronounce_word_begin": 27,
+     "pronounce_word_end": 28,
+     "time_begin": 4615.757575757575,
+     "time_end": 4848.484848484848
+    }
+   ]
+  }
+ ],
+ "extra_info": {
+  "audio_length": 5328,
+  "audio_sample_rate": 44100,
+  "audio_size": 172502,
+  "bitrate": 256000,
+  "word_count": 24,
+  "invisible_character_ratio": 0,
+  "usage_characters": 45,
+  "audio_format": "mp3",
+  "audio_channel": 1
+ }
+}

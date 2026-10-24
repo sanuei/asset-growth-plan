@@ -33,6 +33,8 @@ videos/*.pdf
 *.mp4
 *.mov
 *.webm
+*.ogv
+*.onnx
 *.png
 *.jpg
 *.jpeg
