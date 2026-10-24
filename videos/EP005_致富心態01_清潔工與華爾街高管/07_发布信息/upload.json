@@ -1,0 +1,10 @@
+{
+ "video_id": "sLu44C41cVw", "privacy": "private", "publish_at": "2026-10-24T20:00:00+08:00",
+ "studio": "https://studio.youtube.com/video/sLu44C41cVw/edit", "thumbnail": "05_封面/封面_C2_理財不是智商.jpg",
+ "contains_synthetic_media": false,
+ "shorts": {
+  "S01": {"video_id": "8kkTy0QeOEI", "publish_at": "2026-10-24T18:00:00+08:00"},
+  "S02": {"video_id": "A1IET8k7TCI", "publish_at": "2026-10-25T12:00:00+08:00"},
+  "S03": {"video_id": "MPRGZOnxliw", "publish_at": "2026-10-25T18:00:00+08:00"}
+ }
+}
